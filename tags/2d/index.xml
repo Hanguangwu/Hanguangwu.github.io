@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>2D on 筑基之路</title>
+    <link>https://hanguangwu.github.io/tags/2d/</link>
+    <description>Recent content in 2D on 筑基之路</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sat, 06 May 2023 16:34:25 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/tags/2d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matplotlib-pyplot绘图基础</title>
+      <link>https://hanguangwu.github.io/posts/tech/matplotlib-pyplot%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sat, 06 May 2023 16:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/matplotlib-pyplot%E7%BB%98%E5%9B%BE%E5%9F%BA%E7%A1%80/</guid>
+      <description>官网 中文官网 Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. Matplotlib makes easy things easy and hard things possible. Create publication quality plots. Make interactive figures that can zoom, pan, update. Customize visual style and layout. Export to many file formats. Embed in JupyterLab and Graphical User Interfaces. Use a rich array of third-party packages built on Matplotlib. 展示</description>
+    </item>
+  </channel>
+</rss>

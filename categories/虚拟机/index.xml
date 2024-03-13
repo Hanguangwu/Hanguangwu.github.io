@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>虚拟机 on 筑基之路</title>
+    <link>https://hanguangwu.github.io/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+    <description>Recent content in 虚拟机 on 筑基之路</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 24 Aug 2021 22:54:22 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multipass教程</title>
+      <link>https://hanguangwu.github.io/posts/tech/multipass%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 02 Aug 2021 19:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/multipass%E6%95%99%E7%A8%8B/</guid>
+      <description>Multipass教程 一. Multipass 是什么？ Multipass 是一个轻量级 Linux 虚拟机命令行管理工具，支持 Linux、Windows 与 macOS。它不仅使启用虚拟机变得</description>
+    </item>
+  </channel>
+</rss>

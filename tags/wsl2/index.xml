@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>wsl2 on 筑基之路</title>
+    <link>https://hanguangwu.github.io/tags/wsl2/</link>
+    <description>Recent content in wsl2 on 筑基之路</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 18 Feb 2024 22:54:22 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker&#43;WSL2安装教程</title>
+      <link>https://hanguangwu.github.io/posts/tech/docker&#43;wsl2%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 18 Feb 2024 16:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/docker&#43;wsl2%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <description>前言 日常开发常用到Ubuntu等Linux操作系统，通常的选择如下： 双系统 用VMware、VirtualBox等安装相应的虚拟机 使用微软开发</description>
+    </item>
+    <item>
+      <title>WSL2入门教程</title>
+      <link>https://hanguangwu.github.io/posts/tech/wsl2%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Sun, 14 May 2023 16:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/wsl2%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>日常开发常用到Ubuntu等Linux操作系统，通常的选择如下： 双系统 用VMware、VirtualBox等安装相应的虚拟机 使用微软开发的适</description>
+    </item>
+  </channel>
+</rss>

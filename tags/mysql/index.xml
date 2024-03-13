@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MySQL on 筑基之路</title>
+    <link>https://hanguangwu.github.io/tags/mysql/</link>
+    <description>Recent content in MySQL on 筑基之路</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 24 Aug 2021 22:54:22 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQLTutorial</title>
+      <link>https://hanguangwu.github.io/posts/tech/mysqltutorial/</link>
+      <pubDate>Wed, 04 Aug 2021 18:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/mysqltutorial/</guid>
+      <description>MySQL Tutorial MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的 RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。 所谓的关系型数据库，是建立</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Llama on 筑基之路</title>
+    <link>https://hanguangwu.github.io/tags/llama/</link>
+    <description>Recent content in Llama on 筑基之路</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 21 Jul 2023 18:34:25 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/tags/llama/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LangChain &#43; Streamlit&#43; Llama: 将对话式AI带到你的本地机器</title>
+      <link>https://hanguangwu.github.io/posts/tech/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%AF%B9%E8%AF%9D%E5%BC%8Fai/</link>
+      <pubDate>Fri, 21 Jul 2023 18:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E5%AF%B9%E8%AF%9D%E5%BC%8Fai/</guid>
+      <description>相关链接 🦜️ LangChain + Streamlit🔥+ Llama 🦙: Bringing Conversational AI to Your Local Machine 🤯 LangChain + Streamlit+ Llama: 将对话式AI带到你的本地机器 准备 1 2 3 4 5 6 7 8 9 10 11 !wget https://huggingface.co/TheBloke/LLaMa-7B-GGML/resolve/main/llama-7b.ggmlv3.q4_0.bin !pip install llama-cpp-python !pip install langchain !wget</description>
+    </item>
+  </channel>
+</rss>

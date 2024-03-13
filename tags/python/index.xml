@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Python on 筑基之路</title>
+    <link>https://hanguangwu.github.io/tags/python/</link>
+    <description>Recent content in Python on 筑基之路</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 21 Jun 2023 21:30:22 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python数学建模算法与应用第4章线性规划和整数规划模型</title>
+      <link>https://hanguangwu.github.io/posts/tech/python%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%AC%AC4%E7%AB%A0%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E5%92%8C%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Wed, 21 Jun 2023 21:30:22 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/python%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%AC%AC4%E7%AB%A0%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E5%92%8C%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B/</guid>
+      <description>第4章 线性规划和整数规划模型 4.1求解最大值的线性规划问题 $max z = 72x_1+64x_2$ s.t.$$\begin{cases} x_1+x_2\leq 50,\\ 12x_1+8x_2\leq 480,\\ 3x_1\leq 100,\\ x_1 ,x_2\geq 0 \end{cases} $$ 用Python软件求得最优解$x_1=20,x_2</description>
+    </item>
+    <item>
+      <title>Python数学建模算法与应用第3章线性代数模型解答</title>
+      <link>https://hanguangwu.github.io/posts/tech/python%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%AC%AC3%E7%AB%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A8%A1%E5%9E%8B%E8%A7%A3%E7%AD%94/</link>
+      <pubDate>Tue, 20 Jun 2023 19:30:22 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/python%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%AC%AC3%E7%AB%A0%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%A8%A1%E5%9E%8B%E8%A7%A3%E7%AD%94/</guid>
+      <description>这块习题主要是差分方程和马尔科夫链应用。 差分方程 差分方程是在离散的时间点上描述对象动态变化规律的数学表达式。有的实际问题本身就是以离散形式出</description>
+    </item>
+    <item>
+      <title>Python数学建模算法与应用第2章入门题目解答</title>
+      <link>https://hanguangwu.github.io/posts/tech/python%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%AC%AC2%E7%AB%A0%E5%85%A5%E9%97%A8%E9%A2%98%E7%9B%AE%E8%A7%A3%E7%AD%94/</link>
+      <pubDate>Sun, 18 Jun 2023 16:30:22 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/posts/tech/python%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E7%AC%AC2%E7%AB%A0%E5%85%A5%E9%97%A8%E9%A2%98%E7%9B%AE%E8%A7%A3%E7%AD%94/</guid>
+      <description>2.1画出双曲函数和指数函数图形 在同一个图形界面上画出如下三个函数的图形并进行标注。 $$y=chx,y=shx,y=\frac{1}{2} e^{x}$$ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 import pylab as plt import numpy as np p</description>
+    </item>
+  </channel>
+</rss>
