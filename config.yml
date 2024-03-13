@@ -1,0 +1,243 @@
+baseURL: "https://hanguangwu.github.io"
+languageCode: zh-cn#en-us
+title: 筑基之路
+paginate: 10    # 首页每页显示的文章数
+theme: PaperMod # 主题名称，和themes文件夹下的一致
+
+hasCJKLanguage: true # 自动检测是否包含中文日文韩文,如果文章中使用了很多中文引号的话可以开启
+enableInlineShortcodes: true
+enableEmoji: true # 允许使用 Emoji 表情，建议 true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+# googleAnalytics: UA-123-45
+
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+permalinks:
+  post: "/:title/"
+  # post: "/:year/:month/:day/:title/"
+
+defaultContentLanguage: zh # 最顶部首先展示的语言页面
+defaultContentLanguageInSubdir: true
+
+languages:
+    zh:
+      languageName: "Chinese"
+      # contentDir: content/english
+      weight: 1
+      params:
+        profileMode:
+          enabled: true
+          title:  (〃'▽'〃)
+          subtitle: "🧨正其誼不謀其利 明其道不計其功</br>👏🏼Welcome to Han's blog!</br>👇聯系方式"
+          imageUrl: "img/大明衣冠.jpg"
+          imageTitle: 
+          imageWidth: 150
+          imageHeight: 150
+          buttons:
+            - name: 👨🏻‍💻技術
+              url: posts/tech
+            - name: 📕閱讀
+              url: posts/read
+            - name: 🏫課程
+              url: posts/course
+            - name: 🏖生活
+              url: posts/life
+
+      menu:
+        main:
+          - identifier: search
+            name: 🔍搜索
+            url: search
+            weight: 1
+          - identifier: home
+            name: 🏠主頁
+            url: /
+            weight: 2
+          - identifier: posts
+            name: 📚文章
+            url: /posts
+            weight: 3
+          - identifier: archives
+            name: ⏱時間軸
+            url: /archives
+            weight: 20
+          - identifier: categories
+            name: 🧩分類
+            url: /categories
+            weight: 30
+          - identifier: tags
+            name: 🔖標簽
+            url: /tags
+            weight: 40
+          - identifier: about
+            name: 🙋🏻‍♂️關于
+            url: /about
+            weight: 50
+          # - identifier: links
+          #   name: 🤝友链
+          #   url: links
+          #   weight: 60
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    description: "这是一个纯粹的博客......"
+    author: Hanguangwu
+    # author: ["Me", "You"] # multiple authors
+
+  
+    defaultTheme: auto  # defaultTheme: light or  dark 
+    disableThemeToggle: false
+    DateFormat: "2006-01-02"
+    ShowShareButtons: true
+    ShowReadingTime: true
+    # disableSpecialistPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    hideFooter: false # 隐藏页脚
+    ShowWordCounts: true
+    VisitCount: true
+
+    ShowLastMod: true #显示文章更新时间
+
+    ShowToc: true # 显示目录
+    TocOpen: true # 自动展开目录
+
+    comments: true
+    utteranc:
+      enable: true
+      repo: "Hanguangwu/comments_of_blog" 
+      issueTerm: "title"
+      theme: "github-light" 
+    busuanzi:
+      enable: true
+
+    socialIcons:
+      - name: github
+        url: "https://github.com/Hanguangwu"
+      
+      - name: RSS
+        url: "index.xml"
+
+    # editPost:
+    #     URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+    #     Text: "Suggest Changes" # edit text
+    #     appendFilePath: true # to append file path to Edit link
+
+    # label:
+    #     text: "Home"
+    #     icon: icon.png
+    #     iconHeight: 35
+
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: "XYZabc"
+
+    assets:
+      favicon: "img/三辰旗.jpg"
+      favicon16x16: "img/三辰旗.jpg"
+      favicon32x32: "img/三辰旗.jpg"
+      apple_touch_icon: "img/三辰旗.jpg"
+      safari_pinned_tab: "img/三辰旗.jpg"
+
+    # cover:
+    #     hidden: true # hide everywhere but not in structured data
+    #     hiddenInList: true # hide on list pages and home
+    #     hiddenInSingle: true # hide on single page
+
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 1
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary"]
+
+    twikoo:
+      version: 1.4.11
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true # HUGO 默认转义 Markdown 文件中的 HTML 代码，如需开启的话
+    highlight:
+        # anchorLineNos: true
+        codeFences: true  
+        guessSyntax: true
+        lineNos: true
+        # noClasses: false
+        # style: monokai
+        style: darcula
+
+        # codeFences：代码围栏功能，这个功能一般都要设为 true 的，不然很难看，就是干巴巴的-代码文字，没有颜色。
+        # guessSyntax：猜测语法，这个功能建议设置为 true, 如果你没有设置要显示的语言则会自动匹配。
+        # hl_Lines：高亮的行号，一般这个不设置，因为每个代码块我们可能希望让高亮的地方不一样。
+        # lineNoStart：行号从编号几开始，一般从 1 开始。
+        # lineNos：是否显示行号，我比较喜欢显示，所以我设置的为 true.
+        # lineNumbersInTable：使用表来格式化行号和代码,而不是 标签。这个属性一般设置为 true.
+        # noClasses：使用 class 标签，而不是内嵌的内联样式
+
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
+
+
+
+publicCDN:        # load these files from public cdn                          # 启用公共CDN，需自行定义
+    enable = true
+    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
+    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
+    fancyboxJS = '<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>'
+    fancyboxCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">'
+    timeagoJS = '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>'
+    timeagoLocalesJS = '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>'
+    flowchartDiagramsJS = '<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script>'
+    sequenceDiagramsCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">'
+    sequenceDiagramsJS = '<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>'
+
+ 
+
+
+
+
