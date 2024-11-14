@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ES on 筑基之路</title>
+    <link>https://hanguangwu.github.io/zh/tags/es/</link>
+    <description>Recent content in ES on 筑基之路</description>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 24 Aug 2021 22:54:22 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/zh/tags/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python-elasticsearch基本用法</title>
+      <link>https://hanguangwu.github.io/zh/posts/tech/python-elasticsearch%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 16 Aug 2021 19:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/zh/posts/tech/python-elasticsearch%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>Python-elasticsearch基本用法 官方文档：https://www.elastic.co/guide/en/elasticse</description>
+    </item>
+    <item>
+      <title>ElasticSearch教程</title>
+      <link>https://hanguangwu.github.io/zh/posts/tech/elasticsearch%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Mon, 16 Aug 2021 18:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/zh/posts/tech/elasticsearch%E6%95%99%E7%A8%8B/</guid>
+      <description>ElasticSearch教程 ES是高扩展的实时分布式全文检索引擎，基于Lucence，Restful API ELK技术：ES+logstash+</description>
+    </item>
+    <item>
+      <title>elasticsearch安装教程</title>
+      <link>https://hanguangwu.github.io/zh/posts/tech/elasticsearch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 06 Aug 2021 18:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/zh/posts/tech/elasticsearch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <description>ElasticSearch安装教程 官网 elasticsearch初学终极教程 - 第二章: 把Elastic Search在本地跑起来 命令速查 1 2 3</description>
+    </item>
+  </channel>
+</rss>

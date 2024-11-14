@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Matplotlib on 筑基之路</title>
+    <link>https://hanguangwu.github.io/zh/tags/matplotlib/</link>
+    <description>Recent content in Matplotlib on 筑基之路</description>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 21 May 2023 14:34:25 +0800</lastBuildDate>
+    <atom:link href="https://hanguangwu.github.io/zh/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>银行用户数据分析</title>
+      <link>https://hanguangwu.github.io/zh/posts/tech/%E9%93%B6%E8%A1%8C%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <pubDate>Sun, 21 May 2023 14:34:25 +0800</pubDate>
+      <guid>https://hanguangwu.github.io/zh/posts/tech/%E9%93%B6%E8%A1%8C%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <description>数据预处理 获取数据 !wget https://raw.githubusercontent.com/Rosefinch-Midsummer/Rosefinch-Midsummer.github.io/main/content/posts/file/bankpep.csv 读入数据并以id为索引，展示前五个数据 1 2 3 4 import pandas as pd import matplotlib.pyplot as plt df = pd.read_csv(&amp;#39;bankpep.csv&amp;#39;,index_col=&amp;#39;id&amp;#39;) print(df.head(5)) 把字符型数据替换成数值型数据 1 2 3 4 5 6 7 8 9 10</description>
+    </item>
+  </channel>
+</rss>
