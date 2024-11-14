@@ -1,7 +1,7 @@
 ---
 title: "MERN全栈项目——TravelStory简述"
-date: 2024-09-28T18:34:25+08:00
-lastmod: 2024-09-28T22:54:22+08:00
+date: 2024-09-28T18:34:25-08:00
+lastmod: 2024-09-28T22:54:22-08:00
 draft: false
 math: true
 categories:
