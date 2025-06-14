@@ -1,7 +1,7 @@
 ---
 title: "⏱時間軸"
 layout: "archives"
-url: "/archives/"
+url: "/zh/archives/"
 summary: archives
 ---
 
