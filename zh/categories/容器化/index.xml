@@ -4,7 +4,7 @@
     <title>容器化 on 筑基之路</title>
     <link>https://hanguangwu.github.io/zh/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/</link>
     <description>Recent content in 容器化 on 筑基之路</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>zh</language>
     <lastBuildDate>Mon, 16 Aug 2021 22:54:22 +0800</lastBuildDate>
     <atom:link href="https://hanguangwu.github.io/zh/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,12 @@
       <link>https://hanguangwu.github.io/zh/posts/tech/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AFdocker%E6%A6%82%E8%BF%B0%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Fri, 13 Aug 2021 18:34:25 +0800</pubDate>
       <guid>https://hanguangwu.github.io/zh/posts/tech/%E5%AE%B9%E5%99%A8%E5%8C%96%E6%8A%80%E6%9C%AFdocker%E6%A6%82%E8%BF%B0%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description>容器化技术Docker概述及常用命令 官网 文档 Docker Hub is the world&amp;rsquo;s easiest way to create, manage, and deliver your teams&amp;rsquo; container applications. Docker使用入门到进阶 常用命令+网络+实战 Docker 是 Docker 公司开源的一</description>
+      <description>&lt;h1 id=&#34;容器化技术docker概述及常用命令&#34;&gt;容器化技术Docker概述及常用命令&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.docker.com/&#34;&gt;文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker Hub is the world&amp;rsquo;s easiest way to create, manage, and deliver your teams&amp;rsquo; container applications.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jyoryo.com/archives/295.html&#34;&gt;Docker使用入门到进阶 常用命令+网络+实战&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Docker 是 Docker 公司开源的一个基于轻量级虚拟化技术的容器引擎项目, 整个项目基于 Go 语言开发，并遵从 Apache 2.0 协议。目前，Docker 可以在容器内部快速自动化部署应用，并可以通过内核虚拟化技术（namespaces 及 cgroups 等）来提供容器的资源隔离与安全保障等。由于 Docker 通过操作系统层的虚拟化实现隔离，所以 Docker 容器在运行时，不需要类似虚拟机（VM）额外的操作系统开销，提高资源利用率，并且提升诸如 IO 等方面的性能。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

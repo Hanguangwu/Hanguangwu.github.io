@@ -4,7 +4,7 @@
     <title>地图可视化 on 筑基之路</title>
     <link>https://hanguangwu.github.io/zh/categories/%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
     <description>Recent content in 地图可视化 on 筑基之路</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 24 Aug 2021 22:54:22 +0800</lastBuildDate>
     <atom:link href="https://hanguangwu.github.io/zh/categories/%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,23 @@
       <link>https://hanguangwu.github.io/zh/posts/tech/%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7folium%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 13 Aug 2021 18:34:25 +0800</pubDate>
       <guid>https://hanguangwu.github.io/zh/posts/tech/%E5%9C%B0%E5%9B%BE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7folium%E6%95%99%E7%A8%8B/</guid>
-      <description>地图可视化工具Folium教程 文档资料 Python 如何画出漂亮的地图？ Python绘制地图神器，上手直接开大！ 使用 Folium 进行地理空间分析的入门指南（包含多</description>
+      <description>&lt;h1 id=&#34;地图可视化工具folium教程&#34;&gt;地图可视化工具Folium教程&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;http://python-visualization.github.io/folium/&#34;&gt;文档资料&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/33783546&#34;&gt;Python 如何画出漂亮的地图？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://jishuin.proginn.com/p/763bfbd57572&#34;&gt;Python绘制地图神器，上手直接开大！&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.analyticsvidhya.com/blog/2020/06/guide-geospatial-analysis-folium-python/&#34;&gt;使用 Folium 进行地理空间分析的入门指南（包含多个案例研究）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装&lt;code&gt;sudo pip3 install folium&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Installing collected packages: branca, folium
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Successfully installed branca-0.4.2 folium-0.12.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;作为 Python 的一个可视化工具包 Folium，它通过 &lt;a href=&#34;https://leafletjs.com/&#34;&gt;Leaflet.js&lt;/a&gt; 的地图服务，可以在 Jupyter Notebook 上实现可视化的地理位置作图，制作各种各样精美的地图信息。它不仅可以针对某个经纬度进行地理位置的可视化操作，还能够根据实时的人群地理位置信息来构建静态与动态热力图，甚至还能够针对经纬度的数量来进行必要的聚类可视化。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>MySQL on 筑基之路</title>
     <link>https://hanguangwu.github.io/zh/tags/mysql/</link>
     <description>Recent content in MySQL on 筑基之路</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 24 Aug 2021 22:54:22 +0800</lastBuildDate>
     <atom:link href="https://hanguangwu.github.io/zh/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,9 @@
       <link>https://hanguangwu.github.io/zh/posts/tech/mysqltutorial/</link>
       <pubDate>Wed, 04 Aug 2021 18:34:25 +0800</pubDate>
       <guid>https://hanguangwu.github.io/zh/posts/tech/mysqltutorial/</guid>
-      <description>MySQL Tutorial MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的 RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。 所谓的关系型数据库，是建立</description>
+      <description>&lt;h1 id=&#34;mysql-tutorial&#34;&gt;MySQL Tutorial&lt;/h1&gt;
+&lt;p&gt;MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的 RDBMS(Relational Database Management System：关系数据库管理系统)应用软件之一。&lt;/p&gt;
+&lt;p&gt;所谓的关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

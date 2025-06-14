@@ -4,7 +4,7 @@
     <title>Hugo静态博客 on 筑基之路</title>
     <link>https://hanguangwu.github.io/zh/tags/hugo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/</link>
     <description>Recent content in Hugo静态博客 on 筑基之路</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>zh</language>
     <lastBuildDate>Sun, 30 Apr 2023 20:53:25 +0800</lastBuildDate>
     <atom:link href="https://hanguangwu.github.io/zh/tags/hugo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,8 @@
       <link>https://hanguangwu.github.io/zh/posts/tech/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%A4%A7%E8%87%B4%E6%B5%81%E7%A8%8B/</link>
       <pubDate>Sun, 30 Apr 2023 20:53:25 +0800</pubDate>
       <guid>https://hanguangwu.github.io/zh/posts/tech/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%A4%A7%E8%87%B4%E6%B5%81%E7%A8%8B/</guid>
-      <description>基本技术栈：GithubPages+Github Action+Hugo+PaperMod主题 首先安装Hugo、git和创建xxx.githu</description>
+      <description>&lt;p&gt;基本技术栈：GithubPages+Github Action+Hugo+PaperMod主题&lt;/p&gt;
+&lt;p&gt;首先安装Hugo、git和创建xxx.github.io仓库，这里不做赘述。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

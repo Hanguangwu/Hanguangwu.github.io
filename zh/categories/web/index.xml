@@ -4,7 +4,7 @@
     <title>Web on 筑基之路</title>
     <link>https://hanguangwu.github.io/zh/categories/web/</link>
     <description>Recent content in Web on 筑基之路</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 24 Aug 2021 22:54:22 +0800</lastBuildDate>
     <atom:link href="https://hanguangwu.github.io/zh/categories/web/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,15 @@
       <link>https://hanguangwu.github.io/zh/posts/tech/streamlit%E6%95%99%E7%A8%8B/</link>
       <pubDate>Wed, 04 Aug 2021 23:34:25 +0800</pubDate>
       <guid>https://hanguangwu.github.io/zh/posts/tech/streamlit%E6%95%99%E7%A8%8B/</guid>
-      <description>Streamlit教程 The fastest way to build and share data apps Streamlit 是一个开源 Python 库，可让您轻松创建和共享用于机器学习和数据科学的精美自定义 Web 应用程序。 Streamlit 的使用场景如：</description>
+      <description>&lt;h1 id=&#34;streamlit教程&#34;&gt;Streamlit教程&lt;/h1&gt;
+&lt;h3 id=&#34;the-fastest-way-to-build-and-share-data-apps&#34;&gt;The fastest way to build and share data apps&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://streamlit.io/&#34;&gt;Streamlit&lt;/a&gt; 是一个开源 Python 库，可让您轻松创建和共享用于机器学习和数据科学的精美自定义 Web 应用程序。&lt;/p&gt;
+&lt;p&gt;Streamlit 的使用场景如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;研究开发了一个临床预测模型，使用 Streamlit 将该预测模型搭建在网站上随论文发表或供别人体检。&lt;/li&gt;
+&lt;li&gt;公司某部门人员需要批量处理 Excel 文件，因而可以写一个 python 脚本自动化处理；但部门人员并不会用 python、也未安装 python 环境，此时便可将该脚本使用 Streamlit 部署成 Web App，部门人员使用时只需点击上传 Excel 文件，然后点击下载处理完成的文件即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

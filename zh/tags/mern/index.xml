@@ -4,7 +4,7 @@
     <title>MERN on 筑基之路</title>
     <link>https://hanguangwu.github.io/zh/tags/mern/</link>
     <description>Recent content in MERN on 筑基之路</description>
-    <generator>Hugo -- 0.125.7</generator>
+    <generator>Hugo -- 0.147.8</generator>
     <language>zh</language>
     <lastBuildDate>Sat, 28 Sep 2024 22:54:22 -0800</lastBuildDate>
     <atom:link href="https://hanguangwu.github.io/zh/tags/mern/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,10 @@
       <link>https://hanguangwu.github.io/zh/posts/tech/mern%E5%85%A8%E6%A0%88%E9%A1%B9%E7%9B%AEtravelstory%E7%AE%80%E8%BF%B0/</link>
       <pubDate>Sat, 28 Sep 2024 18:34:25 -0800</pubDate>
       <guid>https://hanguangwu.github.io/zh/posts/tech/mern%E5%85%A8%E6%A0%88%E9%A1%B9%E7%9B%AEtravelstory%E7%AE%80%E8%BF%B0/</guid>
-      <description>Full Stack Travel Story App Using MERN Stack | MongoDB, Express, React, Node.js | MERN Project 概述 前言 原作者用的是commonJS语法， 代码结构也很混乱特别是后端部分，这里按照我在别处学到的内容做了一些</description>
+      <description>&lt;h1 id=&#34;full-stack-travel-story-app-using-mern-stack--mongodb-express-react-nodejs--mern-project&#34;&gt;Full Stack Travel Story App Using MERN Stack | MongoDB, Express, React, Node.js | MERN Project&lt;/h1&gt;
+&lt;h1 id=&#34;概述&#34;&gt;概述&lt;/h1&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;原作者用的是commonJS语法， 代码结构也很混乱特别是后端部分，这里按照我在别处学到的内容做了一些修改，确保一个文件中不会有太多代码。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
