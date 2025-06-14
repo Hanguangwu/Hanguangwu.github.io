@@ -1,7 +1,7 @@
 baseURL: "https://hanguangwu.github.io"
 languageCode: zh-cn#en-us
 title: 筑基之路
-paginate: 10    # 首页每页显示的文章数
+pagination.pagerSize: 10    # 首页每页显示的文章数
 theme: PaperMod # 主题名称，和themes文件夹下的一致
 
 hasCJKLanguage: true # 自动检测是否包含中文日文韩文,如果文章中使用了很多中文引号的话可以开启
@@ -93,7 +93,7 @@ outputs:
         - JSON
 
 params:
-    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    env: production # to enable google analytics, opengraph, x-cards and schema.
     description: "这是一个纯粹的博客......"
     author: Hanguangwu
     # author: ["Me", "You"] # multiple authors
@@ -203,7 +203,7 @@ privacy:
         disabled: false
         simple: true
 
-    twitter:
+    x:
         disabled: false
         enableDNT: true
         simple: true
@@ -219,7 +219,7 @@ privacy:
 services:
     instagram:
         disableInlineCSS: true
-    twitter:
+    x:
         disableInlineCSS: true
 
 
