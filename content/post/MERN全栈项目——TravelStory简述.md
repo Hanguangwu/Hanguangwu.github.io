@@ -1,18 +1,14 @@
-+++
-title = 'MERN全栈项目——TravelStory简述'
-
-date = '2024-09-28T18:34:25-08:00'
-
-draft = false
-
+---
+title: MERN全栈项目——TravelStory简述
 description: 本文简要描述了MERN全栈项目——TravelStory相关教程。
-comments= false
-categories = [
-    "全栈开发",
-    "React",
-]
-
-+++
+date: 2024-09-28T18:34:25-08:00
+draft: false
+slug: test-chinese # url显示
+image: helena-hertz-wWZzXlDpMog-unsplash.jpg
+categories:
+- 全栈开发
+- React
+---
 
 ## 前言
 
