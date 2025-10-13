@@ -2,6 +2,15 @@
 &lt;/h2&gt;&lt;p&gt;抢红包功能实现主要包括发红包、抢红包、记红包和拆红包四块。&lt;/p&gt;
 &lt;p&gt;教程来源：&lt;a class="link" href="https://www.bilibili.com/video/BV13R4y1v7sP" target="_blank" rel="noopener"
 &gt;BV13R4y1v7sP&lt;/a&gt;&lt;/p&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV13R4y1v7sP"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;h2 id="配置说明"&gt;配置说明
 &lt;/h2&gt;&lt;p&gt;JDK21&lt;/p&gt;
 &lt;h2 id="相关代码"&gt;相关代码
