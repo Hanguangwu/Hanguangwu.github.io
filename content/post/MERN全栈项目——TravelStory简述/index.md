@@ -20,6 +20,8 @@ categories:
 
 [Full Stack Travel Story App Using MERN Stack | MongoDB, Express, React, Node.js | MERN Project——YouTube视频链接](https://www.youtube.com/watch?v=hI35ICP6ioc)
 
+{{< youtube hI35ICP6ioc >}}
+
 In this video, we will build a Full Stack Travel Story App using the MERN stack (MongoDB, Express, React, Node.js). This app allows users to sign up, log in, and create personal travel stories with features like image uploads, and adding travel date. We also implement search functionality to find stories, filter by date range, and pin favorite stories to the top. Users can also edit or delete their stories.. 
 
 The backend features secure JWT authentication, MongoDB for storing user data and travel stories, and APIs for adding, editing, deleting stories, and uploading images. This tutorial covers the entire development process, from setting up the frontend and backend to integrating APIs and building the UI components.
