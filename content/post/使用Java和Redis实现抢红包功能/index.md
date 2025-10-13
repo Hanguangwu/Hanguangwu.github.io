@@ -14,6 +14,8 @@ categories:
 
 教程来源：[BV13R4y1v7sP](https://www.bilibili.com/video/BV13R4y1v7sP)
 
+{{< bilibili BV13R4y1v7sP >}}
+
 ## 配置说明
 
 JDK21
