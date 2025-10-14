@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RNote on Hanguangwu</title><link>https://hanguangwu.github.io/en/tags/rnote/</link><description>Recent content in RNote on Hanguangwu</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>hanguangwu</copyright><lastBuildDate>Mon, 13 Oct 2025 18:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/en/tags/rnote/index.xml" rel="self" type="application/rss+xml"/><item><title>RNote Introduction</title><link>https://hanguangwu.github.io/en/p/rnote-introduction/</link><pubDate>Mon, 13 Oct 2025 18:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/en/p/rnote-introduction/</guid><description>&lt;h1 id="vector-based-drawing-apprnote"&gt;Vector-based Drawing APP——Rnote
+&lt;/h1&gt;&lt;h2 id="introduction"&gt;Introduction
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote" target="_blank" rel="noopener"
+&gt;GitHub-RNote&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://rnote.flxzt.net/" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;Rnote&lt;/strong&gt; Official Website&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sketch and take handwritten notes.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Rnote is an open-source vector-based drawing app for sketching, handwritten notes and to annotate documents and pictures. It is targeted at students, teachers and those who own a drawing tablet and provides features like Pdf and picture import and export, an infinite canvas and an adaptive UI for big and small screens.&lt;/p&gt;
+&lt;p&gt;Written in Rust and GTK4.&lt;/p&gt;
+&lt;h2 id="features"&gt;&lt;strong&gt;Features&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Adaptive UI focused on stylus input&lt;/li&gt;
+&lt;li&gt;Pressure-sensitive stylus input with different and configurable stroke styles&lt;/li&gt;
+&lt;li&gt;Create many different shapes with the shape tool&lt;/li&gt;
+&lt;li&gt;Move, rotate, resize and modify existing content with the selection tool&lt;/li&gt;
+&lt;li&gt;Different document expansion layouts ( fixed pages, continuous vertical, infinite in every direction, .. )&lt;/li&gt;
+&lt;li&gt;Customizable background colors, patterns, sizes&lt;/li&gt;
+&lt;li&gt;Customizable page format&lt;/li&gt;
+&lt;li&gt;(Optional) pen sounds&lt;/li&gt;
+&lt;li&gt;Reconfigurable stylus button shortcuts&lt;/li&gt;
+&lt;li&gt;An integrated workspace browser for quick access to related files&lt;/li&gt;
+&lt;li&gt;Drag &amp;amp; Drop, clipboard support&lt;/li&gt;
+&lt;li&gt;Pdf, Bitmap and Svg image import&lt;/li&gt;
+&lt;li&gt;Documents can be exported to Svg, Pdf and Xopp. Document pages and selections to Svg, Png and Jpeg.&lt;/li&gt;
+&lt;li&gt;Save and load the documents in the native &lt;code&gt;.rnote&lt;/code&gt; file format&lt;/li&gt;
+&lt;li&gt;Tabs to work on multiple documents at the same time&lt;/li&gt;
+&lt;li&gt;Autosave, printing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Disclaimer&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The file format is still unstable. It might change and break compatibility between versions.&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation
+&lt;/h2&gt;&lt;h3 id="linux"&gt;Linux
+&lt;/h3&gt;&lt;p&gt;Download the official flatpak on Flathub &lt;a class="link" href="https://flathub.org/apps/details/com.github.flxzt.rnote" target="_blank" rel="noopener"
+&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="macos"&gt;MacOS
+&lt;/h3&gt;&lt;p&gt;Thanks to &lt;a class="link" href="https://gitlab.com/dehesselle" target="_blank" rel="noopener"
+&gt;dehesselle&lt;/a&gt; the app is available on MacOS as an app bundle.&lt;br&gt;
+Check out the &lt;a class="link" href="https://gitlab.com/dehesselle/rnote_macos" target="_blank" rel="noopener"
+&gt;repository&lt;/a&gt;, the latest release can be downloaded &lt;a class="link" href="https://gitlab.com/dehesselle/rnote_macos/-/releases/permalink/latest" target="_blank" rel="noopener"
+&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="windows"&gt;Windows
+&lt;/h3&gt;&lt;p&gt;Download the Windows installer from the latest release which can be found &lt;a class="link" href="https://github.com/flxzt/rnote/releases/latest" target="_blank" rel="noopener"
+&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Install using &lt;a class="link" href="https://github.com/microsoft/winget-pkgs/tree/master/manifests/f/flxzt/rnote" target="_blank" rel="noopener"
+&gt;Winget&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install flxzt.rnote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="downgrading"&gt;Downgrading
+&lt;/h3&gt;&lt;p&gt;Because the file format still is unstable, downgrading to a specific version might be necessary.&lt;/p&gt;
+&lt;p&gt;List all available past versions on flathub:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flatpak remote-info --log flathub com.github.flxzt.rnote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Pick the commit from the desired version and downgrade with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo flatpak update --commit&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;commit-hash&amp;gt; com.github.flxzt.rnote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;After downgrading, the flatpak version can be pinned or unpinned with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ flatpak mask com.github.flxzt.rnote
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ flatpak mask --remove com.github.flxzt.rnote
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;To update to the latest version again, unpin and run &lt;code&gt;flatpak update&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="screenshots"&gt;Screenshots
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/overview.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/overview.png"
+loading="lazy"
+alt="overview"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/selection.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/selection.png"
+loading="lazy"
+alt="selection"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/typewriter.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/typewriter.png"
+loading="lazy"
+alt="typewriter"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/focus-mode.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/focus-mode.png"
+loading="lazy"
+alt="focus-mode"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/workspaces.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/workspaces.png"
+loading="lazy"
+alt="workspaces"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/document-settings.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/document-settings.png"
+loading="lazy"
+alt="document-settings"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/crates/rnote-ui/data/screenshots/action-shortcuts.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://github.com/flxzt/rnote/raw/main/crates/rnote-ui/data/screenshots/action-shortcuts.png"
+loading="lazy"
+alt="action-shortcuts"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="pitfalls--known-issues"&gt;Pitfalls &amp;amp; Known Issues
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Drag &amp;amp; Drop not working -&lt;br&gt;
+Make sure Rnote has permissions to the locations you are dragging files from. Can be granted in Flatseal (a Flatpak permissions manager)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Odd location for current file -&lt;br&gt;
+When the directory displayed in the header title is something like &lt;code&gt;/run/user/1000/../&lt;/code&gt;, rnote does not have permissions to access the directory. Again, granting them in Flatseal fixes this issue.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stylus buttons move canvas / are not functional -&lt;br&gt;
+Make sure that the &lt;code&gt;xf86-input-wacom&lt;/code&gt;, drivers on X11 and &lt;code&gt;libinput&lt;/code&gt; on Wayland and &lt;code&gt;libwacom&lt;/code&gt; are installed and loaded.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While hovering with the stylus, other input events are blocked in some regions of the screen -&lt;br&gt;
+Supposed to be palm rejection, but might be undesirable. If there is a left- / righthanded system tablet setting, make sure it is set correctly. Rnote can&amp;rsquo;t disable this unfortunately. ( discussed in issue &lt;a class="link" href="https://github.com/flxzt/rnote/issues/329" target="_blank" rel="noopener"
+&gt;#329&lt;/a&gt; )&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;One of the stylus buttons shortcut mapping does not work as intended -&lt;br&gt;
+On some devices one stylus button is mapped to a dedicated &amp;ldquo;Eraser&amp;rdquo; mode (which is the back-side on other styli). The buttons in the shortcuts settings could then be inconsistent ( the secondary / upper button is actually the primary / lower button , or reverse ). To change the tool that is mapped to this &amp;ldquo;Eraser&amp;rdquo; mode, do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hover over the canvas, and press and hold the button that is suspected to be mapped to the &amp;ldquo;Eraser&amp;rdquo; mode&lt;/li&gt;
+&lt;li&gt;Switch to the desired pen style while keeping the button pressed&lt;/li&gt;
+&lt;li&gt;When releasing the pressed button, it should switch back to the previous pen style&lt;/li&gt;
+&lt;li&gt;The pen style in the &amp;ldquo;Eraser&amp;rdquo; mode should now be remembered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="translations"&gt;Translations
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://hosted.weblate.org/engage/rnote/" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/f1d6aa67ff114b80f2ece3fe4232725286ad1b2ad1fda4fc623351e8cd51067a/68747470733a2f2f686f737465642e7765626c6174652e6f72672f776964676574732f726e6f74652f2d2f7265706f2f6d756c74692d6175746f2e737667"
+loading="lazy"
+alt="Translation status"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you want to start contributing by translating, take a look into the &lt;a class="link" href="https://github.com/flxzt/rnote/blob/main/CONTRIBUTING.md#Translations" target="_blank" rel="noopener"
+&gt;translations section&lt;/a&gt; of the CONTRIBUTING document.&lt;/p&gt;
+&lt;h2 id="fonts"&gt;Fonts
+&lt;/h2&gt;&lt;p&gt;The following fonts are bundled with the application:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://fonts.google.com/specimen/Grape&amp;#43;Nuts" target="_blank" rel="noopener"
+&gt;Grape Nuts&lt;/a&gt;: Grape Nuts is a simple handwritten casual font.&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/antijingoist/opendyslexic" target="_blank" rel="noopener"
+&gt;OpenDyslexic-Regular&lt;/a&gt;: OpenDyslexic is a typeface designed against some common symptoms of dyslexia.&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/ctrlcctrlv/TT2020" target="_blank" rel="noopener"
+&gt;TT2020Base-Regular&lt;/a&gt;: TT2020 is an advanced, open source, hyperrealistic, multilingual typewriter font for a new decade.&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://virgil.excalidraw.com/" target="_blank" rel="noopener"
+&gt;Virgil&lt;/a&gt;: The font that powers Excalidraw.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="file-format"&gt;File Format
+&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;.rnote&lt;/code&gt; file format is a gzipped json file.&lt;/p&gt;
+&lt;p&gt;So far breaking changes in the format happened in versions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;v0.2.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;v0.3.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;v0.4.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;v0.5.0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To be able to open and export older files that are incompatible with the newest version, look under &lt;strong&gt;Installation&lt;/strong&gt; /&lt;strong&gt;Downgrading&lt;/strong&gt; to install older versions of Rnote.&lt;/p&gt;
+&lt;h2 id="license"&gt;License
+&lt;/h2&gt;&lt;p&gt;Rnote is available under GPL-3.0-or-later. See the LICENSE file for more info.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Copyright (C) 2023 The Rnote Authors
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;This program is free software: you can redistribute it and/or modify
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;it under the terms of the GNU General Public License as published by
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;the Free Software Foundation, either version 3 of the License, or
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;(at your option) any later version.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;This program is distributed in the hope that it will be useful,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;but WITHOUT ANY WARRANTY; without even the implied warranty of
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GNU General Public License for more details.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You should have received a copy of the GNU General Public License
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;along with this program. If not, see &amp;lt;https://www.gnu.org/licenses/&amp;gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="credits"&gt;Credits
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;A huge thanks to the contributors, translators and to all that donated. You are the ones that help keep the project going!&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://freesound.org/" target="_blank" rel="noopener"
+&gt;Freesound&lt;/a&gt; is the source for the pen sounds. The individual sounds are credited in &lt;code&gt;sounds/Licenses.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://roughjs.com/" target="_blank" rel="noopener"
+&gt;Rough.js&lt;/a&gt; provides the algorithms for implementation of Rnote&amp;rsquo;s rough shapes.&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://pizarra.categulario.xyz/en/" target="_blank" rel="noopener"
+&gt;Pizarra&lt;/a&gt; is an innovative drawing app with advanced shaping and featuring an infinite zoom. It is a great inspiration of the architecture of Rnote. Go check it out!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="community"&gt;Community
+&lt;/h2&gt;&lt;p&gt;If you have any questions or want to start a general discussion, open a topic in the &lt;a class="link" href="https://github.com/flxzt/rnote/discussions" target="_blank" rel="noopener"
+&gt;Github Discussions&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;There are also two Matrix chat rooms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;for users: &lt;a class="link" href="https://matrix.to/#/#rnote:matrix.org" target="_blank" rel="noopener"
+&gt;#rnote:matrix.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;for developers: &lt;a class="link" href="https://matrix.to/#/#rnote-dev:matrix.org" target="_blank" rel="noopener"
+&gt;#rnote-dev:matrix.org&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="drawings-created-with-rnote"&gt;Drawings Created With Rnote
+&lt;/h2&gt;&lt;p&gt;If you have drawn something cool in Rnote and want to share it, submit a PR to add it here. :)&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/pikachu.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/pikachu.png"
+loading="lazy"
+alt="Pikachu"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/love.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/love.png"
+loading="lazy"
+alt="Love"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/suits.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/suits.png"
+loading="lazy"
+alt="Suits"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/natureza_gato.png" target="_blank" rel="noopener"
+&gt;&lt;img src="https://raw.githubusercontent.com/flxzt/rnote/main/misc/drawings/natureza_gato.png"
+loading="lazy"
+alt="Nature’s cat"
+&gt;&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
