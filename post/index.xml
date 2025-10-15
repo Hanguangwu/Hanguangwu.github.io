@@ -1,4 +1,947 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 酒中仙</title><link>https://hanguangwu.github.io/post/</link><description>Recent content in Posts on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Mon, 13 Oct 2025 18:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>手写笔记软件RNote</title><link>https://hanguangwu.github.io/p/%E6%89%8B%E5%86%99%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6rnote/</link><pubDate>Mon, 13 Oct 2025 18:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E6%89%8B%E5%86%99%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6rnote/</guid><description>&lt;h1 id="rnote-手写笔记软件详解"&gt;RNote 手写笔记软件详解
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 酒中仙</title><link>https://hanguangwu.github.io/post/</link><description>Recent content in Posts on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Tue, 14 Oct 2025 22:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>程序员做饭指南</title><link>https://hanguangwu.github.io/p/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97/</link><pubDate>Tue, 14 Oct 2025 22:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="程序员做饭指南"&gt;程序员做饭指南
+&lt;/h1&gt;&lt;h2 id="简介"&gt;简介
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://cook.aiursoft.cn/" target="_blank" rel="noopener"
+&gt;程序员在家做饭方法指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook#%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97" target="_blank" rel="noopener"
+&gt;GitHub-程序员做饭指南&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最近宅在家做饭，作为程序员，我偶尔在网上找找菜谱和做法。但是这些菜谱往往写法千奇百怪，经常中间莫名出来一些材料。对于习惯了形式语言的程序员来说极其不友好。&lt;/p&gt;
+&lt;p&gt;所以，我计划自己搜寻菜谱并结合实际做菜的经验，准备用更清晰精准的描述来整理常见菜的做法，以方便程序员在家做饭。&lt;/p&gt;
+&lt;p&gt;同样，我希望它是一个由社区驱动和维护的开源项目，使更多人能够一起做一个有趣的仓库。所以非常欢迎大家贡献它~&lt;/p&gt;
+&lt;h2 id="本地部署"&gt;本地部署
+&lt;/h2&gt;&lt;p&gt;如果需要在本地部署菜谱 Web 服务，可以在安装 Docker 后运行下面命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker pull ghcr.io/anduin2017/how-to-cook:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker run -d -p 5000:80 ghcr.io/anduin2017/how-to-cook:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;如需下载 PDF 版本，可以在浏览器中访问 &lt;a class="link" href="https://cook.aiursoft.cn/document.pdf" target="_blank" rel="noopener"
+&gt;/document.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="搭建环境"&gt;搭建环境
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/%E5%8E%A8%E6%88%BF%E5%87%86%E5%A4%87.md" target="_blank" rel="noopener"
+&gt;厨房准备&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%8E%B0%E5%9C%A8%E5%90%83%E4%BB%80%E4%B9%88.md" target="_blank" rel="noopener"
+&gt;如何选择现在吃什么&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/%E9%A3%9F%E6%9D%90%E7%9B%B8%E5%85%8B%E4%B8%8E%E7%A6%81%E5%BF%8C.md" target="_blank" rel="noopener"
+&gt;食材相克与禁忌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E9%AB%98%E5%8E%8B%E5%8A%9B%E9%94%85.md" target="_blank" rel="noopener"
+&gt;高压力锅&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85.md" target="_blank" rel="noopener"
+&gt;空气炸锅&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%8E%BB%E8%85%A5.md" target="_blank" rel="noopener"
+&gt;去腥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E9%A3%9F%E5%93%81%E5%AE%89%E5%85%A8.md" target="_blank" rel="noopener"
+&gt;食品安全&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%BE%AE%E6%B3%A2%E7%82%89.md" target="_blank" rel="noopener"
+&gt;微波炉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%AD%A6%E4%B9%A0%E7%84%AF%E6%B0%B4.md" target="_blank" rel="noopener"
+&gt;学习焯水&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%AD%A6%E4%B9%A0%E7%82%92%E4%B8%8E%E7%85%8E.md" target="_blank" rel="noopener"
+&gt;学习炒与煎&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%AD%A6%E4%B9%A0%E5%87%89%E6%8B%8C.md" target="_blank" rel="noopener"
+&gt;学习凉拌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%AD%A6%E4%B9%A0%E8%85%8C.md" target="_blank" rel="noopener"
+&gt;学习腌&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%AD%A6%E4%B9%A0%E8%92%B8.md" target="_blank" rel="noopener"
+&gt;学习蒸&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/learn/%E5%AD%A6%E4%B9%A0%E7%85%AE.md" target="_blank" rel="noopener"
+&gt;学习煮&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="菜谱"&gt;菜谱
+&lt;/h2&gt;&lt;h3 id="按难度索引"&gt;按难度索引
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/starsystem/1Star.md" target="_blank" rel="noopener"
+&gt;1 星难度&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/starsystem/2Star.md" target="_blank" rel="noopener"
+&gt;2 星难度&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/starsystem/3Star.md" target="_blank" rel="noopener"
+&gt;3 星难度&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/starsystem/4Star.md" target="_blank" rel="noopener"
+&gt;4 星难度&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/starsystem/5Star.md" target="_blank" rel="noopener"
+&gt;5 星难度&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="素菜"&gt;素菜
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%8B%94%E4%B8%9D%E5%9C%9F%E8%B1%86/%E6%8B%94%E4%B8%9D%E5%9C%9F%E8%B1%86.md" target="_blank" rel="noopener"
+&gt;拔丝土豆&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%99%BD%E7%81%BC%E8%8F%9C%E5%BF%83/%E7%99%BD%E7%81%BC%E8%8F%9C%E5%BF%83.md" target="_blank" rel="noopener"
+&gt;白灼菜心&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%8C%85%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B%E7%B2%89%E4%B8%9D/%E5%8C%85%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B%E7%B2%89%E4%B8%9D.md" target="_blank" rel="noopener"
+&gt;包菜炒鸡蛋粉丝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%8F%A0%E8%8F%9C%E7%82%92%E9%B8%A1%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;菠菜炒鸡蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%82%92%E6%BB%91%E8%9B%8B/%E7%82%92%E6%BB%91%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;炒滑蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%82%92%E8%8C%84%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;炒茄子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%82%92%E9%9D%92%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;炒青菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%91%B1%E7%85%8E%E8%B1%86%E8%85%90.md" target="_blank" rel="noopener"
+&gt;葱煎豆腐&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%84%86%E7%9A%AE%E8%B1%86%E8%85%90.md" target="_blank" rel="noopener"
+&gt;脆皮豆腐&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%9C%B0%E4%B8%89%E9%B2%9C.md" target="_blank" rel="noopener"
+&gt;地三鲜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%B9%B2%E9%94%85%E8%8A%B1%E8%8F%9C/%E5%B9%B2%E9%94%85%E8%8A%B1%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;干锅花菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%9A%9D%E6%B2%B9%E4%B8%89%E9%B2%9C%E8%8F%87/%E8%9A%9D%E6%B2%B9%E4%B8%89%E9%B2%9C%E8%8F%87.md" target="_blank" rel="noopener"
+&gt;蚝油三鲜菇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%9A%9D%E6%B2%B9%E7%94%9F%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;蚝油生菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%BA%A2%E7%83%A7%E5%86%AC%E7%93%9C/%E7%BA%A2%E7%83%A7%E5%86%AC%E7%93%9C.md" target="_blank" rel="noopener"
+&gt;红烧冬瓜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%BA%A2%E7%83%A7%E8%8C%84%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;红烧茄子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%99%8E%E7%9A%AE%E9%9D%92%E6%A4%92/%E8%99%8E%E7%9A%AE%E9%9D%92%E6%A4%92.md" target="_blank" rel="noopener"
+&gt;虎皮青椒&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%AF%9D%E6%A2%85%E7%85%AE%E6%AF%9B%E8%B1%86/%E8%AF%9D%E6%A2%85%E7%85%AE%E6%AF%9B%E8%B1%86.md" target="_blank" rel="noopener"
+&gt;话梅煮毛豆&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%BE%B9/%E9%B8%A1%E8%9B%8B%E7%BE%B9.md" target="_blank" rel="noopener"
+&gt;鸡蛋羹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%BE%B9/%E5%BE%AE%E6%B3%A2%E7%82%89%E9%B8%A1%E8%9B%8B%E7%BE%B9.md" target="_blank" rel="noopener"
+&gt;微波炉鸡蛋羹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%BE%B9/%E8%92%B8%E7%AE%B1%E9%B8%A1%E8%9B%8B%E7%BE%B9.md" target="_blank" rel="noopener"
+&gt;蒸箱鸡蛋羹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E8%8A%B1/%E9%B8%A1%E8%9B%8B%E8%8A%B1.md" target="_blank" rel="noopener"
+&gt;鸡蛋花&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%B8%A1%E8%9B%8B%E7%81%AB%E8%85%BF%E7%82%92%E9%BB%84%E7%93%9C.md" target="_blank" rel="noopener"
+&gt;鸡蛋火腿炒黄瓜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%8C%84%E5%AD%90%E7%82%96%E5%9C%9F%E8%B1%86.md" target="_blank" rel="noopener"
+&gt;茄子炖土豆&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%A4%92%E7%9B%90%E7%8E%89%E7%B1%B3/%E6%A4%92%E7%9B%90%E7%8E%89%E7%B1%B3.md" target="_blank" rel="noopener"
+&gt;椒盐玉米&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%87%91%E9%92%88%E8%8F%87%E6%97%A5%E6%9C%AC%E8%B1%86%E8%85%90%E7%85%B2.md" target="_blank" rel="noopener"
+&gt;金针菇日本豆腐煲&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%83%A4%E8%8C%84%E5%AD%90/%E7%83%A4%E8%8C%84%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;烤茄子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%A6%84%E8%8F%9C%E8%82%89%E6%9C%AB%E5%9B%9B%E5%AD%A3%E8%B1%86/%E6%A6%84%E8%8F%9C%E8%82%89%E6%9C%AB%E5%9B%9B%E5%AD%A3%E8%B1%86.md" target="_blank" rel="noopener"
+&gt;榄菜肉末四季豆&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%9B%B7%E6%A4%92%E7%9A%AE%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;雷椒皮蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E8%B1%86%E8%85%90.md" target="_blank" rel="noopener"
+&gt;凉拌豆腐&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E9%BB%84%E7%93%9C.md" target="_blank" rel="noopener"
+&gt;凉拌黄瓜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E9%87%91%E9%92%88%E8%8F%87.md" target="_blank" rel="noopener"
+&gt;凉拌金针菇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E6%9C%A8%E8%80%B3/%E5%87%89%E6%8B%8C%E6%9C%A8%E8%80%B3.md" target="_blank" rel="noopener"
+&gt;凉拌木耳&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E8%8E%B4%E7%AC%8B/%E5%87%89%E6%8B%8C%E8%8E%B4%E7%AC%8B.md" target="_blank" rel="noopener"
+&gt;凉拌莴笋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%87%89%E6%8B%8C%E6%B2%B9%E9%BA%A6%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;凉拌油麦菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%92%B2%E7%83%A7%E8%8C%84%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;蒲烧茄子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%8A%B9%E8%8F%9C%E6%8B%8C%E8%8C%B6%E6%A0%91%E8%8F%87/%E8%8A%B9%E8%8F%9C%E6%8B%8C%E8%8C%B6%E6%A0%91%E8%8F%87.md" target="_blank" rel="noopener"
+&gt;芹菜拌茶树菇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%B8%85%E7%82%92%E8%8A%B1%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;清炒花菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%B8%85%E8%92%B8%E5%8D%97%E7%93%9C.md" target="_blank" rel="noopener"
+&gt;清蒸南瓜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%99%95%E5%8C%97%E7%86%AC%E8%B1%86%E8%A7%92.md" target="_blank" rel="noopener"
+&gt;陕北熬豆角&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E4%B8%8A%E6%B1%A4%E5%A8%83%E5%A8%83%E8%8F%9C/%E4%B8%8A%E6%B1%A4%E5%A8%83%E5%A8%83%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;上汤娃娃菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%89%8B%E6%92%95%E5%8C%85%E8%8F%9C/%E6%89%8B%E6%92%95%E5%8C%85%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;手撕包菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%B0%B4%E6%B2%B9%E7%84%96%E8%94%AC%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;水油焖蔬菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%9D%BE%E4%BB%81%E7%8E%89%E7%B1%B3.md" target="_blank" rel="noopener"
+&gt;松仁玉米&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%B4%A0%E7%82%92%E8%B1%86%E8%A7%92.md" target="_blank" rel="noopener"
+&gt;素炒豆角&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E9%85%B8%E8%BE%A3%E5%9C%9F%E8%B1%86%E4%B8%9D.md" target="_blank" rel="noopener"
+&gt;酸辣土豆丝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%92%9C%E8%93%89%E7%A9%BA%E5%BF%83%E8%8F%9C/%E8%92%9C%E8%93%89%E7%A9%BA%E5%BF%83%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;蒜蓉空心菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%92%9C%E8%93%89%E8%A5%BF%E5%85%B0%E8%8A%B1.md" target="_blank" rel="noopener"
+&gt;蒜蓉西兰花&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E7%B3%96%E6%8B%8C%E8%A5%BF%E7%BA%A2%E6%9F%BF/%E7%B3%96%E6%8B%8C%E8%A5%BF%E7%BA%A2%E6%9F%BF.md" target="_blank" rel="noopener"
+&gt;糖拌西红柿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%8E%B4%E7%AC%8B%E5%8F%B6%E7%85%8E%E9%A5%BC/%E8%8E%B4%E7%AC%8B%E5%8F%B6%E7%85%8E%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;莴笋叶煎饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E7%82%92%E9%B8%A1%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;西红柿炒鸡蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E8%B1%86%E8%85%90%E6%B1%A4%E7%BE%B9/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E8%B1%86%E8%85%90%E6%B1%A4%E7%BE%B9.md" target="_blank" rel="noopener"
+&gt;西红柿豆腐汤羹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E8%A5%BF%E8%91%AB%E8%8A%A6%E7%82%92%E9%B8%A1%E8%9B%8B/%E8%A5%BF%E8%91%AB%E8%8A%A6%E7%82%92%E9%B8%A1%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;西葫芦炒鸡蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E5%B0%8F%E7%82%92%E8%97%95%E4%B8%81/%E5%B0%8F%E7%82%92%E8%97%95%E4%B8%81.md" target="_blank" rel="noopener"
+&gt;小炒藕丁&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%B4%8B%E8%91%B1%E7%82%92%E9%B8%A1%E8%9B%8B/%E6%B4%8B%E8%91%B1%E7%82%92%E9%B8%A1%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;洋葱炒鸡蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/vegetable_dish/%E6%B2%B9%E9%86%8B%E7%88%86%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;油醋爆蛋&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="荤菜"&gt;荤菜
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E7%89%9B%E8%82%89%E5%92%96%E5%96%B1/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E7%89%9B%E8%82%89%E5%92%96%E5%96%B1.md" target="_blank" rel="noopener"
+&gt;巴基斯坦牛肉咖喱&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%99%BD%E8%8F%9C%E7%8C%AA%E8%82%89%E7%82%96%E7%B2%89%E6%9D%A1.md" target="_blank" rel="noopener"
+&gt;白菜猪肉炖粉条&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%B1%89%E6%B1%81%E8%92%B8%E7%99%BD%E9%B1%94/%E8%B1%89%E6%B1%81%E8%92%B8%E7%99%BD%E9%B1%94.md" target="_blank" rel="noopener"
+&gt;豉汁蒸白鱔&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B8%A6%E6%8A%8A%E8%82%98%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;带把肘子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%86%AC%E7%93%9C%E9%85%BF%E8%82%89/%E5%86%AC%E7%93%9C%E9%85%BF%E8%82%89.md" target="_blank" rel="noopener"
+&gt;冬瓜酿肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%B1%86%E8%B1%89%E9%B2%AE%E9%B1%BC%E6%B2%B9%E9%BA%A6%E8%8F%9C/%E8%B1%86%E8%B1%89%E9%B2%AE%E9%B1%BC%E6%B2%B9%E9%BA%A6%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;豆豉鲮鱼油麦菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%95%AA%E8%8C%84%E7%BA%A2%E9%85%B1.md" target="_blank" rel="noopener"
+&gt;番茄红酱&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%B2%89%E8%92%B8%E8%82%89.md" target="_blank" rel="noopener"
+&gt;粉蒸肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B9%B2%E7%85%B8%E4%BB%94%E9%B8%A1/%E5%B9%B2%E7%85%B8%E4%BB%94%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;干煸仔鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%AE%AB%E4%BF%9D%E9%B8%A1%E4%B8%81/%E5%AE%AB%E4%BF%9D%E9%B8%A1%E4%B8%81.md" target="_blank" rel="noopener"
+&gt;宫保鸡丁&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%92%95%E5%99%9C%E8%82%89.md" target="_blank" rel="noopener"
+&gt;咕噜肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B9%BF%E5%BC%8F%E8%90%9D%E5%8D%9C%E7%89%9B%E8%85%A9/%E5%B9%BF%E5%BC%8F%E8%90%9D%E5%8D%9C%E7%89%9B%E8%85%A9.md" target="_blank" rel="noopener"
+&gt;广式萝卜牛腩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%B4%B5%E5%B7%9E%E8%BE%A3%E5%AD%90%E9%B8%A1/%E8%B4%B5%E5%B7%9E%E8%BE%A3%E5%AD%90%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;贵州辣子鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%8D%B7%E5%85%B0%E8%B1%86%E7%82%92%E8%85%8A%E8%82%A0/%E8%8D%B7%E5%85%B0%E8%B1%86%E7%82%92%E8%85%8A%E8%82%A0.md" target="_blank" rel="noopener"
+&gt;荷兰豆炒腊肠&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%BB%91%E6%A4%92%E7%89%9B%E6%9F%B3/%E9%BB%91%E6%A4%92%E7%89%9B%E6%9F%B3.md" target="_blank" rel="noopener"
+&gt;黑椒牛柳&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%BA%A2%E7%83%A7%E8%82%89/%E7%AE%80%E6%98%93%E7%BA%A2%E7%83%A7%E8%82%89.md" target="_blank" rel="noopener"
+&gt;简易红烧肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%BA%A2%E7%83%A7%E8%82%89/%E5%8D%97%E6%B4%BE%E7%BA%A2%E7%83%A7%E8%82%89.md" target="_blank" rel="noopener"
+&gt;南派红烧肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%BA%A2%E7%83%A7%E7%8C%AA%E8%B9%84/%E7%BA%A2%E7%83%A7%E7%8C%AA%E8%B9%84.md" target="_blank" rel="noopener"
+&gt;红烧猪蹄&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%B9%96%E5%8D%97%E5%AE%B6%E5%B8%B8%E7%BA%A2%E7%83%A7%E8%82%89/%E6%B9%96%E5%8D%97%E5%AE%B6%E5%B8%B8%E7%BA%A2%E7%83%A7%E8%82%89.md" target="_blank" rel="noopener"
+&gt;湖南家常红烧肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%99%8E%E7%9A%AE%E8%82%98%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;虎皮肘子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%BB%84%E7%93%9C%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;黄瓜炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%BB%84%E7%84%96%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;黄焖鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%BE%BD%E6%B4%BE%E7%BA%A2%E7%83%A7%E8%82%89/%E5%BE%BD%E6%B4%BE%E7%BA%A2%E7%83%A7%E8%82%89.md" target="_blank" rel="noopener"
+&gt;徽派红烧肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%9B%9E%E9%94%85%E8%82%89/%E5%9B%9E%E9%94%85%E8%82%89.md" target="_blank" rel="noopener"
+&gt;回锅肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%96%E6%A4%92%E7%82%92%E7%89%9B%E8%82%89.md" target="_blank" rel="noopener"
+&gt;尖椒炒牛肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%96%E5%8F%AB%E7%89%9B%E8%9B%99/%E5%B0%96%E5%8F%AB%E7%89%9B%E8%9B%99.md" target="_blank" rel="noopener"
+&gt;尖叫牛蛙&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%85%8E%E7%83%A4%E7%BE%8A%E6%8E%92/%E7%85%8E%E7%83%A4%E7%BE%8A%E6%8E%92.md" target="_blank" rel="noopener"
+&gt;煎烤羊排&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%A7%9C%E7%82%92%E9%B8%A1/%E5%A7%9C%E7%82%92%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;姜炒鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%A7%9C%E8%91%B1%E6%8D%9E%E9%B8%A1/%E5%A7%9C%E8%91%B1%E6%8D%9E%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;姜葱捞鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%85%B1%E7%89%9B%E8%82%89/%E9%85%B1%E7%89%9B%E8%82%89.md" target="_blank" rel="noopener"
+&gt;酱牛肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%85%B1%E6%8E%92%E9%AA%A8/%E9%85%B1%E6%8E%92%E9%AA%A8.md" target="_blank" rel="noopener"
+&gt;酱排骨&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%8C%AD%E7%99%BD%E7%82%92%E8%82%89/%E8%8C%AD%E7%99%BD%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;茭白炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%A4%92%E7%9B%90%E6%8E%92%E6%9D%A1.md" target="_blank" rel="noopener"
+&gt;椒盐排条&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%8A%A5%E6%9C%AB%E7%BD%97%E6%B0%8F%E8%99%BE/%E8%8A%A5%E6%9C%AB%E7%BD%97%E6%B0%8F%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;芥末罗氏虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%92%96%E5%96%B1%E8%82%A5%E7%89%9B/%E5%92%96%E5%96%B1%E8%82%A5%E7%89%9B.md" target="_blank" rel="noopener"
+&gt;咖喱肥牛&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%83%A4%E9%B8%A1%E7%BF%85.md" target="_blank" rel="noopener"
+&gt;烤鸡翅&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%8F%AF%E4%B9%90%E9%B8%A1%E7%BF%85.md" target="_blank" rel="noopener"
+&gt;可乐鸡翅&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%8F%A3%E6%B0%B4%E9%B8%A1/%E5%8F%A3%E6%B0%B4%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;口水鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%BE%A3%E6%A4%92%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;辣椒炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%80%81%E5%A6%88%E8%B9%84%E8%8A%B1/%E8%80%81%E5%A6%88%E8%B9%84%E8%8A%B1.md" target="_blank" rel="noopener"
+&gt;老妈蹄花&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%80%81%E5%BC%8F%E9%94%85%E5%8C%85%E8%82%89/%E8%80%81%E5%BC%8F%E9%94%85%E5%8C%85%E8%82%89.md" target="_blank" rel="noopener"
+&gt;老式锅包肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%86%B7%E5%90%83%E5%85%94.md" target="_blank" rel="noopener"
+&gt;冷吃兔&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%8D%94%E6%9E%9D%E8%82%89/%E8%8D%94%E6%9E%9D%E8%82%89.md" target="_blank" rel="noopener"
+&gt;荔枝肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%87%89%E6%8B%8C%E9%B8%A1%E4%B8%9D/%E5%87%89%E6%8B%8C%E9%B8%A1%E4%B8%9D.md" target="_blank" rel="noopener"
+&gt;凉拌鸡丝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%8D%A4%E8%8F%9C/%E5%8D%A4%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;卤菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%90%9D%E5%8D%9C%E7%82%96%E7%BE%8A%E6%8E%92.md" target="_blank" rel="noopener"
+&gt;萝卜炖羊排&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%BA%BB%E8%BE%A3%E9%A6%99%E9%94%85.md" target="_blank" rel="noopener"
+&gt;麻辣香锅&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90/%E9%BA%BB%E5%A9%86%E8%B1%86%E8%85%90.md" target="_blank" rel="noopener"
+&gt;麻婆豆腐&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%9A%82%E8%9A%81%E4%B8%8A%E6%A0%91.md" target="_blank" rel="noopener"
+&gt;蚂蚁上树&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%A2%85%E8%8F%9C%E6%89%A3%E8%82%89/%E6%A2%85%E8%8F%9C%E6%89%A3%E8%82%89.md" target="_blank" rel="noopener"
+&gt;梅菜扣肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%A5%B6%E9%85%AA%E5%9F%B9%E6%A0%B9%E9%80%9A%E5%BF%83%E7%B2%89/%E5%A5%B6%E9%85%AA%E5%9F%B9%E6%A0%B9%E9%80%9A%E5%BF%83%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;奶酪培根通心粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%89%9B%E6%8E%92/%E7%89%9B%E6%8E%92.md" target="_blank" rel="noopener"
+&gt;牛排&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%86%9C%E5%AE%B6%E4%B8%80%E7%A2%97%E9%A6%99/%E5%86%9C%E5%AE%B6%E4%B8%80%E7%A2%97%E9%A6%99.md" target="_blank" rel="noopener"
+&gt;农家一碗香&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%95%A4%E9%85%92%E9%B8%AD/%E5%95%A4%E9%85%92%E9%B8%AD.md" target="_blank" rel="noopener"
+&gt;啤酒鸭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%BB%94%E5%BC%8F%E8%85%8A%E8%82%A0%E5%A8%83%E5%A8%83%E8%8F%9C/%E9%BB%94%E5%BC%8F%E8%85%8A%E8%82%A0%E5%A8%83%E5%A8%83%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;黔式腊肠娃娃菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%9D%92%E6%A4%92%E5%9C%9F%E8%B1%86%E7%82%92%E8%82%89/%E9%9D%92%E6%A4%92%E5%9C%9F%E8%B1%86%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;青椒土豆炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%B8%85%E8%92%B8%E9%B3%9C%E9%B1%BC/%E6%B8%85%E8%92%B8%E9%B3%9C%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;清蒸鳜鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%82%89%E9%A5%BC%E7%82%96%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;肉饼炖蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%9D%80%E7%8C%AA%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;杀猪菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B1%B1%E8%A5%BF%E8%BF%87%E6%B2%B9%E8%82%89.md" target="_blank" rel="noopener"
+&gt;山西过油肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%95%86%E8%8A%9D%E8%82%89.md" target="_blank" rel="noopener"
+&gt;商芝肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%98%A6%E8%82%89%E5%9C%9F%E8%B1%86%E7%89%87/%E7%98%A6%E8%82%89%E5%9C%9F%E8%B1%86%E7%89%87.md" target="_blank" rel="noopener"
+&gt;瘦肉土豆片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%B0%B4%E7%85%AE%E7%89%9B%E8%82%89/%E6%B0%B4%E7%85%AE%E7%89%9B%E8%82%89.md" target="_blank" rel="noopener"
+&gt;水煮牛肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%B0%B4%E7%85%AE%E8%82%89%E7%89%87.md" target="_blank" rel="noopener"
+&gt;水煮肉片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%92%9C%E8%8B%94%E7%82%92%E8%82%89%E6%9C%AB.md" target="_blank" rel="noopener"
+&gt;蒜苔炒肉末&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%8F%B0%E5%BC%8F%E5%8D%A4%E8%82%89%E9%A5%AD/%E5%8F%B0%E5%BC%8F%E5%8D%A4%E8%82%89%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;台式卤肉饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%B3%96%E9%86%8B%E9%87%8C%E8%84%8A.md" target="_blank" rel="noopener"
+&gt;糖醋里脊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%B3%96%E9%86%8B%E6%8E%92%E9%AA%A8/%E7%B3%96%E9%86%8B%E6%8E%92%E9%AA%A8.md" target="_blank" rel="noopener"
+&gt;糖醋排骨&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%94%9C%E8%BE%A3%E7%83%A4%E5%85%A8%E7%BF%85.md" target="_blank" rel="noopener"
+&gt;甜辣烤全翅&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%9C%9F%E8%B1%86%E7%82%96%E6%8E%92%E9%AA%A8/%E5%9C%9F%E8%B1%86%E7%82%96%E6%8E%92%E9%AA%A8.md" target="_blank" rel="noopener"
+&gt;土豆炖排骨&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%97%A0%E9%AA%A8%E9%B8%A1%E7%88%AA/%E6%97%A0%E9%AA%A8%E9%B8%A1%E7%88%AA.md" target="_blank" rel="noopener"
+&gt;无骨鸡爪&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E7%89%9B%E8%85%A9/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E7%89%9B%E8%85%A9.md" target="_blank" rel="noopener"
+&gt;西红柿牛腩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E5%9C%9F%E8%B1%86%E7%82%96%E7%89%9B%E8%82%89/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E5%9C%9F%E8%B1%86%E7%82%96%E7%89%9B%E8%82%89.md" target="_blank" rel="noopener"
+&gt;西红柿土豆炖牛肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E4%B9%A1%E6%9D%91%E5%95%A4%E9%85%92%E9%B8%AD.md" target="_blank" rel="noopener"
+&gt;乡村啤酒鸭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%A6%99%E5%B9%B2%E8%8A%B9%E8%8F%9C%E7%82%92%E8%82%89/%E9%A6%99%E5%B9%B2%E8%8A%B9%E8%8F%9C%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;香干芹菜炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%A6%99%E5%B9%B2%E8%82%89%E4%B8%9D.md" target="_blank" rel="noopener"
+&gt;香干肉丝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%A6%99%E8%8F%87%E6%BB%91%E9%B8%A1/%E9%A6%99%E8%8F%87%E6%BB%91%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;香菇滑鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%A6%99%E7%85%8E%E4%BA%94%E8%8A%B1%E8%82%89/%E9%A6%99%E7%85%8E%E4%BA%94%E8%8A%B1%E8%82%89.md" target="_blank" rel="noopener"
+&gt;香煎五花肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%A6%99%E8%BE%A3%E9%B8%A1%E7%88%AA%E7%85%B2/%E9%A6%99%E8%BE%A3%E9%B8%A1%E7%88%AA%E7%85%B2.md" target="_blank" rel="noopener"
+&gt;香辣鸡爪煲&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%B9%98%E7%A5%81%E7%B1%B3%E5%A4%AB%E9%B8%AD/%E6%B9%98%E7%A5%81%E7%B1%B3%E5%A4%AB%E9%B8%AD.md" target="_blank" rel="noopener"
+&gt;湘祁米夫鸭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%8F%E7%82%92%E9%BB%84%E7%89%9B%E8%82%89/%E5%B0%8F%E7%82%92%E9%BB%84%E7%89%9B%E8%82%89.md" target="_blank" rel="noopener"
+&gt;小炒黄牛肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%8F%E7%82%92%E9%B8%A1%E8%82%9D/%E5%B0%8F%E7%82%92%E9%B8%A1%E8%82%9D.md" target="_blank" rel="noopener"
+&gt;小炒鸡肝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%8F%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;小炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%8F%E7%B1%B3%E8%BE%A3%E7%82%92%E8%82%89.md" target="_blank" rel="noopener"
+&gt;小米辣炒肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%B0%8F%E9%85%A5%E8%82%89.md" target="_blank" rel="noopener"
+&gt;小酥肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%96%B0%E7%96%86%E5%A4%A7%E7%9B%98%E9%B8%A1/%E6%96%B0%E7%96%86%E5%A4%A7%E7%9B%98%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;新疆大盘鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E8%A1%80%E6%B5%86%E9%B8%AD/%E8%A1%80%E6%B5%86%E9%B8%AD.md" target="_blank" rel="noopener"
+&gt;血浆鸭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%BE%8A%E6%8E%92%E7%84%96%E9%9D%A2/%E7%BE%8A%E6%8E%92%E7%84%96%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;羊排焖面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%B4%8B%E8%91%B1%E7%82%92%E7%8C%AA%E8%82%89.md" target="_blank" rel="noopener"
+&gt;洋葱炒猪肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%84%8F%E5%BC%8F%E7%83%A4%E9%B8%A1.md" target="_blank" rel="noopener"
+&gt;意式烤鸡&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%B1%BC%E9%A6%99%E8%8C%84%E5%AD%90/%E9%B1%BC%E9%A6%99%E8%8C%84%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;鱼香茄子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%B1%BC%E9%A6%99%E8%82%89%E4%B8%9D.md" target="_blank" rel="noopener"
+&gt;鱼香肉丝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%9E%9D%E7%AB%B9%E7%BE%8A%E8%85%A9%E7%85%B2/%E6%9E%9D%E7%AB%B9%E7%BE%8A%E8%85%A9%E7%85%B2.md" target="_blank" rel="noopener"
+&gt;枝竹羊腩煲&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%8C%AA%E7%9A%AE%E5%86%BB/%E7%8C%AA%E7%9A%AE%E5%86%BB.md" target="_blank" rel="noopener"
+&gt;猪皮冻&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E7%8C%AA%E8%82%89%E7%83%A9%E9%85%B8%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;猪肉烩酸菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E6%9F%B1%E5%80%99%E7%89%9B%E8%85%A9/%E6%9F%B1%E5%80%99%E7%89%9B%E8%85%A9.md" target="_blank" rel="noopener"
+&gt;柱候牛腩&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E5%AD%9C%E7%84%B6%E7%89%9B%E8%82%89.md" target="_blank" rel="noopener"
+&gt;孜然牛肉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/meat_dish/%E9%86%89%E6%8E%92%E9%AA%A8/%E9%86%89%E6%8E%92%E9%AA%A8.md" target="_blank" rel="noopener"
+&gt;醉排骨&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="水产"&gt;水产
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E7%99%BD%E7%81%BC%E8%99%BE/%E7%99%BD%E7%81%BC%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;白灼虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E9%B3%8A%E9%B1%BC%E7%82%96%E8%B1%86%E8%85%90/%E9%B3%8A%E9%B1%BC%E7%82%96%E8%B1%86%E8%85%90.md" target="_blank" rel="noopener"
+&gt;鳊鱼炖豆腐&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E8%9B%8F%E6%8A%B1%E8%9B%8B/%E8%9B%8F%E6%8A%B1%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;蛏抱蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E8%91%B1%E7%83%A7%E6%B5%B7%E5%8F%82/%E8%91%B1%E7%83%A7%E6%B5%B7%E5%8F%82.md" target="_blank" rel="noopener"
+&gt;葱烧海参&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E8%91%B1%E6%B2%B9%E6%A1%82%E9%B1%BC/%E8%91%B1%E6%B2%B9%E6%A1%82%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;葱油桂鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E5%B9%B2%E7%85%8E%E9%98%BF%E6%A0%B9%E5%BB%B7%E7%BA%A2%E8%99%BE/%E5%B9%B2%E7%85%8E%E9%98%BF%E6%A0%B9%E5%BB%B7%E7%BA%A2%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;干煎阿根廷红虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E7%BA%A2%E7%83%A7%E9%B2%A4%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;红烧鲤鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E7%BA%A2%E7%83%A7%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;红烧鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E7%BA%A2%E7%83%A7%E9%B1%BC%E5%A4%B4.md" target="_blank" rel="noopener"
+&gt;红烧鱼头&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E9%BB%84%E6%B2%B9%E7%85%8E%E8%99%BE/%E9%BB%84%E6%B2%B9%E7%85%8E%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;黄油煎虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E6%B7%B7%E5%90%88%E7%83%A4%E9%B1%BC/%E7%83%A4%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;烤鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E8%8A%A5%E6%9C%AB%E9%BB%84%E6%B2%B9%E7%BD%97%E6%B0%8F%E8%99%BE/%E8%8A%A5%E6%9C%AB%E9%BB%84%E6%B2%B9%E7%BD%97%E6%B0%8F%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;芥末黄油罗氏虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E5%92%96%E5%96%B1%E7%82%92%E8%9F%B9.md" target="_blank" rel="noopener"
+&gt;咖喱炒蟹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E9%B2%A4%E9%B1%BC%E7%82%96%E7%99%BD%E8%8F%9C/%E9%B2%A4%E9%B1%BC%E7%82%96%E7%99%BD%E8%8F%9C.md" target="_blank" rel="noopener"
+&gt;鲤鱼炖白菜&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E6%B8%85%E8%92%B8%E9%B2%88%E9%B1%BC/%E6%B8%85%E8%92%B8%E9%B2%88%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;清蒸鲈鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E6%B8%85%E8%92%B8%E7%94%9F%E8%9A%9D.md" target="_blank" rel="noopener"
+&gt;清蒸生蚝&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E6%B0%B4%E7%85%AE%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;水煮鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E8%92%9C%E8%93%89%E8%99%BE/%E8%92%9C%E8%93%89%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;蒜蓉虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E8%92%9C%E9%A6%99%E9%BB%84%E6%B2%B9%E8%99%BE/%E8%92%9C%E9%A6%99%E9%BB%84%E6%B2%B9%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;蒜香黄油虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E7%B3%96%E9%86%8B%E9%B2%A4%E9%B1%BC/%E7%B3%96%E9%86%8B%E9%B2%A4%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;糖醋鲤鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E5%BE%AE%E6%B3%A2%E8%91%B1%E5%A7%9C%E9%BB%91%E9%B3%95%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;微波葱姜黑鳕鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E9%A6%99%E7%85%8E%E7%BF%98%E5%98%B4%E9%B1%BC/%E9%A6%99%E7%85%8E%E7%BF%98%E5%98%B4%E9%B1%BC.md" target="_blank" rel="noopener"
+&gt;香煎翘嘴鱼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E5%B0%8F%E9%BE%99%E8%99%BE/%E5%B0%8F%E9%BE%99%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;小龙虾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/aquatic/%E6%B2%B9%E7%84%96%E5%A4%A7%E8%99%BE/%E6%B2%B9%E7%84%96%E5%A4%A7%E8%99%BE.md" target="_blank" rel="noopener"
+&gt;油焖大虾&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="早餐"&gt;早餐
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E8%8C%B6%E5%8F%B6%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;茶叶蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E8%9B%8B%E7%85%8E%E7%B3%8D%E7%B2%91.md" target="_blank" rel="noopener"
+&gt;蛋煎糍粑&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E6%A1%82%E5%9C%86%E7%BA%A2%E6%9E%A3%E7%B2%A5.md" target="_blank" rel="noopener"
+&gt;桂圆红枣粥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E9%B8%A1%E8%9B%8B%E4%B8%89%E6%98%8E%E6%B2%BB.md" target="_blank" rel="noopener"
+&gt;鸡蛋三明治&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E7%85%8E%E9%A5%BA.md" target="_blank" rel="noopener"
+&gt;煎饺&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E9%87%91%E6%9E%AA%E9%B1%BC%E9%85%B1%E4%B8%89%E6%98%8E%E6%B2%BB.md" target="_blank" rel="noopener"
+&gt;金枪鱼酱三明治&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E9%9D%A2%E5%8C%85%E7%89%87.md" target="_blank" rel="noopener"
+&gt;空气炸锅面包片&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E7%BE%8E%E5%BC%8F%E7%82%92%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;美式炒蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E7%89%9B%E5%A5%B6%E7%87%95%E9%BA%A6.md" target="_blank" rel="noopener"
+&gt;牛奶燕麦&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E6%89%8B%E6%8A%93%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;手抓饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E6%B0%B4%E7%85%AE%E7%8E%89%E7%B1%B3.md" target="_blank" rel="noopener"
+&gt;水煮玉米&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E8%8B%8F%E6%A0%BC%E5%85%B0%E8%9B%8B/%E8%8B%8F%E6%A0%BC%E5%85%B0%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;苏格兰蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E5%A4%AA%E9%98%B3%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;太阳蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E6%BA%8F%E5%BF%83%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;溏心蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E5%90%90%E5%8F%B8%E6%9E%9C%E9%85%B1.md" target="_blank" rel="noopener"
+&gt;吐司果酱&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E5%AE%8C%E7%BE%8E%E6%B0%B4%E7%85%AE%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;完美水煮蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E5%BE%AE%E6%B3%A2%E7%82%89%E8%9B%8B%E7%B3%95.md" target="_blank" rel="noopener"
+&gt;微波炉蛋糕&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E5%BE%AE%E6%B3%A2%E7%82%89%E8%8D%B7%E5%8C%85%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;微波炉荷包蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E6%B8%A9%E6%B3%89%E8%9B%8B/%E6%B8%A9%E6%B3%89%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;温泉蛋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E7%87%95%E9%BA%A6%E9%B8%A1%E8%9B%8B%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;燕麦鸡蛋饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E8%92%B8%E8%8A%B1%E5%8D%B7.md" target="_blank" rel="noopener"
+&gt;蒸花卷&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/breakfast/%E8%92%B8%E6%B0%B4%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;蒸水蛋&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="主食"&gt;主食
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%92%E6%96%B9%E4%BE%BF%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;炒方便面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%92%E6%B2%B3%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;炒河粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%92%E5%87%89%E7%B2%89/%E7%82%92%E5%87%89%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;炒凉粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%92%E9%A6%8D.md" target="_blank" rel="noopener"
+&gt;炒馍&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%92%E5%B9%B4%E7%B3%95.md" target="_blank" rel="noopener"
+&gt;炒年糕&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%92%E6%84%8F%E5%A4%A7%E5%88%A9%E9%9D%A2/%E7%82%92%E6%84%8F%E5%A4%A7%E5%88%A9%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;炒意大利面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%91%B1%E6%B2%B9%E6%8B%8C%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;葱油拌面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%9B%8B%E5%8C%85%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;蛋包饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%9B%8B%E7%82%92%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;蛋炒饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%94%B5%E9%A5%AD%E7%85%B2%E4%B8%89%E6%96%87%E9%B1%BC%E7%82%8A%E9%A5%AD/%E7%94%B5%E9%A5%AD%E7%85%B2%E4%B8%89%E6%96%87%E9%B1%BC%E7%82%8A%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;电饭煲三文鱼炊饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%B1%86%E8%A7%92%E7%84%96%E9%9D%A2/%E8%B1%86%E8%A7%92%E7%84%96%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;豆角焖面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%9F%A9%E5%BC%8F%E6%8B%8C%E9%A5%AD/%E9%9F%A9%E5%BC%8F%E6%8B%8C%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;韩式拌饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%B2%B3%E5%8D%97%E8%92%B8%E9%9D%A2%E6%9D%A1/%E6%B2%B3%E5%8D%97%E8%92%B8%E9%9D%A2%E6%9D%A1.md" target="_blank" rel="noopener"
+&gt;河南蒸面条&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%81%AB%E8%85%BF%E9%A5%AD%E5%9B%A2/%E7%81%AB%E8%85%BF%E9%A5%AD%E5%9B%A2.md" target="_blank" rel="noopener"
+&gt;火腿饭团&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E5%9F%BA%E7%A1%80%E7%89%9B%E5%A5%B6%E9%9D%A2%E5%8C%85/%E5%9F%BA%E7%A1%80%E7%89%9B%E5%A5%B6%E9%9D%A2%E5%8C%85.md" target="_blank" rel="noopener"
+&gt;基础牛奶面包&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%8C%84%E5%AD%90%E8%82%89%E7%85%8E%E9%A5%BC/%E8%8C%84%E5%AD%90%E8%82%89%E7%85%8E%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;茄子肉煎饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%B2%A3%E9%B1%BC%E6%B5%B7%E8%8B%94%E7%8E%89%E7%B1%B3%E9%A5%AD/%E9%B2%A3%E9%B1%BC%E6%B5%B7%E8%8B%94%E7%8E%89%E7%B1%B3%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;鲣鱼海苔玉米饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%85%B1%E6%8B%8C%E8%8D%9E%E9%BA%A6%E9%9D%A2/%E9%85%B1%E6%8B%8C%E8%8D%9E%E9%BA%A6%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;酱拌荞麦面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%9F%AD%E8%8F%9C%E7%9B%92%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;韭菜盒子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E7%85%A7%E7%83%A7%E9%B8%A1%E9%A5%AD/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E7%85%A7%E7%83%A7%E9%B8%A1%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;空气炸锅照烧鸡饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%86%AA%E7%B3%9F%E5%B0%8F%E6%B1%A4%E5%9C%86.md" target="_blank" rel="noopener"
+&gt;醪糟小汤圆&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%80%81%E5%B9%B2%E5%A6%88%E6%8B%8C%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;老干妈拌面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%80%81%E5%8F%8B%E7%8C%AA%E8%82%89%E7%B2%89/%E8%80%81%E5%8F%8B%E7%8C%AA%E8%82%89%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;老友猪肉粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%83%99%E9%A5%BC/%E7%83%99%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;烙饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E5%87%89%E7%B2%89/%E5%87%89%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;凉粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%9E%BA%E8%9B%B3%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;螺蛳粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%BA%BB%E8%BE%A3%E5%87%8F%E8%84%82%E8%8D%9E%E9%BA%A6%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;麻辣减脂荞麦面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%BA%BB%E6%B2%B9%E6%8B%8C%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;麻油拌面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%B1%B3%E9%A5%AD/%E7%94%B5%E9%A5%AD%E7%85%B2%E8%92%B8%E7%B1%B3%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;电饭煲蒸米饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%B1%B3%E9%A5%AD/%E7%85%AE%E9%94%85%E8%92%B8%E7%B1%B3%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;煮锅蒸米饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%8A%AB%E8%90%A8%E9%A5%BC%E7%9A%AE/%E6%8A%AB%E8%90%A8%E9%A5%BC%E7%9A%AE.md" target="_blank" rel="noopener"
+&gt;披萨饼皮&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%83%AD%E5%B9%B2%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;热干面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%97%A5%E5%BC%8F%E8%82%A5%E7%89%9B%E4%B8%BC%E9%A5%AD/%E6%97%A5%E5%BC%8F%E8%82%A5%E7%89%9B%E4%B8%BC%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;日式肥牛丼饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%97%A5%E5%BC%8F%E5%92%96%E5%96%B1%E9%A5%AD/%E6%97%A5%E5%BC%8F%E5%92%96%E5%96%B1%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;日式咖喱饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%82%89%E8%9B%8B%E7%9B%96%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;肉蛋盖饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%99%95%E8%A5%BF%E6%B2%B9%E6%B3%BC%E9%9D%A2/%E9%99%95%E8%A5%BF%E6%B2%B9%E6%B3%BC%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;陕西油泼面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%83%A7%E9%A5%BC/%E8%8A%9D%E9%BA%BB%E7%83%A7%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;芝麻烧饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%89%8B%E5%B7%A5%E6%B0%B4%E9%A5%BA.md" target="_blank" rel="noopener"
+&gt;手工水饺&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E9%85%B8%E8%BE%A3%E8%95%A8%E6%A0%B9%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;酸辣蕨根粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%B1%A4%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;汤面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E5%BE%AE%E6%B3%A2%E7%82%89%E8%85%8A%E8%82%A0%E7%85%B2%E4%BB%94%E9%A5%AD/%E5%BE%AE%E6%B3%A2%E7%82%89%E8%85%8A%E8%82%A0%E7%85%B2%E4%BB%94%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;微波炉腊肠煲仔饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E9%B8%A1%E8%9B%8B%E6%8C%82%E9%9D%A2/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E9%B8%A1%E8%9B%8B%E6%8C%82%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;西红柿鸡蛋挂面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%89%AC%E5%B7%9E%E7%82%92%E9%A5%AD/%E6%89%AC%E5%B7%9E%E7%82%92%E9%A5%AD.md" target="_blank" rel="noopener"
+&gt;扬州炒饭&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E6%84%8F%E5%BC%8F%E8%82%89%E9%85%B1%E9%9D%A2/%E6%84%8F%E5%BC%8F%E8%82%89%E9%85%B1%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;意式肉酱面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%82%B8%E9%85%B1%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;炸酱面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E8%92%B8%E5%8D%A4%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;蒸卤面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E4%B8%AD%E5%BC%8F%E9%A6%85%E9%A5%BC/%E4%B8%AD%E5%BC%8F%E9%A6%85%E9%A5%BC.md" target="_blank" rel="noopener"
+&gt;中式馅饼&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/staple/%E7%85%AE%E6%B3%A1%E9%9D%A2%E5%8A%A0%E8%9B%8B.md" target="_blank" rel="noopener"
+&gt;煮泡面加蛋&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="半成品加工"&gt;半成品加工
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E5%8D%8A%E6%88%90%E5%93%81%E6%84%8F%E9%9D%A2.md" target="_blank" rel="noopener"
+&gt;半成品意面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E9%B8%A1%E7%BF%85%E4%B8%AD/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E9%B8%A1%E7%BF%85%E4%B8%AD.md" target="_blank" rel="noopener"
+&gt;空气炸锅鸡翅中&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E7%BE%8A%E6%8E%92/%E7%A9%BA%E6%B0%94%E7%82%B8%E9%94%85%E7%BE%8A%E6%8E%92.md" target="_blank" rel="noopener"
+&gt;空气炸锅羊排&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E6%87%92%E4%BA%BA%E8%9B%8B%E6%8C%9E/%E6%87%92%E4%BA%BA%E8%9B%8B%E6%8C%9E.md" target="_blank" rel="noopener"
+&gt;懒人蛋挞&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E5%87%89%E7%9A%AE.md" target="_blank" rel="noopener"
+&gt;凉皮&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E7%89%9B%E6%B2%B9%E7%81%AB%E9%94%85%E5%BA%95%E6%96%99.md" target="_blank" rel="noopener"
+&gt;牛油火锅底料&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E9%80%9F%E5%86%BB%E9%A6%84%E9%A5%A8.md" target="_blank" rel="noopener"
+&gt;速冻馄饨&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E9%80%9F%E5%86%BB%E6%B0%B4%E9%A5%BA.md" target="_blank" rel="noopener"
+&gt;速冻水饺&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E9%80%9F%E5%86%BB%E6%B1%A4%E5%9C%86/%E9%80%9F%E5%86%BB%E6%B1%A4%E5%9C%86.md" target="_blank" rel="noopener"
+&gt;速冻汤圆&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/semi-finished/%E7%82%B8%E8%96%AF%E6%9D%A1/%E7%82%B8%E8%96%AF%E6%9D%A1.md" target="_blank" rel="noopener"
+&gt;炸薯条&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="汤与粥"&gt;汤与粥
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E6%98%82%E5%88%BA%E9%B1%BC%E8%B1%86%E8%85%90%E6%B1%A4/%E6%98%82%E5%88%BA%E9%B1%BC%E8%B1%86%E8%85%90%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;昂刺鱼豆腐汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E9%99%88%E7%9A%AE%E6%8E%92%E9%AA%A8%E6%B1%A4/%E9%99%88%E7%9A%AE%E6%8E%92%E9%AA%A8%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;陈皮排骨汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E9%99%88%E7%9A%AE%E6%8E%92%E9%AA%A8%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;陈皮排骨汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%95%AA%E8%8C%84%E7%89%9B%E8%82%89%E8%9B%8B%E8%8A%B1%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;番茄牛肉蛋花汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E5%8B%BE%E8%8A%A1%E9%A6%99%E8%8F%87%E6%B1%A4/%E5%8B%BE%E8%8A%A1%E9%A6%99%E8%8F%87%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;勾芡香菇汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E9%87%91%E9%92%88%E8%8F%87%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;金针菇汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E8%8F%8C%E8%8F%87%E7%82%96%E4%B9%B3%E9%B8%BD/%E8%8F%8C%E8%8F%87%E7%82%96%E4%B9%B3%E9%B8%BD.md" target="_blank" rel="noopener"
+&gt;菌菇炖乳鸽&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E8%85%8A%E5%85%AB%E7%B2%A5.md" target="_blank" rel="noopener"
+&gt;腊八粥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%BD%97%E5%AE%8B%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;罗宋汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%B1%B3%E7%B2%A5.md" target="_blank" rel="noopener"
+&gt;米粥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E5%A5%B6%E6%B2%B9%E8%98%91%E8%8F%87%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;奶油蘑菇汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E6%8E%92%E9%AA%A8%E8%8B%A6%E7%93%9C%E6%B1%A4/%E6%8E%92%E9%AA%A8%E8%8B%A6%E7%93%9C%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;排骨苦瓜汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%9A%AE%E8%9B%8B%E7%98%A6%E8%82%89%E7%B2%A5.md" target="_blank" rel="noopener"
+&gt;皮蛋瘦肉粥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%94%9F%E6%B1%86%E4%B8%B8%E5%AD%90%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;生汆丸子汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E8%A5%BF%E7%BA%A2%E6%9F%BF%E9%B8%A1%E8%9B%8B%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;西红柿鸡蛋汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E5%B0%8F%E7%B1%B3%E7%B2%A5.md" target="_blank" rel="noopener"
+&gt;小米粥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%BE%8A%E8%82%89%E6%B1%A4/%E7%BE%8A%E8%82%89%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;羊肉汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E9%93%B6%E8%80%B3%E8%8E%B2%E5%AD%90%E7%B2%A5/%E9%93%B6%E8%80%B3%E8%8E%B2%E5%AD%90%E7%B2%A5.md" target="_blank" rel="noopener"
+&gt;银耳莲子粥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%8E%89%E7%B1%B3%E6%8E%92%E9%AA%A8%E6%B1%A4/%E7%8E%89%E7%B1%B3%E6%8E%92%E9%AA%A8%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;玉米排骨汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E6%9C%B1%E9%9B%80%E6%B1%A4/%E6%9C%B1%E9%9B%80%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;朱雀汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/soup/%E7%B4%AB%E8%8F%9C%E8%9B%8B%E8%8A%B1%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;紫菜蛋花汤&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="饮料"&gt;饮料
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E8%80%99%E8%80%99%E6%9F%91%E8%8C%B6/%E8%80%99%E8%80%99%E6%9F%91%E8%8C%B6.md" target="_blank" rel="noopener"
+&gt;耙耙柑茶&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E7%99%BE%E9%A6%99%E6%9E%9C%E6%A9%99%E5%AD%90%E7%89%B9%E8%B0%83/%E7%99%BE%E9%A6%99%E6%9E%9C%E6%A9%99%E5%AD%90%E7%89%B9%E8%B0%83.md" target="_blank" rel="noopener"
+&gt;百香果橙子特调&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E5%86%B0%E7%B2%89/%E5%86%B0%E7%B2%89.md" target="_blank" rel="noopener"
+&gt;冰粉&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E8%8F%A0%E8%90%9D%E5%92%96%E5%95%A1%E7%89%B9%E8%B0%83/%E8%8F%A0%E8%90%9D%E5%92%96%E5%95%A1%E7%89%B9%E8%B0%83.md" target="_blank" rel="noopener"
+&gt;菠萝咖啡特调&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E5%86%AC%E7%93%9C%E8%8C%B6.md" target="_blank" rel="noopener"
+&gt;冬瓜茶&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E6%B5%B7%E8%BE%B9%E8%90%BD%E6%97%A5/%E6%B5%B7%E8%BE%B9%E8%90%BD%E6%97%A5.md" target="_blank" rel="noopener"
+&gt;海边落日&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E9%87%91%E8%8F%B2%E5%A3%AB/%E9%87%91%E8%8F%B2%E5%A3%AB.md" target="_blank" rel="noopener"
+&gt;金菲士&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E9%87%91%E6%B1%A4%E5%8A%9B/%E9%87%91%E6%B1%A4%E5%8A%9B.md" target="_blank" rel="noopener"
+&gt;金汤力&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E9%85%92%E9%85%BF%E9%86%AA%E7%B3%9F/%E9%85%92%E9%85%BF%E9%86%AA%E7%B3%9F.md" target="_blank" rel="noopener"
+&gt;酒酿醪糟&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E5%8F%AF%E4%B9%90%E6%A1%B6.md" target="_blank" rel="noopener"
+&gt;可乐桶&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E5%A5%B6%E8%8C%B6.md" target="_blank" rel="noopener"
+&gt;奶茶&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E6%9F%A0%E6%AA%AC%E6%B0%B4/%E6%9F%A0%E6%AA%AC%E6%B0%B4.md" target="_blank" rel="noopener"
+&gt;柠檬水&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E5%A5%87%E5%BC%82%E6%9E%9C%E8%8F%A0%E8%8F%9C%E7%89%B9%E8%B0%83/%E5%A5%87%E5%BC%82%E6%9E%9C%E8%8F%A0%E8%8F%9C%E7%89%B9%E8%B0%83.md" target="_blank" rel="noopener"
+&gt;奇异果菠菜特调&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E7%A0%82%E7%B3%96%E6%A4%B0%E5%AD%90%E5%86%B0%E6%B2%99/%E7%A0%82%E7%B3%96%E6%A4%B0%E5%AD%90%E5%86%B0%E6%B2%99.md" target="_blank" rel="noopener"
+&gt;砂糖椰子冰沙&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E9%85%B8%E6%A2%85%E6%B1%A4/%E9%85%B8%E6%A2%85%E6%B1%A4.md" target="_blank" rel="noopener"
+&gt;酸梅汤&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E9%85%B8%E6%A2%85%E6%B1%A4%EF%BC%88%E5%8D%8A%E6%88%90%E5%93%81%E5%8A%A0%E5%B7%A5%EF%BC%89.md" target="_blank" rel="noopener"
+&gt;酸梅汤（半成品加工）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E6%B3%B0%E5%9B%BD%E6%89%8B%E6%A0%87%E7%BA%A2%E8%8C%B6/%E6%B3%B0%E5%9B%BD%E6%89%8B%E6%A0%87%E7%BA%A2%E8%8C%B6.md" target="_blank" rel="noopener"
+&gt;泰国手标红茶&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E6%9D%A8%E6%9E%9D%E7%94%98%E9%9C%B2.md" target="_blank" rel="noopener"
+&gt;杨枝甘露&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/%E9%95%BF%E5%B2%9B%E5%86%B0%E8%8C%B6.md" target="_blank" rel="noopener"
+&gt;长岛冰茶&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/B52%E8%BD%B0%E7%82%B8%E6%9C%BA.md" target="_blank" rel="noopener"
+&gt;B52轰炸机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/drink/Mojito%E8%8E%AB%E5%90%89%E6%89%98.md" target="_blank" rel="noopener"
+&gt;Mojito莫吉托&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="酱料和其它材料"&gt;酱料和其它材料
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E8%8D%89%E8%8E%93%E9%85%B1/%E8%8D%89%E8%8E%93%E9%85%B1.md" target="_blank" rel="noopener"
+&gt;草莓酱&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E8%91%B1%E6%B2%B9.md" target="_blank" rel="noopener"
+&gt;葱油&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E7%AE%80%E6%98%93%E7%89%88%E7%82%92%E7%B3%96%E8%89%B2.md" target="_blank" rel="noopener"
+&gt;简易版炒糖色&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E8%92%9C%E9%A6%99%E9%85%B1%E6%B2%B9.md" target="_blank" rel="noopener"
+&gt;蒜香酱油&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E7%B3%96%E9%86%8B%E6%B1%81.md" target="_blank" rel="noopener"
+&gt;糖醋汁&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E6%B2%B9%E6%B3%BC%E8%BE%A3%E5%AD%90/%E6%B2%B9%E6%B3%BC%E8%BE%A3%E5%AD%90.md" target="_blank" rel="noopener"
+&gt;油泼辣子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E6%B2%B9%E9%85%A5.md" target="_blank" rel="noopener"
+&gt;油酥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E7%82%B8%E4%B8%B2%E9%85%B1%E6%96%99.md" target="_blank" rel="noopener"
+&gt;炸串酱料&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/condiment/%E8%94%97%E7%B3%96%E7%B3%96%E6%B5%86/%E8%94%97%E7%B3%96%E7%B3%96%E6%B5%86.md" target="_blank" rel="noopener"
+&gt;蔗糖糖浆&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="甜品"&gt;甜品
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E5%A5%A5%E5%88%A9%E5%A5%A5%E5%86%B0%E6%B7%87%E6%B7%8B/%E5%A5%A5%E5%88%A9%E5%A5%A5%E5%86%B0%E6%B7%87%E6%B7%8B.md" target="_blank" rel="noopener"
+&gt;奥利奥冰淇淋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E8%8D%89%E8%8E%93%E5%86%B0%E6%B7%87%E6%B7%8B/%E8%8D%89%E8%8E%93%E5%86%B0%E6%B7%87%E6%B7%8B.md" target="_blank" rel="noopener"
+&gt;草莓冰淇淋&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E5%8F%8D%E6%B2%99%E8%8A%8B%E5%A4%B4/%E5%8F%8D%E6%B2%99%E8%8A%8B%E5%A4%B4.md" target="_blank" rel="noopener"
+&gt;反沙芋头&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E9%BE%9F%E8%8B%93%E8%86%8F/%E9%BE%9F%E8%8B%93%E8%86%8F.md" target="_blank" rel="noopener"
+&gt;龟苓膏&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E7%BA%A2%E6%9F%9A%E8%9B%8B%E7%B3%95/%E7%BA%A2%E6%9F%9A%E8%9B%8B%E7%B3%95.md" target="_blank" rel="noopener"
+&gt;红柚蛋糕&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E5%92%96%E5%95%A1%E6%A4%B0%E5%A5%B6%E5%86%BB/%E5%92%96%E5%95%A1%E6%A4%B0%E5%A5%B6%E5%86%BB.md" target="_blank" rel="noopener"
+&gt;咖啡椰奶冻&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E7%83%A4%E8%9B%8B%E6%8C%9E/%E7%83%A4%E8%9B%8B%E6%8C%9E.md" target="_blank" rel="noopener"
+&gt;烤蛋挞&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E7%83%A4%E7%AE%B1%E7%89%88%E5%B7%B4%E6%96%AF%E5%85%8B%E8%8A%9D%E5%A3%AB%E8%9B%8B%E7%B3%95/%E7%83%A4%E7%AE%B1%E7%89%88%E5%B7%B4%E6%96%AF%E5%85%8B%E8%8A%9D%E5%A3%AB%E8%9B%8B%E7%B3%95.md" target="_blank" rel="noopener"
+&gt;烤箱版巴斯克芝士蛋糕&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E7%8E%9B%E6%A0%BC%E4%B8%BD%E7%89%B9%E9%A5%BC%E5%B9%B2/%E7%8E%9B%E6%A0%BC%E4%B8%BD%E7%89%B9%E9%A5%BC%E5%B9%B2.md" target="_blank" rel="noopener"
+&gt;玛格丽特饼干&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E9%AD%94%E8%8A%8B%E8%9B%8B%E7%B3%95/%E9%AD%94%E8%8A%8B%E8%9B%8B%E7%B3%95.md" target="_blank" rel="noopener"
+&gt;魔芋蛋糕&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E6%88%9A%E9%A3%8E%E8%9B%8B%E7%B3%95/%E6%88%9A%E9%A3%8E%E8%9B%8B%E7%B3%95.md" target="_blank" rel="noopener"
+&gt;戚风蛋糕&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E9%85%B8%E5%A5%B6%E6%84%8F%E5%BC%8F%E5%A5%B6%E5%86%BB/%E9%85%B8%E5%A5%B6%E6%84%8F%E5%BC%8F%E5%A5%B6%E5%86%BB.md" target="_blank" rel="noopener"
+&gt;酸奶意式奶冻&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E6%8F%90%E6%8B%89%E7%B1%B3%E8%8B%8F/%E6%8F%90%E6%8B%89%E7%B1%B3%E8%8B%8F.md" target="_blank" rel="noopener"
+&gt;提拉米苏&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E6%97%A0%E5%8E%A8%E5%B8%88%E6%9C%BA%E8%9C%82%E8%9C%9C%E9%9D%A2%E5%8C%85/%E6%97%A0%E5%8E%A8%E5%B8%88%E6%9C%BA%E8%9C%82%E8%9C%9C%E9%9D%A2%E5%8C%85.md" target="_blank" rel="noopener"
+&gt;无厨师机蜂蜜面包&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E9%9B%AA%E8%8A%B1%E9%85%A5/%E9%9B%AA%E8%8A%B1%E9%85%A5.md" target="_blank" rel="noopener"
+&gt;雪花酥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E8%8B%B1%E5%BC%8F%E5%8F%B8%E5%BA%B7/%E8%8B%B1%E5%BC%8F%E5%8F%B8%E5%BA%B7.md" target="_blank" rel="noopener"
+&gt;英式司康&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E8%8A%8B%E6%B3%A5%E9%9B%AA%E5%AA%9A%E5%A8%98/%E8%8A%8B%E6%B3%A5%E9%9B%AA%E5%AA%9A%E5%A8%98.md" target="_blank" rel="noopener"
+&gt;芋泥雪媚娘&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/dishes/dessert/%E7%82%B8%E9%B2%9C%E5%A5%B6/%E7%82%B8%E9%B2%9C%E5%A5%B6.md" target="_blank" rel="noopener"
+&gt;炸鲜奶&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="进阶知识学习"&gt;进阶知识学习
+&lt;/h2&gt;&lt;p&gt;如果你已经做了许多上面的菜，对于厨艺已经入门，并且想学习更加高深的烹饪技巧，请继续阅读下面的内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/advanced/%E8%BE%85%E6%96%99%E6%8A%80%E5%B7%A7.md" target="_blank" rel="noopener"
+&gt;辅料技巧&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/advanced/%E9%AB%98%E7%BA%A7%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD.md" target="_blank" rel="noopener"
+&gt;高级专业术语&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/advanced/%E7%B3%96%E8%89%B2%E7%9A%84%E7%82%92%E5%88%B6.md" target="_blank" rel="noopener"
+&gt;糖色的炒制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/Anduin2017/HowToCook/blob/master/tips/advanced/%E6%B2%B9%E6%B8%A9%E5%88%A4%E6%96%AD%E6%8A%80%E5%B7%A7.md" target="_blank" rel="noopener"
+&gt;油温判断技巧&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="衍生作品推荐"&gt;衍生作品推荐
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/worryzyy/HowToCook-mcp" target="_blank" rel="noopener"
+&gt;HowToCook-mcp 让 AI 助手变身私人大厨，为你的一日三餐出谋划策&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://github.com/DusKing1/howtocook-py-mcp" target="_blank" rel="noopener"
+&gt;HowToCook-py-mcp 让 AI 助手变身私人大厨，为你的一日三餐出谋划策 (Python)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="示例水煮肉片的做法"&gt;示例——水煮肉片的做法
+&lt;/h2&gt;&lt;p&gt;水煮肉片麻辣鲜香，适合干饭，但是做法稍微有点麻烦。难度主要在肉滑嫩，初学者一般需要 1 - 2 小时完成。干饭人，一切都值~&lt;/p&gt;
+&lt;p&gt;预估烹饪难度：★★★★★&lt;/p&gt;
+&lt;h3 id="必备原料和工具"&gt;必备原料和工具
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;猪里脊肉&lt;/li&gt;
+&lt;li&gt;食用盐&lt;/li&gt;
+&lt;li&gt;胡椒粉&lt;/li&gt;
+&lt;li&gt;生抽酱油&lt;/li&gt;
+&lt;li&gt;料酒&lt;/li&gt;
+&lt;li&gt;鸡蛋清&lt;/li&gt;
+&lt;li&gt;土豆淀粉&lt;/li&gt;
+&lt;li&gt;植物油&lt;/li&gt;
+&lt;li&gt;豆芽&lt;/li&gt;
+&lt;li&gt;凤尾&lt;/li&gt;
+&lt;li&gt;芹菜&lt;/li&gt;
+&lt;li&gt;蒜苗&lt;/li&gt;
+&lt;li&gt;大蒜&lt;/li&gt;
+&lt;li&gt;生姜&lt;/li&gt;
+&lt;li&gt;红泡椒&lt;/li&gt;
+&lt;li&gt;青花椒&lt;/li&gt;
+&lt;li&gt;干辣椒&lt;/li&gt;
+&lt;li&gt;红油豆瓣&lt;/li&gt;
+&lt;li&gt;鸡精&lt;/li&gt;
+&lt;li&gt;白砂糖&lt;/li&gt;
+&lt;li&gt;小葱&lt;/li&gt;
+&lt;li&gt;菜籽油&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="计算"&gt;计算
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;里脊肉的用量为 300g&lt;/li&gt;
+&lt;li&gt;小葱 2 根&lt;/li&gt;
+&lt;li&gt;生姜 10g&lt;/li&gt;
+&lt;li&gt;大蒜 20g&lt;/li&gt;
+&lt;li&gt;红泡椒 20g（根据受辣程度选择 0-40 g）&lt;/li&gt;
+&lt;li&gt;蒜苗 2 根&lt;/li&gt;
+&lt;li&gt;芹菜 3 根&lt;/li&gt;
+&lt;li&gt;红油瓣酱 5ml&lt;/li&gt;
+&lt;li&gt;鸡精 1.5g&lt;/li&gt;
+&lt;li&gt;生抽酱油 5g&lt;/li&gt;
+&lt;li&gt;食用盐 5g&lt;/li&gt;
+&lt;li&gt;胡椒粉 2g&lt;/li&gt;
+&lt;li&gt;料酒 3g&lt;/li&gt;
+&lt;li&gt;鸡蛋清 1 个&lt;/li&gt;
+&lt;li&gt;土豆淀粉 7g&lt;/li&gt;
+&lt;li&gt;植物油 280g（根据情况选择，想吃重油就多加 100g）&lt;/li&gt;
+&lt;li&gt;菜籽油 200g（根据情况选择，想吃重油就多加 100g）&lt;/li&gt;
+&lt;li&gt;绿豆芽 100g&lt;/li&gt;
+&lt;li&gt;凤尾 1 根&lt;/li&gt;
+&lt;li&gt;白砂糖 1g&lt;/li&gt;
+&lt;li&gt;小米辣干辣椒 20g（根据受辣程度选择 0-40g）&lt;/li&gt;
+&lt;li&gt;青花椒 5g（根据情况选择，想吃麻就多 5g）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="操作"&gt;操作
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;里脊肉改刀成小块，再切成 2 毫米薄片（可根据自己的口感改进），放入碗中，加入清水清洗两遍来去除血水和杂质，捞出挤干水分备用。&lt;/li&gt;
+&lt;li&gt;碗中加入食用盐 1.5g，胡椒粉 1g，生抽酱油 5g，料酒 3g，然后朝着一个方向搅拌 2 分钟，使其入味。&lt;/li&gt;
+&lt;li&gt;另外准备一个碗，加入一个鸡蛋清，加入 7g 土豆淀粉，一个方向搅拌均匀，倒入肉中
+&lt;ul&gt;
+&lt;li&gt;再次一个方向搅拌均匀（肉表面就形成了润滑膜，这样会使肉更加鲜嫩）&lt;/li&gt;
+&lt;li&gt;最后再加入 30g 植物油轻轻搅拌（防止肉片粘连）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;绿豆芽 100g，凤尾 1 根（改刀成小条），芹菜 3 根切成小段，蒜苗 2 根拍散切成小段。&lt;/li&gt;
+&lt;li&gt;大蒜 20g 剁碎，生姜小块剁碎，红泡椒 20g 剁碎。&lt;/li&gt;
+&lt;li&gt;小米辣干辣椒 15g，青花椒 3g，锅内加入油滑锅，油稍许热了将多余的倒出备用留 50g 底油，下入干辣椒、花椒，开小火炒香，切记不要炒糊（颜色要变黑即可），倒出在菜板上剁细。&lt;/li&gt;
+&lt;li&gt;锅烧热，放入 100g 植物油烧至 6 成热，加入 2g 青花椒、干辣椒爆香，配菜下锅，加入 1g 食用盐，炒至断生，盛入碗中垫底备用。&lt;/li&gt;
+&lt;li&gt;锅洗干净，加入 150g 植物油烧至 6 成热，加入制作好的姜蒜红泡椒，爆香后加入豆瓣 10g，开小火把豆瓣爆香炒出红油即可。&lt;/li&gt;
+&lt;li&gt;加入 800 毫升清水（根据实际情况选择），大火烧开，转小火调味，加入食用盐 2.5g，鸡精 1.5g，1g 白砂糖提鲜，1g 胡椒粉，5g 水淀粉（根据实际情况选择）将汤汁收浓稠一点。&lt;/li&gt;
+&lt;li&gt;汤汁开后，开小火将腌制好的肉片分开依次下锅，然后开中火将肉片烫熟，用锅铲轻轻推动一下避免粘连，待汤汁烧开，肉片熟后捞出放入碗中配菜上，再将原汤倒入（不超过菜品）。&lt;/li&gt;
+&lt;li&gt;碗中均匀撒上刀口辣椒、蒜蓉和葱花。&lt;/li&gt;
+&lt;li&gt;锅洗干净，加入 200g 菜籽油，烧至 7 成热，然后一次性均匀泼在碗中肉片上（注意安全），美味完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="附加内容"&gt;附加内容
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;垫底的蔬菜根据自己口味选择（蘑菇、白菜、油麦菜等）。&lt;/li&gt;
+&lt;li&gt;刀口辣椒制作嫌麻烦也可以直接用干辣椒段和青花椒代替。&lt;/li&gt;
+&lt;li&gt;特别注意肉的腌制（搅拌的时候朝着一个方向、血水处理干净），保证肉滑嫩（鸡蛋清、淀粉搅拌均匀）。&lt;/li&gt;
+&lt;li&gt;水煮牛肉也可以按照这个做法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="参考资料"&gt;参考资料
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.bilibili.com/video/BV1ys411u7Z4" target="_blank" rel="noopener"
+&gt;美食作家王刚R&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>沉浸式开源浏览器翻译插件FluentRead</title><link>https://hanguangwu.github.io/p/%E6%B2%89%E6%B5%B8%E5%BC%8F%E5%BC%80%E6%BA%90%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6fluentread/</link><pubDate>Tue, 14 Oct 2025 12:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E6%B2%89%E6%B5%B8%E5%BC%8F%E5%BC%80%E6%BA%90%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6fluentread/</guid><description>&lt;h1 id="沉浸式开源浏览器翻译插件fluentread"&gt;沉浸式开源浏览器翻译插件FluentRead
+&lt;/h1&gt;&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;由于沉浸式翻译存在安全问题，这里推荐FluentRead。&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://fluent.thinkstu.com/" target="_blank" rel="noopener"
+&gt;流畅阅读浏览器双语翻译插件&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/Bistutu/FluentRead" target="_blank" rel="noopener"
+&gt;GitHub-FluentRead&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="简介"&gt;简介
+&lt;/h2&gt;&lt;p&gt;流畅阅读（FluentRead）是一款沉浸式开源浏览器翻译插件，支持 20 多种传统和 AI 翻译引擎，以及双语对照、划词翻译等功能，帮助用户实现多语言网页沉浸式阅读体验。适用于外语学习、国际网站浏览和文档翻译等场景。&lt;/p&gt;
+&lt;p&gt;该插件借助上下文感知技巧，实现精准的网页翻译。用户既能通过快捷键或滑动选择来进行翻译，它还具备翻译缓存与回译功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://www.yjpoo.com/uploads/allimg/20250217/1-25021FT305144.webp"
+loading="lazy"
+alt="流畅阅读（FluentRead）.webp"
+&gt;&lt;/p&gt;
+&lt;h2 id="特色"&gt;特色
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;流畅阅读（FluentRead）功能特征：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多引擎支持：流畅阅读支持多达20多种翻译引擎，像微软翻译、谷歌翻译、DeepL翻译、OpenAI、DeepSeek、Kimi、SiliconCloud、Ollama等主流翻译&lt;a class="link" href="https://www.yjpoo.com/ai/" target="_blank" rel="noopener"
+&gt;工具&lt;/a&gt;都在其列，用户可按需挑选最为适合的翻译引擎。&lt;/li&gt;
+&lt;li&gt;双语对照与仅译文模式：
+双语模式：会同时呈现原文和译文，方便用户学习和理解内容。
+仅译文模式：仅展示翻译后的文本，适合想要快速阅读的用户，使界面更加清爽。&lt;/li&gt;
+&lt;li&gt;智能缓存：自动保存已翻译内容长达24小时，当重复访问相同页面时，就无需再次翻译，大大提高了效率。&lt;/li&gt;
+&lt;li&gt;回译功能：可以把翻译后的文本重新翻译回原文，以帮助用户验证翻译的准确性，对外语学习起到了辅助作用。&lt;/li&gt;
+&lt;li&gt;快捷操作：支持通过快捷键和鼠标进行操作，能快速切换翻译模式或进行翻译操作，有效提升了用户体验。&lt;/li&gt;
+&lt;li&gt;翻译引擎支持：集成了多种翻译引擎，其中包括但不限于微软、谷歌、DeepL等，以此确保高质量的翻译效果。&lt;/li&gt;
+&lt;li&gt;适应性与兼容性：适用于多种浏览器，像Chrome、Firefox等都在其支持范围内，确保能在广泛的应用场景中使用。&lt;/li&gt;
+&lt;li&gt;智能上下文理解：利用AI对上下文进行理解，从而提供更加准确的翻译结果，让用户拥有接近母语的阅读体验。&lt;/li&gt;
+&lt;li&gt;无缝集成：在网页上直接进行工作，无需进行页面跳转，保持了阅读的连贯性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="应用场景"&gt;应用场景
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;流畅阅读（FluentRead）应用场景：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;学术研究：能够翻译外文文献，方便用户深入理解和学习。&lt;/li&gt;
+&lt;li&gt;国际新闻浏览：让用户可以轻松阅读不同语言的新闻报道。&lt;/li&gt;
+&lt;li&gt;在线教育：辅助外语学习，通过双语对照，助用户加深对知识的理解。&lt;/li&gt;
+&lt;li&gt;跨国商务：帮助用户快速理解外语文档，促进国际间的交流合作。&lt;/li&gt;
+&lt;li&gt;日常浏览：使用户能够毫无障碍地浏览全球的网站内容，获取信息，轻松克服语言障碍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="使用方法"&gt;使用方法
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;流畅阅读（FluentRead）使用方法：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 安装：&lt;/strong&gt; 访问GitHub页面或浏览器扩展商店，下载并安装FluentRead插件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 启动：&lt;/strong&gt; 安装完成后，浏览器工具栏会出现FluentRead图标，点击该图标即可启用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 翻译操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;双语阅读：选择需要翻译的文本或者直接浏览网页，插件会自动或在设置好的快捷键触发下显示翻译结果。&lt;/li&gt;
+&lt;li&gt;模式切换：用户可以通过插件设置或者快捷键，轻松在双语模式和仅译文模式之间切换。&lt;/li&gt;
+&lt;li&gt;回译验证：当对翻译结果存在疑问时，可使用回译功能进行校对。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;4. 个性化设置：&lt;/strong&gt; 根据个人的偏好，用户能够调整翻译引擎、显示模式以及缓存时间等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;具体操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用翻译功能：在浏览网页时，选中需要翻译的文本，使用预先设定的快捷键，即可查看翻译结果，或者通过鼠标滑动的方式实时获取翻译内容。&lt;/li&gt;
+&lt;li&gt;调整翻译方式：用户可以按照个人习惯，随时调整翻译引擎和翻译设置，从而获得最佳的阅读体验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="-安装"&gt;📦 安装
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;浏览器&lt;/th&gt;
+&lt;th&gt;安装方式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Chrome&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://chromewebstore.google.com/detail/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/djnlaiohfaaifbibleebjggkghlmcpcj?hl=zh-CN&amp;amp;authuser=0" target="_blank" rel="noopener"
+&gt;Chrome 应用商店&lt;/a&gt; | &lt;a class="link" href="https://www.crxsoso.com/webstore/detail/djnlaiohfaaifbibleebjggkghlmcpcj" target="_blank" rel="noopener"
+&gt;国内镜像&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Edge&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://microsoftedge.microsoft.com/addons/detail/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/kakgmllfpjldjhcnkghpplmlbnmcoflp?hl=zh-CN" target="_blank" rel="noopener"
+&gt;Edge 应用商店&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Firefox&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://addons.mozilla.org/zh-CN/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/" target="_blank" rel="noopener"
+&gt;Firefox 附加组件商店&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="-使用文档"&gt;📖 使用文档
+&lt;/h2&gt;&lt;p&gt;请直接访问 &lt;a class="link" href="https://fluent.thinkstu.com/" target="_blank" rel="noopener"
+&gt;流畅阅读官方文档&lt;/a&gt; 获取详细的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;功能介绍&lt;/li&gt;
+&lt;li&gt;配置指南&lt;/li&gt;
+&lt;li&gt;使用教程&lt;/li&gt;
+&lt;li&gt;常见问题&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>手写笔记软件RNote</title><link>https://hanguangwu.github.io/p/%E6%89%8B%E5%86%99%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6rnote/</link><pubDate>Mon, 13 Oct 2025 18:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E6%89%8B%E5%86%99%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6rnote/</guid><description>&lt;h1 id="rnote-手写笔记软件详解"&gt;RNote 手写笔记软件详解
 &lt;/h1&gt;&lt;h2 id="前言"&gt;前言
 &lt;/h2&gt;&lt;p&gt;随着数字时代的到来，越来越多的人开始使用电子设备进行笔记和创作。作为一款专注于手写体验的笔记软件，&lt;strong&gt;RNote&lt;/strong&gt;以其独特的设计理念和强大功能，成为众多用户心中的优选。本文将从软件特点、使用体验、设计理念等方面，为大家全面介绍RNote，希望能够帮助你更好地了解和使用这款高效的手写笔记工具。&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="https://github.com/flxzt/rnote" target="_blank" rel="noopener"
