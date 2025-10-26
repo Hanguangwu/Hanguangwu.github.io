@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MAS on Hanguangwu</title><link>https://hanguangwu.github.io/en/tags/mas/</link><description>Recent content in MAS on Hanguangwu</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>hanguangwu</copyright><lastBuildDate>Wed, 15 Oct 2025 17:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/en/tags/mas/index.xml" rel="self" type="application/rss+xml"/><item><title>Microsoft Activation Scripts (MAS)</title><link>https://hanguangwu.github.io/en/p/microsoft-activation-scripts-mas/</link><pubDate>Wed, 15 Oct 2025 17:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/en/p/microsoft-activation-scripts-mas/</guid><description>&lt;h1 id="microsoft-activation-scripts-mas"&gt;Microsoft Activation Scripts (MAS)
+&lt;/h1&gt;&lt;h2 id="introduction"&gt;Introduction
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank" rel="noopener"
+&gt;microsoft&amp;ndash;activation&amp;ndash;scripts-mas&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Open-source Windows and Office activator featuring HWID, Ohook, TSforge, KMS38, and Online KMS activation methods, along with advanced troubleshooting.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="how-to-activate-windows--office--extended-updates-esu"&gt;How to Activate Windows / Office / Extended Updates (ESU)?
+&lt;/h2&gt;&lt;h3 id="method-1---powershell-"&gt;Method 1 - PowerShell ❤️
+&lt;/h3&gt;&lt;p&gt;In this tutorial, I will show you how to activate Windows and Office tools using only PowerShell.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;: Make sure you have internet connection.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;: Open Windows Powershell and run as Administrator.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 3&lt;/strong&gt;: Copy the command below and paste it into PowerShell.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;irm https://get.activated.win &lt;span class="p"&gt;|&lt;/span&gt; iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Step 4&lt;/strong&gt;: Press Enter.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 5&lt;/strong&gt;: Wait until you see the Activation tool.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 6&lt;/strong&gt;: To select what you want to activate, just press the number on your keyboard..&lt;/p&gt;
+&lt;h3 id="method-2---traditional-windows-vista-and-later"&gt;Method 2 - Traditional (Windows Vista and later)
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Download the script: &lt;a class="link" href="https://dev.azure.com/massgrave/Microsoft-Activation-Scripts/_apis/git/repositories/Microsoft-Activation-Scripts/items?path=/MAS/All-In-One-Version-KL/MAS_AIO.cmd&amp;amp;download=true" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;MAS_AIO.cmd&lt;/strong&gt;&lt;/a&gt; or the &lt;a class="link" href="https://dev.azure.com/massgrave/Microsoft-Activation-Scripts/_apis/git/repositories/Microsoft-Activation-Scripts/items?$format=zip" target="_blank" rel="noopener"
+&gt;full ZIP&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Run the file named &lt;code&gt;MAS_AIO.cmd&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You will see the activation options. Follow the on-screen instructions.&lt;/li&gt;
+&lt;li&gt;That&amp;rsquo;s all.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;Tip&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Some ISPs/DNS block access to our domains. You can bypass this by enabling &lt;a class="link" href="https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/encrypted-dns-browsers/" target="_blank" rel="noopener"
+&gt;DNS-over-HTTPS (DoH)&lt;/a&gt; in your browser.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Having trouble&lt;/strong&gt;❓Visit our &lt;a class="link" href="https://massgrave.dev/troubleshoot" target="_blank" rel="noopener"
+&gt;troubleshooting page&lt;/a&gt; or raise an issue on &lt;a class="link" href="https://github.com/massgravel/Microsoft-Activation-Scripts/issues" target="_blank" rel="noopener"
+&gt;GitHub&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;To activate additional products such as &lt;strong&gt;Office for macOS, Visual Studio, RDS CALs, and Windows XP&lt;/strong&gt;, check &lt;a class="link" href="https://massgrave.dev/unsupported_products_activation" target="_blank" rel="noopener"
+&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;To run the scripts in unattended mode, check &lt;a class="link" href="https://massgrave.dev/command_line_switches" target="_blank" rel="noopener"
+&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Note&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The IRM command in PowerShell downloads a script from a specified URL, and the IEX command executes it.&lt;/li&gt;
+&lt;li&gt;Always double-check the URL before executing the command and verify the source if manually downloading files.&lt;/li&gt;
+&lt;li&gt;Be cautious, as some spread malware disguised as MAS by using different URLs in the IRM command.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Latest Version: 3.7
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Release date: 11-Sep-2025
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="download-original-windows--office"&gt;&lt;a class="link" href="https://massgrave.dev/genuine-installation-media" target="_blank" rel="noopener"
+&gt;Download Original Windows &amp;amp; Office&lt;/a&gt;
+&lt;/h3&gt;&lt;h3 id="homepage--httpsmassgravedev"&gt;Homepage - &lt;a class="link" href="https://massgrave.dev/" target="_blank" rel="noopener"
+&gt;https://massgrave.dev/&lt;/a&gt;
+&lt;/h3&gt;</description></item></channel></rss>

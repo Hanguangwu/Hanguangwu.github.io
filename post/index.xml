@@ -1,4 +1,293 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 酒中仙</title><link>https://hanguangwu.github.io/post/</link><description>Recent content in Posts on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Tue, 14 Oct 2025 22:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>程序员做饭指南</title><link>https://hanguangwu.github.io/p/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97/</link><pubDate>Tue, 14 Oct 2025 22:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="程序员做饭指南"&gt;程序员做饭指南
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 酒中仙</title><link>https://hanguangwu.github.io/post/</link><description>Recent content in Posts on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Wed, 15 Oct 2025 17:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>MAS：一条命令永久激活Windows和Office</title><link>https://hanguangwu.github.io/p/mas%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BBwindows%E5%92%8Coffice/</link><pubDate>Wed, 15 Oct 2025 17:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/mas%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BBwindows%E5%92%8Coffice/</guid><description>&lt;h1 id="mas一条命令永久激活windows和office"&gt;MAS：一条命令永久激活Windows和Office
+&lt;/h1&gt;&lt;h2 id="简介"&gt;简介
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank" rel="noopener"
+&gt;GitHub-MAS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/1906620655807497264" target="_blank" rel="noopener"
+&gt;MAS：一条命令永久激活Windows和Office+实现原理解读&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;利用一条命令即可永久激活 Windows 和 Office，到底是如何实现的？Microsoft Activation Scripts，简称：MAS，是一个由开源社区开发并维护的项目，旨在通过一系列自动化脚本来永久激活 Windows 和 Office。注意是&amp;quot;永久激活&amp;quot;，非 KMS 180天。该程序通常被用作绕过 Microsoft 的正版验证机制，允许用户在未购买合法产品密钥的情况下使用 Windows 和 Office 正版软件。程序中的脚本和工具通常会通过对操作系统和应用程序进行特定的修改来实现激活操作。&lt;/p&gt;
+&lt;p&gt;本文介绍一下该激活命令的使用方法，并解读一下实现原理。这条命令是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;irm https://get.activated.win | iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="命令解析"&gt;&lt;strong&gt;命令解析&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;我们将命令拆解成 irm 和 iex 两部分：&lt;/p&gt;
+&lt;p&gt;irm 是 PowerShell中的别名，代表 Invoke-RestMethod，这是一个用于发送 HTTP 请求并从远程服务器获取数据的命令。它的作用是从指定的 URL 下载内容并将其返回给 PowerShell。&lt;/p&gt;
+&lt;p&gt;具体来说，这里通过 irm 向 get.activated.win 发送一个 GET 请求。该 URL 是一个远程服务器地址，提供激活脚本。请求后，服务器将返回一段包含激活信息或脚本内容的数据。&lt;/p&gt;
+&lt;p&gt;iex 是 PowerShell 中的别名，代表 Invoke-Expression，它的作用是执行作为字符串传入的 PowerShell 脚本或命令。该命令接收通过 irm 获取的内容（即返回的脚本），然后执行它。&lt;/p&gt;
+&lt;h2 id="实现原理"&gt;&lt;strong&gt;实现原理&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;当执行该命令时，PowerShell 会先向 get.activated.win 发送请求，下载服务器上托管的脚本内容：&lt;/p&gt;
+&lt;p&gt;下载的脚本内容通常会包括一些预定义的命令或代码，这些代码用于绕过 Microsoft 的产品激活机制。下载并执行该脚本后，系统会尝试通过修改激活状态或注入激活密钥等方式，激活 Windows 操作系统和 Office 应用程序。&lt;/p&gt;
+&lt;p&gt;该脚本中包含了 HWID（硬件 ID）、Ohook、KMS38、Online KMS 激活方法，至于它如何实现“永久激活”，限于篇幅，iHackSoft 将另外发文做详细剖析。&lt;/p&gt;
+&lt;h2 id="使用方法"&gt;&lt;strong&gt;使用方法&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;右键点击 Windows 开始菜单，以管理员身份运行 Windows PowerShell （注意不是 CMD）。&lt;/li&gt;
+&lt;li&gt;输入下面的代码并回车：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;irm https://get.activated.win | iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;之后会看到如下图界面，其实就是从服务器上下载了 Microsoft Activation Scripts 这个脚本：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://picx.zhimg.com/v2-8fb762b4d3479003d94e3bb9486fe267_1440w.jpg"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;p&gt;选择“1”：采用 HWID 激活方式，数字许可证永久激活Windows！需联网。&lt;/p&gt;
+&lt;p&gt;选择“2”：采用 Ohook 激活方式，通过修改一个激活dll文件，实现永久激活Office，无需联网。&lt;/p&gt;
+&lt;p&gt;选择“3”：TSForge是一款由MAS团队开发的工具，能够绕过微软的在线验证机制，实现Windows和Office的永久激活。&lt;/p&gt;
+&lt;p&gt;选择“4”：采用 KMS38 激活方式，激活 Windows/Server 到2038年，无需联网。&lt;/p&gt;
+&lt;p&gt;选择“5”： 采用 Online KMS 激活方式，激活 Windows/Server/Office 一次180天，到期自动续，需要联网。&lt;/p&gt;
+&lt;p&gt;选择相应数字，回车之后，稍等片刻，成功激活！&lt;/p&gt;</description></item><item><title>一键激活所有 JetBrains 产品</title><link>https://hanguangwu.github.io/p/%E4%B8%80%E9%94%AE%E6%BF%80%E6%B4%BB%E6%89%80%E6%9C%89-jetbrains-%E4%BA%A7%E5%93%81/</link><pubDate>Wed, 15 Oct 2025 15:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E4%B8%80%E9%94%AE%E6%BF%80%E6%B4%BB%E6%89%80%E6%9C%89-jetbrains-%E4%BA%A7%E5%93%81/</guid><description>&lt;h1 id="一键激活所有-jetbrains-产品"&gt;一键激活所有 JetBrains 产品
+&lt;/h1&gt;&lt;h2 id="简介"&gt;简介
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="http://jb.ide.to/" target="_blank" rel="noopener"
+&gt;颠覆所有——一键激活所有 JetBrains 产品&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/bertonlee/activeIdea" target="_blank" rel="noopener"
+&gt;IntelliJ IDEA 2024.3.1.1 安装激活教程(激活至2026，实际上永久，亲测！)以及常见问题处理&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="颠覆所有一键激活所有-jetbrains-产品"&gt;颠覆所有——一键激活所有 JetBrains 产品
+&lt;/h1&gt;&lt;p&gt;无需下载工具、无需安装脚本、安全便捷！只需一行命令，快速永久激活IDE&lt;/p&gt;
+&lt;p&gt;自动激活所有的 JetBrains 系列软件，无需输入激活码，一键自动完成永久激活&lt;/p&gt;
+&lt;h2 id="windows-系统"&gt;Windows 系统
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;按键盘 &lt;strong&gt;Win + X&lt;/strong&gt;，选择 &lt;strong&gt;Windows PowerShell(管理员)&lt;/strong&gt; 注意是管理员模式!&lt;/li&gt;
+&lt;li&gt;复制以下激活命令到 PowerShell 中并回车执行，就可以永久激活！（建议复制，避免手动输入错误）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;irm jb.ide.to|iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="linux-系统"&gt;Linux 系统
+&lt;/h2&gt;&lt;p&gt;复制以下激活命令到终端中执行即可：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wget --no-check-certificate jb.ide.to -O jb &amp;amp;&amp;amp; bash jb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="macos-系统"&gt;macOS 系统
+&lt;/h2&gt;&lt;p&gt;macOS 默认没安装 wget，如已安装 wget，也可用 Linux 的命令，推荐用 curl 激活命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -L -o jb jb.ide.to &amp;amp;&amp;amp; bash jb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="核心优势"&gt;核心优势
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;支持所有 JetBrains IDE 及大部分插件&lt;/li&gt;
+&lt;li&gt;自动扫描已安装产品，无需手动选择&lt;/li&gt;
+&lt;li&gt;全程自动化操作，无需复杂配置&lt;/li&gt;
+&lt;li&gt;自定义授权信息，灵活设置想显示的内容&lt;/li&gt;
+&lt;li&gt;免下载工具软件和安装脚本，安全更便捷&lt;/li&gt;
+&lt;li&gt;定期更新，适配最新版本软件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="intellij-idea-2024311-安装激活教程激活至2026实际上永久亲测以及常见问题处理"&gt;IntelliJ IDEA 2024.3.1.1 安装激活教程(激活至2026，实际上永久，亲测！)以及常见问题处理
+&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;申明：本教程 IntelliJ IDEA补丁、激活码均收集于网络，请勿商用，仅供个人学习使用，如有侵权，请联系作者删除。若条件允许，希望大家购买正版 ！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="卸载老版本-idea"&gt;卸载老版本 IDEA
+&lt;/h2&gt;&lt;p&gt;首先，如果小伙伴的电脑上有安装老版本的 IDEA , 需要将其彻底卸载掉，如下所示（没有安装则不用管，直接安装即可）： &lt;strong&gt;TIP&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果你之前使用过本站提供的 激活到 2025 年版本脚本，需要执行对应卸载脚本 &lt;code&gt;/适用2024版本/JetBrains 2023 最新全家桶/jetbra /scripts/uninstall-all-users.vbs&lt;/code&gt;，将自动添加的环境变量删除（若没使用过，则可忽略，继续下面的步骤）；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="一下载-idea-安装包"&gt;一、下载 IDEA 安装包
+&lt;/h3&gt;&lt;p&gt;访问 &lt;a class="link" href="https://www.jetbrains.com/idea/download" target="_blank" rel="noopener"
+&gt;IntelliJ IDEA 官网&lt;/a&gt; 下载适合您的版本。&lt;/p&gt;
+&lt;p&gt;也可以直接点击 &lt;a class="link" href="https://pan.quark.cn/s/b4045980d3ad" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;IntelliJ IDEA 安装包 这里&lt;/strong&gt;&lt;/a&gt; 下载 IDEA 安装包，更加方便快捷。 &lt;a class="link" href="https://camo.githubusercontent.com/aa4a4539847d79c2d027a14bf54ea3e4664bac81aa5aa9c8eddfa7326235aa2d/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d393332353038373833666339626233382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/aa4a4539847d79c2d027a14bf54ea3e4664bac81aa5aa9c8eddfa7326235aa2d/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d393332353038373833666339626233382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="下载页面示意图"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="二安装-idea"&gt;二、安装 IDEA
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;打开下载好的安装包，按照提示完成安装。 &lt;a class="link" href="https://camo.githubusercontent.com/32539b30fbff6b75096f876898557fd04e451f63b93cababdfdd569b405420b8/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d306465636562323036383436393464372e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/32539b30fbff6b75096f876898557fd04e451f63b93cababdfdd569b405420b8/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d306465636562323036383436393464372e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/a&gt; 自定义安装路径，我这里安装在了 E:\ 盘下，继续点击下一步按钮： &lt;a class="link" href="https://camo.githubusercontent.com/8486fed77a11cd4ebf9c9ebf28346321caf1ba47ac0d93db306bf7609464eeb8/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d303763346436646263636636663361612e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/8486fed77a11cd4ebf9c9ebf28346321caf1ba47ac0d93db306bf7609464eeb8/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d303763346436646263636636663361612e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://camo.githubusercontent.com/f0b73b25066c58c5340aee49a510eb5f6aae60afb83a2badf0e2129d095e9de0/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d653062353830303964383062613538332e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/f0b73b25066c58c5340aee49a510eb5f6aae60afb83a2badf0e2129d095e9de0/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d653062353830303964383062613538332e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;安装完成后，&lt;strong&gt;暂时不要启动程序&lt;/strong&gt;，直接关闭它。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id="三补丁安装步骤"&gt;三、补丁安装步骤
+&lt;/h3&gt;&lt;h4 id="1-下载补丁"&gt;1. 下载补丁
+&lt;/h4&gt;&lt;p&gt;点击以下链接获取补丁：&lt;a class="link" href="https://pan.quark.cn/s/b4045980d3ad" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;点击获取补丁文件&lt;/strong&gt;&lt;/a&gt;。 &lt;a class="link" href="https://camo.githubusercontent.com/8b24915fd4370ecdd29ab880ab2c84e9df338dd20cafdef33b26fa09e920c43a/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d633637373830626538313664366364362e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/8b24915fd4370ecdd29ab880ab2c84e9df338dd20cafdef33b26fa09e920c43a/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d633637373830626538313664366364362e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="补丁下载示意图"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id="2-配置激活补丁"&gt;2. 配置激活补丁
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;解压补丁文件后， 打开如图标注文件夹 &lt;a class="link" href="https://camo.githubusercontent.com/44f15ea9bc994271e0986d1026d49f24ae23f9772860c9a09033c9ee61ca0832/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d336561633230646436323938373062382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/44f15ea9bc994271e0986d1026d49f24ae23f9772860c9a09033c9ee61ca0832/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d336561633230646436323938373062382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将 &lt;code&gt;/jetbra&lt;/code&gt; 文件夹单独拷贝并存放在 &lt;strong&gt;路径无中文或空格&lt;/strong&gt; 的目录中。笔者这边放在&lt;code&gt;E:\&lt;/code&gt;盘下&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开 &lt;code&gt;/jetbra/scripts&lt;/code&gt;，运行对应的激活脚本，点击【&lt;strong&gt;确定&lt;/strong&gt;】，等待提示 &lt;strong&gt;Done&lt;/strong&gt; 即完成激活。 &lt;a class="link" href="https://camo.githubusercontent.com/2b06bc671db36ac6cc95c3f42ef2da8fa992f54a8e7d27dbed8351ac9bfaca09/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d383939323439363338386362323238652e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/2b06bc671db36ac6cc95c3f42ef2da8fa992f54a8e7d27dbed8351ac9bfaca09/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d383939323439363338386362323238652e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="激活成功示意图"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="四输入激活码"&gt;四、输入激活码
+&lt;/h3&gt;&lt;p&gt;激活完成后，启动 IDEA，输入以下激活码：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;打开如图标注文件 &lt;a class="link" href="https://camo.githubusercontent.com/aea6689f76d8b1a7d2dfdc04089581d3de034ea9a918c4a84bd8c6ce49ece3da/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d613033613336306565333736663565312e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/aea6689f76d8b1a7d2dfdc04089581d3de034ea9a918c4a84bd8c6ce49ece3da/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d613033613336306565333736663565312e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="激活码输入示意图"
+&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;复制代码&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;6G5NXCPJZB-eyJsaWNlbnNlSWQiOiI2RzVOWENQSlpCIiw...&lt;/code&gt; &lt;a class="link" href="https://camo.githubusercontent.com/5ef3e1ea37d92aa6ecdccf240bf8fadbfd6e8ff2f5173ee3637cb0ed318988c4/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d626365633739373563333065656661382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/5ef3e1ea37d92aa6ecdccf240bf8fadbfd6e8ff2f5173ee3637cb0ed318988c4/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d626365633739373563333065656661382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;温馨提示&lt;/strong&gt;：如果显示激活时间为 2026 年，其实是&lt;strong&gt;永久有效&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="五常见问题及解决方法"&gt;五、常见问题及解决方法
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;显示 “Key is invalid” 或者无法激活&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确保 &lt;code&gt;/jetbra&lt;/code&gt; 文件夹路径无中文或空格，且未被删除。&lt;/li&gt;
+&lt;li&gt;核对激活码是否完整复制。&lt;/li&gt;
+&lt;li&gt;若仍无法解决，建议回退到 1.x 版本再尝试激活。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;激活提示 “区域限制”&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;注意，2024.2 之后的版本，若初次安装，会提示选择所在区域，如下图所示，如果选择了 &lt;code&gt;China Mainland&lt;/code&gt;，会反复跳出激活码并提示无效，原因是新版本会拦截 .cn 域名，导致许可被吊销，所以，千万不要指定区域！！ &lt;a class="link" href="https://camo.githubusercontent.com/3ae12b37dfedd11e8690bf968b0b50312a199078821c04685ecacade59354149/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d343463306632393536373561626464392e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/3ae12b37dfedd11e8690bf968b0b50312a199078821c04685ecacade59354149/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303237303632342d343463306632393536373561626464392e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="区域选择提示"
+&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;如果是老用户，则可以在设置菜单中来更改（一定要更改）： &lt;a class="link" href="https://camo.githubusercontent.com/248a791d4382fb797febf35503175a06ed4099e7ae4c4840ab72839af5c322c5/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d633138373963653838393934643938642e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/248a791d4382fb797febf35503175a06ed4099e7ae4c4840ab72839af5c322c5/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f33303135333031322d633138373963653838393934643938642e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430"
+loading="lazy"
+alt="image.png"
+&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;通过以上步骤，您已经成功安装IDEA 2024。让更多人受益！ 😊&lt;/p&gt;</description></item><item><title>新机必备——删除预装软件的程序Win11Debloat</title><link>https://hanguangwu.github.io/p/%E6%96%B0%E6%9C%BA%E5%BF%85%E5%A4%87%E5%88%A0%E9%99%A4%E9%A2%84%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%A8%8B%E5%BA%8Fwin11debloat/</link><pubDate>Wed, 15 Oct 2025 12:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E6%96%B0%E6%9C%BA%E5%BF%85%E5%A4%87%E5%88%A0%E9%99%A4%E9%A2%84%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%A8%8B%E5%BA%8Fwin11debloat/</guid><description>&lt;h1 id="新机必备win11debloat"&gt;新机必备——Win11Debloat
+&lt;/h1&gt;&lt;h2 id="简介"&gt;简介
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/Raphire/Win11Debloat" target="_blank" rel="noopener"
+&gt;A simple, lightweight PowerShell script to remove pre-installed apps, disable telemetry, as well as perform various other changes to customize, declutter and improve your Windows experience. Win11Debloat works for both Windows 10 and Windows 11.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a class="link" href="https://github.com/Raphire/Win11Debloat" target="_blank" rel="noopener"
+&gt;Win11Debloat&lt;/a&gt;&lt;/strong&gt; 是由 &lt;a class="link" href="https://github.com/Raphire" target="_blank" rel="noopener"
+&gt;Jeffrey Raphire&lt;/a&gt; 開發的一款簡單、易用且輕量的 PowerShell 腳本，僅需一鍵即可刪除預先安裝的 Windows 膨脹軟體，使用 Win11Debloat，使用者可以停用遙測功能，並透過移除侵入性介面元素、廣告和右鍵功能表項目來簡化使用體驗。&lt;/p&gt;
+&lt;p&gt;Windows 10 / 11 作業系統中預先安裝了大量的膨脹軟體應用程式和功能，這些應用程式和功能可能會影響系統的效能和使用者體驗，我們可藉由 Win11Debloat 來一鍵優化您的 Windows 10 / 11 作業系統。&lt;/p&gt;
+&lt;p&gt;Win11Debloat 不需要手動檢視所有設定或逐一移除應用程式，而是簡化流程，讓您移除大部分預先安裝在作業系統中的應用程式，從而為您找回大量的可用空間。雖然腳本會刪除大部分預先安裝的應用程式，但請注意有些應用程式無法依預設移除，包括 Microsoft People、Microsoft XBox App 或 Microsoft YourPhone。&lt;/p&gt;
+&lt;p&gt;腳本的其他值得注意的功能包括在 Windows 搜尋中停用 Bing、透過隱藏某些資料夾來清理檔案總管，以及停用常見於設定、開始功能表或鎖定螢幕中的提示和建議。上述的清理是針對 Windows 11 所做的，而 Windows 10 則是針對額外的功能，例如從右鍵功能表中移除「授予存取權限」、「包含在資料庫」和「分享」。&lt;/p&gt;
+&lt;h2 id="win11debloat--一鍵刪除-windows-預先安裝的膨脹軟體"&gt;Win11Debloat – 一鍵刪除 Windows 預先安裝的膨脹軟體
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Win11Debloat 使用教學簡介：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Win11Debloat 不需要任何安裝過程或額外的 DLL 檔，將下載的壓縮檔解壓縮後直接執行批次檔 Run.bat 即可使用。&lt;/p&gt;
+&lt;p&gt;連按兩下 Run.bat 檔案啟動腳本。接受 Windows UAC 提示，以系統管理員身分執行腳本，這是腳本運作的必要條件。將會開啟一個新的 PowerShell 視窗，顯示 Win11Debloat 選單。建議選擇「預設模式」或「自訂模式」繼續。&lt;/p&gt;
+&lt;p&gt;(1) 預設模式: 套用預設設定（Default mode: Apply the default settings）&lt;/p&gt;
+&lt;p&gt;(2) 自訂模式: 根據您的需求修改腳本（Custom mode: Modify the script to your needs）&lt;/p&gt;
+&lt;p&gt;(3) 移除應用程式模式: 選擇並移除應用程式，無需進行其他變更（App removal mode: Select &amp;amp; remove apps, without making other changes）&lt;/p&gt;
+&lt;p&gt;(0) 顯示更多資訊（Show more information）&lt;/p&gt;
+&lt;p&gt;一般建議可以直接輸入 1 利用預設模式一鍵就能刪除 Windows 預先安裝的膨脹軟體，預設模式可讓您快速輕鬆地套用建議大多數使用者使用的變更，輸入 1 按下 Enter 顯示底下畫面&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_1.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Win11Debloat 會進行以下變更（Win11Debloat will make the following changes）:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;– 移除預設選擇的應用程式，清單可在「Appslist.txt」檔案中找到（Remove the default selection of apps, the list can be found in the ‘Appslist.txt’ file.）&lt;br&gt;
+– 停用遙測、診斷資料、活動歷程記錄、應用程式啟動追蹤和目標廣告（Disable telemetry, diagnostic data, app-launch tracking &amp;amp; targeted ads.）&lt;br&gt;
+– 停用和移除 Windows 搜尋中的 Bing 搜尋和 Cortana（Disable &amp;amp; remove Bing search &amp;amp; Cortana in Windows search.）&lt;br&gt;
+– 停用鎖定畫面上的提示與技巧 (這可能會變更您的鎖定畫面桌布)（Disable tips &amp;amp; tricks on the lockscreen. (This may change your lockscreen wallpaper)）&lt;br&gt;
+– 停用「開始」、「設定」、「通知」、「檔案總管」等中的提示、技巧、建議和廣告（Disable tips, tricks, suggestions and ads in start, settings, notifications and more.）&lt;br&gt;
+– 停用 Windows Copilot (Windows 11 組建 22621+)（Disable Windows Copilot. (Windows 11 build 22621+)）&lt;br&gt;
+– 顯示已知檔案類型的副檔名（Show file extensions for known file types.）&lt;br&gt;
+– 停用小工具服務並從工作列隱藏圖示（Disable the widget service &amp;amp; hide the icon from the taskbar.）&lt;br&gt;
+– 從工作列隱藏聊天 (立即開會) 圖示（Hide the Chat (meet now) icon from the taskbar.）&lt;br&gt;
+– 隱藏 Windows 檔案總管中的 3D 物件資料夾 (僅限 Windows 10)（Hide the 3D objects folder in Windows Explorer. (Windows 10 only)）&lt;/p&gt;
+&lt;p&gt;按下 Enter 執行腳本，或按下 CTRL+C 結束（Press enter to execute the script or press CTRL+C to quit）…&lt;/p&gt;
+&lt;p&gt;一旦按下 Enter 執行腳本之後，等待腳本執行完成後將顯示訊息「Script completed successfully!」代表已成功完成，即可按下任何鍵結束。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_1_1.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;輸入 2 進入自訂模式，出現底下主畫面&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_2.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;選項（Options）：&lt;br&gt;
+(n) 不移除任何應用程式（Don’t remove any apps）&lt;br&gt;
+(1) 只移除「Appslist.txt」中預設選擇的膨脹軟體應用程式（Only remove the default selection of bloatware apps from ‘Appslist.txt’）&lt;br&gt;
+(2) 移除預設選取的膨脹軟體應用程式、郵件與行事曆應用程式、開發者應用程式和遊戲應用程式（Remove default selection of bloatware apps, aswell as mail &amp;amp; calendar apps, developer apps and gaming apps）&lt;br&gt;
+(3) 選擇要移除和保留的應用程式（Select which apps to remove and which to keep）&lt;br&gt;
+移除任何預先安裝的應用程式（Remove any pre-installed apps）? (n/1/2/3):&lt;/p&gt;
+&lt;p&gt;根據您的需求來選擇輸入，倘若輸入 3 會顯示底下的主畫面&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_3.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;勾選右下角「Only show installed apps」僅顯示本台電腦已安裝的應用程式，根據您的需求勾選要刪除的軟體，也可以利用勾選左上方的核取方塊「Check/Uncheck all」來全部勾選或取消全部勾選，確認好之後再按下左下角的 [Confirm] 按鈕之後繼續進行移除工作。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_3_1.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;輸入 3 移除應用程式模式後會列出此軟體預設要移除的應用程式&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_3.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;勾選右下角「Only show installed apps」僅顯示本台電腦已安裝的應用程式，根據您的需求勾選要刪除的軟體，也可以利用勾選左上方的核取方塊「Check/Uncheck all」來全部勾選或取消全部勾選，確認好之後再按下左下角的 [Confirm] 按鈕之後繼續進行移除工作。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_3_1.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;輸入 0 顯示以下更多的詳細資訊，再按下任何鍵返回主畫面&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://zhtwnet.com/wp-content/uploads/2025/01/Win11Debloat_0.jpg"
+loading="lazy"
+alt="Win11Debloat"
+&gt;&lt;/p&gt;
+&lt;p&gt;建議您在使用 Win11Debloat 應用程式之前先建立還原點，以防遇到問題。&lt;/p&gt;
+&lt;p&gt;Win11Debloat 所做的所有變更都可以輕鬆還原，幾乎所有的應用程式都可以透過 Microsoft Store 重新安裝。&lt;/p&gt;</description></item><item><title>程序员做饭指南</title><link>https://hanguangwu.github.io/p/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97/</link><pubDate>Tue, 14 Oct 2025 22:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%81%9A%E9%A5%AD%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="程序员做饭指南"&gt;程序员做饭指南
 &lt;/h1&gt;&lt;h2 id="简介"&gt;简介
 &lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://cook.aiursoft.cn/" target="_blank" rel="noopener"
 &gt;程序员在家做饭方法指南&lt;/a&gt;&lt;/p&gt;

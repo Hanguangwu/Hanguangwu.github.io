@@ -5,7 +5,8 @@
 &lt;p&gt;&lt;a class="link" href="https://rnote.flxzt.net/" target="_blank" rel="noopener"
 &gt;&lt;strong&gt;Rnote&lt;/strong&gt; Official Website&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Sketch and take handwritten notes.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Sketch and take handwritten notes.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Rnote is an open-source vector-based drawing app for sketching, handwritten notes and to annotate documents and pictures. It is targeted at students, teachers and those who own a drawing tablet and provides features like Pdf and picture import and export, an infinite canvas and an adaptive UI for big and small screens.&lt;/p&gt;
 &lt;p&gt;Written in Rust and GTK4.&lt;/p&gt;
 &lt;h2 id="features"&gt;&lt;strong&gt;Features&lt;/strong&gt;

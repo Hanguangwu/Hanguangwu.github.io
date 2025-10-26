@@ -1,0 +1,316 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="Win11Debloat is a simple, easy to use and lightweight PowerShell script that allows you to quickly declutter and improve your Windows experience."><title>How to use Win11Debloat to declutter and improve your Windows experience</title><link rel=canonical href=https://hanguangwu.github.io/en/p/how-to-use-win11debloat-to-declutter-and-improve-your-windows-experience/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="How to use Win11Debloat to declutter and improve your Windows experience"><meta property='og:description' content="Win11Debloat is a simple, easy to use and lightweight PowerShell script that allows you to quickly declutter and improve your Windows experience."><meta property='og:url' content='https://hanguangwu.github.io/en/p/how-to-use-win11debloat-to-declutter-and-improve-your-windows-experience/'><meta property='og:site_name' content='Hanguangwu'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='GitHub'><meta property='article:tag' content='Windows'><meta property='article:published_time' content='2025-10-15T12:34:25-08:00'><meta property='article:modified_time' content='2025-10-15T12:34:25-08:00'><meta name=twitter:title content="How to use Win11Debloat to declutter and improve your Windows experience"><meta name=twitter:description content="Win11Debloat is a simple, easy to use and lightweight PowerShell script that allows you to quickly declutter and improve your Windows experience."><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/en/><img src=/img/avatar_hu_87c447eca4cd56e0.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/en>Hanguangwu</a></h1><h2 class=site-description>Welcome to my blog - exploring new era.</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/en/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/en/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/en/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/en/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/en/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/>中文</option><option value=https://hanguangwu.github.io/en/ selected>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#introduction>Introduction</a></li><li><a href=#usage>Usage</a><ol><li><a href=#quick-method>Quick method</a></li><li><a href=#traditional-method>Traditional method</a></li><li><a href=#advanced-method>Advanced method</a></li></ol></li><li><a href=#features>Features</a><ol><li><ol><li><a href=#app-removal>App Removal</a></li><li><a href=#telemetry-tracking--suggested-content>Telemetry, Tracking & Suggested Content</a></li><li><a href=#bing-web-search-copilot--ai-features>Bing Web Search, Copilot & AI Features</a></li><li><a href=#personalisation>Personalisation</a></li><li><a href=#file-explorer>File Explorer</a></li><li><a href=#taskbar>Taskbar</a></li><li><a href=#start>Start</a></li><li><a href=#other>Other</a></li></ol></li><li><a href=#default-settings>Default Settings</a><ol><li><a href=#changes-included-in-the-default-mode>Changes included in the default mode</a></li><li><a href=#apps-that-are-removed-by-default>Apps that ARE removed by default</a></li><li><a href=#apps-that-are-not-removed-by-default>Apps that are NOT removed by default</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/en/categories/app/>APP</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/en/p/how-to-use-win11debloat-to-declutter-and-improve-your-windows-experience/>How to use Win11Debloat to declutter and improve your Windows experience</a></h2><h3 class=article-subtitle>Win11Debloat is a simple, easy to use and lightweight PowerShell script that allows you to quickly declutter and improve your Windows experience.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Oct 15, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>10 minute read</time></div></footer><footer class=article-translations><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg><div><a href=https://hanguangwu.github.io/p/%E6%96%B0%E6%9C%BA%E5%BF%85%E5%A4%87%E5%88%A0%E9%99%A4%E9%A2%84%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%A8%8B%E5%BA%8Fwin11debloat/ class=link>中文</a></div></footer></div></header><section class=article-content><h1 id=win11debloat>Win11Debloat</h1><h2 id=introduction>Introduction</h2><p><a class=link href=https://github.com/Raphire/Win11Debloat target=_blank rel=noopener>GitHub-Win11Debloat</a></p><p>Win11Debloat is a simple, easy to use and lightweight PowerShell script that allows you to quickly declutter and improve your Windows experience. It can remove pre-installed bloatware apps, disable telemetry, remove intrusive interface elements and much more. No need to painstakingly go through all the settings yourself or remove apps one by one. Win11Debloat makes the process quick and easy!</p><p>The script also includes many features that system administrators will enjoy. Such as support for Windows Audit mode, the option to make changes to other Windows users and the ability to run the script without requiring user input during runtime. Please refer to our <a class=link href=https://github.com/Raphire/Win11Debloat/wiki/ target=_blank rel=noopener>wiki</a> for more details.</p><p><a class=link href=https://github.com/Raphire/Win11Debloat/blob/master/Assets/menu.png target=_blank rel=noopener><img src=https://github.com/Raphire/Win11Debloat/raw/master/Assets/menu.png loading=lazy alt="Win11Debloat Menu"></a></p><h2 id=usage>Usage</h2><p>Great care went into making sure this script does not unintentionally break any OS functionality, but use at your own risk! If you run into any issues, please report them <a class=link href=https://github.com/Raphire/Win11Debloat/issues target=_blank rel=noopener>here</a>.</p><h3 id=quick-method>Quick method</h3><p>Download & run the script automatically via PowerShell.</p><ol><li>Open PowerShell or Terminal, preferably as an administrator.</li><li>Copy and paste the command below into PowerShell:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=p>&amp;</span> <span class=p>([</span><span class=no>scriptblock</span><span class=p>]::</span><span class=n>Create</span><span class=p>((</span><span class=nb>irm </span><span class=s2>&#34;https://debloat.raphi.re/&#34;</span><span class=p>)))</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=3><li>Wait for the script to automatically download Win11Debloat.</li><li>Carefully read through and follow the on-screen instructions.</li></ol><p>This method supports command-line parameters to customize the behaviour of the script. Please click <a class=link href=https://github.com/Raphire/Win11Debloat/wiki/How-To-Use#parameters target=_blank rel=noopener>here</a> for more information.</p><h3 id=traditional-method>Traditional method</h3><p>Manually download & run the script.</p><ol><li><a class=link href=https://github.com/Raphire/Win11Debloat/releases/latest target=_blank rel=noopener>Download the latest version of the script</a>, and extract the .ZIP file to your desired location.</li><li>Navigate to the Win11Debloat folder</li><li>Double click the <code>Run.bat</code> file to start the script. NOTE: If the console window immediately closes and nothing happens, try the advanced method below.</li><li>Accept the Windows UAC prompt to run the script as administrator, this is required for the script to function.</li><li>Carefully read through and follow the on-screen instructions.</li></ol><h3 id=advanced-method>Advanced method</h3><p>Manually download the script & run the script via PowerShell. Recommended for advanced users.</p><ol><li><a class=link href=https://github.com/Raphire/Win11Debloat/releases/latest target=_blank rel=noopener>Download the latest version of the script</a>, and extract the .ZIP file to your desired location.</li><li>Open PowerShell or Terminal as an administrator.</li><li>Temporarily enable PowerShell execution by entering the following command:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=nb>Set-ExecutionPolicy</span> <span class=n>Unrestricted</span> <span class=n>-Scope</span> <span class=k>Process</span> <span class=n>-Force</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=4><li>In PowerShell, navigate to the directory where the files were extracted. Example: <code>cd c:\Win11Debloat</code></li><li>Now run the script by entering the following command:</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=p>.\</span><span class=n>Win11Debloat</span><span class=p>.</span><span class=py>ps1</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=6><li>Carefully read through and follow the on-screen instructions.</li></ol><p>This method supports command-line parameters to customize the behaviour of the script. Please click <a class=link href=https://github.com/Raphire/Win11Debloat/wiki/How-To-Use#parameters target=_blank rel=noopener>here</a> for more information.</p><h2 id=features>Features</h2><p>Below is an overview of the key features and functionality offered by Win11Debloat. For more information about what features are included in the default mode please refer to <a class=link href=https://github.com/Raphire/Win11Debloat#default-settings target=_blank rel=noopener>this section</a> below.</p><p>All of the changes made by Win11Debloat can easily be reverted and almost all of the apps can be reinstalled through the Microsoft Store. A full guide on how to revert changes can be found <a class=link href=https://github.com/Raphire/Win11Debloat/wiki/Reverting-Changes target=_blank rel=noopener>here</a>.</p><h4 id=app-removal>App Removal</h4><ul><li>Remove a wide variety of preinstalled apps. Click <a class=link href=https://github.com/Raphire/Win11Debloat/wiki/App-Removal target=_blank rel=noopener>here</a> for more info.</li><li>Remove or replace all pinned apps from start for the current user, or for all existing & new users. (W11 only)</li></ul><h4 id=telemetry-tracking--suggested-content>Telemetry, Tracking & Suggested Content</h4><ul><li>Disable telemetry, diagnostic data, activity history, app-launch tracking & targeted ads.</li><li>Disable tips, tricks, suggestions & ads across Windows.</li><li>Disable ads, suggestions and the MSN news feed in Microsoft Edge.</li><li>Disable the &lsquo;Windows Spotlight&rsquo; desktop background option.</li></ul><h4 id=bing-web-search-copilot--ai-features>Bing Web Search, Copilot & AI Features</h4><ul><li>Disable & remove Bing web search, Bing AI and Cortana from Windows search.</li><li>Disable & remove Microsoft Copilot.</li><li>Disable Windows Recall. (W11 only)</li><li>Disable Click to Do, AI text & image analysis tool. (W11 only)</li><li>Disable AI Features in Edge. (W11 only)</li><li>Disable AI Features in Paint. (W11 only)</li><li>Disable AI Features in Notepad. (W11 only)</li></ul><h4 id=personalisation>Personalisation</h4><ul><li>Enable dark mode for system and apps.</li><li>Disable transparency, animations and visual effects.</li><li>Turn off Enhance Pointer Precision, also known as mouse acceleration.</li><li>Disable the Sticky Keys keyboard shortcut. (W11 only)</li><li>Restore the old Windows 10 style context menu. (W11 only)</li><li>Hide the &lsquo;Include in library&rsquo;, &lsquo;Give access to&rsquo; and &lsquo;Share&rsquo; options from the context menu. (W10 only)</li></ul><h4 id=file-explorer>File Explorer</h4><ul><li>Change the default location that File Explorer opens to.</li><li>Show hidden files, folders and drives.</li><li>Show file extensions for known file types.</li><li>Hide the Home or Gallery section from the File Explorer navigation pane. (W11 only)</li><li>Hide the 3D objects, music or OneDrive folder from the File Explorer navigation pane. (W10 only)</li><li>Hide duplicate removable drive entries from the File Explorer navigation pane, so only the entry under &lsquo;This PC&rsquo; remains.</li></ul><h4 id=taskbar>Taskbar</h4><ul><li>Align taskbar icons to the left. (W11 only)</li><li>Choose combine mode for taskbar buttons and labels. (W11 only)</li><li>Choose how app icons are shown on the taskbar when using multiple monitors. (W11 only)</li><li>Hide or change the search icon/box on the taskbar. (W11 only)</li><li>Hide the taskview button from the taskbar. (W11 only)</li><li>Disable widgets on the taskbar & lockscreen.</li><li>Hide the chat (meet now) icon from the taskbar. (W10 only)</li><li>Enable the &lsquo;End Task&rsquo; option in the taskbar right click menu. (W11 only)</li><li>Enable the &lsquo;Last Active Click&rsquo; behavior in the taskbar app area. This allows you to repeatedly click on an application&rsquo;s icon in the taskbar to switch focus between the open windows of that application.</li></ul><h4 id=start>Start</h4><ul><li>Disable the recommended section in the start menu. (W11 only)</li><li>Disable the Phone Link mobile devices integration in the start menu. (W11 only)</li></ul><h4 id=other>Other</h4><ul><li>Disable Xbox game/screen recording, this also stops gaming overlay popups.</li><li>Disable Fast Start-up to ensure a full shutdown.</li><li>Disable network connectivity during Modern Standby to reduce battery drain. (W11 only)</li><li>Option to <a class=link href=https://github.com/Raphire/Win11Debloat/wiki/Advanced-Features#running-as-another-user target=_blank rel=noopener>apply changes to a different user</a>, instead of the currently logged in user.</li><li><a class=link href=https://github.com/Raphire/Win11Debloat/wiki/Advanced-Features#sysprep-mode target=_blank rel=noopener>Sysprep mode</a> to apply changes to the Windows Default user profile. Afterwards, all new users will have the changes automatically applied to them.</li></ul><h3 id=default-settings>Default Settings</h3><p>Win11Debloat&rsquo;s default mode allows you to quickly and easily apply the changes that are recommended for most people. This includes removing many annoying distractions, disabling telemetry and tracking and optionally uninstalling the default or your custom selection of apps. To apply the default settings, launch the script as you normally would and select option <code>1</code> in the script menu.</p><p>Alternatively, you can launch the script with the <code>-RunDefaults</code> or <code>-RunDefaultsLite</code> parameters to immediately run the defaults without going through the menu or the app removal options. Using the <code>-RunDefaults</code> parameter will run the script in default mode and remove the default selection of apps. While using the <code>-RunDefaultsLite</code> parameter will run the script in default mode without removing any apps. Example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=line><span class=cl><span class=p>&amp;</span> <span class=p>([</span><span class=no>scriptblock</span><span class=p>]::</span><span class=n>Create</span><span class=p>((</span><span class=nb>irm </span><span class=s2>&#34;https://debloat.raphi.re/&#34;</span><span class=p>)))</span> <span class=n>-RunDefaults</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=changes-included-in-the-default-mode>Changes included in the default mode</h4><ul><li>Remove the default or your custom selection of apps. (See below for the default selection of apps)</li><li>Disable telemetry, diagnostic data, activity history, app-launch tracking & targeted ads.</li><li>Disable tips, tricks, suggestions & ads across Windows.</li><li>Disable ads, suggestions and the MSN news feed in Microsoft Edge.</li><li>Disable & remove Bing web search, Bing AI and Cortana from Windows search.</li><li>Disable & remove Microsoft Copilot.</li><li>Disable Windows Recall. (W11 only)</li><li>Disable Click to Do, AI text & image analysis tool. (W11 only)</li><li>Disable Fast Start-up to ensure a full shutdown.</li><li>Disable network connectivity during Modern Standby to reduce battery drain. (W11 only)</li><li>Show file extensions for known file types.</li><li>Hide the 3D objects folder under &lsquo;This pc&rsquo; from File Explorer. (W10 only)</li><li>Disable widgets on the taskbar & lockscreen.</li><li>Hide the Chat (meet now) icon from the taskbar. (W10 only)</li></ul><h4 id=apps-that-are-removed-by-default>Apps that ARE removed by default</h4><p>These apps are uninstalled when you opt to remove the default selection of apps.</p><p>Click to expand</p><blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span><span class=lnt>92
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=n>Microsoft</span> <span class=n>apps</span><span class=p>:</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Clipchamp</span><span class=o>.</span><span class=n>Clipchamp</span> <span class=p>(</span><span class=n>Video</span> <span class=n>editor</span> <span class=n>from</span> <span class=n>Microsoft</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=mi>3</span><span class=n>DBuilder</span> <span class=p>(</span><span class=n>Basic</span> <span class=mi>3</span><span class=n>D</span> <span class=n>modeling</span> <span class=n>software</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=mi>549981</span><span class=n>C3F5F10</span> <span class=p>(</span><span class=n>Cortana</span> <span class=n>app</span><span class=p>,</span> <span class=n>discontinued</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingFinance</span> <span class=p>(</span><span class=n>Finance</span> <span class=n>news</span> <span class=ow>and</span> <span class=n>tracking</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>,</span> <span class=n>discontinued</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingFoodAndDrink</span> <span class=p>(</span><span class=n>Recipes</span> <span class=ow>and</span> <span class=n>food</span> <span class=n>news</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>,</span> <span class=n>discontinued</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingHealthAndFitness</span> <span class=p>(</span><span class=n>Health</span> <span class=ow>and</span> <span class=n>fitness</span> <span class=n>tracking</span><span class=o>/</span><span class=n>news</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>,</span> <span class=n>discontinued</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingNews</span> <span class=p>(</span><span class=n>News</span> <span class=n>aggregator</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>,</span> <span class=n>replaced</span> <span class=n>by</span> <span class=n>Microsoft</span> <span class=n>News</span><span class=o>/</span><span class=n>Start</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingSports</span> <span class=p>(</span><span class=n>Sports</span> <span class=n>news</span> <span class=ow>and</span> <span class=n>scores</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>,</span> <span class=n>discontinued</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingTranslator</span> <span class=p>(</span><span class=ne>Translation</span> <span class=n>service</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingTravel</span> <span class=p>(</span><span class=n>Travel</span> <span class=n>planning</span> <span class=ow>and</span> <span class=n>news</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>,</span> <span class=n>discontinued</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>BingWeather</span> <span class=p>(</span><span class=n>Weather</span> <span class=n>forecast</span> <span class=n>via</span> <span class=n>Bing</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Copilot</span> <span class=p>(</span><span class=n>AI</span> <span class=n>assistant</span> <span class=n>integrated</span> <span class=n>into</span> <span class=n>Windows</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Getstarted</span> <span class=p>(</span><span class=n>Tips</span> <span class=ow>and</span> <span class=n>introductory</span> <span class=n>guide</span> <span class=k>for</span> <span class=n>Windows</span><span class=p>,</span> <span class=n>cannot</span> <span class=n>be</span> <span class=n>uninstalled</span> <span class=ow>in</span> <span class=n>Windows</span> <span class=mi>11</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Messaging</span> <span class=p>(</span><span class=n>Messaging</span> <span class=n>app</span><span class=p>,</span> <span class=n>often</span> <span class=n>integrates</span> <span class=n>with</span> <span class=n>Skype</span><span class=p>,</span> <span class=n>largely</span> <span class=n>deprecated</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Microsoft3DViewer</span> <span class=p>(</span><span class=n>Viewer</span> <span class=k>for</span> <span class=mi>3</span><span class=n>D</span> <span class=n>models</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>MicrosoftJournal</span> <span class=p>(</span><span class=n>Digital</span> <span class=n>note</span><span class=o>-</span><span class=n>taking</span> <span class=n>app</span> <span class=n>optimized</span> <span class=k>for</span> <span class=n>pen</span> <span class=n>input</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>MicrosoftOfficeHub</span> <span class=p>(</span><span class=n>Hub</span> <span class=n>to</span> <span class=n>access</span> <span class=n>Microsoft</span> <span class=n>Office</span> <span class=n>apps</span> <span class=ow>and</span> <span class=n>documents</span><span class=p>,</span> <span class=n>precursor</span> <span class=n>to</span> <span class=n>Microsoft</span> <span class=mi>365</span> <span class=n>app</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>MicrosoftPowerBIForWindows</span> <span class=p>(</span><span class=n>Business</span> <span class=n>analytics</span> <span class=n>service</span> <span class=n>client</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>MicrosoftSolitaireCollection</span> <span class=p>(</span><span class=n>Collection</span> <span class=n>of</span> <span class=n>solitaire</span> <span class=n>card</span> <span class=n>games</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>MicrosoftStickyNotes</span> <span class=p>(</span><span class=n>Digital</span> <span class=n>sticky</span> <span class=n>notes</span> <span class=n>app</span><span class=p>,</span> <span class=n>deprecated</span> <span class=o>&amp;</span> <span class=n>replaced</span> <span class=n>by</span> <span class=n>OneNote</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>MixedReality</span><span class=o>.</span><span class=n>Portal</span> <span class=p>(</span><span class=ne>Portal</span> <span class=k>for</span> <span class=n>Windows</span> <span class=n>Mixed</span> <span class=n>Reality</span> <span class=n>headsets</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>NetworkSpeedTest</span> <span class=p>(</span><span class=n>Internet</span> <span class=n>connection</span> <span class=n>speed</span> <span class=n>test</span> <span class=n>utility</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>News</span> <span class=p>(</span><span class=n>News</span> <span class=n>aggregator</span><span class=o>.</span> <span class=n>Replaced</span> <span class=n>Bing</span> <span class=n>News</span> <span class=ow>and</span> <span class=n>now</span> <span class=n>part</span> <span class=n>of</span> <span class=n>Microsoft</span> <span class=n>Start</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Office</span><span class=o>.</span><span class=n>OneNote</span> <span class=p>(</span><span class=n>Digital</span> <span class=n>note</span><span class=o>-</span><span class=n>taking</span> <span class=n>app</span><span class=p>,</span> <span class=n>Universal</span> <span class=n>Windows</span> <span class=n>Platform</span> <span class=n>version</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Office</span><span class=o>.</span><span class=n>Sway</span> <span class=p>(</span><span class=n>Presentation</span> <span class=ow>and</span> <span class=n>storytelling</span> <span class=n>app</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>OneConnect</span> <span class=p>(</span><span class=n>Mobile</span> <span class=n>Operator</span> <span class=n>management</span> <span class=n>app</span><span class=p>,</span> <span class=n>replaced</span> <span class=n>by</span> <span class=n>Mobile</span> <span class=n>Plans</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>PowerAutomateDesktop</span> <span class=p>(</span><span class=n>Desktop</span> <span class=n>automation</span> <span class=k>tool</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Print3D</span> <span class=p>(</span><span class=mi>3</span><span class=n>D</span> <span class=n>printing</span> <span class=n>preparation</span> <span class=n>software</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>SkypeApp</span> <span class=p>(</span><span class=n>Skype</span> <span class=n>communication</span> <span class=n>app</span><span class=p>,</span> <span class=n>Universal</span> <span class=n>Windows</span> <span class=n>Platform</span> <span class=n>version</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Todos</span> <span class=p>(</span><span class=n>To</span><span class=o>-</span><span class=k>do</span> <span class=n>list</span> <span class=ow>and</span> <span class=n>task</span> <span class=n>management</span> <span class=n>app</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>Windows</span><span class=o>.</span><span class=n>DevHome</span> <span class=p>(</span><span class=n>Developer</span> <span class=n>dashboard</span> <span class=ow>and</span> <span class=k>tool</span> <span class=n>configuration</span> <span class=n>utility</span><span class=p>,</span> <span class=n>no</span> <span class=n>longer</span> <span class=n>supported</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>WindowsAlarms</span> <span class=p>(</span><span class=n>Alarms</span> <span class=o>&amp;</span> <span class=n>Clock</span> <span class=n>app</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>WindowsFeedbackHub</span> <span class=p>(</span><span class=n>App</span> <span class=k>for</span> <span class=n>providing</span> <span class=n>feedback</span> <span class=n>to</span> <span class=n>Microsoft</span> <span class=n>on</span> <span class=n>Windows</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>WindowsMaps</span> <span class=p>(</span><span class=n>Mapping</span> <span class=ow>and</span> <span class=n>navigation</span> <span class=n>app</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>WindowsSoundRecorder</span> <span class=p>(</span><span class=n>Basic</span> <span class=n>audio</span> <span class=n>recording</span> <span class=n>app</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>XboxApp</span> <span class=p>(</span><span class=n>Old</span> <span class=n>Xbox</span> <span class=n>Console</span> <span class=n>Companion</span> <span class=n>App</span><span class=p>,</span> <span class=n>no</span> <span class=n>longer</span> <span class=n>supported</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Microsoft</span><span class=o>.</span><span class=n>ZuneVideo</span> <span class=p>(</span><span class=n>Movies</span> <span class=o>&amp;</span> <span class=n>TV</span> <span class=n>app</span> <span class=k>for</span> <span class=n>renting</span><span class=o>/</span><span class=n>buying</span><span class=o>/</span><span class=n>playing</span> <span class=n>video</span> <span class=n>content</span><span class=o>.</span> <span class=n>Rebranded</span> <span class=n>as</span> <span class=s2>&#34;Films &amp; TV&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>MicrosoftCorporationII</span><span class=o>.</span><span class=n>MicrosoftFamily</span> <span class=p>(</span><span class=n>Family</span> <span class=n>Safety</span> <span class=n>App</span> <span class=k>for</span> <span class=n>managing</span> <span class=n>family</span> <span class=n>accounts</span> <span class=ow>and</span> <span class=n>settings</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>MicrosoftCorporationII</span><span class=o>.</span><span class=n>QuickAssist</span> <span class=p>(</span><span class=n>Remote</span> <span class=n>assistance</span> <span class=k>tool</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>MicrosoftTeams</span> <span class=p>(</span><span class=n>Old</span> <span class=n>MS</span> <span class=n>Teams</span> <span class=n>personal</span><span class=p>,</span> <span class=n>MS</span> <span class=n>Store</span> <span class=n>version</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>MSTeams</span> <span class=p>(</span><span class=n>New</span> <span class=n>MS</span> <span class=n>Teams</span> <span class=n>app</span><span class=o>.</span> <span class=n>Work</span><span class=o>/</span><span class=n>School</span> <span class=ow>or</span> <span class=n>Personal</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Third</span> <span class=n>party</span> <span class=n>apps</span><span class=p>:</span>    
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>ACGMediaPlayer</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>ActiproSoftwareLLC</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>AdobeSystemsIncorporated</span><span class=o>.</span><span class=n>AdobePhotoshopExpress</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Amazon</span><span class=o>.</span><span class=n>com</span><span class=o>.</span><span class=n>Amazon</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>AmazonVideo</span><span class=o>.</span><span class=n>PrimeVideo</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Asphalt8Airborne</span>   
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>AutodeskSketchBook</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>CaesarsSlotsFreeCasino</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>COOKINGFEVER</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>CyberLinkMediaSuiteEssentials</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>DisneyMagicKingdoms</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Disney</span> 
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>DrawboardPDF</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Duolingo</span><span class=o>-</span><span class=n>LearnLanguagesforFree</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>EclipseManager</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Facebook</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>FarmVille2CountryEscape</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>fitbit</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Flipboard</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>HiddenCity</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>HULULLC</span><span class=o>.</span><span class=n>HULUPLUS</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>iHeartRadio</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Instagram</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>king</span><span class=o>.</span><span class=n>com</span><span class=o>.</span><span class=n>BubbleWitch3Saga</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>king</span><span class=o>.</span><span class=n>com</span><span class=o>.</span><span class=n>CandyCrushSaga</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>king</span><span class=o>.</span><span class=n>com</span><span class=o>.</span><span class=n>CandyCrushSodaSaga</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>LinkedInforWindows</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>MarchofEmpires</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Netflix</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>NYTCrossword</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>OneCalendar</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>PandoraMediaInc</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>PhototasticCollage</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>PicsArt</span><span class=o>-</span><span class=n>PhotoStudio</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Plex</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>PolarrPhotoEditorAcademicEdition</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Royal</span> <span class=n>Revolt</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Shazam</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Sidia</span><span class=o>.</span><span class=n>LiveWallpaper</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>SlingTV</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Spotify</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>TikTok</span>
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>TuneInRadio</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Twitter</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Viber</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>WinZipUniversal</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>Wunderlist</span>  
+</span></span><span class=line><span class=cl><span class=o>-</span> <span class=n>XING</span>
+</span></span></code></pre></td></tr></table></div></div></blockquote><h4 id=apps-that-are-not-removed-by-default>Apps that are NOT removed by default</h4><p>These apps will not be removed by Win11Debloat unless explicitly selected by the user.</p><blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Miscellaneous apps:
+</span></span><span class=line><span class=cl>- Microsoft.Edge (Edge browser, only removeable in the EEA)
+</span></span><span class=line><span class=cl>- Microsoft.GetHelp (Required for some Windows 11 Troubleshooters)
+</span></span><span class=line><span class=cl>- Microsoft.MSPaint (Paint 3D)
+</span></span><span class=line><span class=cl>- Microsoft.OutlookForWindows (New mail app)
+</span></span><span class=line><span class=cl>- Microsoft.OneDrive (OneDrive consumer)
+</span></span><span class=line><span class=cl>- Microsoft.Paint (Classic Paint)
+</span></span><span class=line><span class=cl>- Microsoft.People (Required for &amp; included with Mail &amp; Calendar)
+</span></span><span class=line><span class=cl>- Microsoft.RemoteDesktop
+</span></span><span class=line><span class=cl>- Microsoft.ScreenSketch (Snipping Tool)
+</span></span><span class=line><span class=cl>- Microsoft.Whiteboard (Only preinstalled on devices with touchscreen and/or pen support)
+</span></span><span class=line><span class=cl>- Microsoft.Windows.Photos
+</span></span><span class=line><span class=cl>- Microsoft.WindowsCalculator
+</span></span><span class=line><span class=cl>- Microsoft.WindowsCamera
+</span></span><span class=line><span class=cl>- Microsoft.WindowsNotepad
+</span></span><span class=line><span class=cl>- Microsoft.windowscommunicationsapps (Mail &amp; Calendar)
+</span></span><span class=line><span class=cl>- Microsoft.WindowsStore (Microsoft Store, NOTE: This app cannot be reinstalled!)
+</span></span><span class=line><span class=cl>- Microsoft.WindowsTerminal (New default terminal app in Windows 11)
+</span></span><span class=line><span class=cl>- Microsoft.YourPhone (Phone Link)
+</span></span><span class=line><span class=cl>- Microsoft.Xbox.TCUI (UI framework, removing this may break MS store, photos and certain games)
+</span></span><span class=line><span class=cl>- Microsoft.ZuneMusic (Modern Media Player)
+</span></span><span class=line><span class=cl>- MicrosoftWindows.CrossDevice (Phone integration within File Explorer, Camera and more)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Gaming related apps:
+</span></span><span class=line><span class=cl>- Microsoft.GamingApp (Modern Xbox Gaming App, required for installing some games)
+</span></span><span class=line><span class=cl>- Microsoft.XboxGameOverlay (Game overlay, required for some games)
+</span></span><span class=line><span class=cl>- Microsoft.XboxGamingOverlay (Game overlay, required for some games)
+</span></span><span class=line><span class=cl>- Microsoft.XboxIdentityProvider (Xbox sign-in framework, required for some games)
+</span></span><span class=line><span class=cl>- Microsoft.XboxSpeechToTextOverlay (Might be required for some games, NOTE: This app cannot be reinstalled!)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>HP apps:
+</span></span><span class=line><span class=cl>- AD2F1837.HPAIExperienceCenter
+</span></span><span class=line><span class=cl>- AD2F1837.HPConnectedMusic
+</span></span><span class=line><span class=cl>- AD2F1837.HPConnectedPhotopoweredbySnapfish
+</span></span><span class=line><span class=cl>- AD2F1837.HPDesktopSupportUtilities
+</span></span><span class=line><span class=cl>- AD2F1837.HPEasyClean
+</span></span><span class=line><span class=cl>- AD2F1837.HPFileViewer
+</span></span><span class=line><span class=cl>- AD2F1837.HPJumpStarts
+</span></span><span class=line><span class=cl>- AD2F1837.HPPCHardwareDiagnosticsWindows
+</span></span><span class=line><span class=cl>- AD2F1837.HPPowerManager
+</span></span><span class=line><span class=cl>- AD2F1837.HPPrinterControl
+</span></span><span class=line><span class=cl>- AD2F1837.HPPrivacySettings
+</span></span><span class=line><span class=cl>- AD2F1837.HPQuickDrop
+</span></span><span class=line><span class=cl>- AD2F1837.HPQuickTouch
+</span></span><span class=line><span class=cl>- AD2F1837.HPRegistration
+</span></span><span class=line><span class=cl>- AD2F1837.HPSupportAssistant
+</span></span><span class=line><span class=cl>- AD2F1837.HPSureShieldAI
+</span></span><span class=line><span class=cl>- AD2F1837.HPSystemInformation
+</span></span><span class=line><span class=cl>- AD2F1837.HPWelcome
+</span></span><span class=line><span class=cl>- AD2F1837.HPWorkWell
+</span></span><span class=line><span class=cl>- AD2F1837.myHP
+</span></span></code></pre></td></tr></table></div></div></blockquote></section><footer class=article-footer><section class=article-tags><a href=/en/tags/github/>GitHub</a>
+<a href=/en/tags/windows/>Windows</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/en/p/microsoft-activation-scripts-mas/><div class=article-details><h2 class=article-title>Microsoft Activation Scripts (MAS)</h2></div></a></article><article><a href=/en/p/rnote-introduction/><div class=article-details><h2 class=article-title>RNote Introduction</h2></div></a></article><article><a href=/en/p/github-app-ideas/><div class=article-details><h2 class=article-title>GitHub-App-Ideas</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2025 hanguangwu</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

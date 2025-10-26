@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MAS on 酒中仙</title><link>https://hanguangwu.github.io/tags/mas/</link><description>Recent content in MAS on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Wed, 15 Oct 2025 17:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/tags/mas/index.xml" rel="self" type="application/rss+xml"/><item><title>MAS：一条命令永久激活Windows和Office</title><link>https://hanguangwu.github.io/p/mas%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BBwindows%E5%92%8Coffice/</link><pubDate>Wed, 15 Oct 2025 17:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/mas%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BBwindows%E5%92%8Coffice/</guid><description>&lt;h1 id="mas一条命令永久激活windows和office"&gt;MAS：一条命令永久激活Windows和Office
+&lt;/h1&gt;&lt;h2 id="简介"&gt;简介
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/massgravel/Microsoft-Activation-Scripts" target="_blank" rel="noopener"
+&gt;GitHub-MAS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/1906620655807497264" target="_blank" rel="noopener"
+&gt;MAS：一条命令永久激活Windows和Office+实现原理解读&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;利用一条命令即可永久激活 Windows 和 Office，到底是如何实现的？Microsoft Activation Scripts，简称：MAS，是一个由开源社区开发并维护的项目，旨在通过一系列自动化脚本来永久激活 Windows 和 Office。注意是&amp;quot;永久激活&amp;quot;，非 KMS 180天。该程序通常被用作绕过 Microsoft 的正版验证机制，允许用户在未购买合法产品密钥的情况下使用 Windows 和 Office 正版软件。程序中的脚本和工具通常会通过对操作系统和应用程序进行特定的修改来实现激活操作。&lt;/p&gt;
+&lt;p&gt;本文介绍一下该激活命令的使用方法，并解读一下实现原理。这条命令是：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;irm https://get.activated.win | iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="命令解析"&gt;&lt;strong&gt;命令解析&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;我们将命令拆解成 irm 和 iex 两部分：&lt;/p&gt;
+&lt;p&gt;irm 是 PowerShell中的别名，代表 Invoke-RestMethod，这是一个用于发送 HTTP 请求并从远程服务器获取数据的命令。它的作用是从指定的 URL 下载内容并将其返回给 PowerShell。&lt;/p&gt;
+&lt;p&gt;具体来说，这里通过 irm 向 get.activated.win 发送一个 GET 请求。该 URL 是一个远程服务器地址，提供激活脚本。请求后，服务器将返回一段包含激活信息或脚本内容的数据。&lt;/p&gt;
+&lt;p&gt;iex 是 PowerShell 中的别名，代表 Invoke-Expression，它的作用是执行作为字符串传入的 PowerShell 脚本或命令。该命令接收通过 irm 获取的内容（即返回的脚本），然后执行它。&lt;/p&gt;
+&lt;h2 id="实现原理"&gt;&lt;strong&gt;实现原理&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;当执行该命令时，PowerShell 会先向 get.activated.win 发送请求，下载服务器上托管的脚本内容：&lt;/p&gt;
+&lt;p&gt;下载的脚本内容通常会包括一些预定义的命令或代码，这些代码用于绕过 Microsoft 的产品激活机制。下载并执行该脚本后，系统会尝试通过修改激活状态或注入激活密钥等方式，激活 Windows 操作系统和 Office 应用程序。&lt;/p&gt;
+&lt;p&gt;该脚本中包含了 HWID（硬件 ID）、Ohook、KMS38、Online KMS 激活方法，至于它如何实现“永久激活”，限于篇幅，iHackSoft 将另外发文做详细剖析。&lt;/p&gt;
+&lt;h2 id="使用方法"&gt;&lt;strong&gt;使用方法&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;右键点击 Windows 开始菜单，以管理员身份运行 Windows PowerShell （注意不是 CMD）。&lt;/li&gt;
+&lt;li&gt;输入下面的代码并回车：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;irm https://get.activated.win | iex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;之后会看到如下图界面，其实就是从服务器上下载了 Microsoft Activation Scripts 这个脚本：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://picx.zhimg.com/v2-8fb762b4d3479003d94e3bb9486fe267_1440w.jpg"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;p&gt;选择“1”：采用 HWID 激活方式，数字许可证永久激活Windows！需联网。&lt;/p&gt;
+&lt;p&gt;选择“2”：采用 Ohook 激活方式，通过修改一个激活dll文件，实现永久激活Office，无需联网。&lt;/p&gt;
+&lt;p&gt;选择“3”：TSForge是一款由MAS团队开发的工具，能够绕过微软的在线验证机制，实现Windows和Office的永久激活。&lt;/p&gt;
+&lt;p&gt;选择“4”：采用 KMS38 激活方式，激活 Windows/Server 到2038年，无需联网。&lt;/p&gt;
+&lt;p&gt;选择“5”： 采用 Online KMS 激活方式，激活 Windows/Server/Office 一次180天，到期自动续，需要联网。&lt;/p&gt;
+&lt;p&gt;选择相应数字，回车之后，稍等片刻，成功激活！&lt;/p&gt;</description></item></channel></rss>
