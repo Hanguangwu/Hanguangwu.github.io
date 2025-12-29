@@ -1,12 +1,11 @@
 ---
 title: PDF文档格式转换处理工具MinerU
 description: 本文介绍PDF文档格式转换处理工具MinerU。
-date: 2025-10-14T16:34:25-08:00
+date: 2025-12-26T16:34:25-08:00
 draft: false
 categories:
 - APP
 tags:
-- GitHub
 - MinerU
 ---
 
