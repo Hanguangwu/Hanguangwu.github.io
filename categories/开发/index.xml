@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>开发 on 酒中仙</title><link>https://hanguangwu.github.io/categories/%E5%BC%80%E5%8F%91/</link><description>Recent content in 开发 on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Sun, 28 Dec 2025 12:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/categories/%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml"/><item><title>如何从 pnpm 还原使用 npm ？</title><link>https://hanguangwu.github.io/p/%E5%A6%82%E4%BD%95%E4%BB%8E-pnpm-%E8%BF%98%E5%8E%9F%E4%BD%BF%E7%94%A8-npm/</link><pubDate>Sun, 28 Dec 2025 12:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E5%A6%82%E4%BD%95%E4%BB%8E-pnpm-%E8%BF%98%E5%8E%9F%E4%BD%BF%E7%94%A8-npm/</guid><description>&lt;h1 id="如何从-pnpm-还原使用-npm-"&gt;如何从 pnpm 还原使用 npm ？
+&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="https://www.levenx.com/issues/how-to-revert-from-pnpm-to-npm/531241811290" target="_blank" rel="noopener"
+&gt;如何从 pnpm 还原使用 npm ？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;理解各种包管理器及其互操作性是很重要的。从 pnpm 还原到 npm，主要步骤如下：&lt;/p&gt;
+&lt;h3 id="步骤1-清理pnpm环境"&gt;步骤1: 清理 &lt;code&gt;pnpm&lt;/code&gt; 环境
+&lt;/h3&gt;&lt;p&gt;首先，确保删除或清理由 pnpm 创建的 &lt;code&gt;node_modules&lt;/code&gt; 文件夹和 &lt;code&gt;pnpm-lock.yaml&lt;/code&gt; 文件。这是因为 pnpm 和 npm 在处理依赖和锁文件方面存在差异，直接使用可能会导致冲突或错误。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;rm -rf node_modules rm pnpm-lock.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="步骤2-初始化npm"&gt;步骤2: 初始化 &lt;code&gt;npm&lt;/code&gt;
+&lt;/h3&gt;&lt;p&gt;如果项目中不存在 &lt;code&gt;package.json&lt;/code&gt; 文件（一般情况下不会发生，除非是全新项目），你需要运行 &lt;code&gt;npm init&lt;/code&gt; 来创建一个。如果已经有 &lt;code&gt;package.json&lt;/code&gt;，则可以直接跳至下一步。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm init&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="步骤3-安装依赖"&gt;步骤3: 安装依赖
+&lt;/h3&gt;&lt;p&gt;使用 &lt;code&gt;npm&lt;/code&gt; 安装项目所需要的依赖。如果你有 &lt;code&gt;package.json&lt;/code&gt; 文件，npm 会根据此文件安装所有列出的依赖。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm install&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这个命令会创建一个 &lt;code&gt;node_modules&lt;/code&gt; 文件夹和一个 &lt;code&gt;package-lock.json&lt;/code&gt; 文件，这是 npm 用来锁定依赖版本的。&lt;/p&gt;
+&lt;h3 id="步骤4-测试项目"&gt;步骤4: 测试项目
+&lt;/h3&gt;&lt;p&gt;在转换完成后，确保运行项目的测试，以验证所有依赖都正确安装，项目可以正常运行。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;npm test&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="示例"&gt;示例
+&lt;/h3&gt;&lt;p&gt;假设我之前使用 pnpm 管理一个 Node.js 项目，该项目依赖于 Express 和 React。转换过程中，我会首先删除由 pnpm 创建的锁文件和 &lt;code&gt;node_modules&lt;/code&gt; 文件夹，然后使用 npm 重新安装依赖，并确保通过所有测试。&lt;/p&gt;
+&lt;p&gt;这个过程保证了从一个包管理器到另一个包管理器的平滑过渡，同时确保项目的稳定性和一致性。&lt;/p&gt;
+&lt;h3 id="结论"&gt;结论
+&lt;/h3&gt;&lt;p&gt;虽然 pnpm 提供了优异的性能和磁盘空间优化，但在某些团队或项目中可能需要统一使用 npm。以上步骤可以帮助实现从 pnpm 到 npm 的无缝过渡。&lt;/p&gt;</description></item></channel></rss>
