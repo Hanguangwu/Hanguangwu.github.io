@@ -1,7 +1,7 @@
 baseurl: https://hanguangwu.github.io/
 languageCode: zh-cn
 theme: hugo-theme-stack
-title: 
+title: 析木津
 copyright: hanguangwu
 
 # Theme i18n support
@@ -10,7 +10,7 @@ DefaultContentLanguage: zh-cn
 
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
 # This will make .Summary and .WordCount behave correctly for CJK languages.
-hasCJKLanguage: false
+hasCJKLanguage: true
 
 languages:
     en:
