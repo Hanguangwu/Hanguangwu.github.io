@@ -1,12 +1,12 @@
 ---
 title: 播放器软件Screenbox
 description: 本文介绍简约、高颜值、本地免费开源播放器：Screenbox。
-date: 2025-10-14T12:34:25-08:00
+date: 2025-12-26T13:34:25-08:00
 draft: false
 categories:
 - APP
 tags:
-- GitHub
+- Screenbox
 - Windows Player
 ---
 
