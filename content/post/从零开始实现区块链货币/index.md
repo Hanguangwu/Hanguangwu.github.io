@@ -1,25 +1,13 @@
 ---
 title: "从零开始实现区块链货币"
 date: 2025-07-29T10:34:25+08:00
-lastmod: 2025-07-29T10:54:22+08:00
+description: 本文介绍从零开始实现区块链货币。
 draft: false
-math: true
 categories:
 - 编程
 tags:
 - 区块链
 - 虚拟货币
-# description->需要自己编写的文章描述，是搜索引擎呈现在搜索结果链接下方的网页简介，建议设置
-description: ""
-weight: # 输入1可以顶置文章，用来给文章展示排序，不填就默认按时间排序
-slug: ""
-draft: false # 是否为草稿
-comments: true
-showToc: true # 显示目录
-TocOpen: true # 自动展开目录
-hidemeta: false # 是否隐藏文章的元信息，如发布日期、作者等
-disableShare: true # 底部不显示分享栏
-
 ---
 
 ## 前言
