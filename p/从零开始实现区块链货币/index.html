@@ -1,0 +1,1482 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="本文介绍从零开始实现区块链货币。"><title>从零开始实现区块链货币</title><link rel=canonical href=https://hanguangwu.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="从零开始实现区块链货币"><meta property='og:description' content="本文介绍从零开始实现区块链货币。"><meta property='og:url' content='https://hanguangwu.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/'><meta property='og:site_name' content='酒中仙'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='区块链'><meta property='article:tag' content='虚拟货币'><meta property='article:published_time' content='2025-07-29T10:34:25+08:00'><meta property='article:modified_time' content='2025-07-29T10:34:25+08:00'><meta name=twitter:title content="从零开始实现区块链货币"><meta name=twitter:description content="本文介绍从零开始实现区块链货币。"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_446bb777e4bcbb8a.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>酒中仙</a></h1><h2 class=site-description>仰天大笑出門去，我輩豈是蓬蒿人！</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/ selected>中文</option><option value=https://hanguangwu.github.io/en/>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#区块链构建及哈希值校验>区块链构建及哈希值校验</a></li><li><a href=#pow工作量证明和挖矿>PoW（工作量证明）和挖矿</a></li><li><a href=#存储交易信息和时间戳>存储交易信息和时间戳</a></li><li><a href=#secp256k1-椭圆曲线算法加密文档>Secp256k1 椭圆曲线算法加密文档</a></li><li><a href=#数字签名验证交易合法性和虚拟货币发行>数字签名验证交易合法性和虚拟货币发行</a></li><li><a href=#附录>附录</a><ol><li><a href=#es6-与-commonjs-的区别>ES6 与 CommonJS 的区别</a><ol><li><a href=#模块定义与导入>模块定义与导入</a></li><li><a href=#加载机制>加载机制</a></li><li><a href=#导出方式>导出方式</a></li></ol></li><li><a href=#比特币的共识机制与加密算法>比特币的共识机制与加密算法</a><ol><li><a href=#pow工作量证明共识机制>POW（工作量证明）共识机制</a></li><li><a href=#secp256k1椭圆曲线加密算法>Secp256k1椭圆曲线加密算法</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/>从零开始实现区块链货币</a></h2><h3 class=article-subtitle>本文介绍从零开始实现区块链货币。</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jul 29, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 10 分钟</time></div></footer></div></header><section class=article-content><h2 id=前言>前言</h2><div class=video-wrapper><iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;high_quality=1&amp;page=1&bvid=BV14E411v7eS" scrolling=no frameborder=no framespacing=0 allowfullscreen></iframe></div><p>下面的代码和视频教程不一致，以下面的代码为准，截止到发文日期，下面代码可以正常运行。</p><h2 id=区块链构建及哈希值校验>区块链构建及哈希值校验</h2><p>可运行代码如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>pkg</span> <span class=nx>from</span> <span class=s1>&#39;crypto-js&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>SHA256</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>pkg</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Block</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(</span><span class=nx>data</span><span class=p>,</span> <span class=nx>previousBlockHash</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>data</span> <span class=o>=</span> <span class=nx>data</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=nx>previousBlockHash</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>computeHash</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>SHA256</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>data</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span><span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 链需要有一个 genesis blcok
+</span></span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Chain</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span> <span class=o>=</span> <span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>bigBang</span><span class=p>()]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bigBang</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>genesisBlcok</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s2>&#34;bigbang&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>genesisBlcok</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getLatestBlock</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>addBlcokToChain</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//找到最新的block的哈希值
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getLatestBlock</span><span class=p>().</span><span class=nx>blockHash</span>
+</span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 验证当前链是否合法
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 验证数据有没有被篡改
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 我们需要验证当前链的previousBlockHash是否等于前一个区块的blcokHash
+</span></span></span><span class=line><span class=cl>    <span class=nx>validateChain</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>1</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 从第二个区块this.chain[1]开始比较验证
+</span></span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>blockNeedToValidate</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//当前数据有没有被篡改
+</span></span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;数据已被篡改！&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//验证链连接
+</span></span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>previousBlock</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>!==</span> <span class=nx>previousBlock</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;前后区块链断裂&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>THChain</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Chain</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>blcok1</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s1>&#39;转账10元&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addBlcokToChain</span><span class=p>(</span><span class=nx>blcok1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>blcok2</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s1>&#39;转账100元&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addBlcokToChain</span><span class=p>(</span><span class=nx>blcok2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>blcok3</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s1>&#39;转账1000元&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addBlcokToChain</span><span class=p>(</span><span class=nx>blcok3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>data</span> <span class=o>=</span> <span class=s1>&#39;转账100000元&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>.</span><span class=nx>validateChain</span><span class=p>())</span>
+</span></span></code></pre></td></tr></table></div></div><p>把上面代码保存为<code>main.js</code>，然后执行<code>node main.js</code>即可输出如下的内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>PS D:\Documents\blockchain\crashcourse&gt; node .\main.js
+</span></span><span class=line><span class=cl>Chain {
+</span></span><span class=line><span class=cl>  chain: [
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;bigbang&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;ada4c1ccf3539d5c78368d25723735218c54638cb3f9e4347fe204b5a3503b7a&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账100000元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;ada4c1ccf3539d5c78368d25723735218c54638cb3f9e4347fe204b5a3503b7a&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;cb52196495a2a8aa4ff968bd2fa3111e76ceabc44c072174a14c0f132a49fa18&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账100元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;cb52196495a2a8aa4ff968bd2fa3111e76ceabc44c072174a14c0f132a49fa18&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;acc447143f9e46dbf98a1c8868ce10094708865f32ed4d49f37b66bbcf7ede7a&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账1000元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;acc447143f9e46dbf98a1c8868ce10094708865f32ed4d49f37b66bbcf7ede7a&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;7f833391bb7aafc9a2ec1def3b8991a069f2bead0e3ff9f3ac3b1602e49cfae0&#39;
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>  ]
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>数据已被篡改！
+</span></span><span class=line><span class=cl>false
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>PS D:\Documents\blockchain\crashcourse&gt; node .\main.js
+</span></span><span class=line><span class=cl>Chain {
+</span></span><span class=line><span class=cl>  chain: [
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;bigbang&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;ada4c1ccf3539d5c78368d25723735218c54638cb3f9e4347fe204b5a3503b7a&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账100000元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;ada4c1ccf3539d5c78368d25723735218c54638cb3f9e4347fe204b5a3503b7a&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;51475f91775224fee6ca4a9c844396d7fcd9734d8162f291400dac1f9e3157a4&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账100元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;cb52196495a2a8aa4ff968bd2fa3111e76ceabc44c072174a14c0f132a49fa18&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;acc447143f9e46dbf98a1c8868ce10094708865f32ed4d49f37b66bbcf7ede7a&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账1000元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;acc447143f9e46dbf98a1c8868ce10094708865f32ed4d49f37b66bbcf7ede7a&#39;,
+</span></span><span class=line><span class=cl>      blockHash: &#39;7f833391bb7aafc9a2ec1def3b8991a069f2bead0e3ff9f3ac3b1602e49cfae0&#39;
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>  ]
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>前后区块链断裂
+</span></span><span class=line><span class=cl>false
+</span></span></code></pre></td></tr></table></div></div><h2 id=pow工作量证明和挖矿>PoW（工作量证明）和挖矿</h2><p><code>nonce</code>用于计数来改变<code>blockHash</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>pkg</span> <span class=nx>from</span> <span class=s1>&#39;crypto-js&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>SHA256</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>pkg</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Block</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(</span><span class=nx>data</span><span class=p>,</span> <span class=nx>previousBlockHash</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>data</span> <span class=o>=</span> <span class=nx>data</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=nx>previousBlockHash</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>computeHash</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>SHA256</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>data</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span><span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getAnswer</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//前difficulty位为0的哈希
+</span></span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>answer</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>difficulty</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=nx>answer</span> <span class=o>+=</span> <span class=s1>&#39;0&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>answer</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//计算符合难度的哈希值
+</span></span></span><span class=line><span class=cl>    <span class=nx>mine</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span><span class=p>(</span><span class=kc>true</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>.</span><span class=nx>substring</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nx>difficulty</span><span class=p>)</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>getAnswer</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>)){</span>
+</span></span><span class=line><span class=cl>                <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span><span class=o>++</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;挖矿结束，哈希值为&#34;</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 链需要有一个 genesis blcok
+</span></span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Chain</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span> <span class=o>=</span> <span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>bigBang</span><span class=p>()]</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bigBang</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>genesisBlcok</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s2>&#34;bigbang&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>genesisBlcok</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getLatestBlock</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>addBlockToChain</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//找到最新的block的哈希值
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getLatestBlock</span><span class=p>().</span><span class=nx>blockHash</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// newBlcok.blockHash = newBlcok.computeHash()
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>mine</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 验证当前链是否合法
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 验证数据有没有被篡改
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 我们需要验证当前链的previousBlockHash是否等于前一个区块的blcokHash
+</span></span></span><span class=line><span class=cl>    <span class=nx>validateChain</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>1</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 从第二个区块this.chain[1]开始比较验证
+</span></span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>blockNeedToValidate</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//当前数据有没有被篡改
+</span></span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;数据已被篡改！&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//验证链连接
+</span></span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>previousBlock</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>!==</span> <span class=nx>previousBlock</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;前后区块链断裂&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>THChain</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Chain</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>blcok1</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s1>&#39;转账10元&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addBlockToChain</span><span class=p>(</span><span class=nx>blcok1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>blcok2</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s1>&#39;转账100元&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addBlockToChain</span><span class=p>(</span><span class=nx>blcok2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>blcok3</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s1>&#39;转账1000元&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addBlockToChain</span><span class=p>(</span><span class=nx>blcok3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>data</span> <span class=o>=</span> <span class=s1>&#39;转账100000元&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>.</span><span class=nx>validateChain</span><span class=p>())</span>
+</span></span></code></pre></td></tr></table></div></div><p>执行<code>node main.js</code>输出结果如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>挖矿结束，哈希值为 0031333356747ea2eac85d87929e1a4ffe7b7ba7d7f8a617da56aae5736f76cc
+</span></span><span class=line><span class=cl>挖矿结束，哈希值为 00854c4111894a94944474cee375ff20c8e24ea811fc7144d1931e5d72152880
+</span></span><span class=line><span class=cl>挖矿结束，哈希值为 003bbd22c37e5abc75e84230e43a942f11859586fd24230b087903bb4d99a9a0
+</span></span><span class=line><span class=cl>Chain {
+</span></span><span class=line><span class=cl>  chain: [
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;bigbang&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;&#39;,
+</span></span><span class=line><span class=cl>      nonce: 1,
+</span></span><span class=line><span class=cl>      blockHash: &#39;3f725e072ada9321f567dea6c8a690c280536e76ee89f7d76e51c7e29be0ac00&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账100000元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;3f725e072ada9321f567dea6c8a690c280536e76ee89f7d76e51c7e29be0ac00&#39;,
+</span></span><span class=line><span class=cl>      nonce: 40,
+</span></span><span class=line><span class=cl>      blockHash: &#39;f8dcaa815fea240246f3c5d0c9c0bdb04d9a9ae7164070688e658bd0cf0b372b&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账100元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;0031333356747ea2eac85d87929e1a4ffe7b7ba7d7f8a617da56aae5736f76cc&#39;,
+</span></span><span class=line><span class=cl>      nonce: 209,
+</span></span><span class=line><span class=cl>      blockHash: &#39;00854c4111894a94944474cee375ff20c8e24ea811fc7144d1931e5d72152880&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      data: &#39;转账1000元&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;00854c4111894a94944474cee375ff20c8e24ea811fc7144d1931e5d72152880&#39;,
+</span></span><span class=line><span class=cl>      nonce: 415,
+</span></span><span class=line><span class=cl>      blockHash: &#39;003bbd22c37e5abc75e84230e43a942f11859586fd24230b087903bb4d99a9a0&#39;
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>  ],
+</span></span><span class=line><span class=cl>  difficulty: 2
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>前后区块链断裂
+</span></span><span class=line><span class=cl>false
+</span></span></code></pre></td></tr></table></div></div><h2 id=存储交易信息和时间戳>存储交易信息和时间戳</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>pkg</span> <span class=nx>from</span> <span class=s1>&#39;crypto-js&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>SHA256</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>pkg</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Transation</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(</span><span class=nx>from</span><span class=p>,</span> <span class=nx>to</span><span class=p>,</span> <span class=nx>amount</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>from</span> <span class=o>=</span> <span class=nx>from</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>to</span> <span class=o>=</span> <span class=nx>to</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>amount</span> <span class=o>=</span> <span class=nx>amount</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Block</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(</span><span class=nx>transations</span><span class=p>,</span> <span class=nx>previousBlockHash</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transations</span> <span class=o>=</span> <span class=nx>transations</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=nx>previousBlockHash</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>timestamp</span> <span class=o>=</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>computeHash</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>SHA256</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>transations</span><span class=p>)</span> <span class=o>+</span> 
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>+</span> 
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span> <span class=o>+</span> 
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>timestamp</span>
+</span></span><span class=line><span class=cl>        <span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getAnswer</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//前difficulty位为0的哈希
+</span></span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>answer</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>difficulty</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=nx>answer</span> <span class=o>+=</span> <span class=s1>&#39;0&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>answer</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//计算符合难度的哈希值
+</span></span></span><span class=line><span class=cl>    <span class=nx>mine</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span><span class=p>(</span><span class=kc>true</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>.</span><span class=nx>substring</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nx>difficulty</span><span class=p>)</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>getAnswer</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>)){</span>
+</span></span><span class=line><span class=cl>                <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span><span class=o>++</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;挖矿结束，哈希值为&#34;</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 链需要有一个 genesis blcok
+</span></span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Chain</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span> <span class=o>=</span> <span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>bigBang</span><span class=p>()]</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>minerReward</span> <span class=o>=</span> <span class=mi>50</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bigBang</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>genesisBlcok</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s2>&#34;bigbang&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>genesisBlcok</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getLatestBlock</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>addTransactionToPool</span><span class=p>(</span><span class=nx>transation</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>transation</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>addBlockToChain</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//找到最新的block的哈希值
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getLatestBlock</span><span class=p>().</span><span class=nx>blockHash</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// newBlcok.blockHash = newBlcok.computeHash()
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>mine</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>mineTransactionPool</span><span class=p>(</span><span class=nx>minerRewardAddress</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 发放矿工奖励
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>minerRewardTransaction</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Transation</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=nx>minerRewardAddress</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>minerReward</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>minerRewardTransaction</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 挖矿
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>newBlcok</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>getLatestBlock</span><span class=p>().</span><span class=nx>blockHash</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>mine</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 添加区块到区块链
+</span></span></span><span class=line><span class=cl>        <span class=c1>// 清空 transactionPool
+</span></span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 验证当前链是否合法
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 验证数据有没有被篡改
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 我们需要验证当前链的previousBlockHash是否等于前一个区块的blcokHash
+</span></span></span><span class=line><span class=cl>    <span class=nx>validateChain</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>1</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 从第二个区块this.chain[1]开始比较验证
+</span></span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>blockNeedToValidate</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//当前数据有没有被篡改
+</span></span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;数据已被篡改！&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//验证链连接
+</span></span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>previousBlock</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>!==</span> <span class=nx>previousBlock</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;前后区块链断裂&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>THChain</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Chain</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>t1</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Transation</span><span class=p>(</span><span class=s1>&#39;addr1&#39;</span><span class=p>,</span> <span class=s1>&#39;addr2&#39;</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>t2</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Transation</span><span class=p>(</span><span class=s1>&#39;addr2&#39;</span><span class=p>,</span> <span class=s1>&#39;addr1&#39;</span><span class=p>,</span> <span class=mi>5</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addTransactionToPool</span><span class=p>(</span><span class=nx>t1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addTransactionToPool</span><span class=p>(</span><span class=nx>t2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>// console.log(THChain)
+</span></span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>mineTransactionPool</span><span class=p>(</span><span class=s1>&#39;addr3&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>transations</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>执行<code>node main.js</code>，输出结果如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>挖矿结束，哈希值为 000a03f3e1ce638391e099ea4406bcea3f66097cf6576efebb37be8b3b4b97c4
+</span></span></code></pre></td></tr></table></div></div><p><code>THChain</code>如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Chain {
+</span></span><span class=line><span class=cl>  chain: [
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      transations: &#39;bigbang&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;&#39;,
+</span></span><span class=line><span class=cl>      nonce: 1,
+</span></span><span class=line><span class=cl>      timestamp: 1751182697906,
+</span></span><span class=line><span class=cl>      blockHash: &#39;347dad0da967b9ce740a84ed4dc3f2e1d26e93564b054cfaa44be31540cb4393&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      transations: [Array],
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;347dad0da967b9ce740a84ed4dc3f2e1d26e93564b054cfaa44be31540cb4393&#39;,
+</span></span><span class=line><span class=cl>      nonce: 49,
+</span></span><span class=line><span class=cl>      timestamp: 1751182697906,
+</span></span><span class=line><span class=cl>      blockHash: &#39;000a03f3e1ce638391e099ea4406bcea3f66097cf6576efebb37be8b3b4b97c4&#39;
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>  ],
+</span></span><span class=line><span class=cl>  transactionPool: [],
+</span></span><span class=line><span class=cl>  minerReward: 50,
+</span></span><span class=line><span class=cl>  difficulty: 2
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p><code>THChain.chain[1]</code>内容如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Block {
+</span></span><span class=line><span class=cl>  transations: [
+</span></span><span class=line><span class=cl>    Transation { from: &#39;addr1&#39;, to: &#39;addr2&#39;, amount: 10 },
+</span></span><span class=line><span class=cl>    Transation { from: &#39;addr2&#39;, to: &#39;addr1&#39;, amount: 5 },
+</span></span><span class=line><span class=cl>    Transation { from: &#39;&#39;, to: &#39;addr3&#39;, amount: 50 }
+</span></span><span class=line><span class=cl>  ],
+</span></span><span class=line><span class=cl>  previousBlockHash: &#39;347dad0da967b9ce740a84ed4dc3f2e1d26e93564b054cfaa44be31540cb4393&#39;,
+</span></span><span class=line><span class=cl>  nonce: 49,
+</span></span><span class=line><span class=cl>  timestamp: 1751182697906,
+</span></span><span class=line><span class=cl>  blockHash: &#39;000a03f3e1ce638391e099ea4406bcea3f66097cf6576efebb37be8b3b4b97c4&#39;
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p><code>THChain.chain[1].transations</code>内容如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[
+</span></span><span class=line><span class=cl>  Transation { from: &#39;addr1&#39;, to: &#39;addr2&#39;, amount: 10 },
+</span></span><span class=line><span class=cl>  Transation { from: &#39;addr2&#39;, to: &#39;addr1&#39;, amount: 5 },
+</span></span><span class=line><span class=cl>  Transation { from: &#39;&#39;, to: &#39;addr3&#39;, amount: 50 }
+</span></span><span class=line><span class=cl>]
+</span></span></code></pre></td></tr></table></div></div><h2 id=secp256k1-椭圆曲线算法加密文档>Secp256k1 椭圆曲线算法加密文档</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>createRequire</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;module&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>require</span> <span class=o>=</span> <span class=nx>createRequire</span><span class=p>(</span><span class=kr>import</span><span class=p>.</span><span class=nx>meta</span><span class=p>.</span><span class=nx>url</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>EC</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;elliptic&#39;</span><span class=p>).</span><span class=nx>ec</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Example: Using the elliptic curve secp256k1
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>ec</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>EC</span><span class=p>(</span><span class=s1>&#39;secp256k1&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Generate a key pair
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>keyPair</span> <span class=o>=</span> <span class=nx>ec</span><span class=p>.</span><span class=nx>genKeyPair</span><span class=p>();</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Private Key:&#39;</span><span class=p>,</span> <span class=nx>keyPair</span><span class=p>.</span><span class=nx>getPrivate</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=c1>// 输出Private Key: 93a4d31c0eb2f9549cd03ae6022e96ce5d30e835dabeeaa057c3c0c18c2b3356
+</span></span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Public Key:&#39;</span><span class=p>,</span> <span class=nx>keyPair</span><span class=p>.</span><span class=nx>getPublic</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=c1>// 输出Public Key: 0498ea8ba292c4ded976cc65487bc2c0c6d1197cc4627e13db324698c2b34a5bd40c068dcbb076370150d479e9a8b493f08d38246e322acd125fc1c50cfba0bbd8
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// const ecLib = require(&#39;elliptic&#39;).ec
+</span></span></span><span class=line><span class=cl><span class=c1>// const ec = new ecLib(&#39;secp256k1&#39;)
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>pkg</span> <span class=nx>from</span> <span class=s1>&#39;crypto-js&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>SHA256</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>pkg</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 生成密钥对
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>key</span> <span class=o>=</span> <span class=nx>ec</span><span class=p>.</span><span class=nx>genKeyPair</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=c1>// 转为hex string格式
+</span></span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;private&#39;</span><span class=p>,</span> <span class=nx>key</span><span class=p>.</span><span class=nx>getPrivate</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1>// 输出private 0f3c481e97450418b3d9870b5867bfac68dddf2aff1010d58f01945bb1a6d005
+</span></span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;public&#39;</span><span class=p>,</span> <span class=nx>key</span><span class=p>.</span><span class=nx>getPublic</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1>// 输出public 04c9068c475db693100df9d67edb5d2de7fc42b5f178dfd0dd4669a8e0336fe83b28add893b46d39eeccbf34adb5ecebc29cfa8b2856408f246c226ad05bf2d3b8
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>doc</span> <span class=o>=</span> <span class=s2>&#34;V我50&#34;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>hashedDoc</span> <span class=o>=</span> <span class=nx>SHA256</span><span class=p>(</span><span class=nx>doc</span><span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>hexSignature</span> <span class=o>=</span> <span class=nx>key</span><span class=p>.</span><span class=nx>sign</span><span class=p>(</span><span class=nx>hashedDoc</span><span class=p>,</span> <span class=s1>&#39;base64&#39;</span><span class=p>).</span><span class=nx>toDER</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;hashed doc&#39;</span><span class=p>,</span> <span class=nx>hashedDoc</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>//输出hashed doc b581639349e48a9670696266e0f664765ca7011a4bc850d2a174d6ef9886e0e5
+</span></span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;signature&#39;</span><span class=p>,</span> <span class=nx>hexSignature</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>//输出signature 3045022100d326c6ddc8fcc360bb0e81b1d004599e242f89655cdcc2e34c4c8a218effd4f602202cf090c1e0c783d8815ab6bd5a607a29a1440c07b2204b931b4ee22f215c7f59
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 接收者验证签名
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>publicKey</span> <span class=o>=</span> <span class=nx>ec</span><span class=p>.</span><span class=nx>keyFromPublic</span><span class=p>(</span><span class=nx>key</span><span class=p>.</span><span class=nx>getPublic</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>),</span> <span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>publicKey</span><span class=p>.</span><span class=nx>verify</span><span class=p>(</span><span class=nx>hashedDoc</span><span class=p>,</span> <span class=nx>hexSignature</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1>// 输出true
+</span></span></span><span class=line><span class=cl><span class=c1>// 篡改文档
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>temperedDoc</span> <span class=o>=</span> <span class=s1>&#39;V我51&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>hashedTemperedDoc</span> <span class=o>=</span> <span class=nx>SHA256</span><span class=p>(</span><span class=nx>temperedDoc</span><span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>publicKey</span><span class=p>.</span><span class=nx>verify</span><span class=p>(</span><span class=nx>hashedTemperedDoc</span><span class=p>,</span> <span class=nx>hexSignature</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1>// 输出false
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=数字签名验证交易合法性和虚拟货币发行>数字签名验证交易合法性和虚拟货币发行</h2><p>公钥充当地址。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>pkg</span> <span class=nx>from</span> <span class=s1>&#39;crypto-js&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=p>{</span> <span class=nx>SHA256</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>pkg</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>createRequire</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;module&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>require</span> <span class=o>=</span> <span class=nx>createRequire</span><span class=p>(</span><span class=kr>import</span><span class=p>.</span><span class=nx>meta</span><span class=p>.</span><span class=nx>url</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>EC</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;elliptic&#39;</span><span class=p>).</span><span class=nx>ec</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Example: Using the elliptic curve secp256k1
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>ec</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>EC</span><span class=p>(</span><span class=s1>&#39;secp256k1&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Transation</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(</span><span class=nx>from</span><span class=p>,</span> <span class=nx>to</span><span class=p>,</span> <span class=nx>amount</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>from</span> <span class=o>=</span> <span class=nx>from</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>to</span> <span class=o>=</span> <span class=nx>to</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>amount</span> <span class=o>=</span> <span class=nx>amount</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>computeHash</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>SHA256</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>from</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>to</span> <span class=o>+</span> <span class=k>this</span><span class=p>.</span><span class=nx>amount</span><span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>sign</span><span class=p>(</span><span class=nx>key</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>signature</span> <span class=o>=</span> <span class=nx>key</span><span class=p>.</span><span class=nx>sign</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>(),</span> <span class=s1>&#39;base64&#39;</span><span class=p>).</span><span class=nx>toDER</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>isValid</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>from</span> <span class=o>==</span> <span class=s2>&#34;&#34;</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>keyObj</span> <span class=o>=</span> <span class=nx>ec</span><span class=p>.</span><span class=nx>keyFromPublic</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>from</span><span class=p>,</span> <span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>keyObj</span><span class=p>.</span><span class=nx>verify</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>(),</span> <span class=k>this</span><span class=p>.</span><span class=nx>signature</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Block</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(</span><span class=nx>transations</span><span class=p>,</span> <span class=nx>previousBlockHash</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transations</span> <span class=o>=</span> <span class=nx>transations</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=nx>previousBlockHash</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>timestamp</span> <span class=o>=</span> <span class=nb>Date</span><span class=p>.</span><span class=nx>now</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>computeHash</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>SHA256</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=nx>JSON</span><span class=p>.</span><span class=nx>stringify</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>transations</span><span class=p>)</span> <span class=o>+</span> 
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>+</span> 
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span> <span class=o>+</span> 
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>timestamp</span>
+</span></span><span class=line><span class=cl>        <span class=p>).</span><span class=nx>toString</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getAnswer</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//前difficulty位为0的哈希
+</span></span></span><span class=line><span class=cl>        <span class=kd>let</span> <span class=nx>answer</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>difficulty</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=nx>answer</span> <span class=o>+=</span> <span class=s1>&#39;0&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>answer</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//计算符合难度的哈希值
+</span></span></span><span class=line><span class=cl>    <span class=nx>mine</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>validateBlockTransactions</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span><span class=p>(</span><span class=kc>true</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>.</span><span class=nx>substring</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nx>difficulty</span><span class=p>)</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>getAnswer</span><span class=p>(</span><span class=nx>difficulty</span><span class=p>)){</span>
+</span></span><span class=line><span class=cl>                <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>                <span class=k>this</span><span class=p>.</span><span class=nx>nonce</span><span class=o>++</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;挖矿结束，哈希值为&#34;</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>validateBlockTransactions</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>transaction</span> <span class=k>of</span> <span class=k>this</span><span class=p>.</span><span class=nx>transations</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=nx>transaction</span><span class=p>.</span><span class=nx>isValid</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Invalid transaction found in transactions.&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 链需要有一个 genesis blcok
+</span></span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>Chain</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>constructor</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span> <span class=o>=</span> <span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>bigBang</span><span class=p>()]</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>minerReward</span> <span class=o>=</span> <span class=mi>50</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>bigBang</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>genesisBlcok</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=s2>&#34;bigbang&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>genesisBlcok</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>getLatestBlock</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>addTransactionToPool</span><span class=p>(</span><span class=nx>transation</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=nx>transation</span><span class=p>.</span><span class=nx>isValid</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>            <span class=k>throw</span> <span class=k>new</span> <span class=nb>Error</span><span class=p>(</span><span class=s1>&#39;Invalid transaction!&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Valid transaction.&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>transation</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>addBlockToChain</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//找到最新的block的哈希值
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>getLatestBlock</span><span class=p>().</span><span class=nx>blockHash</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// newBlcok.blockHash = newBlcok.computeHash()
+</span></span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>mine</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>mineTransactionPool</span><span class=p>(</span><span class=nx>minerRewardAddress</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 发放矿工奖励
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>minerRewardTransaction</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Transation</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=nx>minerRewardAddress</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>minerReward</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>minerRewardTransaction</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 挖矿
+</span></span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>newBlcok</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Block</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span><span class=p>,</span> <span class=k>this</span><span class=p>.</span><span class=nx>getLatestBlock</span><span class=p>().</span><span class=nx>blockHash</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>newBlcok</span><span class=p>.</span><span class=nx>mine</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>difficulty</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 添加区块到区块链
+</span></span></span><span class=line><span class=cl>        <span class=c1>// 清空 transactionPool
+</span></span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>newBlcok</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>this</span><span class=p>.</span><span class=nx>transactionPool</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 验证当前链是否合法
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 验证数据有没有被篡改
+</span></span></span><span class=line><span class=cl>    <span class=c1>// 我们需要验证当前链的previousBlockHash是否等于前一个区块的blcokHash
+</span></span></span><span class=line><span class=cl>    <span class=nx>validateChain</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>1</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>0</span><span class=p>].</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 从第二个区块this.chain[1]开始比较验证
+</span></span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>.</span><span class=nx>length</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>blockNeedToValidate</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>validateBlockTransactions</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;发现非法交易！&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//当前数据有没有被篡改
+</span></span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>blockHash</span> <span class=o>!==</span> <span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>computeHash</span><span class=p>()){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;数据已被篡改！&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=c1>//验证链连接
+</span></span></span><span class=line><span class=cl>            <span class=kr>const</span> <span class=nx>previousBlock</span> <span class=o>=</span> <span class=k>this</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=nx>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=nx>blockNeedToValidate</span><span class=p>.</span><span class=nx>previousBlockHash</span> <span class=o>!==</span> <span class=nx>previousBlock</span><span class=p>.</span><span class=nx>blockHash</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>                <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s2>&#34;前后区块链断裂&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 生成密钥对
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>keyPairSender</span> <span class=o>=</span> <span class=nx>ec</span><span class=p>.</span><span class=nx>genKeyPair</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=c1>// 转为hex string格式
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>privateKeySender</span> <span class=o>=</span> <span class=nx>keyPairSender</span><span class=p>.</span><span class=nx>getPrivate</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>publicKeySender</span> <span class=o>=</span> <span class=nx>keyPairSender</span><span class=p>.</span><span class=nx>getPublic</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>// 生成密钥对
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>keyPairReceiver</span> <span class=o>=</span> <span class=nx>ec</span><span class=p>.</span><span class=nx>genKeyPair</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=c1>// 转为hex string格式
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>privateKeyReceiver</span> <span class=o>=</span> <span class=nx>keyPairReceiver</span><span class=p>.</span><span class=nx>getPrivate</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>publicKeyReceiver</span> <span class=o>=</span> <span class=nx>keyPairReceiver</span><span class=p>.</span><span class=nx>getPublic</span><span class=p>(</span><span class=s1>&#39;hex&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>THChain</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Chain</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>t1</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Transation</span><span class=p>(</span><span class=nx>publicKeySender</span><span class=p>,</span> <span class=nx>publicKeyReceiver</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>t1</span><span class=p>.</span><span class=nx>sign</span><span class=p>(</span><span class=nx>keyPairSender</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>t1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>t1</span><span class=p>.</span><span class=nx>isValid</span><span class=p>())</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>addTransactionToPool</span><span class=p>(</span><span class=nx>t1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>THChain</span><span class=p>.</span><span class=nx>mineTransactionPool</span><span class=p>(</span><span class=nx>publicKeyReceiver</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>THChain</span><span class=p>.</span><span class=nx>chain</span><span class=p>[</span><span class=mi>1</span><span class=p>].</span><span class=nx>transations</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>执行<code>node main.js</code>输出结果如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Transation {
+</span></span><span class=line><span class=cl>  from: &#39;046d2a81cbea046efad0f4ee6c1a204cef488ba8e8a89d295d8c63df835b059f445b2063c1a0e59ebebd7a4990edb0f53af3b0c039d91c50555e95aa4464c5e59e&#39;,
+</span></span><span class=line><span class=cl>  to: &#39;047284ba130395028d20cc246609c3166f4735565e5a88be42e4aec4289edc43e68c8d0f0765f7cb6cb2a72c21275a0eba7decabbb6247a6cb8b0d9c9fdd02b619&#39;,
+</span></span><span class=line><span class=cl>  amount: 10,
+</span></span><span class=line><span class=cl>  signature: &#39;3045022100f456fee1aa23f3a07cc5f9014dcd4a8d765978c333b8eb7c2c0f09cb6bd6417c0220159de6f4a56e7ba82dc20bf2d980f28878f6eceacdc2ce06a8f0306f1f7670e8&#39;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>true
+</span></span><span class=line><span class=cl>Valid transaction.
+</span></span><span class=line><span class=cl>挖矿结束，哈希值为 00ea4c08fd250e8d69d0e9483f3b8dea52ea1807569c6355a20dad037a6a370a
+</span></span></code></pre></td></tr></table></div></div><p><code>THChain</code>如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Chain {
+</span></span><span class=line><span class=cl>  chain: [
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      transations: &#39;bigbang&#39;,
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;&#39;,
+</span></span><span class=line><span class=cl>      nonce: 1,
+</span></span><span class=line><span class=cl>      timestamp: 1751188802768,
+</span></span><span class=line><span class=cl>      blockHash: &#39;9543633b1d6e714b4594bba1dd2f406180ce3456ae1b46f403b65b527bc8bc2e&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Block {
+</span></span><span class=line><span class=cl>      transations: [Array],
+</span></span><span class=line><span class=cl>      previousBlockHash: &#39;9543633b1d6e714b4594bba1dd2f406180ce3456ae1b46f403b65b527bc8bc2e&#39;,
+</span></span><span class=line><span class=cl>      nonce: 151,
+</span></span><span class=line><span class=cl>      timestamp: 1751188802790,
+</span></span><span class=line><span class=cl>      blockHash: &#39;00ea4c08fd250e8d69d0e9483f3b8dea52ea1807569c6355a20dad037a6a370a&#39;
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>  ],
+</span></span><span class=line><span class=cl>  transactionPool: [],
+</span></span><span class=line><span class=cl>  minerReward: 50,
+</span></span><span class=line><span class=cl>  difficulty: 2
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p><code>THChain.chain[1]</code>内容如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Block {
+</span></span><span class=line><span class=cl>  transations: [
+</span></span><span class=line><span class=cl>    Transation {
+</span></span><span class=line><span class=cl>      from: &#39;046d2a81cbea046efad0f4ee6c1a204cef488ba8e8a89d295d8c63df835b059f445b2063c1a0e59ebebd7a4990edb0f53af3b0c039d91c50555e95aa4464c5e59e&#39;,
+</span></span><span class=line><span class=cl>      to: &#39;047284ba130395028d20cc246609c3166f4735565e5a88be42e4aec4289edc43e68c8d0f0765f7cb6cb2a72c21275a0eba7decabbb6247a6cb8b0d9c9fdd02b619&#39;,
+</span></span><span class=line><span class=cl>      amount: 10,
+</span></span><span class=line><span class=cl>      signature: &#39;3045022100f456fee1aa23f3a07cc5f9014dcd4a8d765978c333b8eb7c2c0f09cb6bd6417c0220159de6f4a56e7ba82dc20bf2d980f28878f6eceacdc2ce06a8f0306f1f7670e8&#39;
+</span></span><span class=line><span class=cl>    },
+</span></span><span class=line><span class=cl>    Transation {
+</span></span><span class=line><span class=cl>      from: &#39;&#39;,
+</span></span><span class=line><span class=cl>      to: &#39;047284ba130395028d20cc246609c3166f4735565e5a88be42e4aec4289edc43e68c8d0f0765f7cb6cb2a72c21275a0eba7decabbb6247a6cb8b0d9c9fdd02b619&#39;,
+</span></span><span class=line><span class=cl>      amount: 50
+</span></span><span class=line><span class=cl>    }
+</span></span><span class=line><span class=cl>  ],
+</span></span><span class=line><span class=cl>  previousBlockHash: &#39;9543633b1d6e714b4594bba1dd2f406180ce3456ae1b46f403b65b527bc8bc2e&#39;,
+</span></span><span class=line><span class=cl>  nonce: 151,
+</span></span><span class=line><span class=cl>  timestamp: 1751188802790,
+</span></span><span class=line><span class=cl>  blockHash: &#39;00ea4c08fd250e8d69d0e9483f3b8dea52ea1807569c6355a20dad037a6a370a&#39;
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p><code>THChain.chain[1].transations</code>内容如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[
+</span></span><span class=line><span class=cl>  Transation {
+</span></span><span class=line><span class=cl>    from: &#39;046d2a81cbea046efad0f4ee6c1a204cef488ba8e8a89d295d8c63df835b059f445b2063c1a0e59ebebd7a4990edb0f53af3b0c039d91c50555e95aa4464c5e59e&#39;,
+</span></span><span class=line><span class=cl>    to: &#39;047284ba130395028d20cc246609c3166f4735565e5a88be42e4aec4289edc43e68c8d0f0765f7cb6cb2a72c21275a0eba7decabbb6247a6cb8b0d9c9fdd02b619&#39;,
+</span></span><span class=line><span class=cl>    amount: 10,
+</span></span><span class=line><span class=cl>    signature: &#39;3045022100f456fee1aa23f3a07cc5f9014dcd4a8d765978c333b8eb7c2c0f09cb6bd6417c0220159de6f4a56e7ba82dc20bf2d980f28878f6eceacdc2ce06a8f0306f1f7670e8&#39;
+</span></span><span class=line><span class=cl>  },
+</span></span><span class=line><span class=cl>  Transation {
+</span></span><span class=line><span class=cl>    from: &#39;&#39;,
+</span></span><span class=line><span class=cl>    to: &#39;047284ba130395028d20cc246609c3166f4735565e5a88be42e4aec4289edc43e68c8d0f0765f7cb6cb2a72c21275a0eba7decabbb6247a6cb8b0d9c9fdd02b619&#39;,
+</span></span><span class=line><span class=cl>    amount: 50
+</span></span><span class=line><span class=cl>  }
+</span></span><span class=line><span class=cl>]
+</span></span></code></pre></td></tr></table></div></div><h2 id=附录>附录</h2><h3 id=es6-与-commonjs-的区别>ES6 与 CommonJS 的区别</h3><h4 id=模块定义与导入>模块定义与导入</h4><ol><li>ES6模块</li></ol><ul><li>使用 <code>export</code> 和 <code>import</code> 关键字</li><li>静态编译，在编译时确定依赖关系</li><li>支持按需导入和导出</li><li>示例：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=c1>// 导出
+</span></span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>name</span> <span class=o>=</span> <span class=s1>&#39;example&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=kd>function</span> <span class=nx>func</span><span class=p>()</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 导入
+</span></span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>func</span><span class=p>,</span> <span class=p>{</span> <span class=nx>name</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;./module&#39;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><ol start=2><li>CommonJS模块</li></ol><ul><li>使用 <code>module.exports</code> 和 <code>require()</code></li><li>动态加载，运行时处理依赖</li><li>整体导出对象</li><li>示例：</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=c1>// 导出
+</span></span></span><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>name</span><span class=o>:</span> <span class=s1>&#39;example&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=nx>func</span><span class=o>:</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 导入
+</span></span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>module</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;./module&#39;</span><span class=p>);</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=加载机制>加载机制</h4><ul><li>ES6：静态加载，编译时确定</li><li>CommonJS：动态加载，运行时加载</li></ul><h4 id=导出方式>导出方式</h4><ul><li>ES6：支持具名导出和默认导出</li><li>CommonJS：只能导出单个对象</li></ul><h3 id=比特币的共识机制与加密算法>比特币的共识机制与加密算法</h3><h4 id=pow工作量证明共识机制>POW（工作量证明）共识机制</h4><ol><li>基本原理</li></ol><ul><li>矿工通过解决复杂数学问题来验证和打包交易</li><li>找到特定哈希值，满足难度要求</li><li>消耗大量计算资源，保证网络安全</li></ul><ol start=2><li>工作流程</li></ol><ul><li>收集未确认交易</li><li>组装区块</li><li>计算区块哈希</li><li>通过不断调整随机数（Nonce）尝试满足难度要求</li><li>首个解决问题的矿工获得记账权和奖励</li></ul><h4 id=secp256k1椭圆曲线加密算法>Secp256k1椭圆曲线加密算法</h4><ol><li>算法特点</li></ol><ul><li>基于椭圆曲线离散对数问题</li><li>比特币专用的特定曲线</li><li>安全性高，密钥长度较短</li></ul><ol start=2><li>加密原理</li></ol><ul><li>使用私钥生成公钥</li><li>通过数学运算确保私钥不可逆推导</li><li>支持数字签名和地址生成</li></ul><ol start=3><li>密钥特征</li></ol><ul><li>私钥：256位随机数</li><li>公钥：通过椭圆曲线点乘生成</li><li>地址：公钥哈希后Base58编码</li></ul><p>这两个机制共同构成了比特币网络的安全基础，确保了交易的可靠性和网络的去中心化特性。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/>区块链</a>
+<a href=/tags/%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81/>虚拟货币</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/12%E4%B8%AA%E7%82%AB%E9%85%B7%E7%9A%84%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/><div class=article-details><h2 class=article-title>12个炫酷的大屏可视化开源项目推荐</h2></div></a></article><article><a href=/p/flutter%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/><div class=article-details><h2 class=article-title>Flutter入门指南与常用命令详解</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2025 hanguangwu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
