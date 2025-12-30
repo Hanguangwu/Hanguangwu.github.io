@@ -1,0 +1,513 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="本文介绍Flutter入门指南与常用命令。"><title>Flutter入门指南与常用命令详解</title><link rel=canonical href=https://hanguangwu.github.io/p/flutter%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="Flutter入门指南与常用命令详解"><meta property='og:description' content="本文介绍Flutter入门指南与常用命令。"><meta property='og:url' content='https://hanguangwu.github.io/p/flutter%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/'><meta property='og:site_name' content='酒中仙'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Flutter'><meta property='article:published_time' content='2025-04-25T18:34:25-08:00'><meta property='article:modified_time' content='2025-04-25T18:34:25-08:00'><meta name=twitter:title content="Flutter入门指南与常用命令详解"><meta name=twitter:description content="本文介绍Flutter入门指南与常用命令。"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_446bb777e4bcbb8a.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>酒中仙</a></h1><h2 class=site-description>仰天大笑出門去，我輩豈是蓬蒿人！</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/ selected>中文</option><option value=https://hanguangwu.github.io/en/>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#一flutter-官方资源>一、Flutter 官方资源</a></li><li><a href=#二flutter-常用-cli-命令详解>二、Flutter 常用 CLI 命令详解</a><ol><li><a href=#1-基础命令>1. 基础命令</a></li><li><a href=#2-频道管理>2. 频道管理</a></li><li><a href=#3-配置与更新>3. 配置与更新</a></li><li><a href=#4-依赖管理>4. 依赖管理</a></li><li><a href=#5-项目与构建>5. 项目与构建</a></li></ol></li><li><a href=#三构建-android-包相关命令详解>三、构建 Android 包相关命令详解</a><ol><li><a href=#1-构建-aar-包android-archive>1. 构建 AAR 包（Android Archive）</a></li><li><a href=#2-构建-apk-包>2. 构建 APK 包</a></li></ol></li><li><a href=#四flutter-调试命令--flutter-attach>四、Flutter 调试命令 —— flutter attach</a><ol><li><a href=#常用交互命令>常用交互命令：</a></li></ol></li><li><a href=#五三个入门项目详解与代码注释>五、三个入门项目详解与代码注释</a><ol><li><a href=#1-hello-flutter>1. Hello Flutter</a></li><li><a href=#2-点击计数器>2. 点击计数器</a></li><li><a href=#3-心爱配对-love-match>3. 心爱配对 (Love Match)</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/flutter%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/>Flutter入门指南与常用命令详解</a></h2><h3 class=article-subtitle>本文介绍Flutter入门指南与常用命令。</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Apr 25, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 8 分钟</time></div></footer></div></header><section class=article-content><h1 id=flutter-入门指南与常用命令详解>Flutter 入门指南与常用命令详解</h1><h2 id=前言>前言</h2><p>本文介绍三个Flutter入门项目的基本操作及Flutter常用命令，帮助开发者快速上手Flutter开发。</p><ul><li><strong>创建项目命令</strong>：<code>flutter create project_name</code></li><li><strong>运行项目命令</strong>：<code>flutter run</code>（先要执行<code>cd project_name</code>切换到项目目录）</li><li><strong>热重启命令</strong>：<code>r</code> 或 <code>R</code></li><li><strong>终止项目命令</strong>：<code>q</code></li></ul><hr><h2 id=一flutter-官方资源>一、Flutter 官方资源</h2><ul><li>官方网站：<a class=link href=https://flutter.dev/ target=_blank rel=noopener>https://flutter.dev/</a></li><li>中文官网：<a class=link href=https://flutter.cn/ target=_blank rel=noopener>https://flutter.cn/</a></li><li>官方博客：<a class=link href=https://flutter.cn/posts target=_blank rel=noopener>https://flutter.cn/posts</a></li><li>Flutter CLI 文档：<a class=link href=https://flutter.cn/docs/reference/flutter-cli target=_blank rel=noopener>https://flutter.cn/docs/reference/flutter-cli</a></li></ul><p><strong>官方与中文站点的对应规则</strong>：</p><div class=table-wrapper><table><thead><tr><th>官方网址</th><th>中文网址</th></tr></thead><tbody><tr><td><a class=link href=https://flutter.dev/xxx target=_blank rel=noopener>https://flutter.dev/xxx</a></td><td><a class=link href=https://flutter.cn/xxx target=_blank rel=noopener>https://flutter.cn/xxx</a></td></tr><tr><td><a class=link href=https://docs.flutter.dev/xxx target=_blank rel=noopener>https://docs.flutter.dev/xxx</a></td><td><a class=link href=https://flutter.cn/docs/xxx target=_blank rel=noopener>https://flutter.cn/docs/xxx</a></td></tr><tr><td><a class=link href=https://storage.googleapis.com/xxx target=_blank rel=noopener>https://storage.googleapis.com/xxx</a></td><td><a class=link href=https://storage.flutter-io.cn/xxx target=_blank rel=noopener>https://storage.flutter-io.cn/xxx</a></td></tr></tbody></table></div><hr><h2 id=二flutter-常用-cli-命令详解>二、Flutter 常用 CLI 命令详解</h2><p>Flutter 命令支持多种格式（参数位置、简写、单杠/双杠），并具备智能提示常见错误命令。</p><h3 id=1-基础命令>1. 基础命令</h3><div class=table-wrapper><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td><code>flutter -h</code></td><td>显示帮助信息，支持多种帮助格式如 <code>-h xx</code> 或 <code>help xx</code></td></tr><tr><td><code>flutter doctor</code></td><td>环境检测，只需解决项目相关问题，不必全部处理</td></tr><tr><td><code>flutter --version</code></td><td>查看 Flutter SDK、Framework、Engine 和 Tools 版本信息</td></tr><tr><td><code>where flutter dart</code></td><td>查看 Flutter 和 Dart 安装路径，确保 flutter\bin 在最前面</td></tr></tbody></table></div><h3 id=2-频道管理>2. 频道管理</h3><div class=table-wrapper><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td><code>flutter channel</code></td><td>查看所有发行渠道（分支）及当前使用渠道</td></tr><tr><td><code>flutter channel &lt;channel></code></td><td>切换至指定渠道，如 master、dev、beta、stable，推荐使用 stable</td></tr></tbody></table></div><h3 id=3-配置与更新>3. 配置与更新</h3><div class=table-wrapper><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td><code>flutter config</code></td><td>基本配置，如平台启用、SDK/IDE 路径、默认设备</td></tr><tr><td><code>flutter upgrade</code></td><td>更新 Flutter SDK 和依赖包</td></tr></tbody></table></div><h3 id=4-依赖管理>4. 依赖管理</h3><div class=table-wrapper><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td><code>flutter pub &lt;command></code></td><td>依赖包管理，包括 upgrade, add, remove, get, deps, outdated</td></tr></tbody></table></div><h3 id=5-项目与构建>5. 项目与构建</h3><div class=table-wrapper><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td><code>flutter devices</code></td><td>列出可用设备（Windows、Chrome、Android 设备等）</td></tr><tr><td><code>flutter clean</code></td><td>清理构建缓存，删除 build/.dart_tool，释放空间约至 5M</td></tr><tr><td><code>flutter create .</code></td><td>创建项目，或修复现有项目。支持 app/module/package/plugin 类型</td></tr><tr><td><code>flutter create --platforms=windows,macos,linux .</code></td><td>给现有项目添加桌面平台支持</td></tr><tr><td><code>flutter build &lt;type></code></td><td>构建指定类型产物（aar、apk、appbundle、bundle、web、windows）</td></tr><tr><td><code>flutter run -d &lt;device> --release/debug</code></td><td>构建并启动应用，指定设备及构建类型</td></tr><tr><td><code>flutter attach</code></td><td>连接到已运行的 Flutter 应用，实现调试（热重载、热启动等功能）</td></tr></tbody></table></div><blockquote><p><strong>注意</strong>：Web 应用启动完成后，需要启动 Web 服务器（如 <code>npm serve</code>）才能访问。</p></blockquote><hr><h2 id=三构建-android-包相关命令详解>三、构建 Android 包相关命令详解</h2><h3 id=1-构建-aar-包android-archive>1. 构建 AAR 包（Android Archive）</h3><p>命令示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>flutter build aar --no-debug --no-profile --target-platform<span class=o>=</span>android-arm64 --build-number<span class=o>=</span>2.0
+</span></span><span class=line><span class=cl>flutter build aar -h    <span class=c1># 显示详细帮助</span>
+</span></span><span class=line><span class=cl>flutter build aar -v    <span class=c1># 显示详细日志</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>默认入口为 <code>lib/main.dart</code>，暂不可配置。</li><li>主要参数说明：<ul><li><code>--[no-]debug</code>、<code>--[no-]release</code>、<code>--[no-]profile</code>：构建不同版本（调试、发布、性能分析）。</li><li><code>--build-number</code>：内部版本号。</li><li><code>--target-platform</code>：支持平台，包括 <code>android-arm</code>（armeabi-v7a）、<code>android-arm64</code>（arm64-v8a）、<code>android-x64</code>（x86-64），目前不支持 <code>android-x86</code>。</li><li><code>--output-dir</code>：生成AAR存放路径，默认为当前目录的 <code>android/build</code>。</li><li><code>--flavor</code>：支持 Android 的 <code>product flavors</code>。</li><li>其他参数包括代码混淆、分割调试信息等，详见官方文档。</li></ul></li></ul><p>详见：<a class=link href=https://stackoverflow.com/questions/60597182/how-to-set-flutter-build-android-aar-version target=_blank rel=noopener>StackOverflow - How to set Flutter build android aar version</a></p><hr><h3 id=2-构建-apk-包>2. 构建 APK 包</h3><p>命令示例：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>flutter build apk --release --target-platform<span class=o>=</span>android-arm64 --build-number<span class=o>=</span><span class=m>88</span> --build-name<span class=o>=</span>8.8
+</span></span><span class=line><span class=cl>flutter build apk -h  <span class=c1># 帮助</span>
+</span></span><span class=line><span class=cl>flutter build apk -v  <span class=c1># 详细日志</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>仅在 application 项目中支持 <code>--build-number</code>, <code>--build-name</code> 参数，module项目中无效。</li><li>参数与 <code>flutter build aar</code> 大致相同，新增：<ul><li><code>--target=&lt;path></code>：入口文件，默认为 <code>lib/main.dart</code>。</li><li><code>--[no-]analyze-size</code>：生成构建文件大小分析。</li><li><code>--code-size-directory</code>：分析文件存放目录，默认 <code>build/</code>。</li><li><code>--[no-]multidex</code>：是否启用 MultiDex，默认启用。</li><li><code>--ignore-deprecation</code>：忽略弃用 API 警告。</li><li><code>--split-per-abi</code>：分 ABI 构建多个独立 APK。</li></ul></li></ul><hr><h2 id=四flutter-调试命令--flutter-attach>四、Flutter 调试命令 —— flutter attach</h2><p><code>flutter attach</code> 命令用于连接一个已运行的 Flutter 应用，实现调试功能，命令行内可以执行热重载、热重启等操作，与 IDE 中的快捷命令功能相同。</p><h3 id=常用交互命令>常用交互命令：</h3><div class=table-wrapper><table><thead><tr><th>快捷键</th><th>功能说明</th></tr></thead><tbody><tr><td><code>r</code></td><td>热重载（Hot reload）</td></tr><tr><td><code>R</code></td><td>热重启（Hot restart）</td></tr><tr><td><code>d</code></td><td>取消连接（Detach），断开调试但应用仍运行</td></tr><tr><td><code>q</code></td><td>终止程序（Quit）</td></tr><tr><td><code>c</code></td><td>清屏</td></tr><tr><td><code>s</code></td><td>截图，保存为 <code>flutter.png</code></td></tr><tr><td><code>v</code></td><td>打开 Flutter DevTools</td></tr><tr><td><code>h</code></td><td>显示所有可用命令列表</td></tr><tr><td><code>w</code></td><td>打印 Widget 层级结构</td></tr><tr><td><code>t</code></td><td>打印渲染树（Rendering tree）</td></tr><tr><td><code>L</code></td><td>打印布局树（Layer tree）</td></tr><tr><td><code>o</code></td><td>切换模拟操作系统</td></tr><tr><td><code>b</code></td><td>切换亮度模式（浅色/暗色）</td></tr></tbody></table></div><blockquote><p>工具会搜索正在运行的 Flutter app 或 module，如果未检测到，会等待应用启动后自动连接。</p></blockquote><hr><h2 id=五三个入门项目详解与代码注释>五、三个入门项目详解与代码注释</h2><p>下面对三个基础Flutter项目的完整代码提供详细注释，帮助理解Flutter框架的核心概念、Dart语法和常见用法。</p><hr><h3 id=1-hello-flutter>1. Hello Flutter</h3><p><strong>目标</strong>：学习Flutter项目的基本结构与Dart基础语法。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-dart data-lang=dart><span class=line><span class=cl><span class=k>import</span> <span class=s1>&#39;package:flutter/material.dart&#39;</span><span class=p>;</span>  <span class=c1>// 引入Flutter的Material组件库
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 应用入口函数，开始执行Flutter App
+</span></span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>runApp</span><span class=p>(</span><span class=kd>const</span> <span class=n>MyApp</span><span class=p>());</span>  <span class=c1>// 运行MyApp组件，const表示不可变
+</span></span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 自定义无状态组件MyApp，继承StatelessWidget
+</span></span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>MyApp</span> <span class=kd>extends</span> <span class=n>StatelessWidget</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>const</span> <span class=n>MyApp</span><span class=p>({</span><span class=k>super</span><span class=p>.</span><span class=n>key</span><span class=p>});</span>  <span class=c1>// 构造函数，传入key用于组件唯一标识
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>build</span><span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 返回一个Material风格的应用，包含主题和首页结构
+</span></span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>MaterialApp</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>title:</span> <span class=s1>&#39;皇极经世&#39;</span><span class=p>,</span>  <span class=c1>// 应用标题
+</span></span></span><span class=line><span class=cl>      <span class=nl>theme:</span> <span class=n>ThemeData</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>primarySwatch:</span> <span class=n>Colors</span><span class=p>.</span><span class=n>yellow</span><span class=p>,</span>  <span class=c1>// 主题主色调为黄色
+</span></span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=nl>home:</span> <span class=n>Scaffold</span><span class=p>(</span>  <span class=c1>// 脚手架，搭建页面基本结构
+</span></span></span><span class=line><span class=cl>        <span class=nl>appBar:</span> <span class=n>AppBar</span><span class=p>(</span>  <span class=c1>// 应用栏
+</span></span></span><span class=line><span class=cl>          <span class=nl>title:</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;皇极经世&#39;</span><span class=p>),</span>  <span class=c1>// 标题文字
+</span></span></span><span class=line><span class=cl>        <span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=nl>body:</span> <span class=n>Center</span><span class=p>(</span>  <span class=c1>// 主体内容居中显示
+</span></span></span><span class=line><span class=cl>          <span class=nl>child:</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;算命吗？&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>            <span class=nl>style:</span> <span class=n>Theme</span><span class=p>.</span><span class=n>of</span><span class=p>(</span><span class=n>context</span><span class=p>).</span><span class=n>textTheme</span><span class=p>.</span><span class=n>headlineMedium</span><span class=p>,</span>  <span class=c1>// 使用主题中的中大型标题样式
+</span></span></span><span class=line><span class=cl>          <span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=2-点击计数器>2. 点击计数器</h3><p><strong>目标</strong>：理解Stateless与Stateful组件的区别，学习事件处理和状态更新。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-dart data-lang=dart><span class=line><span class=cl><span class=k>import</span> <span class=s1>&#39;package:flutter/material.dart&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>runApp</span><span class=p>(</span><span class=kd>const</span> <span class=n>MyApp</span><span class=p>());</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>MyApp</span> <span class=kd>extends</span> <span class=n>StatelessWidget</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>const</span> <span class=n>MyApp</span><span class=p>({</span><span class=k>super</span><span class=p>.</span><span class=n>key</span><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>build</span><span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>MaterialApp</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>title:</span> <span class=s1>&#39;Counter&#39;</span><span class=p>,</span>  <span class=c1>// 应用名
+</span></span></span><span class=line><span class=cl>      <span class=nl>theme:</span> <span class=n>ThemeData</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>primarySwatch:</span> <span class=n>Colors</span><span class=p>.</span><span class=n>green</span><span class=p>,</span>  <span class=c1>// 主题色为绿色
+</span></span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=nl>home:</span> <span class=n>HomePage</span><span class=p>(</span><span class=nl>title:</span> <span class=s1>&#39;TianHanCounter&#39;</span><span class=p>),</span>  <span class=c1>// 主页，传入标题参数
+</span></span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// 有状态组件HomePage，支持状态管理
+</span></span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>HomePage</span> <span class=kd>extends</span> <span class=n>StatefulWidget</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>const</span> <span class=n>HomePage</span><span class=p>({</span><span class=k>super</span><span class=p>.</span><span class=n>key</span><span class=p>,</span> <span class=kd>required</span> <span class=k>this</span><span class=p>.</span><span class=n>title</span><span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=kd>final</span> <span class=kt>String</span> <span class=n>title</span><span class=p>;</span>  <span class=c1>// 组件接收标题字符串
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>State</span><span class=o>&lt;</span><span class=n>StatefulWidget</span><span class=o>&gt;</span> <span class=n>createState</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>_HomePageState</span><span class=p>();</span>  <span class=c1>// 创建状态对象
+</span></span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// HomePage的状态实现类
+</span></span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>_HomePageState</span> <span class=kd>extends</span> <span class=n>State</span><span class=o>&lt;</span><span class=n>HomePage</span><span class=o>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>_counter</span> <span class=o>=</span> <span class=m>0</span><span class=p>;</span>  <span class=c1>// 计数器初始值为0
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 增加计数器值
+</span></span></span><span class=line><span class=cl>  <span class=kt>void</span> <span class=n>_incrementCounter</span><span class=p>(</span><span class=kt>int</span> <span class=n>n</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>setState</span><span class=p>(()</span> <span class=p>{</span>  <span class=c1>// 调用setState触发UI刷新
+</span></span></span><span class=line><span class=cl>      <span class=n>_counter</span> <span class=o>+=</span> <span class=n>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 递减计数器
+</span></span></span><span class=line><span class=cl>  <span class=kt>void</span> <span class=n>_decrementCounter</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>setState</span><span class=p>(()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>_counter</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>build</span><span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>Scaffold</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>appBar:</span> <span class=n>AppBar</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>title:</span> <span class=n>Text</span><span class=p>(</span><span class=n>widget</span><span class=p>.</span><span class=n>title</span><span class=p>),</span>  <span class=c1>// 使用widget中的标题
+</span></span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=nl>body:</span> <span class=n>Center</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>child:</span> <span class=n>Column</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>          <span class=nl>mainAxisAlignment:</span> <span class=n>MainAxisAlignment</span><span class=p>.</span><span class=n>center</span><span class=p>,</span>  <span class=c1>// 垂直居中排列
+</span></span></span><span class=line><span class=cl>          <span class=nl>children:</span> <span class=o>&lt;</span><span class=n>Widget</span><span class=o>&gt;</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;You have pushed the button this many times:&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>            <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>$</span><span class=n>_counter</span><span class=s1>&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>              <span class=nl>style:</span> <span class=n>Theme</span><span class=p>.</span><span class=n>of</span><span class=p>(</span><span class=n>context</span><span class=p>).</span><span class=n>textTheme</span><span class=p>.</span><span class=n>headlineMedium</span><span class=p>,</span>  <span class=c1>// 大号字体显示计数
+</span></span></span><span class=line><span class=cl>            <span class=p>),</span>
+</span></span><span class=line><span class=cl>          <span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=nl>floatingActionButton:</span> <span class=n>Row</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>mainAxisAlignment:</span> <span class=n>MainAxisAlignment</span><span class=p>.</span><span class=n>end</span><span class=p>,</span>  <span class=c1>// 按钮右对齐
+</span></span></span><span class=line><span class=cl>        <span class=nl>children:</span> <span class=o>&lt;</span><span class=n>Widget</span><span class=o>&gt;</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>          <span class=n>FloatingActionButton</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=nl>onPressed:</span> <span class=n>_decrementCounter</span><span class=p>,</span>  <span class=c1>// 点击时递减计数
+</span></span></span><span class=line><span class=cl>            <span class=nl>tooltip:</span> <span class=s1>&#39;Decrement&#39;</span><span class=p>,</span>  <span class=c1>// 悬浮提示
+</span></span></span><span class=line><span class=cl>            <span class=nl>child:</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>remove</span><span class=p>),</span>  <span class=c1>// 减号图标
+</span></span></span><span class=line><span class=cl>          <span class=p>),</span>
+</span></span><span class=line><span class=cl>          <span class=n>SizedBox</span><span class=p>(</span><span class=nl>width:</span> <span class=m>10</span><span class=p>),</span>  <span class=c1>// 按钮间距
+</span></span></span><span class=line><span class=cl>          <span class=n>FloatingActionButton</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=nl>onPressed:</span> <span class=p>()</span> <span class=o>=&gt;</span> <span class=n>_incrementCounter</span><span class=p>(</span><span class=m>3</span><span class=p>),</span>  <span class=c1>// 点击增加3
+</span></span></span><span class=line><span class=cl>            <span class=nl>tooltip:</span> <span class=s1>&#39;Increment&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nl>child:</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>add</span><span class=p>),</span>  <span class=c1>// 加号图标
+</span></span></span><span class=line><span class=cl>          <span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><hr><h3 id=3-心爱配对-love-match>3. 心爱配对 (Love Match)</h3><p><strong>目标</strong>：学习<code>ListView</code>展示列表、页面导航<code>Navigator</code>与较复杂的状态管理。</p><blockquote><p>依赖包安装：需要安装<code>english_words</code>，可以通过修改<code>pubspec.yaml</code>文件或在命令行使用<code>flutter pub add english_words</code>安装。</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-dart data-lang=dart><span class=line><span class=cl><span class=k>import</span> <span class=s1>&#39;package:flutter/material.dart&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=k>import</span> <span class=s1>&#39;package:english_words/english_words.dart&#39;</span><span class=p>;</span>  <span class=c1>// 引入英文单词对生成库
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=n>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>runApp</span><span class=p>(</span><span class=kd>const</span> <span class=n>MyApp</span><span class=p>());</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>MyApp</span> <span class=kd>extends</span> <span class=n>StatelessWidget</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>const</span> <span class=n>MyApp</span><span class=p>({</span><span class=k>super</span><span class=p>.</span><span class=n>key</span><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>build</span><span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>MaterialApp</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>title:</span> <span class=s1>&#39;爱心配对&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nl>theme:</span> <span class=n>ThemeData</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>colorScheme:</span> <span class=n>ColorScheme</span><span class=p>.</span><span class=n>fromSeed</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>          <span class=nl>seedColor:</span> <span class=n>Colors</span><span class=p>.</span><span class=n>deepPurple</span><span class=p>,</span>  <span class=c1>// 主题种子颜色深紫色
+</span></span></span><span class=line><span class=cl>        <span class=p>).</span><span class=n>copyWith</span><span class=p>(</span><span class=nl>surfaceTint:</span> <span class=n>Colors</span><span class=p>.</span><span class=n>transparent</span><span class=p>),</span>  <span class=c1>// 取消表面颜色阴影
+</span></span></span><span class=line><span class=cl>        <span class=nl>appBarTheme:</span> <span class=n>AppBarTheme</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>          <span class=nl>backgroundColor:</span> <span class=n>Colors</span><span class=p>.</span><span class=n>green</span><span class=p>,</span>  <span class=c1>// AppBar背景绿色
+</span></span></span><span class=line><span class=cl>          <span class=nl>elevation:</span> <span class=m>4.0</span><span class=p>,</span>  <span class=c1>// 阴影高度
+</span></span></span><span class=line><span class=cl>          <span class=nl>shadowColor:</span> <span class=n>Theme</span><span class=p>.</span><span class=n>of</span><span class=p>(</span><span class=n>context</span><span class=p>).</span><span class=n>colorScheme</span><span class=p>.</span><span class=n>shadow</span><span class=p>,</span>  <span class=c1>// 阴影颜色
+</span></span></span><span class=line><span class=cl>        <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=nl>home:</span> <span class=n>HomePage</span><span class=p>(),</span>  <span class=c1>// 主页组件
+</span></span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>HomePage</span> <span class=kd>extends</span> <span class=n>StatefulWidget</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>const</span> <span class=n>HomePage</span><span class=p>({</span><span class=k>super</span><span class=p>.</span><span class=n>key</span><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>State</span><span class=o>&lt;</span><span class=n>StatefulWidget</span><span class=o>&gt;</span> <span class=n>createState</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>_HomePageState</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>class</span> <span class=nc>_HomePageState</span> <span class=kd>extends</span> <span class=n>State</span><span class=o>&lt;</span><span class=n>HomePage</span><span class=o>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>final</span> <span class=n>_words</span> <span class=o>=</span> <span class=o>&lt;</span><span class=n>WordPair</span><span class=o>&gt;</span><span class=p>[];</span>      <span class=c1>// 存储生成的单词对列表
+</span></span></span><span class=line><span class=cl>  <span class=kd>final</span> <span class=n>_favorites</span> <span class=o>=</span> <span class=o>&lt;</span><span class=n>WordPair</span><span class=o>&gt;</span><span class=p>[];</span>  <span class=c1>// 存储用户收藏的单词对
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=err>@</span><span class=n>override</span>
+</span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>build</span><span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>Scaffold</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>appBar:</span> <span class=n>AppBar</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>title:</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;爱心配对&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=nl>actions:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>          <span class=c1>// 右上角收藏按钮，点击进入收藏页面
+</span></span></span><span class=line><span class=cl>          <span class=n>IconButton</span><span class=p>(</span><span class=nl>icon:</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>list</span><span class=p>),</span> <span class=nl>onPressed:</span> <span class=n>_goToFavorites</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=nl>body:</span> <span class=n>Center</span><span class=p>(</span><span class=nl>child:</span> <span class=n>_buildList</span><span class=p>()),</span>  <span class=c1>// 主体为单词列表
+</span></span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 跳转到收藏页面，展示已收藏的单词对列表
+</span></span></span><span class=line><span class=cl>  <span class=kt>void</span> <span class=n>_goToFavorites</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>Navigator</span><span class=p>.</span><span class=n>of</span><span class=p>(</span><span class=n>context</span><span class=p>).</span><span class=n>push</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=n>MaterialPageRoute</span><span class=o>&lt;</span><span class=kt>void</span><span class=o>&gt;</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=nl>builder:</span> <span class=p>(</span><span class=n>BuildContext</span> <span class=n>context</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=c1>// 构造收藏单词对的列表项
+</span></span></span><span class=line><span class=cl>          <span class=kd>final</span> <span class=n>Iterable</span><span class=o>&lt;</span><span class=n>ListTile</span><span class=o>&gt;</span> <span class=n>tiles</span> <span class=o>=</span> <span class=n>_favorites</span><span class=p>.</span><span class=n>map</span><span class=p>((</span><span class=n>WordPair</span> <span class=n>pair</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>ListTile</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>              <span class=nl>title:</span> <span class=n>Text</span><span class=p>(</span><span class=n>pair</span><span class=p>.</span><span class=n>asPascalCase</span><span class=p>,</span> <span class=nl>style:</span> <span class=n>TextStyle</span><span class=p>(</span><span class=nl>fontSize:</span> <span class=m>18.0</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl>            <span class=p>);</span>
+</span></span><span class=line><span class=cl>          <span class=p>});</span>
+</span></span><span class=line><span class=cl>          <span class=k>return</span> <span class=n>Scaffold</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=nl>appBar:</span> <span class=n>AppBar</span><span class=p>(</span><span class=nl>title:</span> <span class=n>Text</span><span class=p>(</span><span class=s1>&#39;收藏&#39;</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl>            <span class=nl>body:</span> <span class=n>ListView</span><span class=p>(</span><span class=nl>children:</span> <span class=n>tiles</span><span class=p>.</span><span class=n>toList</span><span class=p>()),</span>  <span class=c1>// 使用ListView展示收藏列表
+</span></span></span><span class=line><span class=cl>          <span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 构建主列表，动态生成单词对列表项
+</span></span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>_buildList</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 每次调用添加10个单词对
+</span></span></span><span class=line><span class=cl>    <span class=n>_words</span><span class=p>.</span><span class=n>addAll</span><span class=p>(</span><span class=n>generateWordPairs</span><span class=p>().</span><span class=n>take</span><span class=p>(</span><span class=m>10</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>ListView</span><span class=p>.</span><span class=n>builder</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>itemBuilder:</span> <span class=p>(</span><span class=n>context</span><span class=p>,</span> <span class=n>item</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>item</span><span class=p>.</span><span class=n>isOdd</span><span class=p>)</span> <span class=k>return</span> <span class=n>Divider</span><span class=p>();</span>  <span class=c1>// 奇数行插入分割线
+</span></span></span><span class=line><span class=cl>        <span class=kt>int</span> <span class=n>index</span> <span class=o>=</span> <span class=n>item</span> <span class=o>~/</span> <span class=m>2</span><span class=p>;</span>  <span class=c1>// 计算实际单词对索引
+</span></span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>index</span> <span class=o>&gt;=</span> <span class=n>_words</span><span class=p>.</span><span class=n>length</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=c1>// 超出列表长度时自动加载更多
+</span></span></span><span class=line><span class=cl>          <span class=n>_words</span><span class=p>.</span><span class=n>addAll</span><span class=p>(</span><span class=n>generateWordPairs</span><span class=p>().</span><span class=n>take</span><span class=p>(</span><span class=m>10</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>_buildRow</span><span class=p>(</span><span class=n>index</span><span class=p>);</span>  <span class=c1>// 构建单个列表项
+</span></span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 单个列表项构建，包含单词对文字和收藏图标
+</span></span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>_buildRow</span><span class=p>(</span><span class=kt>int</span> <span class=n>index</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>ListTile</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=nl>title:</span> <span class=n>Text</span><span class=p>(</span><span class=n>_words</span><span class=p>[</span><span class=n>index</span><span class=p>].</span><span class=n>asPascalCase</span><span class=p>),</span>  <span class=c1>// Pascal命名格式展示单词对
+</span></span></span><span class=line><span class=cl>      <span class=nl>trailing:</span> <span class=n>_changeIcon</span><span class=p>(</span><span class=n>index</span><span class=p>),</span>              <span class=c1>// 右侧收藏图标
+</span></span></span><span class=line><span class=cl>      <span class=nl>onTap:</span> <span class=p>()</span> <span class=o>=&gt;</span> <span class=p>{</span><span class=n>_changeFavorites</span><span class=p>(</span><span class=n>index</span><span class=p>)},</span>   <span class=c1>// 点击切换收藏状态
+</span></span></span><span class=line><span class=cl>    <span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 根据是否收藏显示不同图标
+</span></span></span><span class=line><span class=cl>  <span class=n>Widget</span> <span class=n>_changeIcon</span><span class=p>(</span><span class=kt>int</span> <span class=n>index</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>_favorites</span><span class=p>.</span><span class=n>contains</span><span class=p>(</span><span class=n>_words</span><span class=p>[</span><span class=n>index</span><span class=p>]))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>favorite</span><span class=p>,</span> <span class=nl>color:</span> <span class=n>Colors</span><span class=p>.</span><span class=n>red</span><span class=p>);</span>  <span class=c1>// 已收藏红色爱心
+</span></span></span><span class=line><span class=cl>    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=n>Icon</span><span class=p>(</span><span class=n>Icons</span><span class=p>.</span><span class=n>favorite_border</span><span class=p>);</span>  <span class=c1>// 未收藏空心爱心
+</span></span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// 切换收藏状态
+</span></span></span><span class=line><span class=cl>  <span class=kt>void</span> <span class=n>_changeFavorites</span><span class=p>(</span><span class=kt>int</span> <span class=n>index</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>setState</span><span class=p>(()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=n>_favorites</span><span class=p>.</span><span class=n>contains</span><span class=p>(</span><span class=n>_words</span><span class=p>[</span><span class=n>index</span><span class=p>]))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>_favorites</span><span class=p>.</span><span class=n>remove</span><span class=p>(</span><span class=n>_words</span><span class=p>[</span><span class=n>index</span><span class=p>]);</span>  <span class=c1>// 取消收藏
+</span></span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>_favorites</span><span class=p>.</span><span class=n>add</span><span class=p>(</span><span class=n>_words</span><span class=p>[</span><span class=n>index</span><span class=p>]);</span>     <span class=c1>// 添加收藏
+</span></span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/flutter/>Flutter</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/12%E4%B8%AA%E7%82%AB%E9%85%B7%E7%9A%84%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/><div class=article-details><h2 class=article-title>12个炫酷的大屏可视化开源项目推荐</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2025 hanguangwu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
