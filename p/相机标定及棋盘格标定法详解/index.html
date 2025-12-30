@@ -1,0 +1,445 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="本文介绍相机标定的概念及棋盘格标定法。"><title>相机标定及棋盘格标定法详解</title><link rel=canonical href=https://hanguangwu.github.io/p/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A%E5%8F%8A%E6%A3%8B%E7%9B%98%E6%A0%BC%E6%A0%87%E5%AE%9A%E6%B3%95%E8%AF%A6%E8%A7%A3/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="相机标定及棋盘格标定法详解"><meta property='og:description' content="本文介绍相机标定的概念及棋盘格标定法。"><meta property='og:url' content='https://hanguangwu.github.io/p/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A%E5%8F%8A%E6%A3%8B%E7%9B%98%E6%A0%BC%E6%A0%87%E5%AE%9A%E6%B3%95%E8%AF%A6%E8%A7%A3/'><meta property='og:site_name' content='酒中仙'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='CV'><meta property='article:tag' content='相机标定'><meta property='article:published_time' content='2025-05-20T18:34:25+08:00'><meta property='article:modified_time' content='2025-05-20T18:34:25+08:00'><meta name=twitter:title content="相机标定及棋盘格标定法详解"><meta name=twitter:description content="本文介绍相机标定的概念及棋盘格标定法。"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_446bb777e4bcbb8a.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>酒中仙</a></h1><h2 class=site-description>仰天大笑出門去，我輩豈是蓬蒿人！</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/ selected>中文</option><option value=https://hanguangwu.github.io/en/>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#什么是相机标定>什么是相机标定？</a></li><li><a href=#棋盘格标定法>棋盘格标定法</a><ol><li><a href=#简介>简介</a></li><li><a href=#核心步骤>核心步骤：</a></li><li><a href=#数学模型>数学模型</a></li><li><a href=#投影模型>投影模型</a></li><li><a href=#重投影误差>重投影误差</a></li></ol></li><li><a href=#相机标定python实现及说明>相机标定Python实现及说明</a></li><li><a href=#姿态估计的python代码优化与详解>姿态估计的Python代码优化与详解</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/>计算机
+</a><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A%E5%8F%8A%E6%A3%8B%E7%9B%98%E6%A0%BC%E6%A0%87%E5%AE%9A%E6%B3%95%E8%AF%A6%E8%A7%A3/>相机标定及棋盘格标定法详解</a></h2><h3 class=article-subtitle>本文介绍相机标定的概念及棋盘格标定法。</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>May 20, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 8 分钟</time></div></footer></div></header><section class=article-content><h1 id=相机标定及棋盘格标定法详解>相机标定及棋盘格标定法详解</h1><h2 id=什么是相机标定>什么是相机标定？</h2><p>相机标定（Camera Calibration）是指通过一组已知空间几何结构的物体（如棋盘格）拍摄图像，计算出相机的内参矩阵和畸变系数的过程。</p><p>这一步使得我们能够从二维图像像素坐标恢复三维空间信息，或者进行精准的图像几何校正。标定结果通常包括：</p><ul><li><p><strong>相机内参矩阵</strong> $K$<br></p>$$K = \begin{bmatrix} f_x & 0 & c_x \ 0 & f_y & c_y \ 0 & 0 & 1 \ \end{bmatrix}$$<p>其中，$f_x, f_y$ 是水平和竖直方向上的焦距（像素单位），$c_x, c_y$ 是主点坐标。</p></li><li><p><strong>畸变系数</strong> $D$<br>包含径向和切向畸变参数，如 $k_1, k_2, p_1, p_2, k_3$ 等。</p></li><li><p><strong>旋转和平移向量</strong> 用于描述相机坐标系与世界坐标系之间的位置关系。</p></li></ul><p>相机标定是计算相机内外参的过程。通过标定，我们能获得：</p><ul><li><strong>内参（Intrinsic Parameters）</strong>：相机的固有属性，如焦距$(f_x, f_y)$、光心位置$(c_x, c_y)$和畸变参数。</li><li><strong>外参（Extrinsic Parameters）</strong>：相机相对于世界坐标系的位置和朝向，即旋转矩阵$R$和平移向量$t$。</li></ul><p>标定的目标是建立3D物体坐标与图像坐标之间的映射关系。</p><p>在计算机视觉中，标定后的相机矩阵$K$通常表示为：</p>$$K = \begin{bmatrix} f_x & 0 & c_x \ 0 & f_y & c_y \ 0 & 0 & 1 \ \end{bmatrix}$$<p>结合畸变参数，可以纠正成像中的径向和切向畸变。</p><hr><h2 id=棋盘格标定法>棋盘格标定法</h2><p>棋盘格标定法是工业界和学术界应用最为广泛的标定方式，因其角点容易定位且结构规则。</p><h3 id=简介>简介</h3><p>棋盘格标定法利用具有已知几何形状的二维平面棋盘作为标定样板。其关键步骤包括：</p><ol><li><p><strong>准备棋盘格</strong><br>典型棋盘由黑白相间的方格组成，角点（内角交点）作为标定点。</p></li><li><p><strong>在多张不同角度的棋盘图像中检测角点</strong><br>使用OpenCV的<code>findChessboardCorners()</code>函数自动定位棋盘格内角点。</p></li><li><p><strong>亚像素级角点精确化</strong><br>通过<code>cornerSubPix()</code>精细调整角点位置，提高标定精度。</p></li><li><p><strong>对应三维空间点与二维图像点</strong><br>三维点多为棋盘格上预先定义的规则坐标，例如$(0,0,0),(1,0,0),\ldots$。</p></li><li><p><strong>调用<code>calibrateCamera()</code>计算相机内外参</strong><br>通过最小化重投影误差的优化方法，求得相机参数。</p></li></ol><h3 id=核心步骤>核心步骤：</h3><ul><li>准备一个具有多个方格单元的棋盘格标定板，已知单元格大小（如 $20 \times 20$ 毫米）。</li><li>采集多张棋盘格在不同姿态的图像。</li><li>使用角点检测算法找到每张图像中棋盘格的角点（图像点）。</li><li>结合棋盘格的物理坐标（空间点），利用对应点进行相机参数求解。</li></ul><h3 id=数学模型>数学模型</h3><p>在针孔相机模型下，三维空间点 $P_w = (X_w, Y_w, Z_w)$ 通过变换到相机坐标系后投影到像素坐标 $p = (u, v)$：</p>$$s \begin{bmatrix} u \ v \ 1 \ \end{bmatrix} = K \begin{bmatrix} R & t \end{bmatrix} \begin{bmatrix} X_w \ Y_w \ Z_w \ 1 \ \end{bmatrix}$$<p>其中：</p><ul><li>$s$ 是尺度因子。</li><li>$R$ 是旋转矩阵，$t$ 是平移向量。</li><li>$K$ 是内参矩阵。</li></ul><p>根据上述方程，给定一组标定点的空间坐标及其对应像素点，利用非线性优化（如Levenberg-Marquardt）求解 $K$、$R$、$t$ 和畸变参数。</p><h3 id=投影模型>投影模型</h3><p>世界坐标系中的3D点$X_w = [X,Y,Z,1]^T$通过相机坐标变换和投影变为图像点$x = [u,v]^T$：</p>$$s \begin{bmatrix} u \ v \ 1 \end{bmatrix} = K [R \quad t] \begin{bmatrix} X \ Y \ Z \ 1 \end{bmatrix}$$<p>其中：</p><ul><li>$K$为相机内参矩阵</li><li>$R$为3×3旋转矩阵</li><li>$t$为3×1平移向量</li><li>$s$为尺度因子</li></ul><h3 id=重投影误差>重投影误差</h3><p>最小化目标是重投影误差：</p>$$\min_{K, R_i, t_i} \sum_{i=1}^N \sum_{j=1}^M | x_{ij} - \hat{x}_{ij} |^2$$<p>其中：</p><ul><li>$x_{ij}$为第$i$幅图中第$j$个检测到的角点</li><li>$\hat{x}_{ij}$为第$i$幅图对应的3D点经过投影后的点</li></ul><p>优化完成后，即得到相机的内外参数和畸变系数。</p><h2 id=相机标定python实现及说明>相机标定Python实现及说明</h2><p>下面代码通过模块化和详细注释，提高代码的可读性和复用性。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>cv2</span> <span class=k>as</span> <span class=nn>cv</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>glob</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>prepare_object_points</span><span class=p>(</span><span class=n>pattern_size</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    生成棋盘格的三维世界坐标点，以平面（z=0）上的规则点。
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Parameters:
+</span></span></span><span class=line><span class=cl><span class=s2>        pattern_size (tuple): 风格为（内角点列数, 内角点行数） 
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        objp (ndarray): 形如(N, 3)，每行为一个3D点
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>objp</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>((</span><span class=n>pattern_size</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>*</span> <span class=n>pattern_size</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=mi>3</span><span class=p>),</span> <span class=n>np</span><span class=o>.</span><span class=n>float32</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>objp</span><span class=p>[:,</span> <span class=p>:</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>mgrid</span><span class=p>[</span><span class=mi>0</span><span class=p>:</span><span class=n>pattern_size</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=mi>0</span><span class=p>:</span><span class=n>pattern_size</span><span class=p>[</span><span class=mi>1</span><span class=p>]]</span><span class=o>.</span><span class=n>T</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>objp</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>find_corners</span><span class=p>(</span><span class=n>images</span><span class=p>,</span> <span class=n>pattern_size</span><span class=p>,</span> <span class=n>criteria</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    在多张图像中寻找棋盘格角点，并做亚像素级精细调整
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Parameters:
+</span></span></span><span class=line><span class=cl><span class=s2>        images (list): 图像路径列表
+</span></span></span><span class=line><span class=cl><span class=s2>        pattern_size (tuple): 棋盘格内角点尺寸 (cols, rows)
+</span></span></span><span class=line><span class=cl><span class=s2>        criteria (tuple): 角点精细化迭代终止标准
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        objpoints (list): 3D点世界坐标列表
+</span></span></span><span class=line><span class=cl><span class=s2>        imgpoints (list): 2D图像坐标点列表
+</span></span></span><span class=line><span class=cl><span class=s2>        img_shape (tuple): 图像尺寸(宽, 高)
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>objp</span> <span class=o>=</span> <span class=n>prepare_object_points</span><span class=p>(</span><span class=n>pattern_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>objpoints</span> <span class=o>=</span> <span class=p>[]</span>  <span class=c1># 三维点列表</span>
+</span></span><span class=line><span class=cl>    <span class=n>imgpoints</span> <span class=o>=</span> <span class=p>[]</span>  <span class=c1># 二维点列表</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>fname</span> <span class=ow>in</span> <span class=n>images</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>imread</span><span class=p>(</span><span class=n>fname</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>img</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Warning: unable to load image </span><span class=si>{</span><span class=n>fname</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>        <span class=n>gray</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>cvtColor</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>cv</span><span class=o>.</span><span class=n>COLOR_BGR2GRAY</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>ret</span><span class=p>,</span> <span class=n>corners</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>findChessboardCorners</span><span class=p>(</span><span class=n>gray</span><span class=p>,</span> <span class=n>pattern_size</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>ret</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 亚像素级角点精细化</span>
+</span></span><span class=line><span class=cl>            <span class=n>corners_refined</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>cornerSubPix</span><span class=p>(</span><span class=n>gray</span><span class=p>,</span> <span class=n>corners</span><span class=p>,</span> <span class=p>(</span><span class=mi>11</span><span class=p>,</span> <span class=mi>11</span><span class=p>),</span> <span class=p>(</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>),</span> <span class=n>criteria</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>objpoints</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>objp</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>imgpoints</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>corners_refined</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># 可视化检测效果</span>
+</span></span><span class=line><span class=cl>            <span class=n>cv</span><span class=o>.</span><span class=n>drawChessboardCorners</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>pattern_size</span><span class=p>,</span> <span class=n>corners_refined</span><span class=p>,</span> <span class=n>ret</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>cv</span><span class=o>.</span><span class=n>imshow</span><span class=p>(</span><span class=s1>&#39;Corners Detection&#39;</span><span class=p>,</span> <span class=n>img</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>cv</span><span class=o>.</span><span class=n>waitKey</span><span class=p>(</span><span class=mi>500</span><span class=p>)</span>  <span class=c1># 展示500ms</span>
+</span></span><span class=line><span class=cl>    <span class=n>cv</span><span class=o>.</span><span class=n>destroyAllWindows</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>imgpoints</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>raise</span> <span class=ne>RuntimeError</span><span class=p>(</span><span class=s2>&#34;未检测到任何有效棋盘格角点！请检查图片路径及参数设置。&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>gray</span><span class=o>.</span><span class=n>shape</span><span class=p>[::</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>calibrate_camera</span><span class=p>(</span><span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>image_size</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    利用世界坐标和图像坐标计算相机内参和畸变参数
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Parameters:
+</span></span></span><span class=line><span class=cl><span class=s2>        objpoints (list): 三维点集列表
+</span></span></span><span class=line><span class=cl><span class=s2>        imgpoints (list): 二维点集列表
+</span></span></span><span class=line><span class=cl><span class=s2>        image_size (tuple): 图像尺寸 (宽, 高)
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        ret (float): RMS重投影误差
+</span></span></span><span class=line><span class=cl><span class=s2>        mtx (ndarray): 相机矩阵
+</span></span></span><span class=line><span class=cl><span class=s2>        dist (ndarray): 畸变系数
+</span></span></span><span class=line><span class=cl><span class=s2>        rvecs (list): 旋转向量列表
+</span></span></span><span class=line><span class=cl><span class=s2>        tvecs (list): 平移向量列表
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>ret</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>,</span> <span class=n>rvecs</span><span class=p>,</span> <span class=n>tvecs</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>calibrateCamera</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>image_size</span><span class=p>,</span> <span class=kc>None</span><span class=p>,</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>ret</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>,</span> <span class=n>rvecs</span><span class=p>,</span> <span class=n>tvecs</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>compute_reprojection_error</span><span class=p>(</span><span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>rvecs</span><span class=p>,</span> <span class=n>tvecs</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    计算所有图像的平均重投影误差，衡量标定精度
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        mean_error (float): 平均误差
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>total_error</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>objpoints</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>        <span class=n>imgpoints_proj</span><span class=p>,</span> <span class=n>_</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>projectPoints</span><span class=p>(</span><span class=n>objpoints</span><span class=p>[</span><span class=n>i</span><span class=p>],</span> <span class=n>rvecs</span><span class=p>[</span><span class=n>i</span><span class=p>],</span> <span class=n>tvecs</span><span class=p>[</span><span class=n>i</span><span class=p>],</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>error</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>imgpoints</span><span class=p>[</span><span class=n>i</span><span class=p>],</span> <span class=n>imgpoints_proj</span><span class=p>,</span> <span class=n>cv</span><span class=o>.</span><span class=n>NORM_L2</span><span class=p>)</span> <span class=o>/</span> <span class=nb>len</span><span class=p>(</span><span class=n>imgpoints_proj</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>total_error</span> <span class=o>+=</span> <span class=n>error</span>
+</span></span><span class=line><span class=cl>    <span class=n>mean_error</span> <span class=o>=</span> <span class=n>total_error</span> <span class=o>/</span> <span class=nb>len</span><span class=p>(</span><span class=n>objpoints</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>mean_error</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 棋盘内角点尺寸(列, 行)</span>
+</span></span><span class=line><span class=cl>    <span class=n>pattern_size</span> <span class=o>=</span> <span class=p>(</span><span class=mi>24</span><span class=p>,</span> <span class=mi>13</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 迭代终止条件</span>
+</span></span><span class=line><span class=cl>    <span class=n>criteria</span> <span class=o>=</span> <span class=p>(</span><span class=n>cv</span><span class=o>.</span><span class=n>TERM_CRITERIA_EPS</span> <span class=o>+</span> <span class=n>cv</span><span class=o>.</span><span class=n>TERM_CRITERIA_MAX_ITER</span><span class=p>,</span> <span class=mi>30</span><span class=p>,</span> <span class=mf>0.001</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 读取所有标定图像路径，确保图像覆盖不同角度和视场</span>
+</span></span><span class=line><span class=cl>    <span class=n>images</span> <span class=o>=</span> <span class=n>glob</span><span class=o>.</span><span class=n>glob</span><span class=p>(</span><span class=s1>&#39;data/cali/*.jpg&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>image_size</span> <span class=o>=</span> <span class=n>find_corners</span><span class=p>(</span><span class=n>images</span><span class=p>,</span> <span class=n>pattern_size</span><span class=p>,</span> <span class=n>criteria</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>ret</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>,</span> <span class=n>rvecs</span><span class=p>,</span> <span class=n>tvecs</span> <span class=o>=</span> <span class=n>calibrate_camera</span><span class=p>(</span><span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>image_size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>mean_error</span> <span class=o>=</span> <span class=n>compute_reprojection_error</span><span class=p>(</span><span class=n>objpoints</span><span class=p>,</span> <span class=n>imgpoints</span><span class=p>,</span> <span class=n>rvecs</span><span class=p>,</span> <span class=n>tvecs</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;标定完成，重投影误差 (RMS): </span><span class=si>{</span><span class=n>ret</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;平均重投影误差: </span><span class=si>{</span><span class=n>mean_error</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;相机矩阵:</span><span class=se>\n</span><span class=si>{</span><span class=n>mtx</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;畸变系数:</span><span class=se>\n</span><span class=si>{</span><span class=n>dist</span><span class=o>.</span><span class=n>ravel</span><span class=p>()</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 保存参数，方便未来加载与使用</span>
+</span></span><span class=line><span class=cl>    <span class=n>np</span><span class=o>.</span><span class=n>savez</span><span class=p>(</span><span class=s1>&#39;camera_calibration.npz&#39;</span><span class=p>,</span> <span class=n>mtx</span><span class=o>=</span><span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=o>=</span><span class=n>dist</span><span class=p>,</span> <span class=n>rvecs</span><span class=o>=</span><span class=n>rvecs</span><span class=p>,</span> <span class=n>tvecs</span><span class=o>=</span><span class=n>tvecs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><hr><p>小结：</p><ul><li><strong>相机标定</strong>是获取相机准确内外参数的基础，广泛应用于机器视觉、三维重建等领域。</li><li><strong>棋盘格标定法</strong>因其简单直观、角点检测稳定，是最常用的标定方法。</li><li>通过多视角棋盘图像，检测角点，亚像素精细化，配合OpenCV的<code>calibrateCamera</code>函数完成相机参数估计。</li><li>最终通过重投影误差评估标定结果的准确性，误差越小越好。</li><li>优化代码结构可以提升易懂性与复用性，便于实际工业或科研项目中的应用。</li></ul><h2 id=姿态估计的python代码优化与详解>姿态估计的Python代码优化与详解</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>cv2</span> <span class=k>as</span> <span class=nn>cv</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>glob</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>load_calibration_data</span><span class=p>(</span><span class=n>filepath</span><span class=o>=</span><span class=s1>&#39;B.npz&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;加载相机内参和畸变参数&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>with</span> <span class=n>np</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=n>filepath</span><span class=p>)</span> <span class=k>as</span> <span class=n>data</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>mtx</span> <span class=o>=</span> <span class=n>data</span><span class=p>[</span><span class=s1>&#39;mtx&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>dist</span> <span class=o>=</span> <span class=n>data</span><span class=p>[</span><span class=s1>&#39;dist&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>draw_cube</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>imgpts</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    在图像上绘制3D立方体的投影
+</span></span></span><span class=line><span class=cl><span class=s2>    - imgpts: 8个立方体顶点的二维投影点
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>imgpts</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>int32</span><span class=p>(</span><span class=n>imgpts</span><span class=p>)</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 绘制底面（绿色填充）</span>
+</span></span><span class=line><span class=cl>    <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>drawContours</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=p>[</span><span class=n>imgpts</span><span class=p>[:</span><span class=mi>4</span><span class=p>]],</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mi>0</span><span class=p>),</span> <span class=o>-</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 绘制柱子（蓝色线条）</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=nb>range</span><span class=p>(</span><span class=mi>4</span><span class=p>),</span> <span class=nb>range</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=mi>8</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>        <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>line</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=nb>tuple</span><span class=p>(</span><span class=n>imgpts</span><span class=p>[</span><span class=n>i</span><span class=p>]),</span> <span class=nb>tuple</span><span class=p>(</span><span class=n>imgpts</span><span class=p>[</span><span class=n>j</span><span class=p>]),</span> <span class=p>(</span><span class=mi>255</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>),</span> <span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 绘制顶部（红色线条）</span>
+</span></span><span class=line><span class=cl>    <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>drawContours</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=p>[</span><span class=n>imgpts</span><span class=p>[</span><span class=mi>4</span><span class=p>:]],</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>255</span><span class=p>),</span> <span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>img</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 加载相机参数</span>
+</span></span><span class=line><span class=cl>    <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span> <span class=o>=</span> <span class=n>load_calibration_data</span><span class=p>(</span><span class=s1>&#39;B.npz&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 设置棋盘格大小，这里(24, 13)表示24×13个内角点</span>
+</span></span><span class=line><span class=cl>    <span class=n>chessboard_size</span> <span class=o>=</span> <span class=p>(</span><span class=mi>24</span><span class=p>,</span> <span class=mi>13</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 生成世界坐标系中的棋盘格点，Z=0平面</span>
+</span></span><span class=line><span class=cl>    <span class=n>objp</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>zeros</span><span class=p>((</span><span class=n>chessboard_size</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=n>chessboard_size</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=mi>3</span><span class=p>),</span> <span class=n>np</span><span class=o>.</span><span class=n>float32</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>objp</span><span class=p>[:,</span> <span class=p>:</span><span class=mi>2</span><span class=p>]</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>mgrid</span><span class=p>[</span><span class=mi>0</span><span class=p>:</span><span class=n>chessboard_size</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=mi>0</span><span class=p>:</span><span class=n>chessboard_size</span><span class=p>[</span><span class=mi>1</span><span class=p>]]</span><span class=o>.</span><span class=n>T</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 设置亚像素角点检测的终止条件</span>
+</span></span><span class=line><span class=cl>    <span class=n>criteria</span> <span class=o>=</span> <span class=p>(</span><span class=n>cv</span><span class=o>.</span><span class=n>TERM_CRITERIA_EPS</span> <span class=o>+</span> <span class=n>cv</span><span class=o>.</span><span class=n>TERM_CRITERIA_MAX_ITER</span><span class=p>,</span> <span class=mi>30</span><span class=p>,</span> <span class=mf>0.001</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 定义一个3D立方体的8个顶点，用于投影</span>
+</span></span><span class=line><span class=cl>    <span class=n>cube_size</span> <span class=o>=</span> <span class=mi>3</span>  <span class=c1># 立方体边长，单位与棋盘格点一致</span>
+</span></span><span class=line><span class=cl>    <span class=n>axis</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>float32</span><span class=p>([</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>],</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=n>cube_size</span><span class=p>,</span> <span class=mi>0</span><span class=p>],</span> <span class=p>[</span><span class=n>cube_size</span><span class=p>,</span> <span class=n>cube_size</span><span class=p>,</span> <span class=mi>0</span><span class=p>],</span> <span class=p>[</span><span class=n>cube_size</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=o>-</span><span class=n>cube_size</span><span class=p>],</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=n>cube_size</span><span class=p>,</span> <span class=o>-</span><span class=n>cube_size</span><span class=p>],</span> <span class=p>[</span><span class=n>cube_size</span><span class=p>,</span> <span class=n>cube_size</span><span class=p>,</span> <span class=o>-</span><span class=n>cube_size</span><span class=p>],</span> <span class=p>[</span><span class=n>cube_size</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=o>-</span><span class=n>cube_size</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># 读取所有测试图像</span>
+</span></span><span class=line><span class=cl>    <span class=n>image_files</span> <span class=o>=</span> <span class=n>glob</span><span class=o>.</span><span class=n>glob</span><span class=p>(</span><span class=s1>&#39;data/pose/*.jpg&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>fname</span> <span class=ow>in</span> <span class=n>image_files</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>imread</span><span class=p>(</span><span class=n>fname</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>gray</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>cvtColor</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>cv</span><span class=o>.</span><span class=n>COLOR_BGR2GRAY</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 寻找棋盘格角点</span>
+</span></span><span class=line><span class=cl>        <span class=n>ret</span><span class=p>,</span> <span class=n>corners</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>findChessboardCorners</span><span class=p>(</span><span class=n>gray</span><span class=p>,</span> <span class=n>chessboard_size</span><span class=p>,</span> <span class=kc>None</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>ret</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;未检测到角点: </span><span class=si>{</span><span class=n>fname</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 亚像素级角点优化</span>
+</span></span><span class=line><span class=cl>        <span class=n>corners_subpix</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>cornerSubPix</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=n>gray</span><span class=p>,</span> <span class=n>corners</span><span class=p>,</span> <span class=n>winSize</span><span class=o>=</span><span class=p>(</span><span class=mi>11</span><span class=p>,</span> <span class=mi>11</span><span class=p>),</span> <span class=n>zeroZone</span><span class=o>=</span><span class=p>(</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>),</span> <span class=n>criteria</span><span class=o>=</span><span class=n>criteria</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 使用solvePnP估计姿态</span>
+</span></span><span class=line><span class=cl>        <span class=n>ret</span><span class=p>,</span> <span class=n>rvec</span><span class=p>,</span> <span class=n>tvec</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>solvePnP</span><span class=p>(</span><span class=n>objp</span><span class=p>,</span> <span class=n>corners_subpix</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=ow>not</span> <span class=n>ret</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;姿态估计失败: </span><span class=si>{</span><span class=n>fname</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 将3D立方体顶点投影到图像平面</span>
+</span></span><span class=line><span class=cl>        <span class=n>imgpts</span><span class=p>,</span> <span class=n>_</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>projectPoints</span><span class=p>(</span><span class=n>axis</span><span class=p>,</span> <span class=n>rvec</span><span class=p>,</span> <span class=n>tvec</span><span class=p>,</span> <span class=n>mtx</span><span class=p>,</span> <span class=n>dist</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 绘制立方体</span>
+</span></span><span class=line><span class=cl>        <span class=n>img</span> <span class=o>=</span> <span class=n>draw_cube</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>imgpts</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1># 显示结果图像</span>
+</span></span><span class=line><span class=cl>        <span class=n>cv</span><span class=o>.</span><span class=n>imshow</span><span class=p>(</span><span class=s1>&#39;Pose Estimation&#39;</span><span class=p>,</span> <span class=n>img</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>key</span> <span class=o>=</span> <span class=n>cv</span><span class=o>.</span><span class=n>waitKey</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span> <span class=o>&amp;</span> <span class=mh>0xFF</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>key</span> <span class=o>==</span> <span class=nb>ord</span><span class=p>(</span><span class=s1>&#39;s&#39;</span><span class=p>):</span>  <span class=c1># 按&#39;s&#39;键保存结果图</span>
+</span></span><span class=line><span class=cl>            <span class=n>save_path</span> <span class=o>=</span> <span class=n>fname</span><span class=o>.</span><span class=n>rsplit</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+</span> <span class=s1>&#39;_pose.png&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=n>cv</span><span class=o>.</span><span class=n>imwrite</span><span class=p>(</span><span class=n>save_path</span><span class=p>,</span> <span class=n>img</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;图像保存为 </span><span class=si>{</span><span class=n>save_path</span><span class=si>}</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>cv</span><span class=o>.</span><span class=n>destroyAllWindows</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><hr><p>代码详解和优化说明：</p><ol><li>结构化设计</li></ol><ul><li>将标定数据加载封装成函数 <code>load_calibration_data</code> 便于复用和维护。</li><li>使用 <code>main()</code> 函数组织流程，清晰分离功能模块。</li><li>处理每张图像时，增加角点检测成功与否的判断，输出友好提示。</li></ul><ol start=2><li>变量和参数说明</li></ol><ul><li><strong>chessboard_size</strong> 定义棋盘格内角点数目，和标定板物理结构一致。</li><li><strong>objp</strong> 是棋盘格角点的三维世界坐标（假定Z=0平面），匹配图像角点对应关系。</li><li><code>criteria</code> 为亚像素角点优化的迭代终止条件，保证检测角点高精度。</li><li><strong>cube_size</strong> 方便调整立方体尺寸。</li></ul><ol start=3><li>绘制加强</li></ol><ul><li>绘制时区分底面、边柱和顶面，颜色更直观（绿色底面、蓝色柱子、红色顶面）。</li><li>线宽和填充颜色根据功能区分，提升视觉效果。</li></ul><ol start=4><li>交互体验</li></ol><ul><li>支持手动查看每张图像</li><li>支持按<code>s</code>键保存图像，方便批量结果保存。</li></ul><hr><h1 id=总结>总结</h1><p>本文介绍了相机标定的基本原理和基于棋盘格的经典标定方法，结合数学模型重点阐述了相机内参数与变换关系。</p><p>通过重写的姿态估计代码，提供了实际如何利用OpenCV接口进行姿态求解与3D物体投影的实践示例，代码更规范，注释及变量命名清晰，便于学习和扩展。</p></section><footer class=article-footer><section class=article-tags><a href=/tags/cv/>CV</a>
+<a href=/tags/%E7%9B%B8%E6%9C%BA%E6%A0%87%E5%AE%9A/>相机标定</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css integrity=sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js integrity=sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8 crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous defer></script><script>window.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".main-article");renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],ignoredClasses:["gist"]})})</script></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/windows-%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6.bat%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3%E4%B8%8E%E5%AE%9E%E7%94%A8%E7%A4%BA%E4%BE%8B/><div class=article-details><h2 class=article-title>Windows 批处理文件（.bat）应用详解与实用示例</h2></div></a></article><article><a href=/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/><div class=article-details><h2 class=article-title>从零开始实现区块链货币</h2></div></a></article><article><a href=/p/12%E4%B8%AA%E7%82%AB%E9%85%B7%E7%9A%84%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/><div class=article-details><h2 class=article-title>12个炫酷的大屏可视化开源项目推荐</h2></div></a></article><article><a href=/p/flutter%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%E4%B8%8E%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/><div class=article-details><h2 class=article-title>Flutter入门指南与常用命令详解</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2025 hanguangwu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
