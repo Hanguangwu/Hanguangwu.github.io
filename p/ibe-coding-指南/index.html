@@ -1,0 +1,346 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="本文介绍Vibe Coding。"><title>ibe Coding 指南</title><link rel=canonical href=https://hanguangwu.github.io/p/ibe-coding-%E6%8C%87%E5%8D%97/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="ibe Coding 指南"><meta property='og:description' content="本文介绍Vibe Coding。"><meta property='og:url' content='https://hanguangwu.github.io/p/ibe-coding-%E6%8C%87%E5%8D%97/'><meta property='og:site_name' content='酒中仙'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='GitHub'><meta property='article:tag' content='Vibe Coding'><meta property='article:published_time' content='2025-12-29T22:34:25-08:00'><meta property='article:modified_time' content='2025-12-29T22:34:25-08:00'><meta name=twitter:title content="ibe Coding 指南"><meta name=twitter:description content="本文介绍Vibe Coding。"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_446bb777e4bcbb8a.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>酒中仙</a></h1><h2 class=site-description>仰天大笑出門去，我輩豈是蓬蒿人！</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/ selected>中文</option><option value=https://hanguangwu.github.io/en/>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#-前言>🎲 前言</a></li><li><a href=#-5-分钟快速开始>⚡ 5 分钟快速开始</a></li><li><a href=#-从零开始>🚀 从零开始</a></li><li><a href=#-概览>🖼️ 概览</a><ol><li><ol><li><a href=#1-定义核心角色>1. 定义核心角色：</a></li><li><a href=#2-描述递归的生命周期>2. 描述递归的生命周期：</a></li><li><a href=#3-终极目标>3. 终极目标：</a></li></ol></li></ol></li><li><a href=#-道>🧭 道</a></li><li><a href=#-法>🧩 法</a></li><li><a href=#-术>🛠️ 术</a></li><li><a href=#-器>📋 器</a><ol><li><a href=#集成开发环境-ide--终端>集成开发环境 (IDE) & 终端</a></li><li><a href=#ai-模型--服务>AI 模型 & 服务</a></li><li><a href=#开发与辅助工具>开发与辅助工具</a></li><li><a href=#资源与模板>资源与模板</a></li><li><a href=#外部教程与资源>外部教程与资源</a></li><li><a href=#交流社区>交流社区</a></li><li><a href=#项目内部文档>项目内部文档</a></li></ol></li><li><a href=#编码模型性能分级参考>编码模型性能分级参考</a><ol><li><a href=#项目目录结构概览>项目目录结构概览</a></li></ol></li><li><a href=#-演示与产出>📺 演示与产出</a></li><li><a href=#-架构与工作流程>⚙️ 架构与工作流程</a></li><li><a href=#-路线图>🗺️ 路线图</a></li><li><a href=#-原仓库翻译>🎯 原仓库翻译</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/app/>APP</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/ibe-coding-%E6%8C%87%E5%8D%97/>ibe Coding 指南</a></h2><h3 class=article-subtitle>本文介绍Vibe Coding。</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Dec 29, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 17 分钟</time></div></footer></div></header><section class=article-content><h1 id=vibe-coding-指南>Vibe Coding 指南</h1><p><strong>一个通过与 AI 结对编程，将想法变为现实的终极工作站</strong></p><p><a class=link href=https://github.com/tukuaiai/vibe-coding-cn target=_blank rel=noopener>来源——GitHub Repo</a></p><h2 id=-前言>🎲 前言</h2><p><strong>这是一个不断生长和自我否定的项目，当下的一切经验和能力都可能因 AI 能力的进化而失去意义，所以请时刻保持以 AI 为主的思维，不要固步自封，所有的经验都可能失效，辩证的看🙏🙏🙏</strong></p><hr><details><summary><strong>⚡ 5 分钟快速开始</strong></summary><h2 id=-5-分钟快速开始>⚡ 5 分钟快速开始</h2><blockquote><p>已有网络和开发环境？直接开始 Vibe Coding！</p></blockquote><p><strong>第 1 步</strong>：复制下面的提示词，粘贴到 <a class=link href=https://claude.ai/ target=_blank rel=noopener>Claude</a> 或 <a class=link href=https://chatgpt.com/ target=_blank rel=noopener>ChatGPT</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>你是一个专业的 AI 编程助手。我想用 Vibe Coding 的方式开发一个项目。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>请先问我：
+</span></span><span class=line><span class=cl>1. 你想做什么项目？（一句话描述）
+</span></span><span class=line><span class=cl>2. 你熟悉什么编程语言？（不熟悉也没关系）
+</span></span><span class=line><span class=cl>3. 你的操作系统是什么？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>然后帮我：
+</span></span><span class=line><span class=cl>1. 推荐最简单的技术栈
+</span></span><span class=line><span class=cl>2. 生成项目结构
+</span></span><span class=line><span class=cl>3. 一步步指导我完成开发
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>要求：每完成一步问我是否成功，再继续下一步。
+</span></span></code></pre></td></tr></table></div></div><p><strong>第 2 步</strong>：跟着 AI 的指导，把想法变成现实 🚀</p><p><strong>就这么简单！</strong> 更多进阶内容请继续阅读 👇</p></details><hr><h2 id=-从零开始>🚀 从零开始</h2><p>完全新手？按顺序完成以下步骤：</p><ol start=0><li><a class=link href=./i18n/zh/documents/01-%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97/00-Vibe%20Coding%20%e5%93%b2%e5%ad%a6%e5%8e%9f%e7%90%86.md>00-Vibe Coding 哲学原理</a> - 理解核心理念</li><li><a class=link href=./i18n/zh/documents/01-%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97/01-%e7%bd%91%e7%bb%9c%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae.md>01-网络环境配置</a> - 配置网络访问</li><li><a class=link href=./i18n/zh/documents/01-%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97/02-%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83%e6%90%ad%e5%bb%ba.md>02-开发环境搭建</a> - 复制提示词给 AI，让 AI 指导你搭建环境</li><li><a class=link href=./i18n/zh/documents/01-%e5%85%a5%e9%97%a8%e6%8c%87%e5%8d%97/03-IDE%e9%85%8d%e7%bd%ae.md>03-IDE配置</a> - 配置 VS Code 编辑器</li></ol><hr><details open><summary><strong>🧬 胶水编程 (Glue Coding)</strong></summary><blockquote><p><strong>软件工程的圣杯与银弹</strong></p></blockquote><p>胶水编程是 Vibe Coding 的终极进化形态，可能完美解决三大致命缺陷：</p><div class=table-wrapper><table><thead><tr><th style=text-align:left>问题</th><th style=text-align:left>解法</th></tr></thead><tbody><tr><td style=text-align:left>🎭 AI 幻觉</td><td style=text-align:left>✅ 只使用已验证的成熟代码，零幻觉</td></tr><tr><td style=text-align:left>🧩 复杂性爆炸</td><td style=text-align:left>✅ 每个模块都是久经考验的轮子</td></tr><tr><td style=text-align:left>🎓 门槛过高</td><td style=text-align:left>✅ 你只需要描述"连接方式"</td></tr></tbody></table></div><p><strong>核心理念</strong>：能抄不写，能连不造，能复用不原创。</p><p>👉 <a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/%e8%83%b6%e6%b0%b4%e7%bc%96%e7%a8%8b.md>深入了解胶水编程</a></p></details><hr><h2 id=-概览>🖼️ 概览</h2><p><strong>Vibe Coding</strong> 是一个与 AI 结对编程的终极工作流程，旨在帮助开发者丝滑地将想法变为现实。本指南详细介绍了从项目构思、技术选型、实施规划到具体开发、调试和扩展的全过程，强调以<strong>规划驱动</strong>和<strong>模块化</strong>为核心，避免让 AI 失控导致项目混乱。</p><blockquote><p><strong>核心理念</strong>: <em>规划就是一切。</em> 谨慎让 AI 自主规划，否则你的代码库会变成一团无法管理的乱麻。</p></blockquote><p><strong>注意</strong>：以下经验分享并非普遍适用，请在具体实践中结合场景，辩证采纳。</p><details open><summary><strong>🔑 元方法论 (Meta-Methodology)</strong></summary><p>该思想的核心是构建一个能够<strong>自我优化</strong>的 AI 系统。其递归本质可分解为以下步骤：</p><blockquote><p>延伸阅读：<a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/A%20Formalization%20of%20Recursive%20Self-Optimizing%20Generative%20Systems.md>A Formalization of Recursive Self-Optimizing Generative Systems</a></p></blockquote><h4 id=1-定义核心角色>1. 定义核心角色：</h4><ul><li><strong>α-提示词 (生成器)</strong>: 一个“母体”提示词，其唯一职责是<strong>生成</strong>其他提示词或技能。</li><li><strong>Ω-提示词 (优化器)</strong>: 另一个“母体”提示词，其唯一职责是<strong>优化</strong>其他提示词或技能。</li></ul><h4 id=2-描述递归的生命周期>2. 描述递归的生命周期：</h4><ol><li><p><strong>创生 (Bootstrap)</strong>:</p><ul><li>使用 AI 生成 <code>α-提示词</code> 和 <code>Ω-提示词</code> 的初始版本 (v1)。</li></ul></li><li><p><strong>自省与进化 (Self-Correction & Evolution)</strong>:</p><ul><li>使用 <code>Ω-提示词 (v1)</code> <strong>优化</strong> <code>α-提示词 (v1)</code>，从而得到一个更强大的 <code>α-提示词 (v2)</code>。</li></ul></li><li><p><strong>创造 (Generation)</strong>:</p><ul><li>使用<strong>进化后的</strong> <code>α-提示词 (v2)</code> 生成所有需要的目标提示词和技能。</li></ul></li><li><p><strong>循环与飞跃 (Recursive Loop)</strong>:</p><ul><li>将新生成的、更强大的产物（甚至包括新版本的 <code>Ω-提示词</code>）反馈给系统，再次用于优化 <code>α-提示词</code>，从而启动持续进化。</li></ul></li></ol><h4 id=3-终极目标>3. 终极目标：</h4><p>通过此持续的<strong>递归优化循环</strong>，系统在每次迭代中实现<strong>自我超越</strong>，无限逼近预设的<strong>预期状态</strong>。</p></details><details open><summary><strong>🧭 方法论精要 (道·法·术)</strong></summary><h2 id=-道>🧭 道</h2><ul><li><strong>凡是 AI 能做的，就不要人工做</strong></li><li><strong>一切问题问 AI</strong></li><li><strong>目的主导：开发过程中的一切动作围绕"目的"展开</strong></li><li><strong>上下文是 vibe coding 的第一性要素，垃圾进，垃圾出</strong></li><li><strong>系统性思考，实体，链接，功能/目的，三个维度</strong></li><li><strong>数据与函数即是编程的一切</strong></li><li><strong>输入，处理，输出刻画整个过程</strong></li><li><strong>多问 AI 是什么？，为什么？，怎么做？（黄金圈法则）</strong></li><li><strong>先结构，后代码，一定要规划好框架，不然后面技术债还不完</strong></li><li><strong>奥卡姆剃刀定理，如无必要，勿增代码</strong></li><li><strong>帕累托法则，关注重要的那20%</strong></li><li><strong>逆向思考，先明确你的需求，从需求逆向构建代码</strong></li><li><strong>重复，多试几次，实在不行重新开个窗口，</strong></li><li><strong>专注，极致的专注可以击穿代码，一次只做一件事（神人除外）</strong></li></ul><h2 id=-法>🧩 法</h2><ul><li><strong>一句话目标 + 非目标</strong></li><li><strong>正交性（这个分场景）</strong></li><li><strong>能抄不写，不重复造轮子，先问 AI 有没有合适的仓库，下载下来改（glue coding全新范式）</strong></li><li><strong>一定要看官方文档，先把官方文档爬下来喂给 AI（让 AI 找工具下载到本地）</strong></li><li><strong>按职责拆模块</strong></li><li><strong>接口先行，实现后补</strong></li><li><strong>一次只改一个模块</strong></li><li><strong>文档即上下文，不是事后补</strong></li></ul><h2 id=-术>🛠️ 术</h2><ul><li>明确写清：<strong>能改什么，不能改什么</strong></li><li>Debug 只给：<strong>预期 vs 实际 + 最小复现</strong></li><li>测试可交给 AI，<strong>断言人审</strong></li><li>代码一多就<strong>切会话</strong></li><li><strong>AI 犯的错误使用提示词整理为经验持久化存储，遇到问题始终无法解决，就让AI检索这个收集的问题然后寻找解决方案</strong></li></ul></details><details open><summary><strong>📋 器 (工具与资源)</strong></summary><h2 id=-器>📋 器</h2><h3 id=集成开发环境-ide--终端>集成开发环境 (IDE) & 终端</h3><ul><li><a class=link href=https://code.visualstudio.com/ target=_blank rel=noopener><strong>Visual Studio Code</strong></a>: 一款功能强大的集成开发环境，适合代码阅读与手动修改。其 <code>Local History</code> 插件对项目版本管理尤为便捷。</li><li><strong>虚拟环境 (.venv)</strong>: 强烈推荐使用，可实现项目环境的一键配置与隔离，特别适用于 Python 开发。</li><li><a class=link href=https://cursor.com/ target=_blank rel=noopener><strong>Cursor</strong></a>: 已经占领用户心智高地，人尽皆知。</li><li><a class=link href=https://www.warp.dev/ target=_blank rel=noopener><strong>Warp</strong></a>: 集成 AI 功能的现代化终端，能有效提升命令行操作和错误排查的效率。</li><li><a class=link href=https://github.com/neovim/neovim target=_blank rel=noopener><strong>Neovim (nvim)</strong></a>: 一款高性能的现代化 Vim 编辑器，拥有丰富的插件生态，是键盘流开发者的首选。</li><li><a class=link href=https://github.com/LazyVim/LazyVim target=_blank rel=noopener><strong>LazyVim</strong></a>: 基于 Neovim 的配置框架，预置了 LSP、代码补全、调试等全套功能，实现了开箱即用与深度定制的平衡。</li></ul><h3 id=ai-模型--服务>AI 模型 & 服务</h3><ul><li><a class=link href=https://claude.ai/new target=_blank rel=noopener><strong>Claude Opus 4.5</strong></a>: 性能强大的 AI 模型，通过 Claude Code 等平台提供服务，并支持 CLI 和 IDE 插件。</li><li><a class=link href=https://chatgpt.com/codex/ target=_blank rel=noopener><strong>gpt-5.1-codex.1-codex (xhigh)</strong></a>: 适用于处理大型项目和复杂逻辑的 AI 模型，可通过 Codex CLI 等平台使用。</li><li><a class=link href=https://factory.ai/news/terminal-bench target=_blank rel=noopener><strong>Droid</strong></a>: 提供对 Claude Opus 4.5 等多种模型的 CLI 访问。</li><li><a class=link href=https://kiro.dev/ target=_blank rel=noopener><strong>Kiro</strong></a>: 目前提供免费的 Claude Opus 4.5 模型访问，并提供客户端及 CLI 工具。</li><li><a class=link href=https://geminicli.com/ target=_blank rel=noopener><strong>Gemini CLI</strong></a>: 提供对 Gemini 模型的免费访问，适合执行脚本、整理文档和探索思路。</li><li><a class=link href=https://antigravity.google/ target=_blank rel=noopener><strong>antigravity</strong></a>: 目前由 Google 提供的免费 AI 服务，支持使用 Claude Opus 4.5 和 Gemini 3.0 Pro。</li><li><a class=link href=https://aistudio.google.com/prompts/new_chat target=_blank rel=noopener><strong>AI Studio</strong></a>: Google 提供的免费服务，支持使用 Gemini 3.0 Pro 和 Nano Banana。</li><li><a class=link href=https://cloud.google.com/gemini-enterprise target=_blank rel=noopener><strong>Gemini Enterprise</strong></a>: 面向企业用户的 Google AI 服务，目前可以免费使用。</li><li><a class=link href=https://github.com/copilot target=_blank rel=noopener><strong>GitHub Copilot</strong></a>: 由 GitHub 和 OpenAI 联合开发的 AI 代码补全工具。</li><li><a class=link href=https://www.kimi.com/ target=_blank rel=noopener><strong>Kimi K2</strong></a>: 一款国产 AI 模型，适用于多种常规任务。</li><li><a class=link href=https://bigmodel.cn/ target=_blank rel=noopener><strong>GLM</strong></a>: 由智谱 AI 开发的国产大语言模型。</li><li><a class=link href=https://qwenlm.github.io/qwen-code-docs/zh/cli/ target=_blank rel=noopener><strong>Qwen</strong></a>: 由阿里巴巴开发的 AI 模型，其 CLI 工具提供免费使用额度。</li></ul><h3 id=开发与辅助工具>开发与辅助工具</h3><ul><li><a class=link href=https://app.augmentcode.com/ target=_blank rel=noopener><strong>Augment</strong></a>: 提供强大的上下文引擎和提示词优化功能。</li><li><a class=link href=https://windsurf.com/ target=_blank rel=noopener><strong>Windsurf</strong></a>: 为新用户提供免费额度的 AI 开发工具。</li><li><a class=link href=https://ollama.com/ target=_blank rel=noopener><strong>Ollama</strong></a>: 本地大模型管理工具，可通过命令行方便地拉取和运行开源模型。</li><li><a class=link href=https://www.mermaidchart.com/ target=_blank rel=noopener><strong>Mermaid Chart</strong></a>: 用于将文本描述转换为架构图、序列图等可视化图表。</li><li><a class=link href=https://notebooklm.google.com/ target=_blank rel=noopener><strong>NotebookLM</strong></a>: 一款用于 AI 解读资料、音频和生成思维导图的工具。</li><li><a class=link href=https://zread.ai/ target=_blank rel=noopener><strong>Zread</strong></a>: AI 驱动的 GitHub 仓库阅读工具，有助于快速理解项目代码。</li><li><a class=link href=https://github.com/tmux/tmux target=_blank rel=noopener><strong>tmux</strong></a>: 强大的终端复用工具，支持会话保持、分屏和后台任务，是服务器与多项目开发的理想选择。</li><li><a class=link href=https://dbeaver.io/ target=_blank rel=noopener><strong>DBeaver</strong></a>: 一款通用数据库管理客户端，支持多种数据库，功能全面。</li></ul><h3 id=资源与模板>资源与模板</h3><ul><li><a class=link href="https://docs.google.com/spreadsheets/d/1Ifk_dLF25ULSxcfGem1hXzJsi7_RBUNAki8SBCuvkJA/edit?gid=1254297203#gid=1254297203" target=_blank rel=noopener><strong>提示词库 (在线表格)</strong></a>: 一个包含大量可直接复制使用的各类提示词的在线表格。</li><li><a class=link href=https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools target=_blank rel=noopener><strong>第三方系统提示词学习库</strong></a>: 用于学习和参考其他 AI 工具的系统提示词。</li><li><a class=link href=https://github.com/yusufkaraaslan/Skill_Seekers target=_blank rel=noopener><strong>Skills 制作器</strong></a>: 可根据需求生成定制化 Skills 的工具。</li><li><a class=link href="https://docs.google.com/spreadsheets/d/1Ifk_dLF25ULSxcfGem1hXzJsi7_RBUNAki8SBCuvkJA/edit?gid=1254297203#gid=1254297203" target=_blank rel=noopener><strong>元提示词</strong></a>: 用于生成提示词的高级提示词。</li><li><a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/%e9%80%9a%e7%94%a8%e9%a1%b9%e7%9b%ae%e6%9e%b6%e6%9e%84%e6%a8%a1%e6%9d%bf.md><strong>通用项目架构模板</strong></a>: 可用于快速搭建标准化的项目目录结构。</li><li><a class=link href=./i18n/zh/skills/00-%e5%85%83%e6%8a%80%e8%83%bd/claude-skills/SKILL.md><strong>元技能：Skills 的 Skills</strong></a>: 用于生成 Skills 的元技能。</li><li><a class=link href=./i18n/zh/documents/02-%e6%96%b9%e6%b3%95%e8%ae%ba/tmux%e5%bf%ab%e6%8d%b7%e9%94%ae%e5%a4%a7%e5%85%a8.md><strong>tmux快捷键大全</strong></a>: tmux 的快捷键参考文档。</li><li><a class=link href=./i18n/zh/documents/02-%e6%96%b9%e6%b3%95%e8%ae%ba/LazyVim%e5%bf%ab%e6%8d%b7%e9%94%ae%e5%a4%a7%e5%85%a8.md><strong>LazyVim快捷键大全</strong></a>: LazyVim 的快捷键参考文档。</li><li><a class=link href=./i18n/zh/documents/02-%e6%96%b9%e6%b3%95%e8%ae%ba/%e5%85%b3%e4%ba%8e%e6%89%8b%e6%9c%bassh%e4%bb%bb%e6%84%8f%e4%bd%8d%e7%bd%ae%e9%93%be%e6%8e%a5%e6%9c%ac%e5%9c%b0%e8%ae%a1%e7%ae%97%e6%9c%ba%ef%bc%8c%e5%9f%ba%e4%ba%8efrp%e5%ae%9e%e7%8e%b0%e7%9a%84%e6%96%b9%e6%b3%95.md><strong>手机远程 Vibe Coding</strong></a>: 基于 frp 实现手机 SSH 远程控制本地电脑进行 Vibe Coding。</li></ul><h3 id=外部教程与资源>外部教程与资源</h3><ul><li><a class=link href=https://javabetter.cn/ target=_blank rel=noopener><strong>二哥的Java进阶之路</strong></a>: 包含多种开发工具的详细配置教程。</li><li><a class=link href="https://www.bybit.com/cards/?ref=YDGAVPN&amp;source=applet_invite" target=_blank rel=noopener><strong>虚拟卡</strong></a>: 可用于注册云服务等需要国际支付的场景。</li></ul><h3 id=交流社区>交流社区</h3><ul><li><a class=link href=https://t.me/glue_coding target=_blank rel=noopener><strong>Telegram 交流群</strong></a>: Vibe Coding 中文交流群</li><li><a class=link href=https://t.me/tradecat_ai_channel target=_blank rel=noopener><strong>Telegram 频道</strong></a>: 项目更新与资讯</li></ul><h3 id=项目内部文档>项目内部文档</h3><ul><li><a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/><strong>胶水编程 (Glue Coding)</strong></a>: 软件工程的圣杯与银弹，Vibe Coding 的终极进化形态。</li><li><a class=link href=./libs/external/chat-vault/><strong>Chat Vault</strong></a>: AI 聊天记录保存工具，支持 Codex/Kiro/Gemini/Claude CLI。</li><li><a class=link href=./libs/external/prompts-library/><strong>prompts-library 工具说明</strong></a>: 支持 Excel 与 Markdown 格式互转，包含数百个精选提示词。</li><li><a class=link href=./i18n/zh/prompts/02-%e7%bc%96%e7%a8%8b%e6%8f%90%e7%a4%ba%e8%af%8d/><strong>编程提示词集合</strong></a>: 适用于 Vibe Coding 流程的专用提示词。</li><li><a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/%e7%b3%bb%e7%bb%9f%e6%8f%90%e7%a4%ba%e8%af%8d%e6%9e%84%e5%bb%ba%e5%8e%9f%e5%88%99.md><strong>系统提示词构建原则</strong></a>: 构建高效 AI 系统提示词的综合指南。</li><li><a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/%e5%bc%80%e5%8f%91%e7%bb%8f%e9%aa%8c.md><strong>开发经验总结</strong></a>: 变量命名、文件结构、编码规范、架构原则等。</li><li><a class=link href=./i18n/zh/documents/00-%e5%9f%ba%e7%a1%80%e6%8c%87%e5%8d%97/%e9%80%9a%e7%94%a8%e9%a1%b9%e7%9b%ae%e6%9e%b6%e6%9e%84%e6%a8%a1%e6%9d%bf.md><strong>通用项目架构模板</strong></a>: 多种项目类型的标准目录结构。</li><li><a class=link href=./i18n/zh/documents/02-%e6%96%b9%e6%b3%95%e8%ae%ba/auggie-mcp%e9%85%8d%e7%bd%ae%e6%96%87%e6%a1%a3.md><strong>Augment MCP 配置文档</strong></a>: Augment 上下文引擎配置说明。</li><li><a class=link href=./i18n/zh/prompts/01-%e7%b3%bb%e7%bb%9f%e6%8f%90%e7%a4%ba%e8%af%8d/><strong>系统提示词集合</strong></a>: AI 开发的系统提示词，含多版本开发规范。</li><li><a class=link href=./i18n/zh/documents/04-%e8%b5%84%e6%ba%90/%e5%a4%96%e9%83%a8%e8%b5%84%e6%ba%90%e8%81%9a%e5%90%88.md><strong>外部资源聚合</strong></a>: GitHub 精选仓库、AI 工具平台、提示词资源、优质博主汇总。</li></ul><hr></details><details open><summary><strong>编码模型性能分级参考</strong></summary><h2 id=编码模型性能分级参考>编码模型性能分级参考</h2><p>建议只选择第一梯队模型处理复杂任务，以确保最佳效果与效率。</p><ul><li><strong>第一梯队</strong>: <code>codex-5.1-max-xhigh</code>, <code>claude-opus-4.5-xhigh</code>, <code>gpt-5.2-xhigh</code></li><li><strong>第二梯队</strong>: <code>claude-sonnet-4.5</code>, <code>kimi-k2-thinking</code>, <code>minimax-m2</code>, <code>glm-4.6</code>, <code>gemini-3.0-pro</code>, <code>gemini-2.5-pro</code></li><li><strong>第三梯队</strong>: <code>qwen3</code>, <code>SWE</code>, <code>grok4</code></li></ul><hr></details><details><summary><strong>项目目录结构概览</strong></summary><h3 id=项目目录结构概览>项目目录结构概览</h3><p>本项目 <code>vibe-coding-cn</code> 的核心结构主要围绕知识管理、AI 提示词的组织与自动化展开。以下是经过整理和简化的目录树及各部分说明：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=o>.</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>README</span><span class=o>.</span><span class=n>md</span>                    <span class=c1># 项目主文档</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>AGENTS</span><span class=o>.</span><span class=n>md</span>                    <span class=c1># AI Agent 行为准则</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>GEMINI</span><span class=o>.</span><span class=n>md</span>                    <span class=c1># Gemini 模型上下文</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>Makefile</span>                     <span class=c1># 自动化脚本</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>LICENSE</span>                      <span class=c1># MIT 许可证</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>CODE_OF_CONDUCT</span><span class=o>.</span><span class=n>md</span>           <span class=c1># 行为准则</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>CONTRIBUTING</span><span class=o>.</span><span class=n>md</span>              <span class=c1># 贡献指南</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=o>.</span><span class=n>gitignore</span>                   <span class=c1># Git 忽略规则</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=o>.</span><span class=n>github</span><span class=o>/</span>                     <span class=c1># GitHub 配置</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>workflows</span><span class=o>/</span>               <span class=c1># CI/CD 工作流</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=n>ci</span><span class=o>.</span><span class=n>yml</span>               <span class=c1># Markdown lint + link checker</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=n>labeler</span><span class=o>.</span><span class=n>yml</span>          <span class=c1># 自动标签</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>└──</span> <span class=n>welcome</span><span class=o>.</span><span class=n>yml</span>          <span class=c1># 欢迎新贡献者</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>ISSUE_TEMPLATE</span><span class=o>/</span>          <span class=c1># Issue 模板</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>PULL_REQUEST_TEMPLATE</span><span class=o>.</span><span class=n>md</span> <span class=c1># PR 模板</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>SECURITY</span><span class=o>.</span><span class=n>md</span>              <span class=c1># 安全政策</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>FUNDING</span><span class=o>.</span><span class=n>yml</span>              <span class=c1># 赞助配置</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>└──</span> <span class=n>wiki</span><span class=o>/</span>                    <span class=c1># GitHub Wiki 内容</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>i18n</span><span class=o>/</span>                        <span class=c1># 多语言资产 (27 种语言)</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>README</span><span class=o>.</span><span class=n>md</span>                <span class=c1># 多语言索引</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>zh</span><span class=o>/</span>                      <span class=c1># 中文主语料</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=n>documents</span><span class=o>/</span>           <span class=c1># 文档库</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>00</span><span class=o>-</span><span class=err>基础指南</span><span class=o>/</span>     <span class=c1># 方法论与原则</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>01</span><span class=o>-</span><span class=err>入门指南</span><span class=o>/</span>     <span class=c1># 从零开始教程</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>02</span><span class=o>-</span><span class=err>方法论</span><span class=o>/</span>       <span class=c1># 工具与技巧</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>03</span><span class=o>-</span><span class=err>实战</span><span class=o>/</span>         <span class=c1># 项目实战案例</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>└──</span> <span class=mi>04</span><span class=o>-</span><span class=err>资源</span><span class=o>/</span>         <span class=c1># 外部资源聚合</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=n>prompts</span><span class=o>/</span>             <span class=c1># 提示词库</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>00</span><span class=o>-</span><span class=err>元提示词</span><span class=o>/</span>     <span class=c1># 生成提示词的提示词</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>01</span><span class=o>-</span><span class=err>系统提示词</span><span class=o>/</span>   <span class=c1># AI 系统级提示词</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=mi>02</span><span class=o>-</span><span class=err>编程提示词</span><span class=o>/</span>   <span class=c1># 编程相关提示词</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>│</span>   <span class=err>└──</span> <span class=mi>03</span><span class=o>-</span><span class=err>用户提示词</span><span class=o>/</span>   <span class=c1># 用户自定义提示词</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>└──</span> <span class=n>skills</span><span class=o>/</span>              <span class=c1># 技能库</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>       <span class=err>├──</span> <span class=mi>00</span><span class=o>-</span><span class=err>元技能</span><span class=o>/</span>       <span class=c1># 生成技能的元技能</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>       <span class=err>├──</span> <span class=mi>01</span><span class=o>-</span><span class=n>AI工具</span><span class=o>/</span>       <span class=c1># AI CLI 和工具</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>       <span class=err>├──</span> <span class=mi>02</span><span class=o>-</span><span class=err>数据库</span><span class=o>/</span>       <span class=c1># 数据库技能</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>       <span class=err>├──</span> <span class=mi>03</span><span class=o>-</span><span class=err>加密货币</span><span class=o>/</span>     <span class=c1># 加密货币/量化交易</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>       <span class=err>└──</span> <span class=mi>04</span><span class=o>-</span><span class=err>开发工具</span><span class=o>/</span>     <span class=c1># 通用开发工具</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>en</span><span class=o>/</span>                      <span class=c1># 英文版本（结构同 zh/）</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>└──</span> <span class=o>...</span>                      <span class=c1># 其他语言骨架</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>
+</span></span><span class=line><span class=cl><span class=err>├──</span> <span class=n>libs</span><span class=o>/</span>                        <span class=c1># 核心库代码</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>common</span><span class=o>/</span>                  <span class=c1># 通用模块</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>├──</span> <span class=n>models</span><span class=o>/</span>              <span class=c1># 模型定义</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>│</span>   <span class=err>└──</span> <span class=n>utils</span><span class=o>/</span>               <span class=c1># 工具函数</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>├──</span> <span class=n>database</span><span class=o>/</span>                <span class=c1># 数据库模块（预留）</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>   <span class=err>└──</span> <span class=n>external</span><span class=o>/</span>                <span class=c1># 外部工具</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>├──</span> <span class=n>prompts</span><span class=o>-</span><span class=n>library</span><span class=o>/</span>     <span class=c1># Excel ↔ Markdown 互转工具</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>├──</span> <span class=n>chat</span><span class=o>-</span><span class=n>vault</span><span class=o>/</span>          <span class=c1># AI 聊天记录保存工具</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>├──</span> <span class=n>Skill_Seekers</span><span class=o>-</span><span class=n>development</span><span class=o>/</span> <span class=c1># Skills 制作器</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>├──</span> <span class=n>l10n</span><span class=o>-</span><span class=k>tool</span><span class=o>/</span>           <span class=c1># 多语言翻译脚本</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>├──</span> <span class=n>my</span><span class=o>-</span><span class=n>nvim</span><span class=o>/</span>             <span class=c1># Neovim 配置</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>├──</span> <span class=n>MCPlayerTransfer</span><span class=o>/</span>    <span class=c1># MC 玩家迁移工具</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>       <span class=err>└──</span> <span class=n>XHS</span><span class=o>-</span><span class=n>image</span><span class=o>-</span><span class=n>to</span><span class=o>-</span><span class=n>PDF</span><span class=o>-</span><span class=n>conversion</span><span class=o>/</span> <span class=c1># 小红书图片转 PDF</span>
+</span></span><span class=line><span class=cl><span class=err>│</span>
+</span></span><span class=line><span class=cl><span class=err>└──</span> <span class=n>backups</span><span class=o>/</span>                     <span class=c1># 备份脚本与存档</span>
+</span></span><span class=line><span class=cl>    <span class=err>├──</span> <span class=err>一键备份</span><span class=o>.</span><span class=n>sh</span>              <span class=c1># Shell 备份脚本</span>
+</span></span><span class=line><span class=cl>    <span class=err>├──</span> <span class=err>快速备份</span><span class=o>.</span><span class=n>py</span>              <span class=c1># Python 备份脚本</span>
+</span></span><span class=line><span class=cl>    <span class=err>├──</span> <span class=n>README</span><span class=o>.</span><span class=n>md</span>                <span class=c1># 备份说明</span>
+</span></span><span class=line><span class=cl>    <span class=err>└──</span> <span class=n>gz</span><span class=o>/</span>                      <span class=c1># 压缩存档目录</span>
+</span></span></code></pre></td></tr></table></div></div><hr></details><h2 id=-演示与产出>📺 演示与产出</h2><p>一句话：Vibe Coding = <strong>规划驱动 + 上下文固定 + AI 结对执行</strong>，让「从想法到可维护代码」变成一条可审计的流水线，而不是一团无法迭代的巨石文件。</p><p><strong>你能得到</strong></p><ul><li>成体系的提示词工具链：<code>i18n/zh/prompts/01-系统提示词/</code> 约束 AI 行为边界，<code>i18n/zh/prompts/02-编程提示词/</code> 提供需求澄清、计划、执行的全链路脚本。</li><li>闭环交付路径：需求 → 上下文文档 → 实施计划 → 分步实现 → 自测 → 进度记录，全程可复盘、可移交。</li></ul><details><summary><strong>⚙️ 架构与工作流程</strong></summary><h2 id=-架构与工作流程>⚙️ 架构与工作流程</h2><p>核心资产映射：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>i18n/zh/prompts/
+</span></span><span class=line><span class=cl>  00-元提示词/           # 用于生成提示词的高级提示词
+</span></span><span class=line><span class=cl>  01-系统提示词/         # 约束 AI 行为边界的系统级提示词
+</span></span><span class=line><span class=cl>  02-编程提示词/         # 需求澄清、计划、执行链的核心提示词
+</span></span><span class=line><span class=cl>  03-用户提示词/         # 可复用的用户侧提示词
+</span></span><span class=line><span class=cl>i18n/zh/documents/
+</span></span><span class=line><span class=cl>  04-资源/代码组织.md, 04-资源/通用项目架构模板.md, 00-基础指南/开发经验.md, 00-基础指南/系统提示词构建原则.md 等知识库
+</span></span><span class=line><span class=cl>backups/
+</span></span><span class=line><span class=cl>  一键备份.sh, 快速备份.py  # 本地/远端快照脚本
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>graph TB
+</span></span><span class=line><span class=cl>  %% GitHub 兼容简化版（仅使用基础语法）
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  subgraph ext_layer[外部系统与数据源层]
+</span></span><span class=line><span class=cl>    ext_contrib[社区贡献者]
+</span></span><span class=line><span class=cl>    ext_sheet[Google 表格 / 外部表格]
+</span></span><span class=line><span class=cl>    ext_md[外部 Markdown 提示词]
+</span></span><span class=line><span class=cl>    ext_api[预留：其他数据源 / API]
+</span></span><span class=line><span class=cl>    ext_contrib --&gt; ext_sheet
+</span></span><span class=line><span class=cl>    ext_contrib --&gt; ext_md
+</span></span><span class=line><span class=cl>    ext_api --&gt; ext_sheet
+</span></span><span class=line><span class=cl>  end
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  subgraph ingest_layer[数据接入与采集层]
+</span></span><span class=line><span class=cl>    excel_raw[prompt_excel/*.xlsx]
+</span></span><span class=line><span class=cl>    md_raw[prompt_docs/外部MD输入]
+</span></span><span class=line><span class=cl>    excel_to_docs[prompts-library/scripts/excel_to_docs.py]
+</span></span><span class=line><span class=cl>    docs_to_excel[prompts-library/scripts/docs_to_excel.py]
+</span></span><span class=line><span class=cl>    ingest_bus[标准化数据帧]
+</span></span><span class=line><span class=cl>    ext_sheet --&gt; excel_raw
+</span></span><span class=line><span class=cl>    ext_md --&gt; md_raw
+</span></span><span class=line><span class=cl>    excel_raw --&gt; excel_to_docs
+</span></span><span class=line><span class=cl>    md_raw --&gt; docs_to_excel
+</span></span><span class=line><span class=cl>    excel_to_docs --&gt; ingest_bus
+</span></span><span class=line><span class=cl>    docs_to_excel --&gt; ingest_bus
+</span></span><span class=line><span class=cl>  end
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  subgraph core_layer[数据处理与智能决策层 / 核心]
+</span></span><span class=line><span class=cl>    ingest_bus --&gt; validate[字段校验与规范化]
+</span></span><span class=line><span class=cl>    validate --&gt; transform[格式映射转换]
+</span></span><span class=line><span class=cl>    transform --&gt; artifacts_md[prompt_docs/规范MD]
+</span></span><span class=line><span class=cl>    transform --&gt; artifacts_xlsx[prompt_excel/导出XLSX]
+</span></span><span class=line><span class=cl>    orchestrator[main.py · scripts/start_convert.py] --&gt; validate
+</span></span><span class=line><span class=cl>    orchestrator --&gt; transform
+</span></span><span class=line><span class=cl>  end
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  subgraph consume_layer[执行与消费层]
+</span></span><span class=line><span class=cl>    artifacts_md --&gt; catalog_coding[i18n/zh/prompts/02-编程提示词]
+</span></span><span class=line><span class=cl>    artifacts_md --&gt; catalog_system[i18n/zh/prompts/01-系统提示词]
+</span></span><span class=line><span class=cl>    artifacts_md --&gt; catalog_meta[i18n/zh/prompts/00-元提示词]
+</span></span><span class=line><span class=cl>    artifacts_md --&gt; catalog_user[i18n/zh/prompts/03-用户提示词]
+</span></span><span class=line><span class=cl>    artifacts_md --&gt; docs_repo[i18n/zh/documents/*]
+</span></span><span class=line><span class=cl>    artifacts_md --&gt; new_consumer[预留：其他下游渠道]
+</span></span><span class=line><span class=cl>    catalog_coding --&gt; ai_flow[AI 结对编程流程]
+</span></span><span class=line><span class=cl>    ai_flow --&gt; deliverables[项目上下文 / 计划 / 代码产出]
+</span></span><span class=line><span class=cl>  end
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  subgraph ux_layer[用户交互与接口层]
+</span></span><span class=line><span class=cl>    cli[CLI: python main.py] --&gt; orchestrator
+</span></span><span class=line><span class=cl>    makefile[Makefile 任务封装] --&gt; cli
+</span></span><span class=line><span class=cl>    readme[README.md 使用指南] --&gt; cli
+</span></span><span class=line><span class=cl>  end
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  subgraph infra_layer[基础设施与横切能力层]
+</span></span><span class=line><span class=cl>    git[Git 版本控制] --&gt; orchestrator
+</span></span><span class=line><span class=cl>    backups[backups/一键备份.sh · backups/快速备份.py] --&gt; artifacts_md
+</span></span><span class=line><span class=cl>    deps[requirements.txt · scripts/requirements.txt] --&gt; orchestrator
+</span></span><span class=line><span class=cl>    config[prompts-library/scripts/config.yaml] --&gt; orchestrator
+</span></span><span class=line><span class=cl>    monitor[预留：日志与监控] --&gt; orchestrator
+</span></span><span class=line><span class=cl>  end
+</span></span></code></pre></td></tr></table></div></div><hr></details><details><summary>📈 性能基准 (可选)</summary><p>本仓库定位为「流程与提示词」而非性能型代码库，建议跟踪下列可观测指标（当前主要依赖人工记录，可在 <code>progress.md</code> 中打分/留痕）：</p><div class=table-wrapper><table><thead><tr><th style=text-align:left>指标</th><th style=text-align:left>含义</th><th style=text-align:left>当前状态/建议</th></tr></thead><tbody><tr><td style=text-align:left>提示命中率</td><td style=text-align:left>一次生成即满足验收的比例</td><td style=text-align:left>待记录；每个任务完成后在 progress.md 记 0/1</td></tr><tr><td style=text-align:left>周转时间</td><td style=text-align:left>需求 → 首个可运行版本所需时间</td><td style=text-align:left>录屏时标注时间戳，或用 CLI 定时器统计</td></tr><tr><td style=text-align:left>变更可复盘度</td><td style=text-align:left>是否同步更新上下文/进度/备份</td><td style=text-align:left>通过手工更新；可在 backups 脚本中加入 git tag/快照</td></tr><tr><td style=text-align:left>例程覆盖</td><td style=text-align:left>是否有最小可运行示例/测试</td><td style=text-align:left>建议每个示例项目保留 README+测试用例</td></tr></tbody></table></div></details><hr><h2 id=-路线图>🗺️ 路线图</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>gantt
+</span></span><span class=line><span class=cl>    title 项目发展路线图
+</span></span><span class=line><span class=cl>    dateFormat YYYY-MM
+</span></span><span class=line><span class=cl>    section 进行中 (2025 Q4)
+</span></span><span class=line><span class=cl>    补全演示GIF与示例项目: active, 2025-12, 30d
+</span></span><span class=line><span class=cl>    外部资源聚合完善: active, 2025-12, 20d
+</span></span><span class=line><span class=cl>    section 近期 (2026 Q1)
+</span></span><span class=line><span class=cl>    prompts 索引自动生成脚本: 2026-01, 15d
+</span></span><span class=line><span class=cl>    一键演示/验证 CLI 工作流: 2026-01, 15d
+</span></span><span class=line><span class=cl>    备份脚本增加快照与校验: 2026-02, 10d
+</span></span><span class=line><span class=cl>    section 中期 (2026 Q2)
+</span></span><span class=line><span class=cl>    模板化示例项目集: 2026-03, 30d
+</span></span><span class=line><span class=cl>    多模型对比与评估基线: 2026-04, 30d
+</span></span></code></pre></td></tr></table></div></div><hr><h2 id=-原仓库翻译>🎯 原仓库翻译</h2><blockquote><p>以下内容翻译自原仓库 <a class=link href=https://github.com/EnzeD/vibe-coding target=_blank rel=noopener>EnzeD/vibe-coding</a></p></blockquote><p>要开始 Vibe Coding，你只需要以下两种工具之一：</p><ul><li><strong>Claude Opus 4.5</strong>，在 Claude Code 中使用</li><li><strong>gpt-5.1-codex.1-codex (xhigh)</strong>，在 Codex CLI 中使用</li></ul><p>本指南同时适用于 CLI 终端版本和 VSCode 扩展版本（Codex 和 Claude Code 都有扩展，且界面更新）。</p><p><em>(注：本指南早期版本使用的是 <strong>Grok 3</strong>，后来切换到 <strong>Gemini 2.5 Pro</strong>，现在我们使用的是 <strong>Claude 4.5</strong>（或 <strong>gpt-5.1-codex.1-codex (xhigh)</strong>）)</em></p><p><em>(注2：如果你想使用 Cursor，请查看本指南的 <a class=link href=https://github.com/EnzeD/vibe-coding/tree/1.1.1 target=_blank rel=noopener>1.1 版本</a>，但我们认为它目前不如 Codex CLI 或 Claude Code 强大)</em></p><hr><details><summary><strong>⚙️ 完整设置流程</strong></summary><details><summary><strong>1. 游戏设计文档（Game Design Document）</strong></summary><ul><li>把你的游戏创意交给 <strong>gpt-5.1-codex</strong> 或 <strong>Claude Opus 4.5</strong>，让它生成一份简洁的 <strong>游戏设计文档</strong>，格式为 Markdown，文件名为 <code>game-design-document.md</code>。</li><li>自己审阅并完善，确保与你的愿景一致。初期可以很简陋，目标是给 AI 提供游戏结构和意图的上下文。不要过度设计，后续会迭代。</details></li></ul><details><summary><strong>2. 技术栈与 <code>CLAUDE.md</code> / <code>Agents.md</code></strong></summary><ul><li><p>让 <strong>gpt-5.1-codex</strong> 或 <strong>Claude Opus 4.5</strong> 为你的游戏推荐最合适的技术栈（例如：多人3D游戏用 ThreeJS + WebSocket），保存为 <code>tech-stack.md</code>。</p><ul><li>要求它提出 <strong>最简单但最健壮</strong> 的技术栈。</li></ul></li><li><p>在终端中打开 <strong>Claude Code</strong> 或 <strong>Codex CLI</strong>，使用 <code>/init</code> 命令，它会读取你已创建的两个 .md 文件，生成一套规则来正确引导大模型。</p></li><li><p><strong>关键：一定要审查生成的规则。</strong> 确保规则强调 <strong>模块化</strong>（多文件）和禁止 <strong>单体巨文件</strong>（monolith）。可能需要手动修改或补充规则。</p><ul><li><p><strong>极其重要：</strong> 某些规则必须设为 <strong>&ldquo;Always&rdquo;</strong>（始终应用），确保 AI 在生成任何代码前都强制阅读。例如添加以下规则并标记为 &ldquo;Always&rdquo;：</p><blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 重要提示：
+</span></span><span class=line><span class=cl># 写任何代码前必须完整阅读 memory-bank/@architecture.md（包含完整数据库结构）
+</span></span><span class=line><span class=cl># 写任何代码前必须完整阅读 memory-bank/@game-design-document.md
+</span></span><span class=line><span class=cl># 每完成一个重大功能或里程碑后，必须更新 memory-bank/@architecture.md
+</span></span></code></pre></td></tr></table></div></div></blockquote></li><li><p>其他（非 Always）规则要引导 AI 遵循你技术栈的最佳实践（如网络、状态管理等）。</p></li><li><p><em>如果想要代码最干净、项目最优化，这一整套规则设置是强制性的。</em></p></details></li></ul></li></ul><details><summary><strong>3. 实施计划（Implementation Plan）</strong></summary><ul><li>将以下内容提供给 <strong>gpt-5.1-codex</strong> 或 <strong>Claude Opus 4.5</strong>：<ul><li>游戏设计文档（<code>game-design-document.md</code>）</li><li>技术栈推荐（<code>tech-stack.md</code>）</li></ul></li><li>让它生成一份详细的 <strong>实施计划</strong>（Markdown 格式），包含一系列给 AI 开发者的分步指令。<ul><li>每一步要小而具体。</li><li>每一步都必须包含验证正确性的测试。</li><li>严禁包含代码——只写清晰、具体的指令。</li><li>先聚焦于 <strong>基础游戏</strong>，完整功能后面再加。</details></li></ul></li></ul><details><summary><strong>4. 记忆库（Memory Bank）</strong></summary><ul><li>新建项目文件夹，并在 VSCode 中打开。</li><li>在项目根目录下创建子文件夹 <code>memory-bank</code>。</li><li>将以下文件放入 <code>memory-bank</code>：<ul><li><code>game-design-document.md</code></li><li><code>tech-stack.md</code></li><li><code>implementation-plan.md</code></li><li><code>progress.md</code>（新建一个空文件，用于记录已完成步骤）</li><li><code>architecture.md</code>（新建一个空文件，用于记录每个文件的作用）</details></li></ul></li></ul></details><details><summary><strong>🎮 Vibe Coding 开发基础游戏</strong></summary><p>现在进入最爽的阶段！</p><details><summary><strong>确保一切清晰</strong></summary><ul><li>在 VSCode 扩展中打开 <strong>Codex</strong> 或 <strong>Claude Code</strong>，或者在项目终端启动 Claude Code / Codex CLI。</li><li>提示词：阅读 <code>/memory-bank</code> 里所有文档，<code>implementation-plan.md</code> 是否完全清晰？你有哪些问题需要我澄清，让它对你来说 100% 明确？</li><li>它通常会问 9-10 个问题。全部回答完后，让它根据你的回答修改 <code>implementation-plan.md</code>，让计划更完善。</details></li></ul><details><summary><strong>你的第一个实施提示词</strong></summary><ul><li>打开 <strong>Codex</strong> 或 <strong>Claude Code</strong>（扩展或终端）。</li><li>提示词：阅读 <code>/memory-bank</code> 所有文档，然后执行实施计划的第 1 步。我会负责跑测试。在我验证测试通过前，不要开始第 2 步。验证通过后，打开 <code>progress.md</code> 记录你做了什么供后续开发者参考，再把新的架构洞察添加到 <code>architecture.md</code> 中解释每个文件的作用。</li><li><strong>永远</strong> 先用 &ldquo;Ask&rdquo; 模式或 &ldquo;Plan Mode&rdquo;（Claude Code 中按 <code>shift+tab</code>），确认满意后再让 AI 执行该步骤。</li><li><strong>极致 Vibe：</strong> 安装 <a class=link href=https://superwhisper.com target=_blank rel=noopener>Superwhisper</a>，用语音随便跟 Claude 或 gpt-5.1-codex 聊天，不用打字。</details></li></ul><details><summary><strong>工作流</strong></summary><ul><li>完成第 1 步后：<ul><li>把改动提交到 Git（不会用就问 AI）。</li><li>新建聊天（<code>/new</code> 或 <code>/clear</code>）。</li><li>提示词：阅读 memory-bank 所有文件，阅读 progress.md 了解之前的工作进度，然后继续实施计划第 2 步。在我验证测试前不要开始第 3 步。</li></ul></li><li>重复此流程，直到整个 <code>implementation-plan.md</code> 全部完成。</details></li></ul></details><details><summary><strong>✨ 添加细节功能</strong></summary><p>恭喜！你已经做出了基础游戏！可能还很粗糙、缺少功能，但现在可以尽情实验和打磨了。</p><ul><li>想要雾效、后期处理、特效、音效？更好的飞机/汽车/城堡？绝美天空？</li><li>每增加一个主要功能，就新建一个 <code>feature-implementation.md</code>，写短步骤+测试。</li><li>继续增量式实现和测试。</li></ul></details><details><summary><strong>🐞 修复 Bug 与卡壳情况</strong></summary><details><summary><strong>常规修复</strong></summary><ul><li>如果某个提示词失败或搞崩了项目：<ul><li>Claude Code 用 <code>/rewind</code> 回退；用 gpt-5.1-codex 的话多提交 git，需要时 reset。</li></ul></li><li>报错处理：<ul><li><strong>JavaScript 错误：</strong> 打开浏览器控制台（F12），复制错误，贴给 AI；视觉问题截图发给它。</li><li><strong>懒人方案：</strong> 安装 <a class=link href=https://browsertools.agentdesk.ai/installation target=_blank rel=noopener>BrowserTools</a>，自动复制错误和截图。</details></li></ul></li></ul><details><summary><strong>疑难杂症</strong></summary><ul><li>实在卡住：<ul><li>回退到上一个 git commit（<code>git reset</code>），换新提示词重试。</li></ul></li><li>极度卡壳：<ul><li>用 <a class=link href=https://repoprompt.com/ target=_blank rel=noopener>RepoPrompt</a> 或 <a class=link href=https://uithub.com/ target=_blank rel=noopener>uithub</a> 把整个代码库合成一个文件，然后丢给 <strong>gpt-5.1-codex 或 Claude</strong> 求救。</details></li></ul></li></ul></details><details><summary><strong>💡 技巧与窍门</strong></summary><details><summary><strong>Claude Code & Codex 使用技巧</strong></summary><ul><li><strong>终端版 Claude Code / Codex CLI：</strong> 在 VSCode 终端里运行，能直接看 diff、喂上下文，不用离开工作区。</li><li><strong>Claude Code 的 <code>/rewind</code>：</strong> 迭代跑偏时一键回滚到之前状态。</li><li><strong>自定义命令：</strong> 创建像 <code>/explain $参数</code> 这样的快捷命令，触发提示词：“深入分析代码，彻底理解 $参数 是怎么工作的。理解完告诉我，我再给你任务。” 让模型先拉满上下文再改代码。</li><li><strong>清理上下文：</strong> 经常用 <code>/clear</code> 或 <code>/compact</code>（保留历史对话）。</li><li><strong>省时大法（风险自负）：</strong> 用 <code>claude --dangerously-skip-permissions</code> 或 <code>codex --yolo</code>，彻底关闭确认弹窗。</details></li></ul><details><summary><strong>其他实用技巧</strong></summary><ul><li><strong>小修改：</strong> 用 gpt-5.1-codex (medium)</li><li><strong>写顶级营销文案：</strong> 用 Opus 4.1</li><li><strong>生成优秀 2D 精灵图：</strong> 用 ChatGPT + Nano Banana</li><li><strong>生成音乐：</strong> 用 Suno</li><li><strong>生成音效：</strong> 用 ElevenLabs</li><li><strong>生成视频：</strong> 用 Sora 2</li><li><strong>提升提示词效果：</strong><ul><li>加一句：“慢慢想，不着急，重要的是严格按我说的做，执行完美。如果我表达不够精确请提问。”</li><li>在 Claude Code 中触发深度思考的关键词强度：<code>think</code> &lt; <code>think hard</code> &lt; <code>think harder</code> &lt; <code>ultrathink</code>。</details></li></ul></li></ul></details><details><summary><strong>❓ 常见问题解答 (FAQ)</strong></summary><ul><li><p><strong>Q: 我在做应用不是游戏，这个流程一样吗？</strong></p><ul><li><strong>A:</strong> 基本完全一样！把 GDD 换成 PRD（产品需求文档）即可。你也可以先用 v0、Lovable、Bolt.new 快速原型，再把代码搬到 GitHub，然后克隆到本地用本指南继续开发。</li></ul></li><li><p><strong>Q: 你那个空战游戏的飞机模型太牛了，但我一个提示词做不出来！</strong></p><ul><li><strong>A:</strong> 那不是一个提示词，是 ~30 个提示词 + 专门的 <code>plane-implementation.md</code> 文件引导的。用精准指令如“在机翼上为副翼切出空间”，而不是“做一个飞机”这种模糊指令。</li></ul></li><li><p><strong>Q: 为什么现在 Claude Code 或 Codex CLI 比 Cursor 更强？</strong></p><ul><li><strong>A:</strong> 完全看个人喜好。我们强调的是：Claude Code 能更好发挥 Claude Opus 4.5 的实力，Codex CLI 能更好发挥 gpt-5.1-codex 的实力，而 Cursor 对这两者的利用都不如原生终端版。终端版还能在任意 IDE、使用 SSH 远程服务器等场景工作，自定义命令、子代理、钩子等功能也能长期大幅提升开发质量和速度。最后，即使你只是低配 Claude 或 ChatGPT 订阅，也完全够用。</li></ul></li><li><p><strong>Q: 我不会搭建多人游戏的服务器怎么办？</strong></p><ul><li><strong>A:</strong> 问你的 AI。</li></ul></li></ul></details></section><footer class=article-footer><section class=article-tags><a href=/tags/github/>GitHub</a>
+<a href=/tags/vibe-coding/>Vibe Coding</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/telegram%E7%BE%A4%E7%BB%84%E6%8E%A8%E8%8D%90/><div class=article-details><h2 class=article-title>Telegram群组推荐</h2></div></a></article><article><a href=/p/mas%E4%B8%80%E6%9D%A1%E5%91%BD%E4%BB%A4%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BBwindows%E5%92%8Coffice/><div class=article-details><h2 class=article-title>MAS：一条命令永久激活Windows和Office</h2></div></a></article><article><a href=/p/%E4%B8%80%E9%94%AE%E6%BF%80%E6%B4%BB%E6%89%80%E6%9C%89-jetbrains-%E4%BA%A7%E5%93%81/><div class=article-details><h2 class=article-title>一键激活所有 JetBrains 产品</h2></div></a></article><article><a href=/p/%E6%96%B0%E6%9C%BA%E5%BF%85%E5%A4%87%E5%88%A0%E9%99%A4%E9%A2%84%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%A8%8B%E5%BA%8Fwin11debloat/><div class=article-details><h2 class=article-title>新机必备——删除预装软件的程序Win11Debloat</h2></div></a></article><article><a href=/p/%E6%B2%89%E6%B5%B8%E5%BC%8F%E5%BC%80%E6%BA%90%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6fluentread/><div class=article-details><h2 class=article-title>沉浸式开源浏览器翻译插件FluentRead</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2025 hanguangwu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
