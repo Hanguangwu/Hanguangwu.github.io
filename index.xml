@@ -1,4 +1,817 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>酒中仙</title><link>https://hanguangwu.github.io/</link><description>Recent content on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Mon, 29 Dec 2025 22:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Vibe Coding 指南</title><link>https://hanguangwu.github.io/p/vibe-coding-%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 29 Dec 2025 22:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/vibe-coding-%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="vibe-coding-指南"&gt;Vibe Coding 指南
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>酒中仙</title><link>https://hanguangwu.github.io/</link><description>Recent content on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Wed, 31 Dec 2025 14:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>谷粒-Chrome插件英雄榜</title><link>https://hanguangwu.github.io/p/%E8%B0%B7%E7%B2%92-chrome%E6%8F%92%E4%BB%B6%E8%8B%B1%E9%9B%84%E6%A6%9C/</link><pubDate>Wed, 31 Dec 2025 14:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E8%B0%B7%E7%B2%92-chrome%E6%8F%92%E4%BB%B6%E8%8B%B1%E9%9B%84%E6%A6%9C/</guid><description>&lt;h1 id="谷粒-chrome插件英雄榜"&gt;谷粒-Chrome插件英雄榜
+&lt;/h1&gt;&lt;p&gt;🌈谷粒-Chrome插件英雄榜, 为优秀的Chrome插件写一本中文说明书, 让Chrome插件英雄们造福人类~
+ChromeAppHeroes, Write a Chinese manual for the excellent Chrome plugin, let the Chrome plugin heroes benefit the human~&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/zhaoolee/ChromeAppHeroes/master/README/17106763830728faCQ0DR.png"
+loading="lazy"
+alt="谷粒VI设计.png"
+&gt;&lt;/p&gt;
+&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/zhaoolee/ChromeAppHeroes" target="_blank" rel="noopener"
+&gt;谷粒-Chrome插件英雄榜GitHub-Repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我认为可能有用的扩展如下所示：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/129-youtube-subtitle-downloader.md" target="_blank" rel="noopener"
+&gt;129《YouTube Subtitle Downloader》下载Youtube视频的字幕，支持中英对照&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/128-wayback-machine.md" target="_blank" rel="noopener"
+&gt;128《Wayback Machine》优雅查看任意网页的历史记录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/127-z-library-finder.md" target="_blank" rel="noopener"
+&gt;127《Z-Library Finder》优雅进入全球最大的Z-Library自由免费Free图书馆&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/126-file-management-webdav.md" target="_blank" rel="noopener"
+&gt;126《File Management - WebDav》优雅使用浏览器通过WebDav上传下载管理自建网盘的文件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/117-chatgpt-heartbeat-2023-04-21" target="_blank" rel="noopener"
+&gt;117《ChatGPT HeartBeat》让ChatGPT Web服务保持连接，避免反复刷新ChatGPT Web版页面&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/116-exif-viewer-classic-2022-10-22" target="_blank" rel="noopener"
+&gt;116《EXIF Viewer Classic》查看网页中摄影图片的拍摄时间光圈快门等Exif参数信息&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/107-i-dont-care-about-cookies-2021-06-05" target="_blank" rel="noopener"
+&gt;107《I don&amp;rsquo;t care about cookies》屏蔽所有网站询问Cookies授权的弹窗&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/093-sps-2021-02-09" target="_blank" rel="noopener"
+&gt;093《Search to Play the Song》在浏览器中随时听我想听的歌~(周杰伦的也行)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/092-copyfish-ocr-2021-02-08" target="_blank" rel="noopener"
+&gt;092《Copyfish 🐟 Free OCR Software》自动截图识别网页中的文字&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/088-zhihu-2020-12-19" target="_blank" rel="noopener"
+&gt;088《知乎网页助手》让网页版知乎更好用&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/087-douban-2020-12-19" target="_blank" rel="noopener"
+&gt;087《豆瓣资源下载大师》1秒搞定豆瓣电影|音乐|图书下载&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/086-csdn-2020-12-18" target="_blank" rel="noopener"
+&gt;086《CSDN开发助手》CSDN官方合法免广告工具,内含大量实用开发工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/085-nonstop-2020-12-15" target="_blank" rel="noopener"
+&gt;085《nonstop》无感跳转到知乎，微博，简书，qq 邮箱等无法直接跳转的外链&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/083-apk-downloader-for-google-2020-11-02" target="_blank" rel="noopener"
+&gt;083《APK Downloader for Google Play Store》从谷歌商店获取apk安装包&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/082-iguge-2020-11-02" target="_blank" rel="noopener"
+&gt;082《iGG谷歌访问助手》如何从Chrome商店下载扩展工具？&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/081-fast-github-2020-10-20" target="_blank" rel="noopener"
+&gt;081《GitHub加速》提高中国开发者访问GitHub的速度&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/080-xiaomark" target="_blank" rel="noopener"
+&gt;080《小码短链接》免费为相同url生成多个永久短链接&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/079-search-the-current-site" target="_blank" rel="noopener"
+&gt;079《Search the current site(站内搜索)》超实用的站内搜索工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/078-bookmarks-clean-up" target="_blank" rel="noopener"
+&gt;078《Bookmarks clean up》高效清理重复和损坏的书签&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/076-listen1" target="_blank" rel="noopener"
+&gt;076《Listen1》Chrome听付费歌曲工具！免费听周杰伦的歌，网易云音乐,QQ音乐,虾米音乐,酷狗,酷我,哔哩哔哩,咪咕,一个扩展全搞定&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/075-link-to-text-fragment" target="_blank" rel="noopener"
+&gt;075《Link to Text Fragment》这款谷歌发布的分享工具，让3万新媒体人直呼绝活儿…&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/074-enable-right-click" target="_blank" rel="noopener"
+&gt;074《破解右键锁》如何自由复制百度文库网页内容?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/073_chrome_better_history" target="_blank" rel="noopener"
+&gt;073《Chrome Better History》如何让Chrome查找历史记录更方便?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/070_pan_zhushou" target="_blank" rel="noopener"
+&gt;070《网盘助手》网盘万能钥匙,自定义提取码,获取文件下载直链&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/069_ublock_origin" target="_blank" rel="noopener"
+&gt;069《ublock origin》免除优酷，腾讯，爱奇艺，YouTube视频广告&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/068_pakku" target="_blank" rel="noopener"
+&gt;068《pakku 哔哩哔哩弹幕过滤器》提升你的哔哩哔哩弹幕体验&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/067_bilibili_downloader" target="_blank" rel="noopener"
+&gt;067 《bilibili哔哩哔哩B站下载助手》下载在B站可以观看的视频&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/066_powerful_pixiv_downloader" target="_blank" rel="noopener"
+&gt;066 《PowerfulPixivDownloader》福利工具! Pixiv图片批量下载器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/054_er_xiang_yi_tu_sou_tu" target="_blank" rel="noopener"
+&gt;054《二箱 以图搜图》让你在搜图方面随心所欲（为所欲为）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/053_shu_biao_dian_ji_te_xiao" target="_blank" rel="noopener"
+&gt;053《鼠标点击特效 (๑•́ ∀ •̀๑)》为鼠标点击添加有趣的特效&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/024_dark_reader" target="_blank" rel="noopener"
+&gt;024《Dark Reader》为任意网站启用夜间模式&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/023_fireshot" target="_blank" rel="noopener"
+&gt;023《FireShot》一键滚动截屏整个网页&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/022kuo_zhan_guan_li_qi" target="_blank" rel="noopener"
+&gt;022《扩展管理器》管理你的Chrome扩展&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/021_bi_li_bi_li_zhu_shou" target="_blank" rel="noopener"
+&gt;021《哔哩哔哩助手》助你快速成为B站老司机&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/020_boxel_rebound" target="_blank" rel="noopener"
+&gt;020《Boxel Rebound》“嗨到中毒”的弹跳小方块(附自制赛道分享方法)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/019_mega" target="_blank" rel="noopener"
+&gt;019《MEGA》网盘可以良心到什么程度? 试试MEGA吧!&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/018_enhanced_github" target="_blank" rel="noopener"
+&gt;018《Enhanced Github》从“冰柜”到“冰棍儿”,下载Github单个文件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/005_video_speed_controller" target="_blank" rel="noopener"
+&gt;005《Video Speed Controller》 刷课（刷剧）神器！给网页视频加个速(最快可达16倍!)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/004_tampermonkey" target="_blank" rel="noopener"
+&gt;004《Tampermonkey》 油猴子! 给浏览器开个挂&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/003_secure_shell_app" target="_blank" rel="noopener"
+&gt;003《Secure Shell App》 Chrome中开启ssh一种什么体验&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/002_chrono" target="_blank" rel="noopener"
+&gt;002《chrono》 让Chrome下载资源更容易&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/001_markdown_here" target="_blank" rel="noopener"
+&gt;001《markdown-here》 Markdown一键转换到&amp;quot;富文本格式&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="目录点击以下标题-可以进入文章页"&gt;目录(点击以下标题, 可以进入文章页~)
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/130-get-cookiestxt-locally.md" target="_blank" rel="noopener"
+&gt;130《Get cookies.txt LOCALLY》 获取油管cookies，自动化下载油管视频&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/129-youtube-subtitle-downloader.md" target="_blank" rel="noopener"
+&gt;129《YouTube Subtitle Downloader》下载Youtube视频的字幕，支持中英对照&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/128-wayback-machine.md" target="_blank" rel="noopener"
+&gt;128《Wayback Machine》优雅查看任意网页的历史记录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/127-z-library-finder.md" target="_blank" rel="noopener"
+&gt;127《Z-Library Finder》优雅进入全球最大的Z-Library自由免费Free图书馆&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/126-file-management-webdav.md" target="_blank" rel="noopener"
+&gt;126《File Management - WebDav》优雅使用浏览器通过WebDav上传下载管理自建网盘的文件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/125-redirect-path.md" target="_blank" rel="noopener"
+&gt;125《Redirect Path》查看一个页面是如何跳转过来的&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/124-hackernews-new-tab.md" target="_blank" rel="noopener"
+&gt;124《HackerNews New Tab》自动使用新标签页打开Hacker News内容&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/123-language-learning-with-netflix-2024-03-16" target="_blank" rel="noopener"
+&gt;123《Language Learning with Netflix &amp;amp; YouTube-AFL》听原汁原味的读音，用奈飞Youtube双字幕学英语&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/122-video-screenshot-2024-03-16" target="_blank" rel="noopener"
+&gt;122《Video Screenshot》为奈飞Netflix精彩画面截图，壁纸爱好者必备神器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/121-console-importer-2023-12-20" target="_blank" rel="noopener"
+&gt;121《Console Importer》在Chrome直接使用npm军火库, 在控制台动态展示一张猫猫图&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/120-wikiwand-2023-10-12" target="_blank" rel="noopener"
+&gt;120《Wikiwand》提升维基百科的使用体验&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/119-inspop-2023-10-12" target="_blank" rel="noopener"
+&gt;119《InsPop》用英语经典语录原音学英语&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/118-immersive-translate-2023-05-12" target="_blank" rel="noopener"
+&gt;118《Immersive Translate》沉浸式阅读英语的免费工具，模糊中文愉悦阅读英语文章&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/117-chatgpt-heartbeat-2023-04-21" target="_blank" rel="noopener"
+&gt;117《ChatGPT HeartBeat》让ChatGPT Web服务保持连接，避免反复刷新ChatGPT Web版页面&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/116-exif-viewer-classic-2022-10-22" target="_blank" rel="noopener"
+&gt;116《EXIF Viewer Classic》查看网页中摄影图片的拍摄时间光圈快门等Exif参数信息&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/115-linkclump-2022-10-22" target="_blank" rel="noopener"
+&gt;115《Linkclump》在网页画个长方形，打开长方形内所有超链接&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/114-wordpress-sidebar-2022-07-10" target="_blank" rel="noopener"
+&gt;114《WordPress SideBar》为WordPress网站添加类似GitBook的侧边栏目录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/113-svg-exprot-2022-05-05" target="_blank" rel="noopener"
+&gt;113《SVG Export》将SVG矢量图导出为任意尺寸的PNG图片&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/112-smart-toc-2021-09-09" target="_blank" rel="noopener"
+&gt;112《Smart TOC》节约滚动网页时间, 为任意网页自动添加索引，生成浮动智能小目录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/111-unsplash-for-chrome-2021-07-22" target="_blank" rel="noopener"
+&gt;111《Unsplash For Chrome》查找免费无版权超清图并直接插入任意在线编辑器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/110-wechatsync-2021-06-13" target="_blank" rel="noopener"
+&gt;110《微信公众号同步助手》快速将微信文章同步到知乎B站等创作平台&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/109-glados-2021-06-09" target="_blank" rel="noopener"
+&gt;109《GLaDOS》一款快捷签到领魔法上网天数的小工具文章作者&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/108-grabox-2021-06-08" target="_blank" rel="noopener"
+&gt;108《Grabox》打通Chrome，Edge，FireFox，360，2345，QQ，搜狗等浏览器们的书签目录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/107-i-dont-care-about-cookies-2021-06-05" target="_blank" rel="noopener"
+&gt;107《I don&amp;rsquo;t care about cookies》屏蔽所有网站询问Cookies授权的弹窗&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/106-browser-desktop-2021-06-05" target="_blank" rel="noopener"
+&gt;106《Browser Desktop》一款MacOS风格的浏览器桌面&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/105-tide-2021-05-29" target="_blank" rel="noopener"
+&gt;105《潮汐》极简番茄钟与白噪音,和大自然一起，平静身心&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/104-twinkstar-2021-05-17" target="_blank" rel="noopener"
+&gt;104《特别篇：星愿浏览器》下载一切可下载的视频&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/103-marinara-2021-05-14" target="_blank" rel="noopener"
+&gt;103《Marinara 番茄工作法（Pomodoro®）助理》奇妙番茄钟, 提醒打工人及时休息&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/102-mobile-2021-05-13" target="_blank" rel="noopener"
+&gt;102《特别篇：手机如何使用Chrome插件》手机端如何屏蔽知乎广告&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/101-scroll-to-top-button-2021-05-13" target="_blank" rel="noopener"
+&gt;101《Scroll To Top Button》一键滚动到页面顶部或底部&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/100-volume-master-2021-03-25" target="_blank" rel="noopener"
+&gt;100《Volume master》完美控制每个网页的音量&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/099-get-favicon-2021-03-22" target="_blank" rel="noopener"
+&gt;099《Get Favicon》一键获取网站的超清图标&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/098-rsshub-radar-2021-03-02" target="_blank" rel="noopener"
+&gt;098《RSSHub Radar》可以帮助你快速发现和订阅当前网站RSS的浏览器扩展&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/097-fake-ink-screen-2021-02-27" target="_blank" rel="noopener"
+&gt;097《假装水墨屏》让网页内容变成水墨屏效果&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/096-feedbro-2021-02-27" target="_blank" rel="noopener"
+&gt;096《Feedbro》在Chrome中订阅RSS信息流&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/095-json-formatter-2021-02-18" target="_blank" rel="noopener"
+&gt;095《JsonFormatter》轻量化Json开源格式化工具查看一言api接口字段数据结构&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/094-smoothscroll-2021-02-14" target="_blank" rel="noopener"
+&gt;094《SmoothScroll》让网页滚动如奶油般顺滑的奇妙小工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/093-sps-2021-02-09" target="_blank" rel="noopener"
+&gt;093《Search to Play the Song》在浏览器中随时听我想听的歌~(周杰伦的也行)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/092-copyfish-ocr-2021-02-08" target="_blank" rel="noopener"
+&gt;092《Copyfish 🐟 Free OCR Software》自动截图识别网页中的文字&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/091-faster-chrome-2020-12-28" target="_blank" rel="noopener"
+&gt;091《FasterChrome》鼠标悬停预加载链接让你的Chrome起飞&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/090-no-qr-login-2020-12-21" target="_blank" rel="noopener"
+&gt;090《拒绝二维码登录》让淘宝、京东、阿里云等网站默认使用账号密码登录&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/089-youtube-2020-12-20" target="_blank" rel="noopener"
+&gt;089《本地YouTube下载器》实现被Google禁止的功能&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/088-zhihu-2020-12-19" target="_blank" rel="noopener"
+&gt;088《知乎网页助手》让网页版知乎更好用&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/087-douban-2020-12-19" target="_blank" rel="noopener"
+&gt;087《豆瓣资源下载大师》1秒搞定豆瓣电影|音乐|图书下载&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/086-csdn-2020-12-18" target="_blank" rel="noopener"
+&gt;086《CSDN开发助手》CSDN官方合法免广告工具,内含大量实用开发工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/085-nonstop-2020-12-15" target="_blank" rel="noopener"
+&gt;085《nonstop》无感跳转到知乎，微博，简书，qq 邮箱等无法直接跳转的外链&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/084-tiktok-2020-11-07" target="_blank" rel="noopener"
+&gt;084《Web for TikTok》用Chrome刷海外版抖音TikTok，下载Tiktok短视频&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/083-apk-downloader-for-google-2020-11-02" target="_blank" rel="noopener"
+&gt;083《APK Downloader for Google Play Store》从谷歌商店获取apk安装包&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/082-iguge-2020-11-02" target="_blank" rel="noopener"
+&gt;082《iGG谷歌访问助手》如何从Chrome商店下载扩展工具？&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/081-fast-github-2020-10-20" target="_blank" rel="noopener"
+&gt;081《GitHub加速》提高中国开发者访问GitHub的速度&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/080-xiaomark" target="_blank" rel="noopener"
+&gt;080《小码短链接》免费为相同url生成多个永久短链接&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/079-search-the-current-site" target="_blank" rel="noopener"
+&gt;079《Search the current site(站内搜索)》超实用的站内搜索工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/078-bookmarks-clean-up" target="_blank" rel="noopener"
+&gt;078《Bookmarks clean up》高效清理重复和损坏的书签&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/077-sourcegraph" target="_blank" rel="noopener"
+&gt;077《Sourcegraph》阮一峰大佬推荐的github仓库关键词搜索工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/076-listen1" target="_blank" rel="noopener"
+&gt;076《Listen1》Chrome听付费歌曲工具！免费听周杰伦的歌，网易云音乐,QQ音乐,虾米音乐,酷狗,酷我,哔哩哔哩,咪咕,一个扩展全搞定&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/075-link-to-text-fragment" target="_blank" rel="noopener"
+&gt;075《Link to Text Fragment》这款谷歌发布的分享工具，让3万新媒体人直呼绝活儿…&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/074-enable-right-click" target="_blank" rel="noopener"
+&gt;074《破解右键锁》如何自由复制百度文库网页内容?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/073_chrome_better_history" target="_blank" rel="noopener"
+&gt;073《Chrome Better History》如何让Chrome查找历史记录更方便?&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/072_one_note_web_clipper" target="_blank" rel="noopener"
+&gt;072《OneNote Web Clipper》微软免费跨平台笔记OneNote扩展程序&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/071_color_tab" target="_blank" rel="noopener"
+&gt;071《Color Tab》色彩猎人优质配色提升你的审美&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/070_pan_zhushou" target="_blank" rel="noopener"
+&gt;070《网盘助手》网盘万能钥匙,自定义提取码,获取文件下载直链&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/069_ublock_origin" target="_blank" rel="noopener"
+&gt;069《ublock origin》免除优酷，腾讯，爱奇艺，YouTube视频广告&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/068_pakku" target="_blank" rel="noopener"
+&gt;068《pakku 哔哩哔哩弹幕过滤器》提升你的哔哩哔哩弹幕体验&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/067_bilibili_downloader" target="_blank" rel="noopener"
+&gt;067 《bilibili哔哩哔哩B站下载助手》下载在B站可以观看的视频&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/066_powerful_pixiv_downloader" target="_blank" rel="noopener"
+&gt;066 《PowerfulPixivDownloader》福利工具! Pixiv图片批量下载器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/065_html5_jietu" target="_blank" rel="noopener"
+&gt;065 《HTML5视频截图器》精确截取每一帧视频,让蔡徐坤动起来&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/064_photoshow" target="_blank" rel="noopener"
+&gt;064《浮图秀》优雅查看B站视频封面&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/063_picviewer-ce" target="_blank" rel="noopener"
+&gt;063《Picviewer CE+》功能丰富的网页看图神器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/062_caiyun" target="_blank" rel="noopener"
+&gt;062《彩云小译》一键实现网页中英文对照的翻译工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/061-image-assistant" target="_blank" rel="noopener"
+&gt;061《ImageAssistant》图片助手批量图片下载器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/060_tabagotchi" target="_blank" rel="noopener"
+&gt;060《Tabagotchi》为减缓全球变暖做出贡献&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/059_page_speed_insight_and_check_list" target="_blank" rel="noopener"
+&gt;059《PageSpeed Insight and CheckList》为网页优化提供建议和量化指标&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/058_ip_address" target="_blank" rel="noopener"
+&gt;058《IP-Address》快速查看当前设备IP&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/057_webp_save_as_png" target="_blank" rel="noopener"
+&gt;057《图片另存为JPG/PNG/WebP》让WebP图片下载为PNG格式&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/056_search" target="_blank" rel="noopener"
+&gt;056《Search》为Chrome设置搜索引擎关键词&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/055_keylines" target="_blank" rel="noopener"
+&gt;055《Keylines》为网页元素添加随机描边颜色&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/054_er_xiang_yi_tu_sou_tu" target="_blank" rel="noopener"
+&gt;054《二箱 以图搜图》让你在搜图方面随心所欲（为所欲为）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/053_shu_biao_dian_ji_te_xiao" target="_blank" rel="noopener"
+&gt;053《鼠标点击特效 (๑•́ ∀ •̀๑)》为鼠标点击添加有趣的特效&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/052_site_palette" target="_blank" rel="noopener"
+&gt;052《Site Palette》自动提取网站配色&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/051_custom_cursor_for_chrome" target="_blank" rel="noopener"
+&gt;051《Custom Cursor for Chrome™》为Chrome换上可爱初音光标&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/050_google_results_previewer" target="_blank" rel="noopener"
+&gt;050《Google Results Previewer》无点击查看谷歌搜索结果&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/049_web_server_for_chrome" target="_blank" rel="noopener"
+&gt;049《Web Server for Chrome》搭建本地Web服务器, 实现局域网共享文件夹&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/048_words_discoverer" target="_blank" rel="noopener"
+&gt;048《Words Discoverer》高亮标注单词,提升你的词汇量&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/047_go_to_tab" target="_blank" rel="noopener"
+&gt;047《Go to Tab》快速跳转到打开的网页&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/046_whatfont" target="_blank" rel="noopener"
+&gt;046《WhatFont》字体爱好者优雅查看网页字体&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/045_restlet_client" target="_blank" rel="noopener"
+&gt;045《Restlet Client》优秀的Api测试工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/044_gu_ge_fang_wen_zhu_shou" target="_blank" rel="noopener"
+&gt;044《谷歌访问助手》访问Chrome商店 Gmail 谷歌搜索&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/043_dream_afar_new_tab" target="_blank" rel="noopener"
+&gt;043《Dream Afar New Tab》探索世界的新方式&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/042_edge" target="_blank" rel="noopener"
+&gt;042 在Edge中安装Chrome扩展程序&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/041_copy_all_urls" target="_blank" rel="noopener"
+&gt;041《Copy All Urls》优雅地保存-开启多个标签页&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/040_gitzip_for_github" target="_blank" rel="noopener"
+&gt;040《GitZip for github》从Github批量下载表情包&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/039_simplify_gmail" target="_blank" rel="noopener"
+&gt;039《Simplify Gmail》让网页版Gmail更清爽&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/038_alexa_traffic_rank" target="_blank" rel="noopener"
+&gt;038《Alexa Traffic Rank》一键查看网站全球排名&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/037_saladict" target="_blank" rel="noopener"
+&gt;037《Saladict》谷歌!有道!我全都要! 聚合词典, 并行翻译&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/036_screen_shader" target="_blank" rel="noopener"
+&gt;036《Screen Shader》把网页调成暖色，你的眼睛会感谢你🙏&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/035_print_friendly_and_pdf" target="_blank" rel="noopener"
+&gt;035《Print Friendly &amp;amp; PDF》让你拥有最佳的打印阅读体验&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/034_astro_bot" target="_blank" rel="noopener"
+&gt;034《Astro Bot》用新标签页刷编程题&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/033_yi_ye" target="_blank" rel="noopener"
+&gt;033《一叶》在任意网页开启实时弹幕 聊天窗口 留言板&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/032_smallpdf" target="_blank" rel="noopener"
+&gt;032《Smallpdf》简单好用的线上PDF工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/031_onetab" target="_blank" rel="noopener"
+&gt;031《OneTab》把多个Tab转换为一个列表&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/030_jue_jin" target="_blank" rel="noopener"
+&gt;030《掘金》相信优质技术内容的力量&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/029_simread" target="_blank" rel="noopener"
+&gt;029 《SimpRead》为任意网页开启阅读模式&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/028_adblock" target="_blank" rel="noopener"
+&gt;028《AdBlock》Adblock自定义屏蔽简书广告&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/027_text" target="_blank" rel="noopener"
+&gt;027《Text》来自Chrome实验室的跨平台记事本&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/026_quickey_launcher" target="_blank" rel="noopener"
+&gt;026《Quickey Launcher》打开网站只需一键&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/025_console" target="_blank" rel="noopener"
+&gt;025《Console》Chrome自带好用的计算器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/024_dark_reader" target="_blank" rel="noopener"
+&gt;024《Dark Reader》为任意网站启用夜间模式&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/023_fireshot" target="_blank" rel="noopener"
+&gt;023《FireShot》一键滚动截屏整个网页&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/022kuo_zhan_guan_li_qi" target="_blank" rel="noopener"
+&gt;022《扩展管理器》管理你的Chrome扩展&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/021_bi_li_bi_li_zhu_shou" target="_blank" rel="noopener"
+&gt;021《哔哩哔哩助手》助你快速成为B站老司机&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/020_boxel_rebound" target="_blank" rel="noopener"
+&gt;020《Boxel Rebound》“嗨到中毒”的弹跳小方块(附自制赛道分享方法)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/019_mega" target="_blank" rel="noopener"
+&gt;019《MEGA》网盘可以良心到什么程度? 试试MEGA吧!&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/018_enhanced_github" target="_blank" rel="noopener"
+&gt;018《Enhanced Github》从“冰柜”到“冰棍儿”,下载Github单个文件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/017_xin_lang_wei_bo_tu_chuang" target="_blank" rel="noopener"
+&gt;017《新浪微博图床》本地Markdown编写更流畅, 新浪微博图床来帮忙&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/016_jie_chu_b_zhan_qu_yu_xian_zhi" target="_blank" rel="noopener"
+&gt;016《解除B站区域限制》查看进击的巨人第三季&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/015_xpath_helper" target="_blank" rel="noopener"
+&gt;015 《XPath Helper》完成Bing每日壁纸的小爬虫&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/014_chao_ji_ma_li_ao_you_xi" target="_blank" rel="noopener"
+&gt;014《超级马里奥游戏》Chrome变身小霸王&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/013_quick_qr" target="_blank" rel="noopener"
+&gt;013《Quick QR》用二维码实现云粘贴&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/012_ourstickys" target="_blank" rel="noopener"
+&gt;012《OurStickys》Chrome特色网页便签纸&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/011_whatruns" target="_blank" rel="noopener"
+&gt;011 《whatruns》一键分析网站技术栈&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/010_speedtest" target="_blank" rel="noopener"
+&gt;010《speedtest》网络测速插件speedtest&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/009_vimium" target="_blank" rel="noopener"
+&gt;009《vimium》Chrome与vim双神器融合&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/008_chrome_cleaner_pro" target="_blank" rel="noopener"
+&gt;008《Chrome Cleaner Pro》为Chrome加速&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/007_loom" target="_blank" rel="noopener"
+&gt;007《loom》 Chrome翻录网页视频神器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/006_similarsites" target="_blank" rel="noopener"
+&gt;006《SimilarSites》 一键查找姊妹网站 SimilarSites&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/005_video_speed_controller" target="_blank" rel="noopener"
+&gt;005《Video Speed Controller》 刷课（刷剧）神器！给网页视频加个速(最快可达16倍!)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/004_tampermonkey" target="_blank" rel="noopener"
+&gt;004《Tampermonkey》 油猴子! 给浏览器开个挂&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/003_secure_shell_app" target="_blank" rel="noopener"
+&gt;003《Secure Shell App》 Chrome中开启ssh一种什么体验&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/002_chrono" target="_blank" rel="noopener"
+&gt;002《chrono》 让Chrome下载资源更容易&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/#/001_markdown_here" target="_blank" rel="noopener"
+&gt;001《markdown-here》 Markdown一键转换到&amp;quot;富文本格式&amp;quot;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="开源插件推广作者自荐"&gt;开源插件推广(作者自荐)
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;作者主页&lt;/th&gt;
+&lt;th&gt;开源信息&lt;/th&gt;
+&lt;th&gt;简介&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/make-zero-%E6%96%87%E5%AD%97%E5%8A%A0%E5%AF%86%E5%99%A8/ihpcojcdiclghnggnlkcinbmfpomefcc?hl=zh-CN" target="_blank" rel="noopener"
+&gt;Make Zero&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/sheepzh" target="_blank" rel="noopener"
+&gt;sheepzh&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/sheepzh/make-zero" target="_blank" rel="noopener"
+&gt;Github仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;加解密文本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/%E7%BD%91%E8%B4%B9%E5%BE%88%E8%B4%B5-%E4%B8%8A%E7%BD%91%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/dkdhhcbjijekmneelocdllcldcpmekmm" target="_blank" rel="noopener"
+&gt;网费很贵&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/sheepzh" target="_blank" rel="noopener"
+&gt;sheepzh&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/sheepzh/timer" target="_blank" rel="noopener"
+&gt;Github仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;统计网页的运行时间、用户的浏览时间和用户打开网站的次数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/the-fucking-github/agajobpbaphiohkbkjigcalebbfmofdo" target="_blank" rel="noopener"
+&gt;The Fucking Github&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/lvxianchao" target="_blank" rel="noopener"
+&gt;lvxianchao&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/lvxianchao/the-fucking-github" target="_blank" rel="noopener"
+&gt;Github仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;很方便地查看、整理、搜索你已经 Star 过的项目和搜索 Github 上的项目。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/hitup/eiokaohkigpbonodjcbjpecbnccijkjb" target="_blank" rel="noopener"
+&gt;HitUP&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/wonderbeyond" target="_blank" rel="noopener"
+&gt;wonderbeyond&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/wonderbeyond/HitUP" target="_blank" rel="noopener"
+&gt;Github仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;利用 New Tab “空白页” 助您保持对流行技术趋势的跟进，附带其它福利。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/gitako-github-file-tree/giljefjcheohhamkjphiebfjnlphnokk" target="_blank" rel="noopener"
+&gt;Gitako - Github file tree&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/EnixCoda" target="_blank" rel="noopener"
+&gt;EnixCoda&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/EnixCoda/Gitako" target="_blank" rel="noopener"
+&gt;Github仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;功能上类似于大名鼎鼎的 Octotree ，但是用了更现代化的前端工具，性能好很多。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/githuber/janmcneaglgklfljjcpihkkomeghljnf" target="_blank" rel="noopener"
+&gt;GITHUBER&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/zhuowenli" target="_blank" rel="noopener"
+&gt;zhuowenli&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/zhuowenli/githuber" target="_blank" rel="noopener"
+&gt;Github仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;这是一个帮助 GitHub 开发者每日发现优质内容的 Chrome 主页拓展。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a class="link" href="https://chrome.google.com/webstore/detail/glados/dhjjibbeddglobeoapgppnlnmijajfbb" target="_blank" rel="noopener"
+&gt;GLaDOS&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/glados-network" target="_blank" rel="noopener"
+&gt;glados-network&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class="link" href="https://github.com/glados-network/GLaDOS" target="_blank" rel="noopener"
+&gt;Github 仓库地址&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GLaDOS is trustable networking manager, a system to master your network.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="他人眼中的-chrome插件英雄榜商业互吹模块"&gt;他人眼中的 Chrome插件英雄榜(商业互吹模块)
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://blog.csdn.net/dQCFKyQDXYm3F8rB0/article/details/88386634" target="_blank" rel="noopener"
+&gt;《这份“插件英雄榜Top20”才是Chrome的正确打开方式！》&lt;/a&gt; 作者: &lt;a class="link" href="https://me.csdn.net/dQCFKyQDXYm3F8rB0" target="_blank" rel="noopener"
+&gt;AI科技大本营&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/58636515" target="_blank" rel="noopener"
+&gt;《Chrome 插件英雄榜》&lt;/a&gt; 作者: &lt;a class="link" href="https://www.zhihu.com/people/loonggg/activities" target="_blank" rel="noopener"
+&gt;非著名程序员&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openingsource.org/6190/zh-tw/" target="_blank" rel="noopener"
+&gt;《開源日報第363期》&lt;/a&gt; 作者: &lt;a class="link" href="https://openingsource.org/" target="_blank" rel="noopener"
+&gt;开源工厂&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://mp.weixin.qq.com/s/Y-9ht-E7-OdJOEDDb3yyWw" target="_blank" rel="noopener"
+&gt;《一根火柴的N种打开方式》&lt;/a&gt; 作者: &lt;a class="link" href="https://github.com/LuoJiangYong" target="_blank" rel="noopener"
+&gt;老罗巴扎嘿&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="名字起啥好"&gt;名字起啥好?
+&lt;/h2&gt;&lt;p&gt;将这个仓库命名为&lt;strong&gt;Chrome扩展英雄榜&lt;/strong&gt;可能更准确些,但&lt;strong&gt;插件&lt;/strong&gt;这个名词, 更通俗易懂, 所以就使用了&lt;strong&gt;Chrome插件英雄榜&lt;/strong&gt;这个命名 ,感谢@&lt;a class="link" href="https://github.com/hjthjthjt" target="_blank" rel="noopener"
+&gt;hjthjthjt&lt;/a&gt; 给出的&lt;a class="link" href="https://github.com/zhaoolee/ChromeAppHeroes/issues/14" target="_blank" rel="noopener"
+&gt;issue&lt;/a&gt;纠正&lt;/p&gt;
+&lt;h2 id="推荐姊妹仓库"&gt;&lt;a class="link" href="https://github.com/zhaoolee/StarsAndClown" target="_blank" rel="noopener"
+&gt;推荐姊妹仓库&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;本仓库的姊妹篇:**&lt;a class="link" href="https://github.com/zhaoolee/StarsAndClown" target="_blank" rel="noopener"
+&gt;《Github星聚弃疗榜》&lt;/a&gt;**为Github创意项目写一本推荐书，让Github优秀项目造福人类~ 已开源到Github: &lt;a class="link" href="https://github.com/zhaoolee/StarsAndClown" target="_blank" rel="noopener"
+&gt;https://github.com/zhaoolee/StarsAndClown&lt;/a&gt; 同样有趣有料哦~&lt;/p&gt;
+&lt;h2 id="相关资源链接"&gt;相关资源链接
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://chrome-extension-downloader.com/" target="_blank" rel="noopener"
+&gt;扩展程序离线下载&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://zhaoolee.com/ChromeAppHeroes/chrome_extended_resources_site.html" target="_blank" rel="noopener"
+&gt;Chrome扩展资源站点推荐&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="chrome扩展程序相关网站推荐"&gt;Chrome扩展程序相关网站推荐
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://www.chajian5.com/" target="_blank" rel="noopener"
+&gt;chajian5: 收藏好用的Chrome插件，不推荐评分低的还有多年不更新的插件。支持百度网盘和360云盘转存或下载，方便快捷。&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Vibe Coding 指南</title><link>https://hanguangwu.github.io/p/vibe-coding-%E6%8C%87%E5%8D%97/</link><pubDate>Mon, 29 Dec 2025 22:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/vibe-coding-%E6%8C%87%E5%8D%97/</guid><description>&lt;h1 id="vibe-coding-指南"&gt;Vibe Coding 指南
 &lt;/h1&gt;&lt;p&gt;&lt;strong&gt;一个通过与 AI 结对编程，将想法变为现实的终极工作站&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a class="link" href="https://github.com/tukuaiai/vibe-coding-cn" target="_blank" rel="noopener"
 &gt;来源——GitHub Repo&lt;/a&gt;&lt;/p&gt;
@@ -12576,7 +13389,210 @@ allowfullscreen="true"
 &lt;/div&gt;&lt;p&gt;注意：如果你明确知道存入的是某一类具体对象，可以将 &lt;code&gt;Jackson2JsonRedisSerializer&lt;/code&gt; 的泛型改为该对象类型，以提升反序列化的安全性和效率。&lt;/p&gt;
 &lt;h3 id="参考资料"&gt;参考资料
 &lt;/h3&gt;&lt;p&gt;&lt;a class="link" href="https://blog.csdn.net/cdnight/article/details/88803869" target="_blank" rel="noopener"
-&gt;redisTemplate中leftPushAll隐性bug的问题&lt;/a&gt;&lt;/p&gt;</description></item><item><title>从零开始实现区块链货币</title><link>https://hanguangwu.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/</link><pubDate>Tue, 29 Jul 2025 10:34:25 +0800</pubDate><guid>https://hanguangwu.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/</guid><description>&lt;h2 id="前言"&gt;前言
+&gt;redisTemplate中leftPushAll隐性bug的问题&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Redis缓存模式详解：提升系统性能的艺术</title><link>https://hanguangwu.github.io/p/redis%E7%BC%93%E5%AD%98%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9A%84%E8%89%BA%E6%9C%AF/</link><pubDate>Thu, 31 Jul 2025 22:34:25 +0800</pubDate><guid>https://hanguangwu.github.io/p/redis%E7%BC%93%E5%AD%98%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9A%84%E8%89%BA%E6%9C%AF/</guid><description>&lt;h1 id="redis缓存模式详解提升系统性能的艺术"&gt;Redis缓存模式详解：提升系统性能的艺术
+&lt;/h1&gt;&lt;h2 id="引言"&gt;引言
+&lt;/h2&gt;&lt;p&gt;在现代分布式系统中，缓存是提高系统性能和减轻数据库压力的关键技术。Redis作为一种高性能的内存数据存储系统，提供了多种缓存模式，每种模式都有其独特的应用场景和优缺点。本文将深入探讨三种主要的Redis缓存模式：Cache Aside、Read Through和Write Through。&lt;/p&gt;
+&lt;h2 id="1-cache-aside模式旁路缓存"&gt;1. Cache Aside模式（旁路缓存）
+&lt;/h2&gt;&lt;h3 id="11-基本原理"&gt;1.1 基本原理
+&lt;/h3&gt;&lt;p&gt;Cache Aside模式是最常用的缓存模式，其核心思想是由应用程序直接控制缓存的读取和更新。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://pic4.zhimg.com/v2-2369fd5be6e1e0d8ef893e33a1b59019_1440w.jpg"
+loading="lazy"
+alt="cache-aside"
+&gt;&lt;/p&gt;
+&lt;h3 id="12-读取流程"&gt;1.2 读取流程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;查询缓存&lt;/li&gt;
+&lt;li&gt;缓存未命中时，从数据库读取数据&lt;/li&gt;
+&lt;li&gt;将读取的数据写入缓存&lt;/li&gt;
+&lt;li&gt;返回数据给调用方&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 先查询缓存&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 缓存未命中，从数据库读取&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;database&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 将数据写入缓存&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;expire_time&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="13-写入流程"&gt;1.3 写入流程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;更新数据库&lt;/li&gt;
+&lt;li&gt;删除对应的缓存项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;update_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 先更新数据库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;database&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new_value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 删除缓存&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="14-优点与缺点"&gt;1.4 优点与缺点
+&lt;/h3&gt;&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实现简单&lt;/li&gt;
+&lt;li&gt;应用程序对缓存有完全的控制权&lt;/li&gt;
+&lt;li&gt;灵活性高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可能存在短暂的数据不一致性&lt;/li&gt;
+&lt;li&gt;写操作需要额外的缓存删除步骤&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="2-read-through模式读穿透"&gt;2. Read Through模式（读穿透）
+&lt;/h2&gt;&lt;h3 id="21-基本原理"&gt;2.1 基本原理
+&lt;/h3&gt;&lt;p&gt;Read Through模式由缓存组件自动处理缓存未命中的情况，应用程序无需关心缓存加载细节。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://pic2.zhimg.com/v2-b72fcb75c1bec0f14f69fe86d4bfb0b3_1440w.jpg"
+loading="lazy"
+alt="read-through"
+&gt;&lt;/p&gt;
+&lt;h3 id="22-工作流程"&gt;2.2 工作流程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;查询缓存&lt;/li&gt;
+&lt;li&gt;缓存未命中时，缓存组件自动从数据库加载数据&lt;/li&gt;
+&lt;li&gt;将数据写入缓存&lt;/li&gt;
+&lt;li&gt;返回数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ReadThroughCache&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;implements&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Cache&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Database&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;database&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 缓存组件自动处理缓存未命中&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cacheStorage&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// 从数据库加载数据&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;database&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="na"&gt;fetch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;});&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="23-优点"&gt;2.3 优点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;对应用程序透明&lt;/li&gt;
+&lt;li&gt;缓存加载逻辑集中管理&lt;/li&gt;
+&lt;li&gt;减少应用层代码复杂度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="24-适用场景"&gt;2.4 适用场景
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;需要统一缓存加载逻辑的系统&lt;/li&gt;
+&lt;li&gt;微服务架构&lt;/li&gt;
+&lt;li&gt;复杂的数据获取流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3-write-through模式写穿透"&gt;3. Write Through模式（写穿透）
+&lt;/h2&gt;&lt;h3 id="31-基本原理"&gt;3.1 基本原理
+&lt;/h3&gt;&lt;p&gt;Write Through模式确保数据同时写入缓存和后端存储，保证数据一致性。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://pic1.zhimg.com/v2-bf36366e4f30507b0c9028394c9e3c3a_1440w.jpg"
+loading="lazy"
+alt="write-through"
+&gt;&lt;/p&gt;
+&lt;h3 id="32-工作流程"&gt;3.2 工作流程
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;接收写入请求&lt;/li&gt;
+&lt;li&gt;同时更新缓存和数据库&lt;/li&gt;
+&lt;li&gt;确认写入成功&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;write_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 同时写入缓存和数据库&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;database&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 处理写入失败的情况&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="33-优点"&gt;3.3 优点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;强一致性&lt;/li&gt;
+&lt;li&gt;数据实时同步&lt;/li&gt;
+&lt;li&gt;降低数据丢失风险&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="34-缺点"&gt;3.4 缺点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;写入性能相对较低&lt;/li&gt;
+&lt;li&gt;增加系统复杂度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="4-性能与一致性权衡"&gt;4. 性能与一致性权衡
+&lt;/h2&gt;&lt;h3 id="41-选择建议"&gt;4.1 选择建议
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Cache Aside：灵活性高，适合大多数场景&lt;/li&gt;
+&lt;li&gt;Read Through：适合标准化缓存加载&lt;/li&gt;
+&lt;li&gt;Write Through：需要强一致性的场景&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="42-性能优化建议"&gt;4.2 性能优化建议
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;合理设置缓存过期时间&lt;/li&gt;
+&lt;li&gt;使用本地缓存+ 分布式缓存&lt;/li&gt;
+&lt;li&gt;针对读多写少场景选择合适模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="结论"&gt;结论
+&lt;/h2&gt;&lt;p&gt;理解和正确使用Redis缓存模式是构建高性能、高可靠系统的关键。根据具体业务场景选择合适的缓存模式，能显著提升系统整体性能和用户体验。&lt;/p&gt;
+&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://zhuanlan.zhihu.com/p/150740291" target="_blank" rel="noopener"
+&gt;缓存模式（Cache Aside、Read Through、Write Through）&lt;/a&gt;&lt;/p&gt;</description></item><item><title>从零开始实现区块链货币</title><link>https://hanguangwu.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/</link><pubDate>Tue, 29 Jul 2025 10:34:25 +0800</pubDate><guid>https://hanguangwu.github.io/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/</guid><description>&lt;h2 id="前言"&gt;前言
 &lt;/h2&gt;
 &lt;div class="video-wrapper"&gt;
 &lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV14E411v7eS"
