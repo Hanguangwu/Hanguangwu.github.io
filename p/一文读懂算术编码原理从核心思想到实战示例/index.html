@@ -1,0 +1,934 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="本文介绍算术编码的核心思想和实战示例。"><title>一文读懂算术编码原理：从核心思想到实战示例</title><link rel=canonical href=https://hanguangwu.github.io/p/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86%E4%BB%8E%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%E5%88%B0%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="一文读懂算术编码原理：从核心思想到实战示例"><meta property='og:description' content="本文介绍算术编码的核心思想和实战示例。"><meta property='og:url' content='https://hanguangwu.github.io/p/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86%E4%BB%8E%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%E5%88%B0%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B/'><meta property='og:site_name' content='酒中仙'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='压缩算法'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2026-01-01T12:34:25-08:00'><meta property='article:modified_time' content='2026-01-01T12:34:25-08:00'><meta name=twitter:title content="一文读懂算术编码原理：从核心思想到实战示例"><meta name=twitter:description content="本文介绍算术编码的核心思想和实战示例。"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_446bb777e4bcbb8a.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>酒中仙</a></h1><h2 class=site-description>仰天大笑出門去，我輩豈是蓬蒿人！</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/ selected>中文</option><option value=https://hanguangwu.github.io/en/>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#一算术编码的核心思想>一、算术编码的核心思想</a></li><li><a href=#二算术编码的前置准备>二、算术编码的前置准备</a></li><li><a href=#三算术编码分步示例手把手拆解>三、算术编码分步示例（手把手拆解）</a><ol><li><a href=#示例设定>示例设定</a></li><li><a href=#步骤-1初始化初始区间>步骤 1：初始化初始区间</a></li><li><a href=#步骤-2逐个处理符号迭代收缩区间>步骤 2：逐个处理符号，迭代收缩区间</a><ol><li><a href=#第-1-步处理第一个符号a对应区间00-05>第 1 步：处理第一个符号 <code>a</code>（对应区间<code>[0.0, 0.5)</code>）</a></li><li><a href=#第-2-步处理第二个符号b对应区间05-08>第 2 步：处理第二个符号 <code>b</code>（对应区间<code>[0.5, 0.8)</code>）</a></li><li><a href=#第-3-步处理第三个符号a对应区间00-05>第 3 步：处理第三个符号 <code>a</code>（对应区间<code>[0.0, 0.5)</code>）</a></li><li><a href=#第-4-步处理第四个符号c对应区间08-10>第 4 步：处理第四个符号 <code>c</code>（对应区间<code>[0.8, 1.0)</code>）</a></li></ol></li><li><a href=#步骤-3获取最终编码结果>步骤 3：获取最终编码结果</a></li></ol></li><li><a href=#四python-实现简易算术编码与解码>四、Python 实现简易算术编码与解码</a><ol><li><a href=#完整代码实现>完整代码实现</a></li><li><a href=#代码运行结果>代码运行结果</a></li><li><a href=#代码关键说明>代码关键说明</a></li></ol></li><li><a href=#五算术编码的关键注意事项>五、算术编码的关键注意事项</a></li><li><a href=#六总结>六、总结</a></li><li><a href=#附录封装版代码>附录封装版代码</a><ol><li><a href=#pyaepy>pyae.py</a></li><li><a href=#examplepy>example.py</a></li></ol></li><li><a href=#参考资料>参考资料</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%AE%97%E6%B3%95/>算法</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86%E4%BB%8E%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%E5%88%B0%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B/>一文读懂算术编码原理：从核心思想到实战示例</a></h2><h3 class=article-subtitle>本文介绍算术编码的核心思想和实战示例。</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jan 01, 2026</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 12 分钟</time></div></footer></div></header><section class=article-content><h1 id=一文读懂算术编码原理从核心思想到实战示例>一文读懂算术编码原理：从核心思想到实战示例</h1><p>算术编码（Arithmetic Coding）是一种高效的无损数据压缩算法，与霍夫曼编码齐名，但在处理短序列、高冗余数据时往往能实现更高的压缩比。它打破了 “一个符号对应一个编码码字” 的传统思路，而是将整个待编码数据序列映射为一个 <code>[0,1)</code> 区间内的小数 ，最终通过输出这个小数的二进制表示实现压缩。本文将从核心原理入手，结合具体示例逐步拆解，并通过 Python 代码实现一个简易版算术编码与解码。</p><h2 id=一算术编码的核心思想>一、算术编码的核心思想</h2><p>与霍夫曼编码的 “符号→码字” 一对一映射不同，算术编码的核心逻辑可以概括为 3 点：</p><ol><li><strong>基于概率的区间划分</strong>：首先统计待编码数据中每个符号的出现概率，将初始区间<code>[0,1)</code>按照各符号的概率比例进行划分，每个符号对应一个子区间。</li><li><strong>迭代收缩区间</strong>：逐个处理待编码序列中的符号，每处理一个符号，就将当前的区间更新为该符号对应的子区间，然后在新的子区间内再次按照符号概率进行划分，重复此过程，直到所有符号处理完毕。</li><li><strong>区间映射为小数</strong>：最终得到的收缩后区间内的任意一个小数，都可以唯一映射回原始数据序列，这个小数就是编码结果，通常转换为二进制以进一步节省存储空间。</li></ol><p>关键优势：无需为单个符号分配整数长度的码字，对概率分布更敏感，尤其适合符号概率差异较小的场景，压缩效率更高。</p><p>算术编码为什么可以压缩数据？</p><p><strong>算术编码的压缩本质，就是在保留字符排列顺序的同时，对于更高频出现的字符，也就是概率更大的字符，赋予更大的小数区间。</strong></p><h2 id=二算术编码的前置准备>二、算术编码的前置准备</h2><p>在开始具体示例前，我们需要明确两个基础概念，这是理解算术编码的前提：</p><ol><li><strong>符号概率统计</strong>：必须先统计待编码数据集中每个符号的出现概率（或频率），概率之和必须为 1。</li><li><strong>区间边界计算</strong>：每个符号对应的区间是<code>[累积概率下限, 累积概率上限)</code>，累积概率是指该符号之前所有符号的概率之和。</li></ol><p>举个简单的前提示例：若待编码符号集为<code>{a, b, c}</code>，对应的概率分别为<code>0.5, 0.3, 0.2</code>，则它们的区间划分如下：</p><ul><li>符号<code>a</code>：<code>[0, 0.5)</code>（累积下限 = 0，累积上限 = 0+0.5=0.5）</li><li>符号<code>b</code>：<code>[0.5, 0.8)</code>（累积下限 = 0.5，累积上限 = 0.5+0.3=0.8）</li><li>符号<code>c</code>：<code>[0.8, 1.0)</code>（累积下限 = 0.8，累积上限 = 0.8+0.2=1.0）</li></ul><p>注意：频率表可以自定义。</p><h2 id=三算术编码分步示例手把手拆解>三、算术编码分步示例（手把手拆解）</h2><p>为了让原理更易懂，我们选择一个简单且典型的示例进行分步讲解：</p><h3 id=示例设定>示例设定</h3><ul><li>待编码数据序列：<code>"a b a c"</code>（简化为符号序列<code>[a, b, a, c]</code>，空格仅用于分隔）</li><li>符号集与预先统计的概率（假设已通过样本统计得到）：</li></ul><div class=table-wrapper><table><thead><tr><th>符号</th><th>出现概率</th></tr></thead><tbody><tr><td>a</td><td>0.5</td></tr><tr><td>b</td><td>0.3</td></tr><tr><td>c</td><td>0.2</td></tr></tbody></table></div><h3 id=步骤-1初始化初始区间>步骤 1：初始化初始区间</h3><p>算术编码的初始区间固定为<code>[low, high) = [0.0, 1.0)</code>，其中<code>low</code>是区间下限，<code>high</code>是区间上限，初始时<code>low=0.0</code>，<code>high=1.0</code>。</p><h3 id=步骤-2逐个处理符号迭代收缩区间>步骤 2：逐个处理符号，迭代收缩区间</h3><p>区间收缩的核心公式（关键！）：对于当前区间<code>[cur_low, cur_high)</code>，处理符号<code>s</code>（对应区间<code>[s_low, s_high)</code>）时，新的区间<code>[new_low, new_high)</code>计算如下：</p><ol><li><code>interval_width = cur_high - cur_low</code>（当前区间的宽度）</li><li><code>new_low = cur_low + interval_width * s_low</code>（新下限 = 当前下限 + 区间宽度 × 符号下限）</li><li><code>new_high = cur_low + interval_width * s_high</code>（新上限 = 当前下限 + 区间宽度 × 符号上限）</li></ol><p>下面我们按照这个公式，逐步处理<code>[a, b, a, c]</code>中的每个符号：</p><h4 id=第-1-步处理第一个符号a对应区间00-05>第 1 步：处理第一个符号 <code>a</code>（对应区间<code>[0.0, 0.5)</code>）</h4><ul><li>当前区间：<code>cur_low=0.0</code>，<code>cur_high=1.0</code></li><li>区间宽度：<code>interval_width = 1.0 - 0.0 = 1.0</code></li><li>新下限：<code>new_low = 0.0 + 1.0 * 0.0 = 0.0</code></li><li>新上限：<code>new_high = 0.0 + 1.0 * 0.5 = 0.5</code></li><li>处理后区间：<code>[0.0, 0.5)</code></li></ul><h4 id=第-2-步处理第二个符号b对应区间05-08>第 2 步：处理第二个符号 <code>b</code>（对应区间<code>[0.5, 0.8)</code>）</h4><ul><li>当前区间：<code>cur_low=0.0</code>，<code>cur_high=0.5</code></li><li>区间宽度：<code>interval_width = 0.5 - 0.0 = 0.5</code></li><li>新下限：<code>new_low = 0.0 + 0.5 * 0.5 = 0.25</code></li><li>新上限：<code>new_high = 0.0 + 0.5 * 0.8 = 0.4</code></li><li>处理后区间：<code>[0.25, 0.4)</code></li></ul><h4 id=第-3-步处理第三个符号a对应区间00-05>第 3 步：处理第三个符号 <code>a</code>（对应区间<code>[0.0, 0.5)</code>）</h4><ul><li>当前区间：<code>cur_low=0.25</code>，<code>cur_high=0.4</code></li><li>区间宽度：<code>interval_width = 0.4 - 0.25 = 0.15</code></li><li>新下限：<code>new_low = 0.25 + 0.15 * 0.0 = 0.25</code></li><li>新上限：<code>new_high = 0.25 + 0.15 * 0.5 = 0.25 + 0.075 = 0.325</code></li><li>处理后区间：<code>[0.25, 0.325)</code></li></ul><h4 id=第-4-步处理第四个符号c对应区间08-10>第 4 步：处理第四个符号 <code>c</code>（对应区间<code>[0.8, 1.0)</code>）</h4><ul><li>当前区间：<code>cur_low=0.25</code>，<code>cur_high=0.325</code></li><li>区间宽度：<code>interval_width = 0.325 - 0.25 = 0.075</code></li><li>新下限：<code>new_low = 0.25 + 0.075 * 0.8 = 0.25 + 0.06 = 0.31</code></li><li>新上限：<code>new_high = 0.25 + 0.075 * 1.0 = 0.25 + 0.075 = 0.325</code></li><li>处理后区间：<code>[0.31, 0.325)</code></li></ul><h3 id=步骤-3获取最终编码结果>步骤 3：获取最终编码结果</h3><p>所有符号处理完毕后，我们得到了最终的收缩区间<code>[0.31, 0.325)</code>。此时，<strong>这个区间内的任意一个小数都可以作为算术编码的结果</strong>（因为解码时可以通过这个小数唯一还原出原始符号序列）。</p><p>为了方便表示，我们可以选择区间的中点作为编码结果：<code>(0.31 + 0.325) / 2 = 0.3175</code>。</p><p>如果需要进一步压缩，还可以将<code>0.3175</code>转换为二进制表示（注：小数的二进制转换是 “乘 2 取整，顺序排列”），最终的二进制串就是更紧凑的压缩结果。</p><h2 id=四python-实现简易算术编码与解码>四、Python 实现简易算术编码与解码</h2><p>下面我们通过 Python 代码实现上述示例的算术编码与解码，代码保持简洁易懂，聚焦核心逻辑（不考虑复杂的精度优化和二进制优化，适合原理验证）。</p><h3 id=完整代码实现>完整代码实现</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>calculate_cumulative_prob</span><span class=p>(</span><span class=n>prob_dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    计算符号的累积概率，返回符号对应的[下限, 上限]区间字典
+</span></span></span><span class=line><span class=cl><span class=s2>    :param prob_dict: 符号-概率字典
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 符号-区间[low, high]字典
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>cumulative_prob</span> <span class=o>=</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>    <span class=n>symbol_interval</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 按符号排序（保证结果可复现），计算累积区间</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>symbol</span> <span class=ow>in</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>prob_dict</span><span class=o>.</span><span class=n>keys</span><span class=p>()):</span>
+</span></span><span class=line><span class=cl>        <span class=n>prob</span> <span class=o>=</span> <span class=n>prob_dict</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>symbol_interval</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>cumulative_prob</span><span class=p>,</span> <span class=n>cumulative_prob</span> <span class=o>+</span> <span class=n>prob</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>cumulative_prob</span> <span class=o>+=</span> <span class=n>prob</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>symbol_interval</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>arithmetic_encode</span><span class=p>(</span><span class=n>symbol_sequence</span><span class=p>,</span> <span class=n>prob_dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    算术编码核心函数
+</span></span></span><span class=line><span class=cl><span class=s2>    :param symbol_sequence: 待编码的符号序列（列表/元组）
+</span></span></span><span class=line><span class=cl><span class=s2>    :param prob_dict: 符号-概率字典
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 编码结果（区间内的小数）、最终区间[low, high]
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 1. 初始化区间</span>
+</span></span><span class=line><span class=cl>    <span class=n>low</span> <span class=o>=</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>    <span class=n>high</span> <span class=o>=</span> <span class=mf>1.0</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 2. 获取符号的累积区间</span>
+</span></span><span class=line><span class=cl>    <span class=n>symbol_interval</span> <span class=o>=</span> <span class=n>calculate_cumulative_prob</span><span class=p>(</span><span class=n>prob_dict</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 3. 迭代处理每个符号，收缩区间</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>symbol</span> <span class=ow>in</span> <span class=n>symbol_sequence</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>symbol</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>symbol_interval</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;符号 </span><span class=si>{</span><span class=n>symbol</span><span class=si>}</span><span class=s2> 不在预定义的符号集中&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 获取当前符号对应的区间</span>
+</span></span><span class=line><span class=cl>        <span class=n>s_low</span><span class=p>,</span> <span class=n>s_high</span> <span class=o>=</span> <span class=n>symbol_interval</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 计算当前区间宽度</span>
+</span></span><span class=line><span class=cl>        <span class=n>interval_width</span> <span class=o>=</span> <span class=n>high</span> <span class=o>-</span> <span class=n>low</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 更新区间</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_low</span> <span class=o>=</span> <span class=n>low</span> <span class=o>+</span> <span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_low</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_high</span> <span class=o>=</span> <span class=n>low</span> <span class=o>+</span> <span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_high</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 更新当前区间为新区间</span>
+</span></span><span class=line><span class=cl>        <span class=n>low</span><span class=p>,</span> <span class=n>high</span> <span class=o>=</span> <span class=n>new_low</span><span class=p>,</span> <span class=n>new_high</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 4. 选择区间中点作为编码结果（也可选择low或high）</span>
+</span></span><span class=line><span class=cl>    <span class=n>encode_result</span> <span class=o>=</span> <span class=p>(</span><span class=n>low</span> <span class=o>+</span> <span class=n>high</span><span class=p>)</span> <span class=o>/</span> <span class=mf>2.0</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>encode_result</span><span class=p>,</span> <span class=p>(</span><span class=n>low</span><span class=p>,</span> <span class=n>high</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>arithmetic_decode</span><span class=p>(</span><span class=n>encode_value</span><span class=p>,</span> <span class=n>prob_dict</span><span class=p>,</span> <span class=n>sequence_length</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    算术解码核心函数（根据编码值还原符号序列）
+</span></span></span><span class=line><span class=cl><span class=s2>    :param encode_value: 算术编码结果（小数）
+</span></span></span><span class=line><span class=cl><span class=s2>    :param prob_dict: 符号-概率字典
+</span></span></span><span class=line><span class=cl><span class=s2>    :param sequence_length: 原始符号序列的长度（必须预先知晓）
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 还原的符号序列
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 1. 初始化变量</span>
+</span></span><span class=line><span class=cl>    <span class=n>low</span> <span class=o>=</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>    <span class=n>high</span> <span class=o>=</span> <span class=mf>1.0</span>
+</span></span><span class=line><span class=cl>    <span class=n>decoded_sequence</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=n>symbol_interval</span> <span class=o>=</span> <span class=n>calculate_cumulative_prob</span><span class=p>(</span><span class=n>prob_dict</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>symbol_list</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>prob_dict</span><span class=o>.</span><span class=n>keys</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 2. 迭代解码每个符号（需知道序列长度，否则无法停止）</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>sequence_length</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>interval_width</span> <span class=o>=</span> <span class=n>high</span> <span class=o>-</span> <span class=n>low</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 计算编码值在当前区间内的相对位置</span>
+</span></span><span class=line><span class=cl>        <span class=n>relative_value</span> <span class=o>=</span> <span class=p>(</span><span class=n>encode_value</span> <span class=o>-</span> <span class=n>low</span><span class=p>)</span> <span class=o>/</span> <span class=n>interval_width</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 3. 找到相对位置对应的符号</span>
+</span></span><span class=line><span class=cl>        <span class=n>decoded_symbol</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>symbol</span> <span class=ow>in</span> <span class=n>symbol_list</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>s_low</span><span class=p>,</span> <span class=n>s_high</span> <span class=o>=</span> <span class=n>symbol_interval</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>s_low</span> <span class=o>&lt;=</span> <span class=n>relative_value</span> <span class=o>&lt;</span> <span class=n>s_high</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>decoded_symbol</span> <span class=o>=</span> <span class=n>symbol</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 4. 收缩区间，为下一个符号解码做准备</span>
+</span></span><span class=line><span class=cl>                <span class=n>new_low</span> <span class=o>=</span> <span class=n>low</span> <span class=o>+</span> <span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_low</span>
+</span></span><span class=line><span class=cl>                <span class=n>new_high</span> <span class=o>=</span> <span class=n>low</span> <span class=o>+</span> <span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_high</span>
+</span></span><span class=line><span class=cl>                <span class=n>low</span><span class=p>,</span> <span class=n>high</span> <span class=o>=</span> <span class=n>new_low</span><span class=p>,</span> <span class=n>new_high</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>decoded_symbol</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=s2>&#34;无法找到对应的符号，解码失败&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=n>decoded_sequence</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>decoded_symbol</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>decoded_sequence</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># ---------------------- 测试示例 ----------------------</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 1. 定义示例参数</span>
+</span></span><span class=line><span class=cl>    <span class=n>prob_dict</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=p>:</span> <span class=mf>0.5</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span><span class=p>:</span> <span class=mf>0.3</span><span class=p>,</span> <span class=s2>&#34;c&#34;</span><span class=p>:</span> <span class=mf>0.2</span><span class=p>}</span>  <span class=c1># 符号-概率字典</span>
+</span></span><span class=line><span class=cl>    <span class=n>symbol_sequence</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;b&#34;</span><span class=p>,</span> <span class=s2>&#34;a&#34;</span><span class=p>,</span> <span class=s2>&#34;c&#34;</span><span class=p>]</span>       <span class=c1># 待编码符号序列</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;原始符号序列：</span><span class=si>{</span><span class=n>symbol_sequence</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;符号概率分布：</span><span class=si>{</span><span class=n>prob_dict</span><span class=si>}</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 2. 执行算术编码</span>
+</span></span><span class=line><span class=cl>    <span class=n>encode_result</span><span class=p>,</span> <span class=n>final_interval</span> <span class=o>=</span> <span class=n>arithmetic_encode</span><span class=p>(</span><span class=n>symbol_sequence</span><span class=p>,</span> <span class=n>prob_dict</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;算术编码结果（区间中点）：</span><span class=si>{</span><span class=n>encode_result</span><span class=si>:</span><span class=s2>.6f</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;最终收缩区间：[</span><span class=si>{</span><span class=n>final_interval</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=si>:</span><span class=s2>.6f</span><span class=si>}</span><span class=s2>, </span><span class=si>{</span><span class=n>final_interval</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=si>:</span><span class=s2>.6f</span><span class=si>}</span><span class=s2>)</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 3. 执行算术解码</span>
+</span></span><span class=line><span class=cl>    <span class=n>sequence_length</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>symbol_sequence</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>decoded_sequence</span> <span class=o>=</span> <span class=n>arithmetic_decode</span><span class=p>(</span><span class=n>encode_result</span><span class=p>,</span> <span class=n>prob_dict</span><span class=p>,</span> <span class=n>sequence_length</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;解码得到的符号序列：</span><span class=si>{</span><span class=n>decoded_sequence</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;编码与解码是否一致：</span><span class=si>{</span><span class=n>symbol_sequence</span> <span class=o>==</span> <span class=n>decoded_sequence</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=代码运行结果>代码运行结果</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plaintext data-lang=plaintext><span class=line><span class=cl>原始符号序列：[&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;c&#39;]
+</span></span><span class=line><span class=cl>符号概率分布：{&#39;a&#39;: 0.5, &#39;b&#39;: 0.3, &#39;c&#39;: 0.2}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>算术编码结果（区间中点）：0.317500
+</span></span><span class=line><span class=cl>最终收缩区间：[0.310000, 0.325000)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>解码得到的符号序列：[&#39;a&#39;, &#39;b&#39;, &#39;a&#39;, &#39;c&#39;]
+</span></span><span class=line><span class=cl>编码与解码是否一致：True
+</span></span></code></pre></td></tr></table></div></div><h3 id=代码关键说明>代码关键说明</h3><ol><li><strong>累积概率计算</strong>：<code>calculate_cumulative_prob</code>函数用于将符号概率转换为对应的区间，保证每个符号的区间不重叠且覆盖<code>[0,1)</code>。</li><li><strong>编码逻辑</strong>：严格遵循前文的区间收缩公式，逐个处理符号，最终返回区间中点作为编码结果。</li><li><strong>解码逻辑</strong>：解码是编码的逆过程，需要预先知晓原始序列长度（这是算术编码的一个特点，通常需要在压缩结果中记录该信息），通过相对位置找到对应的符号，并迭代收缩区间。</li><li><strong>可复现性</strong>：对符号进行排序后处理，避免字典无序导致的结果差异。</li></ol><h2 id=五算术编码的关键注意事项>五、算术编码的关键注意事项</h2><ol><li><strong>精度问题</strong>：在实际应用中，随着符号序列长度增加，区间会无限收缩，普通浮点数（Python 中的<code>float</code>是 64 位双精度）会出现精度丢失，此时需要使用高精度数值类型或采用 “区间缩放 + 进位处理” 的策略。</li><li><strong>概率更新</strong>：本文示例使用的是固定概率（静态算术编码），实际场景中更常用自适应算术编码，即编码过程中动态更新符号概率，无需预先统计。</li><li><strong>解码依赖</strong>：解码时必须知晓原始符号的概率分布和序列长度，否则无法正确还原数据，这部分信息需要作为压缩头存储在编码结果中。</li><li><strong>压缩比优势</strong>：当符号数量较多、概率分布较均匀时，算术编码的压缩比明显优于霍夫曼编码，因为它无需为单个符号分配整数长度码字，能更充分地利用概率信息。</li></ol><h2 id=六总结>六、总结</h2><p>算术编码的核心是 “区间收缩” 与 “概率映射”，它将整个数据序列映射为一个小数，打破了传统编码的码字限制，实现了更高的压缩效率。本文通过一个简单的符号序列示例，逐步拆解了编码的核心步骤，并通过 Python 代码实现了简易的编码与解码，验证了算术编码的可行性。</p><p>需要注意的是，本文实现的是基础版本的算术编码，实际工业级应用（如 JPEG、PNG 压缩标准中）还需要解决精度丢失、自适应概率更新、二进制优化等问题，但理解本文的核心原理，是深入学习高级算术编码的基础。</p><p>算术编码的魅力在于它对概率的极致利用，这种 “整体映射” 的思路也为后续的无损压缩算法提供了重要启发，值得每一位对数据压缩感兴趣的开发者深入研究。</p><h2 id=附录封装版代码>附录封装版代码</h2><h3 id=pyaepy>pyae.py</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span><span class=lnt>275
+</span><span class=lnt>276
+</span><span class=lnt>277
+</span><span class=lnt>278
+</span><span class=lnt>279
+</span><span class=lnt>280
+</span><span class=lnt>281
+</span><span class=lnt>282
+</span><span class=lnt>283
+</span><span class=lnt>284
+</span><span class=lnt>285
+</span><span class=lnt>286
+</span><span class=lnt>287
+</span><span class=lnt>288
+</span><span class=lnt>289
+</span><span class=lnt>290
+</span><span class=lnt>291
+</span><span class=lnt>292
+</span><span class=lnt>293
+</span><span class=lnt>294
+</span><span class=lnt>295
+</span><span class=lnt>296
+</span><span class=lnt>297
+</span><span class=lnt>298
+</span><span class=lnt>299
+</span><span class=lnt>300
+</span><span class=lnt>301
+</span><span class=lnt>302
+</span><span class=lnt>303
+</span><span class=lnt>304
+</span><span class=lnt>305
+</span><span class=lnt>306
+</span><span class=lnt>307
+</span><span class=lnt>308
+</span><span class=lnt>309
+</span><span class=lnt>310
+</span><span class=lnt>311
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>decimal</span> <span class=kn>import</span> <span class=n>Decimal</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>ArithmeticEncoding</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    ArithmeticEncoding is a class for building the arithmetic encoding.
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>frequency_table</span><span class=p>,</span> <span class=n>save_stages</span><span class=o>=</span><span class=kc>False</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        frequency_table: Frequency table as a dictionary where key is the symbol and value is the frequency.
+</span></span></span><span class=line><span class=cl><span class=s2>        save_stages: If True, then the intervals of each stage are saved in a list. Note that setting save_stages=True may cause memory overflow if the message is large
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span> <span class=o>=</span> <span class=n>save_stages</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>save_stages</span> <span class=o>==</span> <span class=kc>True</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;WARNING: Setting save_stages=True may cause memory overflow if the message is large.&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>probability_table</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>get_probability_table</span><span class=p>(</span><span class=n>frequency_table</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>get_probability_table</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>frequency_table</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        Calculates the probability table out of the frequency table.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        frequency_table: A table of the term frequencies.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the probability table.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>total_frequency</span> <span class=o>=</span> <span class=nb>sum</span><span class=p>(</span><span class=nb>list</span><span class=p>(</span><span class=n>frequency_table</span><span class=o>.</span><span class=n>values</span><span class=p>()))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>probability_table</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>frequency_table</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=n>probability_table</span><span class=p>[</span><span class=n>key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span> <span class=o>/</span> <span class=n>total_frequency</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>probability_table</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>get_encoded_value</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>last_stage_probs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        After encoding the entire message, this method returns the single value that represents the entire message.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        last_stage_probs: A list of the probabilities in the last stage.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the minimum and maximum probabilites in the last stage in addition to the value encoding the message.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>last_stage_probs</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>last_stage_probs</span><span class=o>.</span><span class=n>values</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=n>last_stage_values</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>sublist</span> <span class=ow>in</span> <span class=n>last_stage_probs</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>element</span> <span class=ow>in</span> <span class=n>sublist</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>last_stage_values</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>element</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>last_stage_min</span> <span class=o>=</span> <span class=nb>min</span><span class=p>(</span><span class=n>last_stage_values</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>last_stage_max</span> <span class=o>=</span> <span class=nb>max</span><span class=p>(</span><span class=n>last_stage_values</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>encoded_value</span> <span class=o>=</span> <span class=p>(</span><span class=n>last_stage_min</span> <span class=o>+</span> <span class=n>last_stage_max</span><span class=p>)</span> <span class=o>/</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>last_stage_min</span><span class=p>,</span> <span class=n>last_stage_max</span><span class=p>,</span> <span class=n>encoded_value</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>process_stage</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>probability_table</span><span class=p>,</span> <span class=n>stage_min</span><span class=p>,</span> <span class=n>stage_max</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        Processing a stage in the encoding/decoding process.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        probability_table: The probability table.
+</span></span></span><span class=line><span class=cl><span class=s2>        stage_min: The minumim probability of the current stage.
+</span></span></span><span class=line><span class=cl><span class=s2>        stage_max: The maximum probability of the current stage.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the probabilities in the stage.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_domain</span> <span class=o>=</span> <span class=n>stage_max</span> <span class=o>-</span> <span class=n>stage_min</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>term_idx</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>probability_table</span><span class=o>.</span><span class=n>items</span><span class=p>())):</span>
+</span></span><span class=line><span class=cl>            <span class=n>term</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>probability_table</span><span class=o>.</span><span class=n>keys</span><span class=p>())[</span><span class=n>term_idx</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>term_prob</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=n>probability_table</span><span class=p>[</span><span class=n>term</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>            <span class=n>cum_prob</span> <span class=o>=</span> <span class=n>term_prob</span> <span class=o>*</span> <span class=n>stage_domain</span> <span class=o>+</span> <span class=n>stage_min</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_probs</span><span class=p>[</span><span class=n>term</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>stage_min</span><span class=p>,</span> <span class=n>cum_prob</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_min</span> <span class=o>=</span> <span class=n>cum_prob</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>stage_probs</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>encode</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>msg</span><span class=p>,</span> <span class=n>probability_table</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        Encodes a message using arithmetic encoding.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        msg: The message to be encoded.
+</span></span></span><span class=line><span class=cl><span class=s2>        probability_table: The probability table.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the encoder, the floating-point value representing the encoded message, and the maximum and minimum values of the interval in which the floating-point value falls.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>msg</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>msg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>encoder</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_min</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=mf>0.0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_max</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=mf>1.0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>msg_term_idx</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>msg</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_probs</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>process_stage</span><span class=p>(</span><span class=n>probability_table</span><span class=p>,</span> <span class=n>stage_min</span><span class=p>,</span> <span class=n>stage_max</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>msg_term</span> <span class=o>=</span> <span class=n>msg</span><span class=p>[</span><span class=n>msg_term_idx</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_min</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=n>msg_term</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_max</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=n>msg_term</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>encoder</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>last_stage_probs</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>process_stage</span><span class=p>(</span><span class=n>probability_table</span><span class=p>,</span> <span class=n>stage_min</span><span class=p>,</span> <span class=n>stage_max</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>encoder</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>last_stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>interval_min_value</span><span class=p>,</span> <span class=n>interval_max_value</span><span class=p>,</span> <span class=n>encoded_msg</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>get_encoded_value</span><span class=p>(</span><span class=n>last_stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>encoded_msg</span><span class=p>,</span> <span class=n>encoder</span><span class=p>,</span> <span class=n>interval_min_value</span><span class=p>,</span> <span class=n>interval_max_value</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>process_stage_binary</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>float_interval_min</span><span class=p>,</span> <span class=n>float_interval_max</span><span class=p>,</span> <span class=n>stage_min_bin</span><span class=p>,</span> <span class=n>stage_max_bin</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        Processing a stage in the encoding/decoding process.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        float_interval_min: The minimum floating-point value in the interval in which the floating-point value that encodes the message is located.
+</span></span></span><span class=line><span class=cl><span class=s2>        float_interval_max: The maximum floating-point value in the interval in which the floating-point value that encodes the message is located.
+</span></span></span><span class=line><span class=cl><span class=s2>        stage_min_bin: The minimum binary number in the current stage.
+</span></span></span><span class=line><span class=cl><span class=s2>        stage_max_bin: The maximum binary number in the current stage.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the probabilities of the terms in this stage. There are only 2 terms.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_mid_bin</span> <span class=o>=</span> <span class=n>stage_min_bin</span> <span class=o>+</span> <span class=s2>&#34;1&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_min_bin</span> <span class=o>=</span> <span class=n>stage_min_bin</span> <span class=o>+</span> <span class=s2>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>stage_min_bin</span><span class=p>,</span> <span class=n>stage_mid_bin</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>stage_mid_bin</span><span class=p>,</span> <span class=n>stage_max_bin</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>stage_probs</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>encode_binary</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>float_interval_min</span><span class=p>,</span> <span class=n>float_interval_max</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        Calculates the binary code that represents the floating-point value that encodes the message.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        float_interval_min: The minimum floating-point value in the interval in which the floating-point value that encodes the message is located.
+</span></span></span><span class=line><span class=cl><span class=s2>        float_interval_max: The maximum floating-point value in the interval in which the floating-point value that encodes the message is located.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the binary code representing the encoded message.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>binary_encoder</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>        <span class=n>binary_code</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_min_bin</span> <span class=o>=</span> <span class=s2>&#34;0.0&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_max_bin</span> <span class=o>=</span> <span class=s2>&#34;1.0&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=n>stage_min_bin</span><span class=p>,</span> <span class=s2>&#34;0.1&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&#34;0.1&#34;</span><span class=p>,</span> <span class=n>stage_max_bin</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>float_interval_max</span> <span class=o>&lt;</span> <span class=n>bin2float</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>1</span><span class=p>]):</span>
+</span></span><span class=line><span class=cl>                <span class=n>stage_min_bin</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=n>stage_max_bin</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>stage_min_bin</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=n>stage_max_bin</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>binary_encoder</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>stage_probs</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>process_stage_binary</span><span class=p>(</span><span class=n>float_interval_min</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                                    <span class=n>float_interval_max</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                                    <span class=n>stage_min_bin</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                                    <span class=n>stage_max_bin</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># print(stage_probs[0][0], bin2float(stage_probs[0][0]))</span>
+</span></span><span class=line><span class=cl>            <span class=c1># print(stage_probs[0][1], bin2float(stage_probs[0][1]))</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>bin2float</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>])</span> <span class=o>&gt;=</span> <span class=n>float_interval_min</span><span class=p>)</span> <span class=ow>and</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                    <span class=n>bin2float</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>1</span><span class=p>])</span> <span class=o>&lt;</span> <span class=n>float_interval_max</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=c1># The binary code is found.</span>
+</span></span><span class=line><span class=cl>                <span class=c1># print(stage_probs[0][0], bin2float(stage_probs[0][0]))</span>
+</span></span><span class=line><span class=cl>                <span class=c1># print(stage_probs[0][1], bin2float(stage_probs[0][1]))</span>
+</span></span><span class=line><span class=cl>                <span class=c1># print(&#34;The binary code is : &#34;, stage_probs[0][0])</span>
+</span></span><span class=line><span class=cl>                <span class=n>binary_code</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=k>elif</span> <span class=p>(</span><span class=n>bin2float</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>][</span><span class=mi>0</span><span class=p>])</span> <span class=o>&gt;=</span> <span class=n>float_interval_min</span><span class=p>)</span> <span class=ow>and</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>                    <span class=n>bin2float</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>][</span><span class=mi>1</span><span class=p>])</span> <span class=o>&lt;</span> <span class=n>float_interval_max</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=c1># The binary code is found.</span>
+</span></span><span class=line><span class=cl>                <span class=c1># print(stage_probs[1][0], bin2float(stage_probs[1][0]))</span>
+</span></span><span class=line><span class=cl>                <span class=c1># print(stage_probs[1][1], bin2float(stage_probs[1][1]))</span>
+</span></span><span class=line><span class=cl>                <span class=c1># print(&#34;The binary code is : &#34;, stage_probs[1][0])</span>
+</span></span><span class=line><span class=cl>                <span class=n>binary_code</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=mi>1</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>binary_encoder</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>binary_code</span><span class=p>,</span> <span class=n>binary_encoder</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>decode</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>encoded_msg</span><span class=p>,</span> <span class=n>msg_length</span><span class=p>,</span> <span class=n>probability_table</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        Decodes a message from a floating-point number.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        encoded_msg: The floating-point value that encodes the message.
+</span></span></span><span class=line><span class=cl><span class=s2>        msg_length: Length of the message.
+</span></span></span><span class=line><span class=cl><span class=s2>        probability_table: The probability table.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>        Returns the decoded message.
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>decoder</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>decoded_msg</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>stage_min</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=mf>0.0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>stage_max</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=mf>1.0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>idx</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>msg_length</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_probs</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>process_stage</span><span class=p>(</span><span class=n>probability_table</span><span class=p>,</span> <span class=n>stage_min</span><span class=p>,</span> <span class=n>stage_max</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>msg_term</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>stage_probs</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=n>encoded_msg</span> <span class=o>&gt;=</span> <span class=n>value</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=ow>and</span> <span class=n>encoded_msg</span> <span class=o>&lt;=</span> <span class=n>value</span><span class=p>[</span><span class=mi>1</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>decoded_msg</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>msg_term</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=n>stage_min</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=n>msg_term</span><span class=p>][</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>stage_max</span> <span class=o>=</span> <span class=n>stage_probs</span><span class=p>[</span><span class=n>msg_term</span><span class=p>][</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>decoder</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>save_stages</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>last_stage_probs</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>process_stage</span><span class=p>(</span><span class=n>probability_table</span><span class=p>,</span> <span class=n>stage_min</span><span class=p>,</span> <span class=n>stage_max</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>decoder</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>last_stage_probs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>decoded_msg</span><span class=p>,</span> <span class=n>decoder</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>float2bin</span><span class=p>(</span><span class=n>float_num</span><span class=p>,</span> <span class=n>num_bits</span><span class=o>=</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Converts a floating-point number into binary.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    float_num: The floating-point number.
+</span></span></span><span class=line><span class=cl><span class=s2>    num_bits: The number of bits expected in the result. If None, then the number of bits depends on the number.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns the binary representation of the number.
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>float_num</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>float_num</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>float_num</span><span class=o>.</span><span class=n>find</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>)</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># No decimals in the floating-point number.</span>
+</span></span><span class=line><span class=cl>        <span class=n>integers</span> <span class=o>=</span> <span class=n>float_num</span>
+</span></span><span class=line><span class=cl>        <span class=n>decimals</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>integers</span><span class=p>,</span> <span class=n>decimals</span> <span class=o>=</span> <span class=n>float_num</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>decimals</span> <span class=o>=</span> <span class=s2>&#34;0.&#34;</span> <span class=o>+</span> <span class=n>decimals</span>
+</span></span><span class=line><span class=cl>    <span class=n>decimals</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=n>decimals</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>integers</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=n>integers</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>num_used_bits</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>mul</span> <span class=o>=</span> <span class=n>decimals</span> <span class=o>*</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>        <span class=n>int_part</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=n>mul</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>result</span> <span class=o>=</span> <span class=n>result</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>int_part</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>num_used_bits</span> <span class=o>=</span> <span class=n>num_used_bits</span> <span class=o>+</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>decimals</span> <span class=o>=</span> <span class=n>mul</span> <span class=o>-</span> <span class=nb>int</span><span class=p>(</span><span class=n>mul</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nb>type</span><span class=p>(</span><span class=n>num_bits</span><span class=p>)</span> <span class=ow>is</span> <span class=nb>type</span><span class=p>(</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>decimals</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>num_used_bits</span> <span class=o>&gt;=</span> <span class=n>num_bits</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>break</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>type</span><span class=p>(</span><span class=n>num_bits</span><span class=p>)</span> <span class=ow>is</span> <span class=nb>type</span><span class=p>(</span><span class=kc>None</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>pass</span>
+</span></span><span class=line><span class=cl>    <span class=k>elif</span> <span class=nb>len</span><span class=p>(</span><span class=n>result</span><span class=p>)</span> <span class=o>&lt;</span> <span class=n>num_bits</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>num_remaining_bits</span> <span class=o>=</span> <span class=n>num_bits</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>result</span> <span class=o>=</span> <span class=n>result</span> <span class=o>+</span> <span class=s2>&#34;0&#34;</span> <span class=o>*</span> <span class=n>num_remaining_bits</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>integers_bin</span> <span class=o>=</span> <span class=nb>bin</span><span class=p>(</span><span class=n>integers</span><span class=p>)[</span><span class=mi>2</span><span class=p>:]</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>integers_bin</span><span class=p>)</span> <span class=o>+</span> <span class=s2>&#34;.&#34;</span> <span class=o>+</span> <span class=nb>str</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>bin2float</span><span class=p>(</span><span class=n>bin_num</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Converts a binary number to a floating-point number.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    bin_num: The binary number as a string.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns the floating-point representation.
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>bin_num</span><span class=o>.</span><span class=n>find</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>)</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># No decimals in the binary number.</span>
+</span></span><span class=line><span class=cl>        <span class=n>integers</span> <span class=o>=</span> <span class=n>bin_num</span>
+</span></span><span class=line><span class=cl>        <span class=n>decimals</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>integers</span><span class=p>,</span> <span class=n>decimals</span> <span class=o>=</span> <span class=n>bin_num</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>&#34;.&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=mf>0.0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Working with integers.</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>idx</span><span class=p>,</span> <span class=n>bit</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>integers</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>bit</span> <span class=o>==</span> <span class=s2>&#34;0&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>        <span class=n>mul</span> <span class=o>=</span> <span class=mi>2</span> <span class=o>**</span> <span class=n>idx</span>
+</span></span><span class=line><span class=cl>        <span class=n>result</span> <span class=o>=</span> <span class=n>result</span> <span class=o>+</span> <span class=n>Decimal</span><span class=p>(</span><span class=n>mul</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Working with decimals.</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>idx</span><span class=p>,</span> <span class=n>bit</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>decimals</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>bit</span> <span class=o>==</span> <span class=s2>&#34;0&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>continue</span>
+</span></span><span class=line><span class=cl>        <span class=n>mul</span> <span class=o>=</span> <span class=n>Decimal</span><span class=p>(</span><span class=mf>1.0</span><span class=p>)</span> <span class=o>/</span> <span class=n>Decimal</span><span class=p>((</span><span class=mi>2</span> <span class=o>**</span> <span class=p>(</span><span class=n>idx</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>        <span class=n>result</span> <span class=o>=</span> <span class=n>result</span> <span class=o>+</span> <span class=n>mul</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=examplepy>example.py</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pyae</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Example for encoding a simple text message using the PyAE module.</span>
+</span></span><span class=line><span class=cl><span class=c1># This example only returns the floating-point value that encodes the message.</span>
+</span></span><span class=line><span class=cl><span class=c1># Check the example_binary.py to return the binary code of the floating-point value.</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>frequency_table</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;a&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                   <span class=s2>&#34;b&#34;</span><span class=p>:</span> <span class=mi>7</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                   <span class=s2>&#34;c&#34;</span><span class=p>:</span> <span class=mi>1</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>AE</span> <span class=o>=</span> <span class=n>pyae</span><span class=o>.</span><span class=n>ArithmeticEncoding</span><span class=p>(</span><span class=n>frequency_table</span><span class=o>=</span><span class=n>frequency_table</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                            <span class=n>save_stages</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>original_msg</span> <span class=o>=</span> <span class=s2>&#34;abca&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Original Message: </span><span class=si>{msg}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>msg</span><span class=o>=</span><span class=n>original_msg</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>encoded_msg</span><span class=p>,</span> <span class=n>encoder</span> <span class=p>,</span> <span class=n>interval_min_value</span><span class=p>,</span> <span class=n>interval_max_value</span> <span class=o>=</span> <span class=n>AE</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=n>msg</span><span class=o>=</span><span class=n>original_msg</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                                                          <span class=n>probability_table</span><span class=o>=</span><span class=n>AE</span><span class=o>.</span><span class=n>probability_table</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Encoded Message: </span><span class=si>{msg}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>msg</span><span class=o>=</span><span class=n>encoded_msg</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>decoded_msg</span><span class=p>,</span> <span class=n>decoder</span> <span class=o>=</span> <span class=n>AE</span><span class=o>.</span><span class=n>decode</span><span class=p>(</span><span class=n>encoded_msg</span><span class=o>=</span><span class=n>encoded_msg</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                                 <span class=n>msg_length</span><span class=o>=</span><span class=nb>len</span><span class=p>(</span><span class=n>original_msg</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>                                 <span class=n>probability_table</span><span class=o>=</span><span class=n>AE</span><span class=o>.</span><span class=n>probability_table</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Decoded Message: </span><span class=si>{msg}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>msg</span><span class=o>=</span><span class=n>decoded_msg</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>decoded_msg</span> <span class=o>=</span> <span class=s2>&#34;&#34;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>decoded_msg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Message Decoded Successfully? </span><span class=si>{result}</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>result</span><span class=o>=</span><span class=n>original_msg</span> <span class=o>==</span> <span class=n>decoded_msg</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=参考资料>参考资料</h2><p><a class=link href=https://zhuanlan.zhihu.com/p/390684936 target=_blank rel=noopener>什么是算术编码</a></p><p><a class=link href=https://github.com/ahmedfgad/ArithmeticEncodingPython target=_blank rel=noopener>GitHub-Arithmetic Encoding Python</a></p><p><a class=link href=https://mohammad-gholizadeh.github.io/Post-3-Arithmetic%20with%20Python.html target=_blank rel=noopener>Arithmetic Encoding and Decoding with Python</a></p><p><a class=link href=https://tommyodland.com/articles/2024/arithmetic-coding-in-python/ target=_blank rel=noopener>Arithmetic coding in Python</a></p></section><footer class=article-footer><section class=article-tags><a href=/tags/%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/>压缩算法</a>
+<a href=/tags/python/>Python</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2026 hanguangwu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
