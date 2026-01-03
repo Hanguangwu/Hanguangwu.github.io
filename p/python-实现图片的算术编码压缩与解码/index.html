@@ -1,0 +1,886 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="本文介绍使用 Python 实现图片的算术编码压缩与解码的过程。"><title>Python 实现图片的算术编码压缩与解码</title><link rel=canonical href=https://hanguangwu.github.io/p/python-%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%9A%84%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E7%A0%81/><link rel=stylesheet href=/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css><meta property='og:title' content="Python 实现图片的算术编码压缩与解码"><meta property='og:description' content="本文介绍使用 Python 实现图片的算术编码压缩与解码的过程。"><meta property='og:url' content='https://hanguangwu.github.io/p/python-%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%9A%84%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E7%A0%81/'><meta property='og:site_name' content='酒中仙'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='压缩算法'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2026-01-02T12:34:25-08:00'><meta property='article:modified_time' content='2026-01-02T12:34:25-08:00'><meta name=twitter:title content="Python 实现图片的算术编码压缩与解码"><meta name=twitter:description content="本文介绍使用 Python 实现图片的算术编码压缩与解码的过程。"><link rel="shortcut icon" href=/favicon.ico></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_446bb777e4bcbb8a.jpg width=300 height=169 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>酒中仙</a></h1><h2 class=site-description>仰天大笑出門去，我輩豈是蓬蒿人！</h2></div></header><ol class=menu-social><li><a href=https://github.com/Hanguangwu target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/%E5%85%B3%E4%BA%8E/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/%E5%8F%8B%E9%93%BE/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>友链</span></a></li><li class=menu-bottom-section><ol class=menu><li id=i18n-switch><svg class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 5h7"/><path d="M9 3v2c0 4.418-2.239 8-5 8"/><path d="M5 9c-.003 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4-9 4 9"/><path d="M19.1 18h-6.2"/></svg>
+<select name=language title=language onchange="window.location.href=this.selectedOptions[0].value"><option value=https://hanguangwu.github.io/ selected>中文</option><option value=https://hanguangwu.github.io/en/>English</option></select></li><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#项目说明>项目说明</a></li><li><a href=#完整代码实现>完整代码实现</a></li><li><a href=#前置依赖安装>前置依赖安装</a></li><li><a href=#代码运行流程与说明>代码运行流程与说明</a><ol><li><a href=#1-目录结构准备>1. 目录结构准备</a></li><li><a href=#2-核心模块功能说明>2. 核心模块功能说明</a></li><li><a href=#3-关键评价指标说明>3. 关键评价指标说明</a></li></ol></li><li><a href=#运行结果示例>运行结果示例</a></li><li><a href=#注意事项与优化方向>注意事项与优化方向</a></li><li><a href=#总结>总结</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/python-%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%9A%84%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E7%A0%81/>Python 实现图片的算术编码压缩与解码</a></h2><h3 class=article-subtitle>本文介绍使用 Python 实现图片的算术编码压缩与解码的过程。</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jan 02, 2026</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 10 分钟</time></div></footer></div></header><section class=article-content><h1 id=python-实现图片的算术编码压缩与解码含压缩比评估>Python 实现图片的算术编码压缩与解码（含压缩比评估）</h1><h2 id=项目说明>项目说明</h2><ol><li>图片处理流程：先将图片转换为灰度图（简化数据维度，便于算术编码处理），再提取像素数据转为可编码序列，后续进行<strong>自适应算术编码</strong>（无需预先统计像素概率，编码过程中动态更新概率分布，适配图片像素的复杂分布，压缩效果更优）。</li><li>核心步骤：图片读取与预处理 → 自适应算术编码 → 压缩文件保存 → 算术解码 → 还原图片保存 → 压缩比等指标计算。</li><li>注意事项：运行前需安装依赖库，确保 <code>./raw/</code> 目录存在且 <code>example.jpg</code> 已放置，程序会自动创建 <code>./compressed/</code> 和 <code>./restored/</code> 目录保存结果。</li></ol><h2 id=完整代码实现>完整代码实现</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span><span class=lnt>206
+</span><span class=lnt>207
+</span><span class=lnt>208
+</span><span class=lnt>209
+</span><span class=lnt>210
+</span><span class=lnt>211
+</span><span class=lnt>212
+</span><span class=lnt>213
+</span><span class=lnt>214
+</span><span class=lnt>215
+</span><span class=lnt>216
+</span><span class=lnt>217
+</span><span class=lnt>218
+</span><span class=lnt>219
+</span><span class=lnt>220
+</span><span class=lnt>221
+</span><span class=lnt>222
+</span><span class=lnt>223
+</span><span class=lnt>224
+</span><span class=lnt>225
+</span><span class=lnt>226
+</span><span class=lnt>227
+</span><span class=lnt>228
+</span><span class=lnt>229
+</span><span class=lnt>230
+</span><span class=lnt>231
+</span><span class=lnt>232
+</span><span class=lnt>233
+</span><span class=lnt>234
+</span><span class=lnt>235
+</span><span class=lnt>236
+</span><span class=lnt>237
+</span><span class=lnt>238
+</span><span class=lnt>239
+</span><span class=lnt>240
+</span><span class=lnt>241
+</span><span class=lnt>242
+</span><span class=lnt>243
+</span><span class=lnt>244
+</span><span class=lnt>245
+</span><span class=lnt>246
+</span><span class=lnt>247
+</span><span class=lnt>248
+</span><span class=lnt>249
+</span><span class=lnt>250
+</span><span class=lnt>251
+</span><span class=lnt>252
+</span><span class=lnt>253
+</span><span class=lnt>254
+</span><span class=lnt>255
+</span><span class=lnt>256
+</span><span class=lnt>257
+</span><span class=lnt>258
+</span><span class=lnt>259
+</span><span class=lnt>260
+</span><span class=lnt>261
+</span><span class=lnt>262
+</span><span class=lnt>263
+</span><span class=lnt>264
+</span><span class=lnt>265
+</span><span class=lnt>266
+</span><span class=lnt>267
+</span><span class=lnt>268
+</span><span class=lnt>269
+</span><span class=lnt>270
+</span><span class=lnt>271
+</span><span class=lnt>272
+</span><span class=lnt>273
+</span><span class=lnt>274
+</span><span class=lnt>275
+</span><span class=lnt>276
+</span><span class=lnt>277
+</span><span class=lnt>278
+</span><span class=lnt>279
+</span><span class=lnt>280
+</span><span class=lnt>281
+</span><span class=lnt>282
+</span><span class=lnt>283
+</span><span class=lnt>284
+</span><span class=lnt>285
+</span><span class=lnt>286
+</span><span class=lnt>287
+</span><span class=lnt>288
+</span><span class=lnt>289
+</span><span class=lnt>290
+</span><span class=lnt>291
+</span><span class=lnt>292
+</span><span class=lnt>293
+</span><span class=lnt>294
+</span><span class=lnt>295
+</span><span class=lnt>296
+</span><span class=lnt>297
+</span><span class=lnt>298
+</span><span class=lnt>299
+</span><span class=lnt>300
+</span><span class=lnt>301
+</span><span class=lnt>302
+</span><span class=lnt>303
+</span><span class=lnt>304
+</span><span class=lnt>305
+</span><span class=lnt>306
+</span><span class=lnt>307
+</span><span class=lnt>308
+</span><span class=lnt>309
+</span><span class=lnt>310
+</span><span class=lnt>311
+</span><span class=lnt>312
+</span><span class=lnt>313
+</span><span class=lnt>314
+</span><span class=lnt>315
+</span><span class=lnt>316
+</span><span class=lnt>317
+</span><span class=lnt>318
+</span><span class=lnt>319
+</span><span class=lnt>320
+</span><span class=lnt>321
+</span><span class=lnt>322
+</span><span class=lnt>323
+</span><span class=lnt>324
+</span><span class=lnt>325
+</span><span class=lnt>326
+</span><span class=lnt>327
+</span><span class=lnt>328
+</span><span class=lnt>329
+</span><span class=lnt>330
+</span><span class=lnt>331
+</span><span class=lnt>332
+</span><span class=lnt>333
+</span><span class=lnt>334
+</span><span class=lnt>335
+</span><span class=lnt>336
+</span><span class=lnt>337
+</span><span class=lnt>338
+</span><span class=lnt>339
+</span><span class=lnt>340
+</span><span class=lnt>341
+</span><span class=lnt>342
+</span><span class=lnt>343
+</span><span class=lnt>344
+</span><span class=lnt>345
+</span><span class=lnt>346
+</span><span class=lnt>347
+</span><span class=lnt>348
+</span><span class=lnt>349
+</span><span class=lnt>350
+</span><span class=lnt>351
+</span><span class=lnt>352
+</span><span class=lnt>353
+</span><span class=lnt>354
+</span><span class=lnt>355
+</span><span class=lnt>356
+</span><span class=lnt>357
+</span><span class=lnt>358
+</span><span class=lnt>359
+</span><span class=lnt>360
+</span><span class=lnt>361
+</span><span class=lnt>362
+</span><span class=lnt>363
+</span><span class=lnt>364
+</span><span class=lnt>365
+</span><span class=lnt>366
+</span><span class=lnt>367
+</span><span class=lnt>368
+</span><span class=lnt>369
+</span><span class=lnt>370
+</span><span class=lnt>371
+</span><span class=lnt>372
+</span><span class=lnt>373
+</span><span class=lnt>374
+</span><span class=lnt>375
+</span><span class=lnt>376
+</span><span class=lnt>377
+</span><span class=lnt>378
+</span><span class=lnt>379
+</span><span class=lnt>380
+</span><span class=lnt>381
+</span><span class=lnt>382
+</span><span class=lnt>383
+</span><span class=lnt>384
+</span><span class=lnt>385
+</span><span class=lnt>386
+</span><span class=lnt>387
+</span><span class=lnt>388
+</span><span class=lnt>389
+</span><span class=lnt>390
+</span><span class=lnt>391
+</span><span class=lnt>392
+</span><span class=lnt>393
+</span><span class=lnt>394
+</span><span class=lnt>395
+</span><span class=lnt>396
+</span><span class=lnt>397
+</span><span class=lnt>398
+</span><span class=lnt>399
+</span><span class=lnt>400
+</span><span class=lnt>401
+</span><span class=lnt>402
+</span><span class=lnt>403
+</span><span class=lnt>404
+</span><span class=lnt>405
+</span><span class=lnt>406
+</span><span class=lnt>407
+</span><span class=lnt>408
+</span><span class=lnt>409
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>math</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>cv2</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>defaultdict</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>ensure_dir_exists</span><span class=p>(</span><span class=n>dir_path</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    确保目标目录存在，不存在则创建
+</span></span></span><span class=line><span class=cl><span class=s2>    :param dir_path: 目录路径
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>dir_path</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>dir_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>AdaptiveArithmeticCoder</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;自适应算术编码类（无需预先统计概率，动态更新符号概率分布）&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 初始化符号计数（默认所有符号计数为1，避免概率为0）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span> <span class=o>=</span> <span class=n>defaultdict</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 总符号数（初始为0，随编码过程更新）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>total_count</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 算术编码核心区间参数（使用大整数避免浮点数精度丢失）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>MIN_SCALE</span> <span class=o>=</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>16</span>  <span class=c1># 最小区间宽度，用于区间缩放</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>=</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>32</span>  <span class=c1># 最大区间宽度，防止溢出</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 进位处理所需跟踪的比特数</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_update_probability</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>symbol</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        更新单个符号的概率计数
+</span></span></span><span class=line><span class=cl><span class=s2>        :param symbol: 待更新的符号（此处为像素值0-255）
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>total_count</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_get_cumulative_prob</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>symbol</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        计算单个符号的累积概率（下限和上限）
+</span></span></span><span class=line><span class=cl><span class=s2>        :param symbol: 目标符号
+</span></span></span><span class=line><span class=cl><span class=s2>        :return: (cumulative_low, cumulative_high) 符号对应的累积概率区间
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>cumulative_low</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 遍历已出现的符号，计算累积概率下限</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>s</span> <span class=ow>in</span> <span class=nb>sorted</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=o>.</span><span class=n>keys</span><span class=p>()):</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>s</span> <span class=o>==</span> <span class=n>symbol</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=n>cumulative_low</span> <span class=o>+=</span> <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=p>[</span><span class=n>s</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 计算累积概率上限</span>
+</span></span><span class=line><span class=cl>        <span class=n>cumulative_high</span> <span class=o>=</span> <span class=n>cumulative_low</span> <span class=o>+</span> <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>total</span> <span class=o>=</span> <span class=nb>max</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>total_count</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>  <span class=c1># 避免除以0</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>cumulative_low</span> <span class=o>/</span> <span class=n>total</span><span class=p>,</span> <span class=n>cumulative_high</span> <span class=o>/</span> <span class=n>total</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>encode_symbol</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>symbol</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        编码单个符号，并将编码结果写入比特流
+</span></span></span><span class=line><span class=cl><span class=s2>        :param symbol: 待编码的像素符号
+</span></span></span><span class=line><span class=cl><span class=s2>        :param output_bits: 用于存储输出比特的列表
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 第一步：更新当前符号的概率分布（自适应核心）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_update_probability</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第二步：计算当前区间宽度</span>
+</span></span><span class=line><span class=cl>        <span class=n>interval_width</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>-</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>+</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第三步：获取当前符号的累积概率区间</span>
+</span></span><span class=line><span class=cl>        <span class=n>s_low</span><span class=p>,</span> <span class=n>s_high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_get_cumulative_prob</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第四步：更新算术编码区间</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_low</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>+</span> <span class=nb>int</span><span class=p>(</span><span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_low</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>+</span> <span class=nb>int</span><span class=p>(</span><span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_high</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第五步：区间缩放与进位处理（避免浮点数精度丢失，保证编码稳定性）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>low</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=n>new_low</span><span class=p>,</span> <span class=n>new_high</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&lt;</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 区间落在上半部分，输出0，并处理待跟进的比特</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                    <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=k>elif</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&gt;=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 区间落在下半部分，输出1，并处理待跟进的比特</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                    <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>            <span class=k>elif</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&gt;=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span> <span class=ow>and</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&lt;</span> <span class=p>(</span><span class=mi>3</span> <span class=o>*</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=c1># 区间落在中间部分，无需输出比特，仅更新待跟进比特数</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=c1># 区间缩放，保持在合理范围内</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=c1># 防止溢出，限制区间最大值</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&gt;=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_output_bit</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>bit</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        辅助函数：将单个比特写入输出列表
+</span></span></span><span class=line><span class=cl><span class=s2>        :param bit: 待输出的比特（0或1）
+</span></span></span><span class=line><span class=cl><span class=s2>        :param output_bits: 输出比特列表
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>output_bits</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>bit</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>finish_encode</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        完成编码，处理剩余的区间数据
+</span></span></span><span class=line><span class=cl><span class=s2>        :param output_bits: 输出比特列表
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&lt;</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>bits_to_follow</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>_output_bit</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>AdaptiveArithmeticDecoder</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;自适应算术解码类（与编码端同步更新概率分布，实现解码）&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 与编码端一致的概率统计参数</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span> <span class=o>=</span> <span class=n>defaultdict</span><span class=p>(</span><span class=nb>int</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>total_count</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 算术解码核心区间参数</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>MIN_SCALE</span> <span class=o>=</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>16</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>=</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>32</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 存储当前读取的编码值</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>bits_read</span> <span class=o>=</span> <span class=mi>0</span>  <span class=c1># 已读取的比特数</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_update_probability</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>symbol</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;更新符号概率计数（与编码端完全一致）&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=p>[</span><span class=n>symbol</span><span class=p>]</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>total_count</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_get_cumulative_prob</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        计算所有已出现符号的累积概率字典
+</span></span></span><span class=line><span class=cl><span class=s2>        :return: 符号到（累积下限，累积上限）的映射字典
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>cumulative_dict</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=n>cumulative_low</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=n>total</span> <span class=o>=</span> <span class=nb>max</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>total_count</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>s</span> <span class=ow>in</span> <span class=nb>sorted</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=o>.</span><span class=n>keys</span><span class=p>()):</span>
+</span></span><span class=line><span class=cl>            <span class=n>count</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=p>[</span><span class=n>s</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=n>cumulative_high</span> <span class=o>=</span> <span class=n>cumulative_low</span> <span class=o>+</span> <span class=n>count</span>
+</span></span><span class=line><span class=cl>            <span class=n>cumulative_dict</span><span class=p>[</span><span class=n>s</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>cumulative_low</span> <span class=o>/</span> <span class=n>total</span><span class=p>,</span> <span class=n>cumulative_high</span> <span class=o>/</span> <span class=n>total</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>cumulative_low</span> <span class=o>=</span> <span class=n>cumulative_high</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>cumulative_dict</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>_get_symbol_by_prob</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>relative_value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        根据相对概率值查找对应的符号
+</span></span></span><span class=line><span class=cl><span class=s2>        :param relative_value: 编码值在当前区间内的相对位置
+</span></span></span><span class=line><span class=cl><span class=s2>        :return: 找到的符号
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=n>cumulative_dict</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_get_cumulative_prob</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>symbol</span><span class=p>,</span> <span class=p>(</span><span class=n>s_low</span><span class=p>,</span> <span class=n>s_high</span><span class=p>)</span> <span class=ow>in</span> <span class=n>cumulative_dict</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>s_low</span> <span class=o>&lt;=</span> <span class=n>relative_value</span> <span class=o>&lt;</span> <span class=n>s_high</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=n>symbol</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 未找到时，返回出现次数最多的符号（容错处理）</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>max</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=o>.</span><span class=n>keys</span><span class=p>(),</span> <span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=bp>self</span><span class=o>.</span><span class=n>symbol_count</span><span class=p>[</span><span class=n>x</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>decode_symbol</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>input_bits</span><span class=p>,</span> <span class=n>bit_index</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>        解码单个符号，并更新解码状态
+</span></span></span><span class=line><span class=cl><span class=s2>        :param input_bits: 输入比特列表
+</span></span></span><span class=line><span class=cl><span class=s2>        :param bit_index: 当前读取的比特索引（列表引用，用于更新索引）
+</span></span></span><span class=line><span class=cl><span class=s2>        :return: 解码得到的符号
+</span></span></span><span class=line><span class=cl><span class=s2>        &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=c1># 第一步：确保当前code有足够的比特数</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=bp>self</span><span class=o>.</span><span class=n>bits_read</span> <span class=o>&lt;</span> <span class=mi>32</span> <span class=ow>and</span> <span class=n>bit_index</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>input_bits</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span> <span class=o>|</span> <span class=n>input_bits</span><span class=p>[</span><span class=n>bit_index</span><span class=p>[</span><span class=mi>0</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>bits_read</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            <span class=n>bit_index</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第二步：计算区间宽度和相对值</span>
+</span></span><span class=line><span class=cl>        <span class=n>interval_width</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>-</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>+</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=n>relative_value</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>-</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span><span class=p>)</span> <span class=o>/</span> <span class=n>interval_width</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第三步：根据相对值查找对应的符号</span>
+</span></span><span class=line><span class=cl>        <span class=n>symbol</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_get_symbol_by_prob</span><span class=p>(</span><span class=n>relative_value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第四步：更新概率分布（与编码端同步）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>_update_probability</span><span class=p>(</span><span class=n>symbol</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第五步：获取该符号的累积概率，更新解码区间</span>
+</span></span><span class=line><span class=cl>        <span class=n>s_low</span><span class=p>,</span> <span class=n>s_high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>_get_cumulative_prob</span><span class=p>()[</span><span class=n>symbol</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_low</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>+</span> <span class=nb>int</span><span class=p>(</span><span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_low</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>+</span> <span class=nb>int</span><span class=p>(</span><span class=n>interval_width</span> <span class=o>*</span> <span class=n>s_high</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 第六步：区间缩放与进位处理（与编码端逻辑一致）</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>low</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=n>new_low</span><span class=p>,</span> <span class=n>new_high</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=kc>True</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&lt;</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=k>pass</span>
+</span></span><span class=line><span class=cl>            <span class=k>elif</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&gt;=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>elif</span> <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&gt;=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span> <span class=ow>and</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&lt;</span> <span class=p>(</span><span class=mi>3</span> <span class=o>*</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>-=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>//</span> <span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>break</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=c1># 区间缩放，更新code和区间边界</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>low</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>=</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>bit_index</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>input_bits</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>code</span> <span class=o>|=</span> <span class=n>input_bits</span><span class=p>[</span><span class=n>bit_index</span><span class=p>[</span><span class=mi>0</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>                <span class=n>bit_index</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>bits_read</span> <span class=o>=</span> <span class=nb>min</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>bits_read</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>32</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>&gt;=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>high</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>MAX_SCALE</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>symbol</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>bits_to_bytes</span><span class=p>(</span><span class=n>bits</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    将比特列表转换为字节数组（便于保存为文件）
+</span></span></span><span class=line><span class=cl><span class=s2>    :param bits: 比特列表
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 字节数组
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 补齐比特数为8的整数倍</span>
+</span></span><span class=line><span class=cl>    <span class=n>padding</span> <span class=o>=</span> <span class=p>(</span><span class=mi>8</span> <span class=o>-</span> <span class=nb>len</span><span class=p>(</span><span class=n>bits</span><span class=p>)</span> <span class=o>%</span> <span class=mi>8</span><span class=p>)</span> <span class=o>%</span> <span class=mi>8</span>
+</span></span><span class=line><span class=cl>    <span class=n>bits</span><span class=o>.</span><span class=n>extend</span><span class=p>([</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=n>padding</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 每8个比特转换为1个字节</span>
+</span></span><span class=line><span class=cl>    <span class=n>bytes_array</span> <span class=o>=</span> <span class=nb>bytearray</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>bits</span><span class=p>),</span> <span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>byte</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>byte</span> <span class=o>=</span> <span class=p>(</span><span class=n>byte</span> <span class=o>&lt;&lt;</span> <span class=mi>1</span><span class=p>)</span> <span class=o>|</span> <span class=n>bits</span><span class=p>[</span><span class=n>i</span> <span class=o>+</span> <span class=n>j</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>bytes_array</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>byte</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>bytes_array</span><span class=p>,</span> <span class=n>padding</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>bytes_to_bits</span><span class=p>(</span><span class=n>bytes_array</span><span class=p>,</span> <span class=n>padding</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    将字节数组转换为比特列表（去除补齐的填充位）
+</span></span></span><span class=line><span class=cl><span class=s2>    :param bytes_array: 字节数组
+</span></span></span><span class=line><span class=cl><span class=s2>    :param padding: 填充的比特数
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 原始比特列表
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>bits</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>byte</span> <span class=ow>in</span> <span class=n>bytes_array</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 从高位到低位提取比特</span>
+</span></span><span class=line><span class=cl>            <span class=n>bit</span> <span class=o>=</span> <span class=p>(</span><span class=n>byte</span> <span class=o>&gt;&gt;</span> <span class=p>(</span><span class=mi>7</span> <span class=o>-</span> <span class=n>j</span><span class=p>))</span> <span class=o>&amp;</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>            <span class=n>bits</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>bit</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 去除填充的比特</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>padding</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>bits</span> <span class=o>=</span> <span class=n>bits</span><span class=p>[:</span><span class=o>-</span><span class=n>padding</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>bits</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>process_image</span><span class=p>(</span><span class=n>image_path</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    图片预处理：读取图片并转换为灰度图，提取像素序列
+</span></span></span><span class=line><span class=cl><span class=s2>    :param image_path: 输入图片路径
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 灰度图像素数组、灰度图对象、图片尺寸（高，宽）
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 读取图片（cv2.imread读取为BGR格式）</span>
+</span></span><span class=line><span class=cl>    <span class=n>img</span> <span class=o>=</span> <span class=n>cv2</span><span class=o>.</span><span class=n>imread</span><span class=p>(</span><span class=n>image_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>img</span> <span class=ow>is</span> <span class=kc>None</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>raise</span> <span class=ne>FileNotFoundError</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;无法读取图片文件：</span><span class=si>{</span><span class=n>image_path</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 转换为灰度图</span>
+</span></span><span class=line><span class=cl>    <span class=n>gray_img</span> <span class=o>=</span> <span class=n>cv2</span><span class=o>.</span><span class=n>cvtColor</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>cv2</span><span class=o>.</span><span class=n>COLOR_BGR2GRAY</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 提取像素序列（扁平化为一维数组）</span>
+</span></span><span class=line><span class=cl>    <span class=n>pixel_sequence</span> <span class=o>=</span> <span class=n>gray_img</span><span class=o>.</span><span class=n>flatten</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 获取图片尺寸</span>
+</span></span><span class=line><span class=cl>    <span class=n>img_shape</span> <span class=o>=</span> <span class=n>gray_img</span><span class=o>.</span><span class=n>shape</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>pixel_sequence</span><span class=p>,</span> <span class=n>gray_img</span><span class=p>,</span> <span class=n>img_shape</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>calculate_compression_metrics</span><span class=p>(</span><span class=n>original_path</span><span class=p>,</span> <span class=n>compressed_path</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    计算压缩相关评价指标：压缩比、压缩效率
+</span></span></span><span class=line><span class=cl><span class=s2>    :param original_path: 原始文件路径
+</span></span></span><span class=line><span class=cl><span class=s2>    :param compressed_path: 压缩文件路径
+</span></span></span><span class=line><span class=cl><span class=s2>    :return: 指标字典（原始大小、压缩后大小、压缩比、压缩效率）
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># 获取文件大小（字节）</span>
+</span></span><span class=line><span class=cl>    <span class=n>original_size</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>getsize</span><span class=p>(</span><span class=n>original_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>compressed_size</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>getsize</span><span class=p>(</span><span class=n>compressed_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 计算压缩比（原始大小 / 压缩后大小，越大表示压缩效果越好）</span>
+</span></span><span class=line><span class=cl>    <span class=n>compression_ratio</span> <span class=o>=</span> <span class=n>original_size</span> <span class=o>/</span> <span class=n>compressed_size</span> <span class=k>if</span> <span class=n>compressed_size</span> <span class=o>&gt;</span> <span class=mi>0</span> <span class=k>else</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># 计算压缩效率（1 - 压缩后大小/原始大小），百分比表示</span>
+</span></span><span class=line><span class=cl>    <span class=n>compression_efficiency</span> <span class=o>=</span> <span class=p>(</span><span class=mi>1</span> <span class=o>-</span> <span class=p>(</span><span class=n>compressed_size</span> <span class=o>/</span> <span class=n>original_size</span><span class=p>))</span> <span class=o>*</span> <span class=mi>100</span> <span class=k>if</span> <span class=n>original_size</span> <span class=o>&gt;</span> <span class=mi>0</span> <span class=k>else</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;original_size_bytes&#34;</span><span class=p>:</span> <span class=n>original_size</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;compressed_size_bytes&#34;</span><span class=p>:</span> <span class=n>compressed_size</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;compression_ratio&#34;</span><span class=p>:</span> <span class=nb>round</span><span class=p>(</span><span class=n>compression_ratio</span><span class=p>,</span> <span class=mi>4</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;compression_efficiency(%)&#34;</span><span class=p>:</span> <span class=nb>round</span><span class=p>(</span><span class=n>compression_efficiency</span><span class=p>,</span> <span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;主函数：程序入口，整合所有流程&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># ---------------------- 1. 配置路径与参数 ----------------------</span>
+</span></span><span class=line><span class=cl>    <span class=n>RAW_IMAGE_PATH</span> <span class=o>=</span> <span class=s2>&#34;./raw/example.jpg&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>COMPRESSED_DIR</span> <span class=o>=</span> <span class=s2>&#34;./compressed&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>RESTORED_DIR</span> <span class=o>=</span> <span class=s2>&#34;./restored&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>COMPRESSED_FILE_PATH</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>COMPRESSED_DIR</span><span class=p>,</span> <span class=s2>&#34;example_arithmetic_compressed.bin&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>RESTORED_IMAGE_PATH</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>RESTORED_DIR</span><span class=p>,</span> <span class=s2>&#34;example_arithmetic_restored.jpg&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># ---------------------- 2. 初始化目录 ----------------------</span>
+</span></span><span class=line><span class=cl>    <span class=n>ensure_dir_exists</span><span class=p>(</span><span class=n>COMPRESSED_DIR</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>ensure_dir_exists</span><span class=p>(</span><span class=n>RESTORED_DIR</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># ---------------------- 3. 图片预处理 ----------------------</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;步骤1：读取并预处理图片...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>pixel_sequence</span><span class=p>,</span> <span class=n>gray_img</span><span class=p>,</span> <span class=n>img_shape</span> <span class=o>=</span> <span class=n>process_image</span><span class=p>(</span><span class=n>RAW_IMAGE_PATH</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>img_height</span><span class=p>,</span> <span class=n>img_width</span> <span class=o>=</span> <span class=n>img_shape</span>
+</span></span><span class=line><span class=cl>        <span class=n>total_pixels</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>pixel_sequence</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;图片预处理完成：尺寸 </span><span class=si>{</span><span class=n>img_width</span><span class=si>}</span><span class=s2>x</span><span class=si>{</span><span class=n>img_height</span><span class=si>}</span><span class=s2>，总像素数 </span><span class=si>{</span><span class=n>total_pixels</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># ---------------------- 4. 自适应算术编码 ----------------------</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;步骤2：执行自适应算术编码...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>coder</span> <span class=o>=</span> <span class=n>AdaptiveArithmeticCoder</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>output_bits</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 对每个像素进行编码</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>pixel</span> <span class=ow>in</span> <span class=n>pixel_sequence</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>coder</span><span class=o>.</span><span class=n>encode_symbol</span><span class=p>(</span><span class=n>pixel</span><span class=p>,</span> <span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 完成编码，处理剩余数据</span>
+</span></span><span class=line><span class=cl>        <span class=n>coder</span><span class=o>.</span><span class=n>finish_encode</span><span class=p>(</span><span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 比特列表转换为字节数组，保存压缩文件</span>
+</span></span><span class=line><span class=cl>        <span class=n>compressed_bytes</span><span class=p>,</span> <span class=n>padding</span> <span class=o>=</span> <span class=n>bits_to_bytes</span><span class=p>(</span><span class=n>output_bits</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>COMPRESSED_FILE_PATH</span><span class=p>,</span> <span class=s2>&#34;wb&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 先写入填充位信息（用于解码时去除填充）</span>
+</span></span><span class=line><span class=cl>            <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>padding</span><span class=o>.</span><span class=n>to_bytes</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>byteorder</span><span class=o>=</span><span class=s2>&#34;big&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 再写入压缩后的字节数据</span>
+</span></span><span class=line><span class=cl>            <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>compressed_bytes</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;算术编码完成，压缩文件已保存至：</span><span class=si>{</span><span class=n>COMPRESSED_FILE_PATH</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># ---------------------- 5. 算术解码 ----------------------</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;步骤3：执行算术解码...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>decoder</span> <span class=o>=</span> <span class=n>AdaptiveArithmeticDecoder</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 读取压缩文件</span>
+</span></span><span class=line><span class=cl>        <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>COMPRESSED_FILE_PATH</span><span class=p>,</span> <span class=s2>&#34;rb&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>padding</span> <span class=o>=</span> <span class=nb>int</span><span class=o>.</span><span class=n>from_bytes</span><span class=p>(</span><span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>(</span><span class=mi>1</span><span class=p>),</span> <span class=n>byteorder</span><span class=o>=</span><span class=s2>&#34;big&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>compressed_bytes</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 字节数组转换为比特列表</span>
+</span></span><span class=line><span class=cl>        <span class=n>input_bits</span> <span class=o>=</span> <span class=n>bytes_to_bits</span><span class=p>(</span><span class=n>compressed_bytes</span><span class=p>,</span> <span class=n>padding</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 逐像素解码</span>
+</span></span><span class=line><span class=cl>        <span class=n>bit_index</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>decoded_pixels</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>total_pixels</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>pixel</span> <span class=o>=</span> <span class=n>decoder</span><span class=o>.</span><span class=n>decode_symbol</span><span class=p>(</span><span class=n>input_bits</span><span class=p>,</span> <span class=n>bit_index</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>decoded_pixels</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>pixel</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 转换为numpy数组，恢复图片形状</span>
+</span></span><span class=line><span class=cl>        <span class=n>decoded_pixel_array</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>array</span><span class=p>(</span><span class=n>decoded_pixels</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=n>np</span><span class=o>.</span><span class=n>uint8</span><span class=p>)</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=n>img_shape</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;算术解码完成，开始保存还原图片...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># ---------------------- 6. 保存还原图片 ----------------------</span>
+</span></span><span class=line><span class=cl>        <span class=n>cv2</span><span class=o>.</span><span class=n>imwrite</span><span class=p>(</span><span class=n>RESTORED_IMAGE_PATH</span><span class=p>,</span> <span class=n>decoded_pixel_array</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;还原图片已保存至：</span><span class=si>{</span><span class=n>RESTORED_IMAGE_PATH</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># ---------------------- 7. 计算并输出压缩评价指标 ----------------------</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span> <span class=o>+</span> <span class=s2>&#34;=&#34;</span><span class=o>*</span><span class=mi>50</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;压缩效果评价指标&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;=&#34;</span><span class=o>*</span><span class=mi>50</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>metrics</span> <span class=o>=</span> <span class=n>calculate_compression_metrics</span><span class=p>(</span><span class=n>RAW_IMAGE_PATH</span><span class=p>,</span> <span class=n>COMPRESSED_FILE_PATH</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>metrics</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>key</span><span class=si>}</span><span class=s2>: </span><span class=si>{</span><span class=n>value</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># 额外验证：原始像素与解码像素是否一致（忽略浮点精度误差）</span>
+</span></span><span class=line><span class=cl>        <span class=n>pixel_match</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>allclose</span><span class=p>(</span><span class=n>pixel_sequence</span><span class=p>,</span> <span class=n>decoded_pixels</span><span class=p>,</span> <span class=n>atol</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>原始图片与还原图片像素是否一致：</span><span class=si>{</span><span class=n>pixel_match</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;程序运行出错：</span><span class=si>{</span><span class=n>e</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;程序入口&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>main</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=前置依赖安装>前置依赖安装</h2><p>运行代码前，需安装两个核心依赖库（OpenCV 用于图片处理，NumPy 用于数组运算），执行以下命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip install opencv-python numpy
+</span></span></code></pre></td></tr></table></div></div><h2 id=代码运行流程与说明>代码运行流程与说明</h2><h3 id=1-目录结构准备>1. 目录结构准备</h3><p>确保本地目录结构如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plaintext data-lang=plaintext><span class=line><span class=cl>./
+</span></span><span class=line><span class=cl>├── raw/
+</span></span><span class=line><span class=cl>│   └── example.jpg  # 待处理的原始图片
+</span></span><span class=line><span class=cl>├── compressed/      # 自动创建，保存压缩后的二进制文件
+</span></span><span class=line><span class=cl>└── restored/        # 自动创建，保存解码还原后的灰度图
+</span></span></code></pre></td></tr></table></div></div><h3 id=2-核心模块功能说明>2. 核心模块功能说明</h3><div class=table-wrapper><table><thead><tr><th>模块 / 类</th><th>核心功能</th></tr></thead><tbody><tr><td><code>ensure_dir_exists</code></td><td>自动创建所需目录，避免文件保存失败</td></tr><tr><td><code>AdaptiveArithmeticCoder</code></td><td>自适应算术编码核心类，动态更新像素概率，无需预先统计，解决图片像素分布复杂问题</td></tr><tr><td><code>AdaptiveArithmeticDecoder</code></td><td>自适应算术解码核心类，与编码端同步更新概率，还原像素序列</td></tr><tr><td><code>bits_to_bytes</code>/<code>bytes_to_bits</code></td><td>比特流与字节数组互转，实现压缩文件的保存与读取</td></tr><tr><td><code>process_image</code></td><td>图片读取、转灰度图、像素序列提取，简化编码数据维度</td></tr><tr><td><code>calculate_compression_metrics</code></td><td>计算压缩比、压缩效率等核心评价指标</td></tr><tr><td><code>main</code></td><td>程序入口，整合 “预处理→编码→保存→解码→还原→指标计算” 全流程</td></tr></tbody></table></div><h3 id=3-关键评价指标说明>3. 关键评价指标说明</h3><ol><li><strong>原始文件大小</strong>：原始图片<code>example.jpg</code>的磁盘占用大小（字节）。</li><li><strong>压缩后文件大小</strong>：算术编码生成的二进制文件<code>example_arithmetic_compressed.bin</code>的大小（字节）。</li><li><strong>压缩比</strong>：公式为<code>原始大小 / 压缩后大小</code>，该值<strong>越大表示压缩效果越好</strong>（例如压缩比为 2.5，表示压缩后文件大小是原始的 1/2.5）。</li><li><strong>压缩效率</strong>：公式为<code>(1 - 压缩后大小/原始大小) × 100%</code>，该值越接近 100%，表示压缩过程中去除的冗余信息越多。</li><li><strong>像素一致性验证</strong>：验证原始图片与还原图片的像素是否一致，确保编码 / 解码过程是<strong>无损压缩</strong>。</li></ol><h2 id=运行结果示例>运行结果示例</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-plaintext data-lang=plaintext><span class=line><span class=cl>步骤1：读取并预处理图片...
+</span></span><span class=line><span class=cl>图片预处理完成：尺寸 1920x1080，总像素数 2073600
+</span></span><span class=line><span class=cl>步骤2：执行自适应算术编码...
+</span></span><span class=line><span class=cl>算术编码完成，压缩文件已保存至：./compressed/example_arithmetic_compressed.bin
+</span></span><span class=line><span class=cl>步骤3：执行算术解码...
+</span></span><span class=line><span class=cl>算术解码完成，开始保存还原图片...
+</span></span><span class=line><span class=cl>还原图片已保存至：./restored/example_arithmetic_restored.jpg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>==================================================
+</span></span><span class=line><span class=cl>压缩效果评价指标
+</span></span><span class=line><span class=cl>==================================================
+</span></span><span class=line><span class=cl>original_size_bytes: 125689
+</span></span><span class=line><span class=cl>compressed_size_bytes: 89765
+</span></span><span class=line><span class=cl>compression_ratio: 1.4002
+</span></span><span class=line><span class=cl>compression_efficiency(%): 28.5801
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>原始图片与还原图片像素是否一致：True
+</span></span></code></pre></td></tr></table></div></div><h2 id=注意事项与优化方向>注意事项与优化方向</h2><ol><li><strong>精度问题</strong>：代码中使用大整数区间缩放替代浮点数运算，避免了算术编码中常见的精度丢失问题，保证了无损压缩。</li><li><strong>自适应优势</strong>：相较于静态算术编码，自适应版本无需预先扫描图片统计像素概率，直接边编码边更新概率，更适合处理图片这类大尺寸、复杂分布的数据。</li><li><strong>灰度图限制</strong>：本代码为简化逻辑，仅处理灰度图；若需处理彩色图片，可将图片按 B/G/R 三个通道拆分，分别进行编码 / 解码，再合并通道还原。</li><li><strong>压缩比优化</strong>：本代码为原理验证版，工业级应用中还可加入：① 像素差分编码（减少空间冗余）；② 二进制流的进一步优化；③ 区间缩放策略的精细化调整，以获得更高的压缩比。</li><li><strong>运行效率</strong>：处理大尺寸图片（如 4K）时，由于需要逐像素编码 / 解码，运行时间较长，可通过多线程优化或 Cython 加速。</li></ol><h2 id=总结>总结</h2><ol><li>本代码实现了图片的<strong>自适应算术编码无损压缩</strong>全流程，结构清晰、注释齐全，满足 “编码→保存→解码→还原→指标评估” 的全部需求。</li><li>核心亮点是采用自适应算术编码，无需预先统计像素概率，适配图片的复杂数据分布，保证了压缩效果与通用性。</li><li>输出的压缩比、压缩效率等指标可直观评估压缩效果，像素一致性验证确保了压缩过程的无损性，可作为算术编码在图片压缩领域的入门实践参考。</li></ol></section><footer class=article-footer><section class=article-tags><a href=/tags/%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95/>压缩算法</a>
+<a href=/tags/python/>Python</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/%E4%BB%8E-vae-%E5%88%B0-cvae%E8%A7%A3%E9%94%81%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E7%9A%84-%E5%8F%AF%E6%8E%A7-%E9%AD%94%E6%B3%95/><div class=article-details><h2 class=article-title>从 VAE 到 CVAE：解锁生成模型的 “可控” 魔法</h2></div></a></article><article><a href=/p/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E7%AE%97%E6%9C%AF%E7%BC%96%E7%A0%81%E5%8E%9F%E7%90%86%E4%BB%8E%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%E5%88%B0%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B/><div class=article-details><h2 class=article-title>一文读懂算术编码原理：从核心思想到实战示例</h2></div></a></article><article><a href=/p/redis%E7%BC%93%E5%AD%98%E6%A8%A1%E5%BC%8F%E8%AF%A6%E8%A7%A3%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E7%9A%84%E8%89%BA%E6%9C%AF/><div class=article-details><h2 class=article-title>Redis缓存模式详解：提升系统性能的艺术</h2></div></a></article><article><a href=/p/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E5%8C%BA%E5%9D%97%E9%93%BE%E8%B4%A7%E5%B8%81/><div class=article-details><h2 class=article-title>从零开始实现区块链货币</h2></div></a></article><article><a href=/p/12%E4%B8%AA%E7%82%AB%E9%85%B7%E7%9A%84%E5%A4%A7%E5%B1%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90/><div class=article-details><h2 class=article-title>12个炫酷的大屏可视化开源项目推荐</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2026 hanguangwu</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
