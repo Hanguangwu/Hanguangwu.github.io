@@ -1,4 +1,269 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 酒中仙</title><link>https://hanguangwu.github.io/categories/ai/</link><description>Recent content in AI on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Fri, 02 Jan 2026 19:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>从 VAE 到 CVAE：解锁生成模型的 “可控” 魔法</title><link>https://hanguangwu.github.io/p/%E4%BB%8E-vae-%E5%88%B0-cvae%E8%A7%A3%E9%94%81%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E7%9A%84-%E5%8F%AF%E6%8E%A7-%E9%AD%94%E6%B3%95/</link><pubDate>Fri, 02 Jan 2026 19:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E4%BB%8E-vae-%E5%88%B0-cvae%E8%A7%A3%E9%94%81%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E7%9A%84-%E5%8F%AF%E6%8E%A7-%E9%AD%94%E6%B3%95/</guid><description>&lt;h1 id="从-vae-到-cvae解锁生成模型的-可控-魔法"&gt;从 VAE 到 CVAE：解锁生成模型的 “可控” 魔法
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 酒中仙</title><link>https://hanguangwu.github.io/categories/ai/</link><description>Recent content in AI on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Sat, 03 Jan 2026 15:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>免费的大语言模型API汇总</title><link>https://hanguangwu.github.io/p/%E5%85%8D%E8%B4%B9%E7%9A%84%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8Bapi%E6%B1%87%E6%80%BB/</link><pubDate>Sat, 03 Jan 2026 15:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E5%85%8D%E8%B4%B9%E7%9A%84%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8Bapi%E6%B1%87%E6%80%BB/</guid><description>&lt;h1 id="免费的大语言模型api汇总"&gt;免费的大语言模型API汇总
+&lt;/h1&gt;&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/cheahjs/free-llm-api-resources" target="_blank" rel="noopener"
+&gt;GitHub-Repo-地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;OpenRouter网站可以只使用邮箱注册，这里只推荐OpenRouter网站。&lt;/p&gt;
+&lt;p&gt;下面列出模型名称，方便查阅。&lt;/p&gt;
+&lt;h2 id="openrouter"&gt;&lt;a class="link" href="https://openrouter.ai/" target="_blank" rel="noopener"
+&gt;OpenRouter&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Limits:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://openrouter.ai/docs/api-reference/limits" target="_blank" rel="noopener"
+&gt;20 requests/minute 50 requests/day Up to 1000 requests/day with $10 lifetime topup&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Models share a common quota.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/google/gemma-3-12b-it:free" target="_blank" rel="noopener"
+&gt;Gemma 3 12B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/google/gemma-3-27b-it:free" target="_blank" rel="noopener"
+&gt;Gemma 3 27B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/google/gemma-3-4b-it:free" target="_blank" rel="noopener"
+&gt;Gemma 3 4B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/nousresearch/hermes-3-llama-3.1-405b:free" target="_blank" rel="noopener"
+&gt;Hermes 3 Llama 3.1 405B&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/meta-llama/llama-3.1-405b-instruct:free" target="_blank" rel="noopener"
+&gt;Llama 3.1 405B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/meta-llama/llama-3.2-3b-instruct:free" target="_blank" rel="noopener"
+&gt;Llama 3.2 3B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/meta-llama/llama-3.3-70b-instruct:free" target="_blank" rel="noopener"
+&gt;Llama 3.3 70B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/mistralai/mistral-7b-instruct:free" target="_blank" rel="noopener"
+&gt;Mistral 7B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/mistralai/mistral-small-3.1-24b-instruct:free" target="_blank" rel="noopener"
+&gt;Mistral Small 3.1 24B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/qwen/qwen-2.5-vl-7b-instruct:free" target="_blank" rel="noopener"
+&gt;Qwen 2.5 VL 7B Instruct&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/alibaba/tongyi-deepresearch-30b-a3b:free" target="_blank" rel="noopener"
+&gt;alibaba/tongyi-deepresearch-30b-a3b:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/allenai/olmo-3-32b-think:free" target="_blank" rel="noopener"
+&gt;allenai/olmo-3-32b-think:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/allenai/olmo-3.1-32b-think:free" target="_blank" rel="noopener"
+&gt;allenai/olmo-3.1-32b-think:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/arcee-ai/trinity-mini:free" target="_blank" rel="noopener"
+&gt;arcee-ai/trinity-mini:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/cognitivecomputations/dolphin-mistral-24b-venice-edition:free" target="_blank" rel="noopener"
+&gt;cognitivecomputations/dolphin-mistral-24b-venice-edition:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/deepseek/deepseek-r1-0528:free" target="_blank" rel="noopener"
+&gt;deepseek/deepseek-r1-0528:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/google/gemma-3n-e2b-it:free" target="_blank" rel="noopener"
+&gt;google/gemma-3n-e2b-it:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/google/gemma-3n-e4b-it:free" target="_blank" rel="noopener"
+&gt;google/gemma-3n-e4b-it:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/kwaipilot/kat-coder-pro:free" target="_blank" rel="noopener"
+&gt;kwaipilot/kat-coder-pro:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/mistralai/devstral-2512:free" target="_blank" rel="noopener"
+&gt;mistralai/devstral-2512:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/moonshotai/kimi-k2:free" target="_blank" rel="noopener"
+&gt;moonshotai/kimi-k2:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/nex-agi/deepseek-v3.1-nex-n1:free" target="_blank" rel="noopener"
+&gt;nex-agi/deepseek-v3.1-nex-n1:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/nvidia/nemotron-3-nano-30b-a3b:free" target="_blank" rel="noopener"
+&gt;nvidia/nemotron-3-nano-30b-a3b:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/nvidia/nemotron-nano-12b-v2-vl:free" target="_blank" rel="noopener"
+&gt;nvidia/nemotron-nano-12b-v2-vl:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/nvidia/nemotron-nano-9b-v2:free" target="_blank" rel="noopener"
+&gt;nvidia/nemotron-nano-9b-v2:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/openai/gpt-oss-120b:free" target="_blank" rel="noopener"
+&gt;openai/gpt-oss-120b:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/openai/gpt-oss-20b:free" target="_blank" rel="noopener"
+&gt;openai/gpt-oss-20b:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/qwen/qwen3-4b:free" target="_blank" rel="noopener"
+&gt;qwen/qwen3-4b:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/qwen/qwen3-coder:free" target="_blank" rel="noopener"
+&gt;qwen/qwen3-coder:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/tngtech/deepseek-r1t-chimera:free" target="_blank" rel="noopener"
+&gt;tngtech/deepseek-r1t-chimera:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/tngtech/deepseek-r1t2-chimera:free" target="_blank" rel="noopener"
+&gt;tngtech/deepseek-r1t2-chimera:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/tngtech/tng-r1t-chimera:free" target="_blank" rel="noopener"
+&gt;tngtech/tng-r1t-chimera:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/xiaomi/mimo-v2-flash:free" target="_blank" rel="noopener"
+&gt;xiaomi/mimo-v2-flash:free&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://openrouter.ai/z-ai/glm-4.5-air:free" target="_blank" rel="noopener"
+&gt;z-ai/glm-4.5-air:free&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="附录"&gt;附录
+&lt;/h1&gt;&lt;h2 id="github-models-讓你免費玩-gptllamaphi還提供-api-串接"&gt;&lt;a class="link" href="https://blog.jiatool.com/posts/github_models/" target="_blank" rel="noopener"
+&gt;GitHub Models 讓你免費玩 GPT、Llama、Phi，還提供 API 串接&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 id="前言-1"&gt;前言
+&lt;/h3&gt;&lt;p&gt;我前陣子才發現，原來 GitHub 上面也有可以免費使用的 LLM，像是 GPT-4o、Llama-3.3、Phi-3.5…等等，甚至還提供 API 可串接程式！&lt;/p&gt;
+&lt;p&gt;雖然 GitHub Models 主要是讓我們在開發生成式 AI 應用程式測試用，算是試用性質，所以有 速率 &amp;amp; Token 數量限制，但我覺得用作個人專案還蠻不錯的，每日請求上限也不算太少 (50&lt;del&gt;150 次，依模型而定)，有需求的網友可以試試&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/github_models.jpg"
+loading="lazy"
+alt="GitHub Models"
+&gt;&lt;/p&gt;
+&lt;p&gt;GitHub Models&lt;/p&gt;
+&lt;p&gt;如果你發現還不能使用，可加入候補名單：&lt;a class="link" href="https://github.com/marketplace/models/waitlist" target="_blank" rel="noopener"
+&gt;https://github.com/marketplace/models/waitlist&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="速率限制"&gt;速率限制
+&lt;/h3&gt;&lt;p&gt;在開始使用之前，首先來看看它速率限制到底是多少。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits" target="_blank" rel="noopener"
+&gt;Rate limits | GitHub Docs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/rate_limits.jpg"
+loading="lazy"
+alt="GitHub Models 使用速率限制"
+&gt;&lt;/p&gt;
+&lt;p&gt;GitHub Models 使用速率限制&lt;/p&gt;
+&lt;p&gt;GitHub Models 是依照模型分成 Low、High、Embedding 等級去做限制，&lt;br&gt;
+在 模型介紹 和 Playground 頁面都有寫此模型是採用哪個限制等級 (&amp;ldquo;Rate limit tier&amp;rdquo;)。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表格底下雖然還有 Azure OpenAI o1-preview 和 Azure OpenAI o1-mini，但我好像沒辦法使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如 GPT-4o 是 &amp;ldquo;High&amp;rdquo;，那它的限制就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;每分鐘請求數：10 次&lt;/li&gt;
+&lt;li&gt;每天的請求數：50 次&lt;/li&gt;
+&lt;li&gt;每個請求的 Tokens：輸入 8000, 輸出 4000&lt;/li&gt;
+&lt;li&gt;並發請求：2 個&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;當然假如你是 Copilot Business 或 Copilot Enterprise，那可使用次數就會更多。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="模型清單"&gt;模型清單
+&lt;/h3&gt;&lt;p&gt;GitHub Models 有提供哪些模型讓我們試用呢？&lt;/p&gt;
+&lt;p&gt;這邊有完整支援的模型清單：&lt;a class="link" href="https://github.com/marketplace?type=models" target="_blank" rel="noopener"
+&gt;https://github.com/marketplace?type=models&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/models_list.jpg"
+loading="lazy"
+alt="GitHub Models 支援模型清單"
+&gt;&lt;/p&gt;
+&lt;p&gt;GitHub Models 支援模型清單&lt;/p&gt;
+&lt;p&gt;例如聊天的模型有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI GPT-4o&lt;/li&gt;
+&lt;li&gt;OpenAI GPT-4o mini&lt;/li&gt;
+&lt;li&gt;DeepSeek-V3-0324&lt;/li&gt;
+&lt;li&gt;DeepSeek-R1&lt;/li&gt;
+&lt;li&gt;Llama 4 Maverick 17B 128E Instruct FP8&lt;/li&gt;
+&lt;li&gt;Llama-3.3-70B-Instruct&lt;/li&gt;
+&lt;li&gt;Llama-3.2-90B-Vision-Instruct&lt;/li&gt;
+&lt;li&gt;Phi-4&lt;/li&gt;
+&lt;li&gt;Phi-3.5-MoE instruct&lt;/li&gt;
+&lt;li&gt;Phi-3.5-vision instruct&lt;/li&gt;
+&lt;li&gt;Mistral Large&lt;/li&gt;
+&lt;li&gt;Mistral Small 3.1&lt;/li&gt;
+&lt;li&gt;Codestral 25.01&lt;/li&gt;
+&lt;li&gt;Cohere Command R+&lt;/li&gt;
+&lt;li&gt;AI21 Jamba 1.5&lt;/li&gt;
+&lt;li&gt;JAIS 30b Chat&lt;/li&gt;
+&lt;li&gt;…(更多)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;還有 Embedding 嵌入模型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI Text Embedding 3&lt;/li&gt;
+&lt;li&gt;Cohere Embed v3 Multilingual&lt;/li&gt;
+&lt;li&gt;…(更多)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;點選任一個模型後，會進入模型介紹頁面。&lt;/p&gt;
+&lt;p&gt;會有模型的相關說明介紹、測試評估分數、License 等等，右邊區塊還有像是 簡介、Context (模型&amp;quot;本身&amp;quot; 輸入、輸出 tokens 限制)、訓練資料日期、速率限制等級 (Rate limit tier)、提供者、支援語言 等等資訊。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/model_readme.jpg"
+loading="lazy"
+alt="模型介紹頁面"
+&gt;&lt;/p&gt;
+&lt;p&gt;模型介紹頁面&lt;/p&gt;
+&lt;h3 id="api"&gt;API
+&lt;/h3&gt;&lt;p&gt;如同文章標題提到的，除了在網頁使用 Playground 介面，GitHub Models 還提供 API 供我們串接自己的程式做測試。&lt;/p&gt;
+&lt;h4 id="創建-github-token"&gt;創建 GitHub Token
+&lt;/h4&gt;&lt;p&gt;在開始使用 API 之前，我們要先去 GitHub 建立 Token，用作身份驗證。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;關於 GitHub 的 Token 介紹，可以參考這篇官方文件： &lt;a class="link" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener"
+&gt;Managing your personal access tokens&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Settings &amp;gt; 左側最下方 Developer settings &amp;gt; Personal access tokens &amp;gt; &lt;a class="link" href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"
+&gt;Fine-grained tokens&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;點選 Generate new token。&lt;/p&gt;
+&lt;p&gt;Expiration 過期時間可以改成 &amp;ldquo;No expiration&amp;rdquo; (無期限)。&lt;/p&gt;
+&lt;p&gt;Repository access 欄位維持 &amp;ldquo;Public Repositories&amp;rdquo; 即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/expiration_repository.jpg"
+loading="lazy"
+alt="Expiration、Repository access 欄位設定"
+&gt;&lt;/p&gt;
+&lt;p&gt;Expiration、Repository access 欄位設定&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;重點&lt;/strong&gt;：&lt;br&gt;
+Permissions &amp;gt; Account permissions &amp;gt; Models 要改為 &amp;ldquo;Read-only&amp;rdquo;，這樣才有 GitHub Models 的權限。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/models_readonly.jpg"
+loading="lazy"
+alt="Permissions &amp;gt; Account permissions &amp;gt; Models 權限"
+&gt;&lt;/p&gt;
+&lt;p&gt;Permissions &amp;gt; Account permissions &amp;gt; Models 權限&lt;/p&gt;
+&lt;p&gt;填寫完欄位後，最下方點擊 Generate token 按鈕。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/generate_token_0.jpg"
+loading="lazy"
+alt="創建新的 Token"
+&gt;&lt;/p&gt;
+&lt;p&gt;創建新的 Token&lt;/p&gt;
+&lt;p&gt;將 token 複製並保存好，之後忘記就只能再重新產生了。&lt;/p&gt;
+&lt;p&gt;Fine-grained personal access token 會長的類似這樣：&lt;code&gt;github_pat_11AHxxxxxxxxxxxxxxxxxxxxxxxxxCp7pLSr3a&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://res.cloudinary.com/jiablog/github_models/generate_token_2.jpg"
+loading="lazy"
+alt="將 Token 複製存起來，之後就沒辦法再看到了"
+&gt;&lt;/p&gt;
+&lt;p&gt;將 Token 複製存起來，之後就沒辦法再看到了&lt;/p&gt;
+&lt;h2 id="gpt-api-free--deepseek-api-free"&gt;GPT-API-free / DeepSeek-API-free
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/chatanywhere/GPT_API_free" target="_blank" rel="noopener"
+&gt;GitHub-Repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;免费使用 gpt-5 | deepseek&lt;/p&gt;
+&lt;p&gt;支持 gpt | deepseek | claude | gemini | grok&lt;/p&gt;
+&lt;p&gt;国内动态加速 直连无需代理 协议统一接入便捷&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/chatanywhere/GPT_API_free#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" target="_blank" rel="noopener"
+&gt;快速开始&lt;/a&gt; / &lt;a class="link" href="https://chatanywhere.apifox.cn/" target="_blank" rel="noopener"
+&gt;API文档&lt;/a&gt; / &lt;a class="link" href="https://api.chatanywhere.tech/v1/oauth/free/render" target="_blank" rel="noopener"
+&gt;申请内测免费Key&lt;/a&gt; / &lt;a class="link" href="https://api.chatanywhere.tech/#/shop/" target="_blank" rel="noopener"
+&gt;支持付费Key&lt;/a&gt; / &lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;服务可用性&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://qm.qq.com/cgi-bin/qm/qr?k=azzJOyPvbruLGK1HjZK2I4B5T6x3T4Al&amp;amp;jump_from=webapi&amp;amp;authKey=drsWlRk&amp;#43;MrABfJfH3/1WuX9Gebch5pCrt8kOpifk0Fk2Ot3TvKnuos4MpfZG8Mjj" target="_blank" rel="noopener"
+&gt;QQ群: 1075658240&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/86a9ff8873f5483803b78e9863d0dda8a90fbba7895b56752d028e697a59792a/68747470733a2f2f7374617475732e63686174616e7977686572652e6f72672f6170692f62616467652f362f757074696d652f32343f6c6162656c5072656669783d4750543a"
+loading="lazy"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/65f4ae0de922c2c97b4ee9701bcd0dcdcb773791443dd260c34c399b189df733/68747470733a2f2f7374617475732e63686174616e7977686572652e6f72672f6170692f62616467652f31302f757074696d652f32343f6c6162656c5072656669783d4750542d43412545372542332542422545352538382539373a"
+loading="lazy"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/2482c2fa5aad779b89b666e2bbb4bdf30af34239913e1aba78714c826c70a148/68747470733a2f2f7374617475732e63686174616e7977686572652e6f72672f6170692f62616467652f382f757074696d652f32343f6c6162656c5072656669783d436c617564653a"
+loading="lazy"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/6ea636a8657fd9b083b09466e89cf593ffa40f50287891aab21be19963574928/68747470733a2f2f7374617475732e63686174616e7977686572652e6f72672f6170692f62616467652f332f757074696d652f32343f6c6162656c5072656669783d47656d696e693a"
+loading="lazy"
+&gt;&lt;/a&gt; &lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;&lt;img src="https://camo.githubusercontent.com/8702e9117e3f72078068726c3ae9a6b1c57f5a2280eee256fb7eada28089621f/68747470733a2f2f7374617475732e63686174616e7977686572652e6f72672f6170692f62616467652f342f757074696d652f32343f6c6162656c5072656669783d446565707365656b3a"
+loading="lazy"
+&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="隐私声明"&gt;隐私声明
+&lt;/h3&gt;&lt;p&gt;该项目高度重视隐私，致力于保护其用户的隐私。该项目不会以任何方式收集、记录或存储用户输入的任何文本或由 OpenAI 服务器返回的任何文本。该项目不会向 OpenAI 或任何第三方提供有关 API 调用者的身份的任何信息，包括但不限于 IP 地址和用户代理字符串。&lt;/p&gt;
+&lt;p&gt;但OpenAI官方会根据其&lt;a class="link" href="https://platform.openai.com/docs/data-usage-policies" target="_blank" rel="noopener"
+&gt;数据使用政策&lt;/a&gt;保留 30 天的数据。&lt;/p&gt;
+&lt;h3 id="特点"&gt;特点
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;支持 gpt | deepseek | claude | gemini | grok 等排名靠前的常用大模型。&lt;/li&gt;
+&lt;li&gt;免费版支持gpt-5.2, gpt-5.1, gpt-5, gpt-4o，gpt-4.1一天5次；支持deepseek-r1, deepseek-v3, deepseek-v3-2-exp一天30次，支持gpt-4o-mini，gpt-3.5-turbo，gpt-4.1-mini，gpt-4.1-nano, gpt-5-mini，gpt-5-nano一天200次。&lt;/li&gt;
+&lt;li&gt;与官方完全一致的接口标准，兼容各种软件/插件。&lt;/li&gt;
+&lt;li&gt;支持流式响应。&lt;/li&gt;
+&lt;li&gt;国内线路使用动态加速，体验远优于使用代理连接官方。&lt;/li&gt;
+&lt;li&gt;无需科学上网，国内环境直接可用。&lt;/li&gt;
+&lt;li&gt;个人完全免费使用。&lt;/li&gt;
+&lt;li&gt;协议统一使用openai标准协议，其他厂商模型仅需更换模型名称，接入便捷&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="注意事项"&gt;🚩注意事项
+&lt;/h3&gt;&lt;p&gt;❗️_如果遇到无回复，报错等情况，可以查看 &lt;a class="link" href="https://status.chatanywhere.tech/" target="_blank" rel="noopener"
+&gt;status.chatanywhere.tech&lt;/a&gt;，确认服务状态是否正常，以帮助排查问题。_&lt;/p&gt;
+&lt;p&gt;❗️_免费API Key gpt-5系列模型的推理能力较弱，若需要更强的推理能力，可以购买付费API_&lt;/p&gt;
+&lt;p&gt;❗️&lt;strong&gt;免费API Key仅可用于个人非商业用途，教育，非营利性科研工作中。免费API Key严禁商用，严禁大规模训练商用模型！训练科研用模型请提前加群联系我们。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;❗️我们将不定期对被滥用的Key进行封禁，如发现自己的key被误封请通过QQ群联系我们。&lt;/p&gt;
+&lt;p&gt;❗️我们的系统仅供内部评估测试使用，商用或面向大众使用请自行承担风险。&lt;/p&gt;
+&lt;p&gt;为了该项目长久发展，免费API Key限制&lt;strong&gt;200请求/天/IP&amp;amp;Key&lt;/strong&gt;调用频率（gpt和embedding分开计算，各200次），也就是说你如果在一个IP下使用多个Key，所有Key的每天请求数总和不能超过200；同理，你如果将一个Key用于多个IP，这个Key的每天请求数也不能超过200。(&lt;strong&gt;付费版API没有这个限制&lt;/strong&gt;)&lt;/p&gt;
+&lt;h3 id="免费使用"&gt;免费使用
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚀&lt;a class="link" href="https://api.chatanywhere.tech/v1/oauth/free/render" target="_blank" rel="noopener"
+&gt;申请领取内测免费API Key&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;免费版支持deepseek, gpt-3.5-turbo, embedding, gpt-4o系列, gpt-5系列。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;转发Host1: &lt;code&gt;https://api.chatanywhere.tech&lt;/code&gt; (国内中转，延时更低)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;转发Host2: &lt;code&gt;https://api.chatanywhere.org&lt;/code&gt; (国外使用)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们会定期根据使用量进行相应的扩容，只要不被官方制裁我们会一直提供免费API，如果该项目对你有帮助，还请为我们点一个_&lt;strong&gt;Star&lt;/strong&gt;_。如果遇到问题可以在&lt;a class="link" href="https://github.com/chatanywhere/GPT_API_free/issues" target="_blank" rel="noopener"
+&gt;Issues&lt;/a&gt;中反馈，有空会解答。&lt;/p&gt;
+&lt;p&gt;该API Key用于转发API，需要将Host改为&lt;code&gt;api.chatanywhere.tech&lt;/code&gt;(国内首选)或者&lt;code&gt;api.chatanywhere.org&lt;/code&gt;(国外使用)。&lt;/p&gt;</description></item><item><title>从 VAE 到 CVAE：解锁生成模型的 “可控” 魔法</title><link>https://hanguangwu.github.io/p/%E4%BB%8E-vae-%E5%88%B0-cvae%E8%A7%A3%E9%94%81%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E7%9A%84-%E5%8F%AF%E6%8E%A7-%E9%AD%94%E6%B3%95/</link><pubDate>Fri, 02 Jan 2026 19:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E4%BB%8E-vae-%E5%88%B0-cvae%E8%A7%A3%E9%94%81%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E7%9A%84-%E5%8F%AF%E6%8E%A7-%E9%AD%94%E6%B3%95/</guid><description>&lt;h1 id="从-vae-到-cvae解锁生成模型的-可控-魔法"&gt;从 VAE 到 CVAE：解锁生成模型的 “可控” 魔法
 &lt;/h1&gt;&lt;h2 id="前言"&gt;前言
 &lt;/h2&gt;&lt;p&gt;在生成式人工智能的浪潮里，变分自编码器（Variational Autoencoder，VAE）绝对是绕不开的经典模型。它凭借优雅的概率建模思想，打破了传统自编码器 “确定性生成” 的局限；而它的改进版 —— 条件变分自编码器（Conditional Variational Autoencoder，CVAE），更是给生成任务加上了 “可控开关”，让机器能按我们的指令生成想要的内容。今天，我们就来聊聊 VAE 和 CVAE 的核心原理，以及它们在现实世界中的精彩应用。&lt;/p&gt;
 &lt;p&gt;本文将使用 PyTorch 实现变分自编码器（VAE）和 条件变分自编码器(CVAE)，并在 MNIST 数据集上进行训练与评估。&lt;/p&gt;
