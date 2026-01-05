@@ -1,1 +1,127 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Free-for-Dev on 酒中仙</title><link>https://hanguangwu.github.io/tags/free-for-dev/</link><description>Recent content in Free-for-Dev on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><atom:link href="https://hanguangwu.github.io/tags/free-for-dev/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Free-for-Dev on 酒中仙</title><link>https://hanguangwu.github.io/tags/free-for-dev/</link><description>Recent content in Free-for-Dev on 酒中仙</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>hanguangwu</copyright><lastBuildDate>Sun, 04 Jan 2026 14:34:25 -0800</lastBuildDate><atom:link href="https://hanguangwu.github.io/tags/free-for-dev/index.xml" rel="self" type="application/rss+xml"/><item><title>免费开发工具及服务清单</title><link>https://hanguangwu.github.io/p/%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%9C%8D%E5%8A%A1%E6%B8%85%E5%8D%95/</link><pubDate>Sun, 04 Jan 2026 14:34:25 -0800</pubDate><guid>https://hanguangwu.github.io/p/%E5%85%8D%E8%B4%B9%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%9C%8D%E5%8A%A1%E6%B8%85%E5%8D%95/</guid><description>&lt;h1 id="免费开发工具及服务清单"&gt;免费开发工具及服务清单
+&lt;/h1&gt;&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://github.com/tvvocold/free-for-dev-zh" target="_blank" rel="noopener"
+&gt;GitHub-Repo-免费开发工具及服务清单&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本列表收集&lt;strong&gt;国内&lt;/strong&gt; SaaS, PaaS, BaaS 和 IaaS 的&lt;strong&gt;完全免费&lt;/strong&gt;或&lt;strong&gt;有限免费&lt;/strong&gt;服务，造福中国程序员。欢迎提交 PR。&lt;/p&gt;
+&lt;p&gt;联谊 Repo：&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/tvvocold/how2makemoney" target="_blank" rel="noopener"
+&gt;how2makemoney&lt;/a&gt; - 帮助中国开发者赚钱的网站、产品/服务目录&lt;/p&gt;
+&lt;h2 id="collaboration-tools"&gt;Collaboration Tools
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://coding.net" target="_blank" rel="noopener"
+&gt;Coding&lt;/a&gt; - 一站式软件开发平台，提供永久免费的基础服务，包括但不限于（Git/SVN）代码托管，项目管理，Pages 服务，质量管理。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://bearychat.com" target="_blank" rel="noopener"
+&gt;Bearychat&lt;/a&gt; - 免费的在线团队沟通工具，免费版提供最多 500 位团队成员的实时沟通。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.teambition.com" target="_blank" rel="noopener"
+&gt;Teambition&lt;/a&gt; - 免费版有 20 个项目额度，每个项目不限制人数。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://pubu.im" target="_blank" rel="noopener"
+&gt;瀑布IM&lt;/a&gt; - 免费的团队线上即时沟通服务，可以整合各种 SaaS 服务和接收通知，让团队和远程沟通更有效。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://shimo.im" target="_blank" rel="noopener"
+&gt;石墨&lt;/a&gt; - 免费的在线实时协作文档服务，界面简单清晰，多人协同编辑，可以讨论和查看变更。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://tower.im" target="_blank" rel="noopener"
+&gt;Tower&lt;/a&gt; - 以简单、好用著称的团队在线协作系统，提供任务指派、在线讨论、文档协作、日程安排、周报管理等功能。基础功能免费，高级功能（API 接口、数据统计、视频会议等）收费。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://git.oschina.net/" target="_blank" rel="noopener"
+&gt;码云&lt;/a&gt; - 免费提供团队协作、源码托管、代码质量分析、代码评审、测试、代码演示等功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="monetization"&gt;Monetization
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://wwads.cn" target="_blank" rel="noopener"
+&gt;万维广告联盟&lt;/a&gt; - 尊重最终用户隐私和体验的高端广告网络联盟，让广告更优雅且有用。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.google.com/adsense/start/" target="_blank" rel="noopener"
+&gt;Google Adsense&lt;/a&gt; - Google 网络联盟，让网站创收变现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="code-quality"&gt;Code-quality
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://coding.net" target="_blank" rel="noopener"
+&gt;Coding&lt;/a&gt; - 一站式软件开发平台，提供永久免费的基础服务，包括但不限于（Git/SVN）代码托管，项目管理，Pages 服务，质量管理。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://git.oschina.net/" target="_blank" rel="noopener"
+&gt;码云&lt;/a&gt; - 免费提供团队协作、源码托管、代码质量分析、代码评审、测试、代码演示等功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="ci--cd"&gt;CI / CD
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.alauda.cn" target="_blank" rel="noopener"
+&gt;灵雀云&lt;/a&gt; - 用户可以每月领取约￥28 以运行一个免费的 XS 实例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="cdn"&gt;CDN
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.jiasule.com" target="_blank" rel="noopener"
+&gt;加速乐&lt;/a&gt; - 免费版提供有限免费加速防黑服务&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://su.baidu.com" target="_blank" rel="noopener"
+&gt;百度云加速&lt;/a&gt; - 免费版提供有限免费加速防黑服务&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.qiniu.com" target="_blank" rel="noopener"
+&gt;七牛&lt;/a&gt; - 10GB永久免费存储空间; 每月10GB下载流量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="web-hosting"&gt;Web Hosting
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://decentrealizedweb.xyz/" target="_blank" rel="noopener"
+&gt;Decent Realized Web&lt;/a&gt; — 提供 5GB 免费网络托管，支持 MySQL、PostgreSQL、PHP、FTP、文件管理器、免费子域名、附加域名和软件安装器，24x7 邮件、聊天和电话支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dns"&gt;DNS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.dnspod.cn/" target="_blank" rel="noopener"
+&gt;DNSpod&lt;/a&gt; - 免费版提供免费 DNS 解析服务&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://wanwang.aliyun.com/domain/dns/" target="_blank" rel="noopener"
+&gt;万网云解析&lt;/a&gt; - 提供免费 DNS 解析服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="email"&gt;Email
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://ym.163.com" target="_blank" rel="noopener"
+&gt;网易企业邮&lt;/a&gt; - 免费版提供有限免费自定义域名邮箱服务&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://sendcloud.sohu.com" target="_blank" rel="noopener"
+&gt;SendCloud&lt;/a&gt; - 免费用户享有200封/天的发送额度，通过开发者认证后享有1000/天的发送额度&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://domain.mail.qq.com" target="_blank" rel="noopener"
+&gt;腾讯域名邮箱&lt;/a&gt; - 免费的域名邮箱服务，最多100个相同域名的帐号&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://exmail.qq.com/" target="_blank" rel="noopener"
+&gt;腾讯企业邮&lt;/a&gt; - 免费版提供50人上限的企业邮件服务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="ide"&gt;IDE
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://ide.coding.net" target="_blank" rel="noopener"
+&gt;Coding WebIDE&lt;/a&gt; - 提供 3 个永久免费的 Workspaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="monitoring"&gt;Monitoring
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.oneapm.com/" target="_blank" rel="noopener"
+&gt;OneAPM&lt;/a&gt; - 免费版可以存储3天的应用性能监控数据，涵盖服务器，客户端，浏览器，云服务等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="project-management"&gt;Project management
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://coding.net" target="_blank" rel="noopener"
+&gt;Coding&lt;/a&gt; - 一站式软件开发平台，提供永久免费的基础服务，包括但不限于（Git/SVN）代码托管，项目管理，Pages 服务，质量管理。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://team.oschina.net/" target="_blank" rel="noopener"
+&gt;OSC&lt;/a&gt; - 免费提供团队协作、源码托管、代码质量分析、代码评审、测试、代码演示、众包平台等功能。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://tower.im" target="_blank" rel="noopener"
+&gt;Tower&lt;/a&gt; - 免费版无成员数量限制，无项目数量限制，无存储容量限制。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://www.teambition.com" target="_blank" rel="noopener"
+&gt;Teambition&lt;/a&gt; - 免费版有20个项目额度，每个项目不限制人数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="paas"&gt;PaaS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://coding.net" target="_blank" rel="noopener"
+&gt;Coding&lt;/a&gt; - 一站式软件开发平台，提供永久免费的基础服务，包括但不限于（Git/SVN）代码托管，项目管理，Pages 服务，质量管理。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://git.oschina.net/" target="_blank" rel="noopener"
+&gt;码云&lt;/a&gt; - 免费提供团队协作、源码托管、代码质量分析、代码评审、测试、代码演示等功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="baas"&gt;BaaS
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://leancloud.cn" target="_blank" rel="noopener"
+&gt;LeanCloud&lt;/a&gt; -
+针对开发者和初期产品基本免费，提供移动应用云端数据存储，消息推送，应用内统计和实时通信。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="security-and-pki"&gt;Security and PKI
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="http://www.scanv.com/" target="_blank" rel="noopener"
+&gt;SCANV&lt;/a&gt; - 免费版提供有限的 API 接口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="source-code-repos"&gt;Source Code Repos
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://coding.net" target="_blank" rel="noopener"
+&gt;Coding&lt;/a&gt; - 一站式软件开发平台，提供永久免费的基础服务，包括但不限于（Git/SVN）代码托管，项目管理，Pages 服务，质量管理。&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="http://git.oschina.net/" target="_blank" rel="noopener"
+&gt;码云&lt;/a&gt; - 免费提供团队协作、源码托管、代码质量分析、代码评审、测试、代码演示等功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="payment--billing-integration"&gt;Payment / Billing Integration
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://pingxx.com/" target="_blank" rel="noopener"
+&gt;Ping++&lt;/a&gt; - 轻便高效的聚合支付模块，支持微信、支付宝、银联等主流支付渠道。每月前十万笔成功交易免费，超出部分 0.01元/笔。&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
